@@ -18,12 +18,12 @@ public class Envio {
     @Getter @Setter
     @Column(name = "data")
     private LocalDate data;
-    @Getter @Setter
+    /*@Getter @Setter
     @JoinTable(name = "usuarios")
     private List<Usuario> = new usuarios;
     @Getter @Setter
     @JoinTable(name = "items")
-    private List<Item> = new items;
+    private List<Item> = new items;*/
     @ManyToOne
     @Getter @Setter
     @JoinColumn(name = "obra")
