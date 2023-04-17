@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/AGOS_Back-end.iml" filepath="$PROJECT_DIR$/.idea/AGOS_Back-end.iml" />
-      <module fileurl="file://$PROJECT_DIR$/AGOS/Obras-Java.iml" filepath="$PROJECT_DIR$/AGOS/Obras-Java.iml" />
     </modules>
   </component>
 </project>
