@@ -23,12 +23,15 @@ public class Previsto {
 
 	@Getter @Setter
 	@ManyToOne(fetch =FetchType.LAZY ,cascade = CascadeType.ALL)
+<<<<<<< HEAD
 	@JoinColumn(name = "id_obra")
 	private Obra valorContrato;
 
 
 	@Getter @Setter
 	@ManyToOne(fetch =FetchType.LAZY ,cascade = CascadeType.ALL)
+=======
+>>>>>>> d008287ca477e419cde9ca92bc4a5f82b26033f0
 	@JoinColumn(name = "id_item")
 	private Item item;
 
