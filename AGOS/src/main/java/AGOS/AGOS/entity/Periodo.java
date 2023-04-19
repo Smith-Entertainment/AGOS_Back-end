@@ -5,12 +5,12 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "peirodo", schema = "public")
+@Table(name = "tb_periodo", schema = "public")
 public class Periodo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Getter @Setter
-	@Column(name = "id", nullable = false)
+	@Column(name = "id", nullable = false, unique = true)
 	private Long id;
 
 	@Setter @Getter
@@ -19,7 +19,11 @@ public class Periodo {
 	private NomeMes nome;
 
 	@Getter @Setter
-	@Column(name = "indice")
+	@Column(name = "ano", nullable = false)
+	private int ano;
+
+	@Getter @Setter
+	@Column(name = "indice", nullable = false)
 	private int indice;
 
 }

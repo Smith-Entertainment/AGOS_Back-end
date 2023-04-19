@@ -5,13 +5,13 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "item", schema = "public")
+@Table(name = "tb_item", schema = "public")
 public class Item {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Getter @Setter
-	@Column(name = "id", nullable = false)
+	@Column(name = "id", nullable = false, unique = true)
 	private Long id;
 
 	@Getter @Setter

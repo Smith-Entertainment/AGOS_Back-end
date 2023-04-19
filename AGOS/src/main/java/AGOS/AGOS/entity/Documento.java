@@ -7,7 +7,7 @@ import lombok.Setter;
 import java.util.List;
 
 @Entity
-@Table(name = "Documento", schema = "public")
+@Table(name = "tb_documento", schema = "public")
 public class Documento {
     @Id
     @Getter
@@ -17,14 +17,16 @@ public class Documento {
 
     @Enumerated(EnumType.STRING)
     @Getter @Setter
-    @Column(name = "grupo_projeto")
+    @Column(name = "grupo_projeto", nullable = false)
     private GrupoProjeto grupoProjeto;
+
     @Getter @Setter
-    @OneToMany
-    @JoinTable(name = "arquivos")
+    @OneToMany(fetch =FetchType.LAZY ,cascade = CascadeType.ALL)
+    @JoinColumn(name = "arquivos", nullable = false)
     private List<Arquivo> arquivos;
+
     @ManyToOne
     @Getter @Setter
-    @JoinColumn(name = "obra")
-    private Obra obra = new Obra();
+    @JoinColumn(name = "id_obra", nullable = false)
+    private Obra obra;
 }

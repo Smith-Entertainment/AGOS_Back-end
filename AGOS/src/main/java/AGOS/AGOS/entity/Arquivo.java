@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "Arquivo", schema = "public")
+@Table(name = "tb_arquivo", schema = "public")
 public class Arquivo {
     @Id
     @Getter
@@ -14,10 +14,11 @@ public class Arquivo {
     private Long id;
 
     @Getter @Setter
-    @Column(name = "nome", length = 30)
+    @Column(name = "nome", nullable = false, length = 30)
     private String nome;
+
     @Getter @Setter
-    @Column(name = "endereco", length = 50)
+    @Column(name = "endereco", nullable = false, length = 50)
     private String endereco;
 
 }

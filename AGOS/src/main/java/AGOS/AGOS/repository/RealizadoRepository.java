@@ -7,5 +7,4 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 @Repository
 public interface RealizadoRepository extends JpaRepository<Realizado, Long> {
-    public List<Realizado> findByNome(final String nome);
 }

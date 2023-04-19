@@ -8,6 +8,5 @@ import java.util.List;
 
 @Repository
 public interface PrevistoRepository extends JpaRepository<Previsto, Long> {
-    public List<Previsto> findByNome(final String nome);
 
 }

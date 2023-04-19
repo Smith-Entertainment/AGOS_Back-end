@@ -8,5 +8,4 @@ import java.util.List;
 
 @Repository
 public interface PeriodoRepository extends JpaRepository<Periodo, Long> {
-    public List<Periodo> findByNome(final String nome);
 }
