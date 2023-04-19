@@ -6,29 +6,26 @@ import lombok.Setter;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "realizado", schema = "public")
+@Table(name = "tb_realizado", schema = "public")
 public class Realizado {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Getter @Setter
-	@Column(name = "id", nullable = false)
+	@Column(name = "id", nullable = false, unique = true)
 	private Long id;
 
 	@Getter @Setter
 	@ManyToOne(fetch =FetchType.LAZY ,cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_periodoMes")
+	@JoinColumn(name = "id_periodo_mes")
 	private Periodo mes;
 
 	@Getter @Setter
 	@ManyToOne(fetch =FetchType.LAZY ,cascade = CascadeType.ALL)
-<<<<<<< HEAD
 	@JoinColumn(name = "id_obra")
-	private Obra valorContrato;
+	private Obra obra;
 
 	@Getter @Setter
 	@ManyToOne(fetch =FetchType.LAZY ,cascade = CascadeType.ALL)
-=======
->>>>>>> d008287ca477e419cde9ca92bc4a5f82b26033f0
 	@JoinColumn(name = "id_item")
 	private Item item;
 

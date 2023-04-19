@@ -8,25 +8,29 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Table(name = "Envio", schema = "public")
+@Table(name = "tb_envio", schema = "public")
 public class Envio {
     @Id
     @Getter
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id",nullable = false,unique = true)
     private Long id;
-    @Getter @Setter
-    @Column(name = "data")
-    private LocalDate data;
-    /*@Getter @Setter
-    @JoinTable(name = "usuarios")
-    private List<Usuario> = new usuarios;
-    @Getter @Setter
-    @JoinTable(name = "items")
-    private List<Item> = new items;*/
-    @ManyToOne
-    @Getter @Setter
-    @JoinColumn(name = "obra")
-    private Obra obra = new Obra();
 
+    @Getter @Setter
+    @Column(name = "data", nullable = false)
+    private LocalDate data;
+
+    /*@Getter @Setter
+    @ManyToMany(fetch =FetchType.LAZY ,cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_usuario")
+    private List<Usuario> voluntarios;*/
+
+    @Getter @Setter
+    @Column(name = "item", nullable = false)
+    private List<String> item;
+
+    @Getter @Setter
+    @ManyToOne(fetch =FetchType.LAZY ,cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_obra", nullable = false)
+    private Obra obra;
 }
