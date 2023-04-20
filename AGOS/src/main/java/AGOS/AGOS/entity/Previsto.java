@@ -12,7 +12,7 @@ public class Previsto {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Getter @Setter
+	@Getter
 	@Column(name = "id", nullable = false, unique = true)
 	private Long id;
 
