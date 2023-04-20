@@ -49,7 +49,7 @@ public class Obra {
     private int numero;
 
     @Getter @Setter
-    @OneToMany(fetch =FetchType.LAZY ,cascade = CascadeType.ALL)
+    @ManyToMany(fetch =FetchType.LAZY ,cascade = CascadeType.ALL)
     @JoinColumn(name = "id_usuario")
     private List<Usuario> voluntarios;
 
@@ -79,6 +79,6 @@ public class Obra {
 
     @Enumerated(EnumType.STRING)
     @Getter @Setter
-    @Column(name= "tipoObra", nullable = false)
-    private Tipo_obra tipoObra;
+    @Column(name= "tipo_obra", nullable = false)
+    private TipoObra tipoObra;
 }

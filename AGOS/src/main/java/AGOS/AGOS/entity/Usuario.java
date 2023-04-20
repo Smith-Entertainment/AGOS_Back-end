@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 
 
 @Entity
@@ -56,4 +57,9 @@ public class Usuario {
     @Getter @Setter
     @Column(name = "data_nascimento", nullable = false)
     private Date dataNasc;
+
+    @Getter @Setter
+    @ManyToMany(fetch =FetchType.LAZY ,cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_obra")
+    private List<Obra> obras;
 }
