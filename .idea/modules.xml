@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/AGOS_Back-end.iml" filepath="$PROJECT_DIR$/.idea/AGOS_Back-end.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/agos.iml" filepath="$PROJECT_DIR$/.idea/agos.iml" />
     </modules>
   </component>
 </project>
