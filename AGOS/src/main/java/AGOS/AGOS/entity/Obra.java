@@ -79,6 +79,6 @@ public class Obra {
 
     @Enumerated(EnumType.STRING)
     @Getter @Setter
-    @Column(name= "tipo_obra", nullable = false)
+    @Column(name= "tipoObra", nullable = false)
     private Tipo_obra tipoObra;
 }
