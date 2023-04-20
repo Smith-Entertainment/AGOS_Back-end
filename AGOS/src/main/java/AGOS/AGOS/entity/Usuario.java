@@ -9,31 +9,28 @@ import java.util.Date;
 
 
 @Entity
-@Table(name = "usuario", schema = "public")
-@AllArgsConstructor
+@Table(name = "tb_usuario", schema = "public")
 public class Usuario {
+    @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false, unique = true)
     private Long id;
-    @Getter
-    @Setter
+
+    @Getter @Setter
     @Column(name = "nome", nullable = false)
     private String nome;
+
     @Getter @Setter
     @Column(name = "cpf", nullable = false, unique = true)
     private String cpf;
+
     @Getter @Setter
     @Column(name = "celular")
     private String celular;
+
     @Getter @Setter
     @Temporal(TemporalType.DATE)
-    @Column(name = "data_nac", nullable = false)
-    private Date datanac;
-
-    public Usuario() {
-
-    }
-
-
+    @Column(name = "data_nascimento", nullable = false)
+    private Date dataNasc;
 }
