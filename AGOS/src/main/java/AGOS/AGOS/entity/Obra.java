@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.List;
+
 @Entity
 @Table(name = "tb_obra", schema = "public")
 public class Obra {
@@ -46,10 +48,10 @@ public class Obra {
     @Column(name= "numero",nullable = false)
     private int numero;
 
-    /*@Getter @Setter
+    @Getter @Setter
     @OneToMany(fetch =FetchType.LAZY ,cascade = CascadeType.ALL)
     @JoinColumn(name = "id_usuario")
-    private List<Usuario> voluntarios;*/
+    private List<Usuario> voluntarios;
 
     @Getter @Setter
     @Column(name= "valor_contratado",length = 50)

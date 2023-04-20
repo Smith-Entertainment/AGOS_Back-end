@@ -20,10 +20,10 @@ public class Envio {
     @Column(name = "data", nullable = false)
     private LocalDate data;
 
-    /*@Getter @Setter
+    @Getter @Setter
     @ManyToMany(fetch =FetchType.LAZY ,cascade = CascadeType.ALL)
     @JoinColumn(name = "id_usuario")
-    private List<Usuario> voluntarios;*/
+    private List<Usuario> voluntarios;
 
     @Getter @Setter
     @Column(name = "item", nullable = false)
