@@ -3,7 +3,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.math.BigDecimal;
+
 
 
 @Entity
@@ -33,10 +33,10 @@ public class Previsto {
 
 	@Getter @Setter
 	@Column(name = "financeiro")
-	private BigDecimal financeiro;
+	private Double financeiro;
 
 	@Getter @Setter
 	@Column(name = "fisico")
-	private BigDecimal fisico;
+	private Double fisico;
 
 }

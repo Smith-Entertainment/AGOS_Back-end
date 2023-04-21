@@ -31,10 +31,10 @@ public class Realizado {
 
 	@Getter @Setter
 	@Column(name = "financeiro")
-	private BigDecimal financeiro;
+	private Double financeiro;
 
 	@Getter @Setter
 	@Column(name = "fisico")
-	private BigDecimal fisico;
+	private Double fisico;
 
 }
