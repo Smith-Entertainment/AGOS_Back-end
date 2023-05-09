@@ -43,7 +43,7 @@ public class Usuario {
     private String celular;
 
     @Getter @Setter
-    @Column(name= "tituloEleitor",nullable = false, unique = true)
+    @Column(name= "titulo_eleitor",nullable = false, unique = true)
     private int tituloEleitor;
 
     @Getter @Setter
@@ -51,16 +51,16 @@ public class Usuario {
     private String senha;
 
     @Getter @Setter
-    @Column(name = "nomePai", length = 50)
+    @Column(name = "nome_pai", length = 50)
     private String nomePai;
 
     @Getter @Setter
-    @Column(name = "nomeMae", length = 50, nullable = false)
+    @Column(name = "nome_mae", length = 50, nullable = false)
     private String nomeMae;
 
     @Getter @Setter
     @Column(name = "data_nascimento", nullable = false)
-    private Date dataNasc;
+    private Date dataNascimento;
 
     @Getter @Setter
     @ManyToMany(fetch =FetchType.LAZY ,cascade = CascadeType.ALL)
