@@ -3,9 +3,13 @@ package AGOS.AGOS.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.envers.AuditTable;
+import org.hibernate.envers.Audited;
 
 @Entity
+@Audited
 @Table(name = "tb_arquivo", schema = "public")
+@AuditTable(value = "tb_arquivo_audit", schema = "audit")
 public class Arquivo {
     @Id
     @Getter

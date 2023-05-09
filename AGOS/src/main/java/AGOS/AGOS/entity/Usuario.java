@@ -4,13 +4,17 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.envers.AuditTable;
+import org.hibernate.envers.Audited;
 
 import java.util.Date;
 import java.util.List;
 
 
 @Entity
+@Audited
 @Table(name = "tb_usuario", schema = "public")
+@AuditTable(value = "tb_usuario_audit", schema = "audit")
 public class Usuario {
     @Getter
     @Id

@@ -3,12 +3,16 @@ package AGOS.AGOS.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.envers.AuditTable;
+import org.hibernate.envers.Audited;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @Entity
+@Audited
 @Table(name = "tb_obra", schema = "public")
+@AuditTable(value = "tb_obra_audit", schema = "audit")
 public class Obra {
     @Id
     @Getter
