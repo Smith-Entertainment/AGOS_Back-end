@@ -4,12 +4,17 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.envers.AuditTable;
+import org.hibernate.envers.Audited;
 
 import java.util.Date;
+import java.util.List;
 
 
 @Entity
+@Audited
 @Table(name = "tb_usuario", schema = "public")
+@AuditTable(value = "tb_usuario_audit", schema = "audit")
 public class Usuario {
     @Getter
     @Id
@@ -38,7 +43,7 @@ public class Usuario {
     private String celular;
 
     @Getter @Setter
-    @Column(name= "tituloEleitor",nullable = false, unique = true)
+    @Column(name= "titulo_eleitor",nullable = false, unique = true)
     private int tituloEleitor;
 
     @Getter @Setter
@@ -46,14 +51,19 @@ public class Usuario {
     private String senha;
 
     @Getter @Setter
-    @Column(name = "nomePai", length = 50)
+    @Column(name = "nome_pai", length = 50)
     private String nomePai;
 
     @Getter @Setter
-    @Column(name = "nomeMae", length = 50, nullable = false)
+    @Column(name = "nome_mae", length = 50, nullable = false)
     private String nomeMae;
 
     @Getter @Setter
     @Column(name = "data_nascimento", nullable = false)
-    private Date dataNasc;
+    private Date dataNascimento;
+
+    @Getter @Setter
+    @ManyToMany(fetch =FetchType.LAZY ,cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_obra")
+    private List<Obra> obras;
 }
