@@ -33,11 +33,6 @@ public class CronogramaController {
                 : ResponseEntity.ok(cronograma);
     }
 
-    @GetMapping("/lista")
-    public ResponseEntity<?> findAll() {
-        final List<Cronograma> cronograma = this.cronogramaRepository.findAll();
-        return ResponseEntity.ok(cronograma);
-    }
 
 
 
