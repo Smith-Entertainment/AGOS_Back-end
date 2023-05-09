@@ -2,11 +2,12 @@ package AGOS.AGOS.controller;
 
 import AGOS.AGOS.entity.Usuario;
 import AGOS.AGOS.services.UsuarioService;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/usuario")
@@ -22,7 +23,7 @@ public class UsuarioController {
 
     @GetMapping("/lista")
     public ResponseEntity<?> findAll() {
-        final Usuario usuario = this.usuarioService.findById(id);
+        final List<Usuario> usuario = this.usuarioService.findAll();
         return ResponseEntity.ok(usuario);
     }
 
