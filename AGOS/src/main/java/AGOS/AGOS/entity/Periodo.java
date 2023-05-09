@@ -3,13 +3,17 @@ package AGOS.AGOS.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.envers.AuditTable;
+import org.hibernate.envers.Audited;
 
 @Entity
+@Audited
 @Table(name = "tb_periodo", schema = "public")
+@AuditTable(value = "tb_periodo_audit", schema = "audit")
 public class Periodo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Getter @Setter
+	@Getter
 	@Column(name = "id", nullable = false, unique = true)
 	private Long id;
 

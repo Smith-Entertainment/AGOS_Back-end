@@ -3,10 +3,16 @@ package AGOS.AGOS.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.envers.AuditTable;
+import org.hibernate.envers.Audited;
 
 import java.time.LocalDate;
+import java.util.List;
+
 @Entity
+@Audited
 @Table(name = "tb_obra", schema = "public")
+@AuditTable(value = "tb_obra_audit", schema = "audit")
 public class Obra {
     @Id
     @Getter
@@ -46,10 +52,10 @@ public class Obra {
     @Column(name= "numero",nullable = false)
     private int numero;
 
-    /*@Getter @Setter
-    @OneToMany(fetch =FetchType.LAZY ,cascade = CascadeType.ALL)
+    @Getter @Setter
+    @ManyToMany(fetch =FetchType.LAZY ,cascade = CascadeType.ALL)
     @JoinColumn(name = "id_usuario")
-    private List<Usuario> voluntarios;*/
+    private List<Usuario> voluntarios;
 
     @Getter @Setter
     @Column(name= "valor_contratado",length = 50)
@@ -78,5 +84,5 @@ public class Obra {
     @Enumerated(EnumType.STRING)
     @Getter @Setter
     @Column(name= "tipo_obra", nullable = false)
-    private Tipo_obra tipoObra;
+    private TipoObra tipoObra;
 }
