@@ -3,6 +3,7 @@ package AGOS.AGOS.controller;
 import AGOS.AGOS.entity.Arquivo;
 import AGOS.AGOS.services.ArquivoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,6 +29,13 @@ public class ArquivoController {
     @GetMapping("/lista")
     public ResponseEntity<?> findAll(){
         final List<Arquivo> arquivos = this.arquivoService.findAll();
-        return ResponseEntity.ok(arquivos);
+        try {
+            return ResponseEntity.ok(arquivos);
+        }
+        catch (DataIntegrityViolationException e) {
+            return ResponseEntity.internalServerError().body("Ops..." + e.getCause());
+
+        }
+
     }
 }
