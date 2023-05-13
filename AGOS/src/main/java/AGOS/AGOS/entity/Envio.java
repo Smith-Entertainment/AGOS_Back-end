@@ -30,8 +30,9 @@ public class Envio {
     private List<Usuario> voluntarios;
 
     @Getter @Setter
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @Column(name = "item", nullable = false)
-    private List<String> item;
+    private List<Item> item;
 
     @Getter @Setter
     @ManyToOne(fetch =FetchType.LAZY ,cascade = CascadeType.ALL)
