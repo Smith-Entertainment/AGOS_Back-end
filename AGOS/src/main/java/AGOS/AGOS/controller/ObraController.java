@@ -3,6 +3,7 @@ package AGOS.AGOS.controller;
 import AGOS.AGOS.entity.Cronograma;
 import AGOS.AGOS.entity.Obra;
 import AGOS.AGOS.repository.ObraRepository;
+import AGOS.AGOS.services.ObraService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +14,8 @@ import java.util.List;
 @Controller
 @RequestMapping(value = "/api/obra")
 public class ObraController {
+    @Autowired
+    ObraService obraService;
     @Autowired
     private ObraRepository obraRepository;
     private Obra obra;
@@ -34,10 +37,16 @@ public class ObraController {
 
     @PostMapping("/post")
     public ResponseEntity<?> cadastrar(@RequestBody final Obra obra) {
+        Long ObraId = obra.getId();
         try {
+            if (ObraId != null && obraRepository.existsById(ObraId)) {
+                return ResponseEntity.badRequest().body("A obra selecionada já foi cadastrada.");}
+            obraService.validaCadastro(obra);
             this.obraRepository.save(obra);
             return ResponseEntity.ok("Obra cadastrada com sucesso!");
-        } catch (DataIntegrityViolationException e) {
+
+        }
+        catch (DataIntegrityViolationException e) {
             return ResponseEntity.internalServerError().body("Error" + e.getCause().getCause().getMessage());
         }
     }
@@ -45,6 +54,7 @@ public class ObraController {
     @PutMapping("{id}")
     public ResponseEntity<?> editar(@PathVariable("id") final Long id, @RequestBody final Obra obra) {
         try {
+            obraService.validaCadastro(obra);
             final Obra obraBanco = this.obraRepository.findById(id).orElse(null);
 
             if (obraBanco == null || !obraBanco.getId().equals(obra.getId())) {
