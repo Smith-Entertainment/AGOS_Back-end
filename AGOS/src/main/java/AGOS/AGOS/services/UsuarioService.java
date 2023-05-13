@@ -34,7 +34,7 @@ public class UsuarioService {
         Assert.isTrue(usuario.getCelular().length() == 14, "Telefone inválido!");
         Assert.isTrue(usuario.getCelular().matches("\\([0-9]{2}\\)9[0-9]{4}-[0-9]{4}"), "Formato do telefone inválido!");
 
-        Assert.isTrue(usuario.getEmail().matches("[a-zA-Z0-9]@[a-z].[a-z]"), "Formato do email inválido!");
+        Assert.isTrue(usuario.getEmail().matches("[a-zA-Z0-9]+@[a-z]+.[a-z]+"), "Formato do email inválido!");
 
         Assert.isTrue(usuario.getTituloEleitor().length() == 12, "Título de eleitor inválido!");
         Assert.isTrue(usuario.getCelular().matches("[0-9]{12}"), "Formato do título de eleitor inválido!");
