@@ -22,10 +22,16 @@ public class ArquivoService {
         return arquivoRepository.findAll();
     }
     public void create(Arquivo arquivo){
+        if (arquivo == null) {
+            throw new IllegalArgumentException("O parâmetro 'arquivo' não pode ser nulo");
+        }
         this.arquivoRepository.save(arquivo);
     };
 
     public void update(Arquivo arquivo, Long id) {
+        if (arquivo == null) {
+            throw new IllegalArgumentException("O parâmetro 'arquivo' não pode ser nulo");
+        }
         this.arquivoRepository.findById(id).orElse(null);
         if(arquivoRepository == null || !arquivoRepository.getId(id).equals(arquivo.getId()))
         {
