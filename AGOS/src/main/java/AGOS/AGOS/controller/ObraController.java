@@ -36,9 +36,41 @@ public class ObraController {
     public ResponseEntity<?> cadastrar(@RequestBody final Obra obra) {
         try {
             this.obraRepository.save(obra);
-            return ResponseEntity.ok("Registro cadastrado com sucesso");
+            return ResponseEntity.ok("Obra cadastrada com sucesso!");
         } catch (DataIntegrityViolationException e) {
             return ResponseEntity.internalServerError().body("Error" + e.getCause().getCause().getMessage());
         }
     }
+
+    @PutMapping("{id}")
+    public ResponseEntity<?> editar(@PathVariable("id") final Long id, @RequestBody final Obra obra) {
+        try {
+            final Obra obraBanco = this.obraRepository.findById(id).orElse(null);
+
+            if (obraBanco == null || !obraBanco.getId().equals(obra.getId())) {
+                return ResponseEntity.badRequest().body("Não foi possível identificar a obra informada");
+            }
+
+            this.obraRepository.save(obra);
+            return ResponseEntity.ok("Obra editada com sucesso!");
+        } catch (DataIntegrityViolationException e) {
+            return ResponseEntity.internalServerError().body("Error " + e.getCause().getCause().getMessage());
+        } catch (RuntimeException e) {
+            return ResponseEntity.internalServerError().body("Error " + e.getMessage());
+        }
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<?> excluir(@PathVariable Long id) {
+        final Obra obra = this.obraRepository.findById(id).orElse(null);
+        if (obra == null) {
+            return ResponseEntity.badRequest().body("Obra informada não existe ou ja foi deletada");
+        } else {
+            this.obraRepository.delete(obra);
+            return ResponseEntity.ok("Obra deletada com sucesso!");
+        }
+    }
 }
+
+
+
