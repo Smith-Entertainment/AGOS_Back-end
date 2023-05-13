@@ -20,22 +20,24 @@ public class ArquivoController {
     ArquivoService arquivoService;
 
     @GetMapping
-    public ResponseEntity<?> findById(@RequestParam("id") final Long id){
-        final Arquivo arquivo = this.arquivoService.findById(id).orElse(null);
-        return arquivo == null
-                ? ResponseEntity.badRequest().body("Nenhum arquivo encontrado")
-                : ResponseEntity.ok(arquivo);
+    public ResponseEntity<?> findById(@RequestParam("id") final Long id) {
+        try {
+            final Arquivo arquivo = this.arquivoService.findById(id).orElse(null);
+            return ResponseEntity.ok(arquivo);
+        } catch (DataIntegrityViolationException e) {
+            return ResponseEntity.internalServerError().body("Ops..." + e.getCause());
+        }
     }
+
     @GetMapping("/lista")
     public ResponseEntity<?> findAll(){
-        final List<Arquivo> arquivos = this.arquivoService.findAll();
         try {
+        final List<Arquivo> arquivos = this.arquivoService.findAll();
             return ResponseEntity.ok(arquivos);
         }
         catch (DataIntegrityViolationException e) {
             return ResponseEntity.internalServerError().body("Ops..." + e.getCause());
 
         }
-
     }
 }
