@@ -44,7 +44,7 @@ public class Usuario {
 
     @Getter @Setter
     @Column(name= "titulo_eleitor",nullable = false, unique = true)
-    private int tituloEleitor;
+    private String tituloEleitor;
 
     @Getter @Setter
     @Column(name= "senha",length = 20,nullable = false, unique = true)
