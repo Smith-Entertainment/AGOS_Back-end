@@ -12,9 +12,7 @@ import java.util.List;
 
 
 @Entity
-@Audited
 @Table(name = "tb_usuario", schema = "public")
-@AuditTable(value = "tb_usuario_audit", schema = "audit")
 public class Usuario {
     @Getter
     @Id
