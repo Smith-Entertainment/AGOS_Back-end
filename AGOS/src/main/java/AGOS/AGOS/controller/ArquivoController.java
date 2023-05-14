@@ -62,7 +62,7 @@ public class ArquivoController {
     }
 
     @DeleteMapping
-    public ResponseEntity<?> delete(@RequestParam("id") Long id){
+    public ResponseEntity<?> delete(@RequestParam("id") final Long id){
         try{
             this.arquivoService.delete(id);
             return ResponseEntity.ok("Arquivo removido!");

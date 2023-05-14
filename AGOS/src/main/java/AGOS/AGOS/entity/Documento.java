@@ -6,6 +6,7 @@ import lombok.Setter;
 import org.hibernate.envers.AuditTable;
 import org.hibernate.envers.Audited;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -25,9 +26,8 @@ public class Documento {
     private GrupoProjeto grupoProjeto;
 
     @Getter @Setter
-    @OneToMany(fetch =FetchType.LAZY ,cascade = CascadeType.ALL)
-    @JoinColumn(name = "arquivos", nullable = false)
-    private List<Arquivo> arquivos;
+    @OneToMany(mappedBy = "documento",fetch =FetchType.LAZY ,cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Arquivo> arquivos = new ArrayList<>();
 
     @ManyToOne
     @Getter @Setter
