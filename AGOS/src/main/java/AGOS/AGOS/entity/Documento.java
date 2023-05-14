@@ -31,6 +31,6 @@ public class Documento {
 
     @ManyToOne
     @Getter @Setter
-    @JoinColumn(name = "id_obra", nullable = false)
+    @JoinColumn(name = "obra", nullable = false)
     private Obra obra;
 }

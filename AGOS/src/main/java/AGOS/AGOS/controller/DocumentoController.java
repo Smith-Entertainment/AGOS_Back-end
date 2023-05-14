@@ -1,7 +1,8 @@
 package AGOS.AGOS.controller;
 
 import AGOS.AGOS.entity.Arquivo;
-import AGOS.AGOS.services.ArquivoService;
+import AGOS.AGOS.entity.Documento;
+import AGOS.AGOS.services.DocumentoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -10,18 +11,18 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/obra/arquivo")
-public class ArquivoController {
-
+@RequestMapping("/obra/documento")
+public class DocumentoController {
     @Autowired
-    ArquivoService arquivoService;
+    DocumentoService documentoService;
 
     @GetMapping
-    public ResponseEntity<?> findById(@RequestParam("id") final Long id) {
+    public ResponseEntity<?> findById(@RequestParam("id") final Long id){
         try{
-            final Arquivo arquivo = this.arquivoService.findById(id).orElse(null);
-            return ResponseEntity.ok(arquivo);
-        } catch (RuntimeException e) {
+            final Documento documento = this.documentoService.findById(id).orElse(null);
+            return ResponseEntity.ok(documento);
+        }
+        catch (RuntimeException e){
             return ResponseEntity.internalServerError().body("Ops..." + e.getCause());
         }
     }
@@ -29,8 +30,8 @@ public class ArquivoController {
     @GetMapping("/lista")
     public ResponseEntity<?> findAll(){
         try{
-            final List<Arquivo> arquivos = this.arquivoService.findAll();
-            return ResponseEntity.ok(arquivos);
+            final List<Documento> documentos = this.documentoService.findAll();
+            return ResponseEntity.ok(documentos);
         }
         catch (RuntimeException e) {
             return ResponseEntity.internalServerError().body("Ops..." + e.getCause());
@@ -39,10 +40,10 @@ public class ArquivoController {
     }
 
     @PostMapping
-    public ResponseEntity<?> create(@RequestBody final Arquivo arquivo){
+    public ResponseEntity<?> create(@RequestBody final Documento documento){
         try{
-            this.arquivoService.create(arquivo);
-            return ResponseEntity.ok(arquivo);
+            this.documentoService.create(documento);
+            return ResponseEntity.ok(documento);
         }
         catch (RuntimeException e) {
             return ResponseEntity.internalServerError().body("Ops..." + e.getCause());
@@ -51,10 +52,10 @@ public class ArquivoController {
     }
 
     @PutMapping
-    public ResponseEntity<?> update(@RequestParam("id") Long id, @RequestBody final Arquivo arquivo){
+    public ResponseEntity<?> update(@RequestParam("id") Long id, @RequestBody final Documento documento){
         try{
-            this.arquivoService.update(arquivo, id);
-            return ResponseEntity.ok(arquivo);
+            this.documentoService.update(documento, id);
+            return ResponseEntity.ok(documento);
         }
         catch (RuntimeException e) {
             return ResponseEntity.internalServerError().body("Ops..." + e.getCause());
@@ -64,12 +65,11 @@ public class ArquivoController {
     @DeleteMapping
     public ResponseEntity<?> delete(@RequestParam("id") final Long id){
         try{
-            this.arquivoService.delete(id);
+            this.documentoService.delete(id);
             return ResponseEntity.ok("Arquivo removido!");
         }
         catch (RuntimeException e) {
             return ResponseEntity.internalServerError().body("Ops..." + e.getCause());
         }
     }
-
 }
