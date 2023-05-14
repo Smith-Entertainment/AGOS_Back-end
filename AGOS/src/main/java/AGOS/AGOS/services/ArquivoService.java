@@ -21,6 +21,7 @@ public class ArquivoService {
     public List<Arquivo> findAll() {
         return arquivoRepository.findAll();
     }
+
     public void create(Arquivo arquivo){
         if (arquivo == null) {
             throw new IllegalArgumentException("O parâmetro 'arquivo' não pode ser nulo");
@@ -32,21 +33,17 @@ public class ArquivoService {
         if (arquivo == null) {
             throw new IllegalArgumentException("O parâmetro 'arquivo' não pode ser nulo");
         }
-        this.arquivoRepository.findById(id).orElse(null);
-        if(arquivoRepository == null || !arquivoRepository.getId(id).equals(arquivo.getId()))
+        if(arquivoRepository == null || !arquivoRepository.findById(id).equals(arquivo))
         {
             throw new RuntimeException("Não foi possível identificar o registro informado");
         }
+        this.arquivoRepository.save(arquivo);
     }
 
-    public void delete(Arquivo arquivo, Long id) {
-        if (arquivo == null) {
+    public void delete(Long id) {
+        if (id == null) {
             throw new IllegalArgumentException("O parâmetro 'arquivo' não pode ser nulo");
         }
-        this.arquivoRepository.findById(id).orElse(null);
-        if(arquivoRepository == null || !arquivoRepository.getId(id).equals(arquivo.getId()))
-        {
-            throw new RuntimeException("Não foi possível identificar o registro informado");
-        }
+        this.arquivoRepository.deleteById(id);
     }
 }

@@ -3,7 +3,6 @@ package AGOS.AGOS.controller;
 import AGOS.AGOS.entity.Arquivo;
 import AGOS.AGOS.services.ArquivoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -63,15 +62,14 @@ public class ArquivoController {
     }
 
     @DeleteMapping
-    public ResponseEntity<?> delete(@RequestParam("id") Long id, @RequestBody final Arquivo arquivo){
+    public ResponseEntity<?> delete(@RequestParam("id") Long id){
         try{
-            this.arquivoService.delete(arquivo, id);
+            this.arquivoService.delete(id);
             return ResponseEntity.ok("Arquivo removido!");
         }
         catch (RuntimeException e) {
             return ResponseEntity.internalServerError().body("Ops..." + e.getCause());
         }
-
     }
 
 }
