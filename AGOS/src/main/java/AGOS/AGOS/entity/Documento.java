@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Audited
+
 @Table(name = "tb_documento", schema = "public")
-@AuditTable(value = "tb_documento_audit", schema = "audit")
+
 public class Documento {
     @Id
     @Getter

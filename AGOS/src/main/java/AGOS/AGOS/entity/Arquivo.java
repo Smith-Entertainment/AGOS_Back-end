@@ -9,9 +9,7 @@ import org.hibernate.envers.Audited;
 import java.util.List;
 
 @Entity
-@Audited
 @Table(name = "tb_arquivo", schema = "public")
-@AuditTable(value = "tb_arquivo_audit", schema = "audit")
 public class Arquivo {
     @Id
     @Getter
