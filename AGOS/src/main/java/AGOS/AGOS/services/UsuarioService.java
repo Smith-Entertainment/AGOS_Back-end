@@ -27,7 +27,7 @@ public class UsuarioService {
     }
 
     @Transactional
-    public void cadastrar(final Usuario usuario){
+    public void cadastrar(final Usuario usuario, Boolean... editado){
         Assert.notNull(usuario.getCpf(), "Deve conter cpf!");
         Assert.isTrue(usuario.getCpf().length() == 14, "CPF inválido!");
         Assert.isTrue(usuario.getCpf().matches("[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}"), "Formato do CPF inválido!");
@@ -60,6 +60,23 @@ public class UsuarioService {
 
         Assert.notNull(usuario.getDataNascimento(), "Deve conter data de nascimento!");
 
+        if(editado.length == 0) {
+            Usuario usuarioDatabase = this.usuarioRepository.findByUsuario(usuario.getUsuario());
+            Assert.isNull(usuarioDatabase, "Usuário já cadastrado!");
+
+            usuarioDatabase = this.usuarioRepository.findByCpf(usuario.getCpf());
+            Assert.isNull(usuarioDatabase, "CPF já cadastrado!");
+
+            usuarioDatabase = this.usuarioRepository.findByEmail(usuario.getEmail());
+            Assert.isNull(usuarioDatabase, "Email já cadastrado!");
+
+            usuarioDatabase = this.usuarioRepository.findByCelular(usuario.getCelular());
+            Assert.isNull(usuarioDatabase, "Telefone já cadastrado!");
+
+            usuarioDatabase = this.usuarioRepository.findByTituloEleitor(usuario.getTituloEleitor());
+            Assert.isNull(usuarioDatabase, "Título de eleitor já cadastrado!");
+        }
+
         this.usuarioRepository.save(usuario);
     }
 
@@ -69,7 +86,7 @@ public class UsuarioService {
         Assert.notNull(usuarioBanco, "Registro não encontrado");
         Assert.isTrue(usuarioBanco.getId().equals(usuario.getId()), "Registros não conferem");
 
-        cadastrar(usuario);
+        cadastrar(usuario, true);
     }
 
     @Transactional

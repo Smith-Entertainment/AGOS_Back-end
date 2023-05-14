@@ -48,7 +48,7 @@ public class Usuario {
     private String tituloEleitor;
 
     @Getter @Setter
-    @Column(name= "senha",length = 20,nullable = false, unique = true)
+    @Column(name= "senha",length = 20,nullable = false)
     private String senha;
 
     @Getter @Setter
