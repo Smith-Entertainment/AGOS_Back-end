@@ -62,9 +62,16 @@ public class ArquivoController {
         }
     }
 
-//    @DeleteMapping
-//    public ResponseEntity<?> delete(@RequestParam("id") Long id, @RequestBody final Arquivo arquivo){
-//
-//    }
+    @DeleteMapping
+    public ResponseEntity<?> delete(@RequestParam("id") Long id, @RequestBody final Arquivo arquivo){
+        try{
+            this.arquivoService.delete(arquivo, id);
+            return ResponseEntity.ok("Arquivo removido!");
+        }
+        catch (RuntimeException e) {
+            return ResponseEntity.internalServerError().body("Ops..." + e.getCause());
+        }
+
+    }
 
 }

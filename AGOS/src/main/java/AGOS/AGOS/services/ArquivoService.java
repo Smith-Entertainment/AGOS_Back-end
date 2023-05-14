@@ -38,4 +38,15 @@ public class ArquivoService {
             throw new RuntimeException("Não foi possível identificar o registro informado");
         }
     }
+
+    public void delete(Arquivo arquivo, Long id) {
+        if (arquivo == null) {
+            throw new IllegalArgumentException("O parâmetro 'arquivo' não pode ser nulo");
+        }
+        this.arquivoRepository.findById(id).orElse(null);
+        if(arquivoRepository == null || !arquivoRepository.getId(id).equals(arquivo.getId()))
+        {
+            throw new RuntimeException("Não foi possível identificar o registro informado");
+        }
+    }
 }
