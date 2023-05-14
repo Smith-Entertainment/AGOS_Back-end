@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.List;
-import java.util.concurrent.locks.Condition;
 
 
 @Controller
@@ -23,15 +21,16 @@ public class CronogramaController {
     @Autowired
     private CronogramaRepository cronogramaRepository;
 
-
     @GetMapping("/{id}")
     public ResponseEntity<?> findByIdPath(@PathVariable("id") final Long id) {
         final Cronograma cronograma = this.cronogramaRepository.findById(id).orElse(null);
 
         return cronograma == null
-                ? ResponseEntity.badRequest().body("Nenhum valor encontrado.")
+                ? ResponseEntity.badRequest().body("Nenhum cronograma encontrado")
                 : ResponseEntity.ok(cronograma);
     }
+
+
 
 
 

@@ -21,8 +21,8 @@ public class Cronograma {
 
     @Getter @Setter
     @ManyToOne(fetch =FetchType.LAZY ,cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_periodo_mes")
-    private Periodo mes;
+    @JoinColumn(name = "id_periodo")
+    private Periodo periodo;
 
     @Getter @Setter
     @ManyToOne(fetch =FetchType.LAZY ,cascade = CascadeType.ALL)

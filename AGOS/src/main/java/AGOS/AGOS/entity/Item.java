@@ -22,8 +22,6 @@ public class Item {
 	@Column(name = "nome", nullable = false, unique = true, length = 50)
 	private String nome;
 
-	@Getter @Setter
-	@Column(name = "indice", nullable = false)
-	private int indice;
+
 
 }
