@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 @Controller
 @RequestMapping(value = "/api/obra")
+@CrossOrigin("*")
 public class ObraController {
     @Autowired
     ObraService obraService;
@@ -35,13 +36,13 @@ public class ObraController {
 
     }
 
-    @PostMapping("/post")
+    @PostMapping
     public ResponseEntity<?> cadastrar(@RequestBody final Obra obra) {
         Long ObraId = obra.getId();
         try {
             if (ObraId != null && obraRepository.existsById(ObraId)) {
                 return ResponseEntity.badRequest().body("A obra selecionada já foi cadastrada.");}
-            obraService.validaCadastro(obra);
+
             this.obraRepository.save(obra);
             return ResponseEntity.ok("Obra cadastrada com sucesso!");
 
