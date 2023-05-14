@@ -28,16 +28,19 @@ public class UsuarioService {
 
     @Transactional
     public void cadastrar(final Usuario usuario){
+        Assert.notNull(usuario.getCpf(), "Deve conter cpf!");
         Assert.isTrue(usuario.getCpf().length() == 14, "CPF inválido!");
         Assert.isTrue(usuario.getCpf().matches("[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}"), "Formato do CPF inválido!");
 
+        Assert.notNull(usuario.getCelular(), "Deve conter telefone!");
         Assert.isTrue(usuario.getCelular().length() == 14, "Telefone inválido!");
         Assert.isTrue(usuario.getCelular().matches("\\([0-9]{2}\\)9[0-9]{4}-[0-9]{4}"), "Formato do telefone inválido!");
 
-        Assert.isTrue(usuario.getEmail().matches("[a-zA-Z0-9]+@[a-z]+.[a-z]+"), "Formato do email inválido!");
+        Assert.notNull(usuario.getEmail(), "Deve conter email!");
+        Assert.isTrue(usuario.getEmail().matches("[a-zA-Z0-9]+@[a-z]+[.]{1}[a-z]+"), "Formato do email inválido!");
 
         Assert.isTrue(usuario.getTituloEleitor().length() == 12, "Título de eleitor inválido!");
-        Assert.isTrue(usuario.getCelular().matches("[0-9]{12}"), "Formato do título de eleitor inválido!");
+        Assert.isTrue(usuario.getTituloEleitor().matches("[0-9]{12}"), "Formato do título de eleitor inválido!");
 
         Assert.notNull(usuario.getUsuario(), "Deve conter nome de usuário!");
         Assert.isTrue(!usuario.getUsuario().isBlank(), "Nome de usuário inválido!");
@@ -51,6 +54,11 @@ public class UsuarioService {
         if(usuario.getNomePai() != null){
             Assert.isTrue(!usuario.getNomePai().isBlank(), "Nome do pai inválido!");
         }
+
+        Assert.notNull(usuario.getSenha(), "Deve conter senha!");
+        Assert.isTrue(!usuario.getSenha().isBlank(), "Senha inválida!");
+
+        Assert.notNull(usuario.getDataNascimento(), "Deve conter data de nascimento!");
 
         this.usuarioRepository.save(usuario);
     }

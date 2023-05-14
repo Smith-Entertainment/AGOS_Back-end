@@ -7,6 +7,7 @@ import lombok.Setter;
 import org.hibernate.envers.AuditTable;
 import org.hibernate.envers.Audited;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -60,7 +61,7 @@ public class Usuario {
 
     @Getter @Setter
     @Column(name = "data_nascimento", nullable = false)
-    private Date dataNascimento;
+    private LocalDate dataNascimento;
 
     @Getter @Setter
     @ManyToMany(fetch =FetchType.LAZY ,cascade = CascadeType.ALL)
