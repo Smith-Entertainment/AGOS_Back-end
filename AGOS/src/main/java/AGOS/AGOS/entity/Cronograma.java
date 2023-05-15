@@ -31,12 +31,11 @@ import java.math.BigDecimal;
         @Getter @Setter
         @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
         @JoinColumn(name = "id_periodo")
-        private Periodo periodo    ;
-
-       // @Getter @Setter
-       // @ManyToOne(fetch =FetchType.LAZY ,cascade = CascadeType.ALL)
-       // @JoinColumn(name = "id_obra")
-      // private Obra obra;
+        private Periodo periodo;
+        @Getter @Setter
+        @ManyToOne(fetch =FetchType.LAZY ,cascade = CascadeType.ALL)
+        @JoinColumn(name = "id_obra")
+        private Obra obra;
 
 
 
