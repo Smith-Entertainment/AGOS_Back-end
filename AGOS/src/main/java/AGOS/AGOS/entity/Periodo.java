@@ -26,8 +26,4 @@ public class Periodo {
 	@Column(name = "ano", nullable = false)
 	private int ano;
 
-	@Getter @Setter
-	@Column(name = "indice", nullable = false)
-	private int indice;
-
 }
