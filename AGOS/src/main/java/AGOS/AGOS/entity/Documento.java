@@ -9,8 +9,10 @@ import org.hibernate.envers.Audited;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+import static org.hibernate.envers.RelationTargetAuditMode.NOT_AUDITED;
 
+@Entity
+@Audited(targetAuditMode = NOT_AUDITED)
 @Table(name = "tb_documento", schema = "public")
 
 public class Documento {

@@ -9,8 +9,10 @@ import org.hibernate.envers.Audited;
 import java.time.LocalDate;
 import java.util.List;
 
-@Entity
+import static org.hibernate.envers.RelationTargetAuditMode.NOT_AUDITED;
 
+@Entity
+@Audited(targetAuditMode = NOT_AUDITED)
 @Table(name = "tb_obra", schema = "public")
 public class Obra {
     @Id
