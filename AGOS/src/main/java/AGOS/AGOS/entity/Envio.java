@@ -10,9 +10,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Audited
 @Table(name = "tb_envio", schema = "public")
-@AuditTable(value = "tb_envio_audit", schema = "audit")
 public class Envio {
     @Id
     @Getter

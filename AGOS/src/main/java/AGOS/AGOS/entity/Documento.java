@@ -6,12 +6,13 @@ import lombok.Setter;
 import org.hibernate.envers.AuditTable;
 import org.hibernate.envers.Audited;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Audited
+
 @Table(name = "tb_documento", schema = "public")
-@AuditTable(value = "tb_documento_audit", schema = "audit")
+
 public class Documento {
     @Id
     @Getter
@@ -25,12 +26,11 @@ public class Documento {
     private GrupoProjeto grupoProjeto;
 
     @Getter @Setter
-    @OneToMany(fetch =FetchType.LAZY ,cascade = CascadeType.ALL)
-    @JoinColumn(name = "arquivos", nullable = false)
-    private List<Arquivo> arquivos;
+    @OneToMany(mappedBy = "documento",fetch =FetchType.LAZY ,cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Arquivo> arquivos = new ArrayList<>();
 
     @ManyToOne
     @Getter @Setter
-    @JoinColumn(name = "id_obra", nullable = false)
+    @JoinColumn(name = "obra", nullable = false)
     private Obra obra;
 }

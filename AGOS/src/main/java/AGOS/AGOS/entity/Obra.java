@@ -10,9 +10,8 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Audited
+
 @Table(name = "tb_obra", schema = "public")
-@AuditTable(value = "tb_obra_audit", schema = "audit")
 public class Obra {
     @Id
     @Getter
@@ -25,15 +24,15 @@ public class Obra {
     private String titulo;
 
     @Getter @Setter
-    @Column(name= "objetivo",length = 200,nullable = false)
+    @Column(name= "objetivo",length = 200)
     private String objetivo;
 
     @Getter @Setter
-    @Column(name= "licitacao",length = 50,nullable = false, unique = true)
+    @Column(name= "licitacao",length = 50, unique = true)
     private String licitacao;
 
     @Getter @Setter
-    @Column(name= "data_certame",nullable = false)
+    @Column(name= "data_certame")
     private LocalDate dataCertame;
 
     @Getter @Setter
@@ -78,11 +77,11 @@ public class Obra {
     private String empresaContratada;
 
     @Getter @Setter
-    @Column(name= "finalizado", nullable = false)
+    @Column(name= "finalizado")
     private boolean finalizado;
 
     @Enumerated(EnumType.STRING)
     @Getter @Setter
-    @Column(name= "tipo_obra", nullable = false)
+    @Column(name= "tipo_obra")
     private TipoObra tipoObra;
 }
