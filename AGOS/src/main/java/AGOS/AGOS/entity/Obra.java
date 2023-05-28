@@ -1,5 +1,6 @@
 package AGOS.AGOS.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,7 +16,7 @@ import java.util.List;
 public class Obra {
     @Id
     @Getter
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id",nullable = false,unique = true)
     private Long id;
 
@@ -62,10 +63,12 @@ public class Obra {
 
     @Getter @Setter
     @Column(name= "data_inicio")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate dataInicio;
 
     @Getter @Setter
     @Column(name= "data_termino")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate dataTermino;
 
     @Getter @Setter
@@ -84,4 +87,5 @@ public class Obra {
     @Getter @Setter
     @Column(name= "tipo_obra")
     private TipoObra tipoObra;
+
 }
