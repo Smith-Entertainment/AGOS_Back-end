@@ -23,7 +23,6 @@ public class Item {
 	@OneToMany(mappedBy = "item", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Cronograma> cronogramas;
 
-
 	@Getter @Setter
 	@Column(name = "nome", nullable = false, unique = true, length = 50)
 	private String nome;
