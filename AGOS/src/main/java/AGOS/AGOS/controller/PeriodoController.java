@@ -30,6 +30,12 @@ public class PeriodoController {
                 : ResponseEntity.ok(periodo);
     }
 
+    @GetMapping("/lista")
+    public ResponseEntity<?>findAll(){
+        final List<Periodo> periodos = this.periodoRepository.findAll();
+        return ResponseEntity.ok(periodos);
+    }
+
     @PostMapping
     public ResponseEntity<?> newPeriodo(@RequestBody final Periodo periodo) {
         try {

@@ -7,6 +7,7 @@ import lombok.Setter;
 import org.hibernate.envers.AuditTable;
 import org.hibernate.envers.Audited;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -31,6 +32,10 @@ public class Periodo {
 	@Column(name = "ano", nullable = false)
 	private int ano;
 
+	@Getter @Setter
+	@ManyToOne(fetch =FetchType.LAZY ,cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_obra")
+	private Obra obra;
 
 
 }

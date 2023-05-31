@@ -61,7 +61,7 @@ public class ObraController {
                 return ResponseEntity.badRequest().body("Não foi possível identificar a obra informada");
             }
 
-            this.obraRepository.save(obra);
+            this.obraService.atualizarPeriodosObra(obra);
             return ResponseEntity.ok("Obra editada com sucesso!");
         } catch (DataIntegrityViolationException e) {
             return ResponseEntity.internalServerError().body("Error " + e.getCause().getCause().getMessage());

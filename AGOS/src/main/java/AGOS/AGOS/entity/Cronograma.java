@@ -20,17 +20,18 @@ import java.math.BigDecimal;
         private Long id;
 
         @Getter @Setter
-        @Column(name = "Valor_Contrato", nullable = false)
+        @Column(name = "Valor_Contrato")
         private BigDecimal valorContrato;
 
         @Getter @Setter
-        @Column(name = "Valor_Contrato_Porcentagem_Utilizada", nullable = false)
+        @Column(name = "Valor_Contrato_Porcentagem_Utilizada")
         private BigDecimal valorContratoUtilizado;
 
         @Getter @Setter
         @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
         @JoinColumn(name = "id_periodo")
         private Periodo periodo;
+
         @Getter @Setter
         @ManyToOne(fetch =FetchType.LAZY ,cascade = CascadeType.ALL)
         @JoinColumn(name = "id_obra")
