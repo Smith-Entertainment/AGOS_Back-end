@@ -4,9 +4,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.envers.AuditTable;
-import org.hibernate.envers.Audited;
-
 import java.time.LocalDate;
 import java.util.List;
 
@@ -23,7 +20,9 @@ public class Obra {
     @Getter @Setter
     @Column(name= "titulo",length = 120,nullable = false, unique = true)
     private String titulo;
-
+    @Getter @Setter
+    @Column(name= "imagem",length = 120)
+    private String imagem;
     @Getter @Setter
     @Column(name= "objetivo",length = 200)
     private String objetivo;
