@@ -12,4 +12,6 @@ public interface ItemRepository extends JpaRepository<Item, Long> {
 
 
     Optional<Item> findByNome(String nome);
+
+    List<Item> findByObraIdId(Long idObra);
 }

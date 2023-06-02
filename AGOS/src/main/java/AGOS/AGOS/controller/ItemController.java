@@ -40,6 +40,12 @@ public class ItemController {
 
         return ResponseEntity.ok(itens);
     }
+    @GetMapping("/buscarItensPorObra/{idObra}")
+    public ResponseEntity<?> buscarItensPorObra(@PathVariable("idObra") Long idObra) {
+        List<Item> itens = itemRepository.findByObraIdId(idObra);
+
+        return ResponseEntity.ok(itens);
+    }
 
 
 

@@ -2,13 +2,17 @@ package AGOS.AGOS.services;
 
 import AGOS.AGOS.entity.Cronograma;
 import AGOS.AGOS.entity.Item;
+import AGOS.AGOS.entity.Periodo;
 import AGOS.AGOS.repository.CronogramaRepository;
 import AGOS.AGOS.repository.ItemRepository;
+import AGOS.AGOS.repository.PeriodoRepository;
+import org.hibernate.persister.entity.SingleTableEntityPersister;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,10 +22,13 @@ public class ItemService {
     private ItemRepository itemRepository;
     @Autowired
     private CronogramaRepository cronogramaRepository;
+    @Autowired
+    private PeriodoRepository periodoRepository;
 
 
     @Transactional
     public Item newItem(Item item){
+        Item itemData = itemRepository.findById(item.getId()).orElse(null);
 
         Optional<Item> existingItem = itemRepository.findByNome(item.getNome());
         if (existingItem.isPresent()) {
@@ -29,7 +36,24 @@ public class ItemService {
         } else if (item.getNome() == null || !item.getNome().matches("[a-zA-Z\\sç´~`^-]+")) {
             throw new IllegalArgumentException("O nome da item deve conter somente letras");
         }
+       /* BigDecimal zero = BigDecimal.ZERO;
 
+        Long obraId = item.getObraId().getId();
+        List<Periodo> periodos = periodoRepository.findByObraId(obraId);
+
+        for (Periodo periodo : periodos) {
+            Cronograma cronograma = new Cronograma();
+            cronograma.setItem(itemData);
+            cronograma.setObra(periodo.getObra());
+            cronograma.setPeriodo(periodo);
+            cronograma.setRealizadoFinanceiro(zero);
+            cronograma.setPrevistoFinanceiro(zero);
+            cronograma.setPrevistoFisico(zero);
+            cronograma.setRealizadoFisico(zero);
+
+
+            cronogramaRepository.save(cronograma);
+        }*/
         return  itemRepository.save(item);
     }
 
@@ -45,7 +69,6 @@ public class ItemService {
         } else if (item.getNome() == null || !item.getNome().matches("[a-zA-Z\\sç´~`^-]+")) {
             throw new IllegalArgumentException("O nome da item deve conter somente letras");
         }
-
         return itemRepository.save(item);
     }
 

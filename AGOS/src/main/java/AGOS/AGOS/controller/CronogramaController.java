@@ -3,6 +3,7 @@ package AGOS.AGOS.controller;
 import AGOS.AGOS.entity.Cronograma;
 import AGOS.AGOS.entity.Item;
 import AGOS.AGOS.repository.CronogramaRepository;
+import AGOS.AGOS.repository.ItemRepository;
 import AGOS.AGOS.services.CronogramaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -30,6 +31,16 @@ public class CronogramaController {
                 ? ResponseEntity.badRequest().body("Nenhum cronograma encontrado")
                 : ResponseEntity.ok(cronograma);
     }
+    @GetMapping("/buscarPorItem/{nomeItem}")
+    public ResponseEntity<?> buscarPorItem(@PathVariable("nomeItem") final String nomeItem) {
+        final List<Cronograma> cronogramas = this.cronogramaRepository.findByItemNome(nomeItem);
+
+        return cronogramas.isEmpty()
+                ? ResponseEntity.badRequest().body("Nenhum cronograma encontrado para o item: " + nomeItem)
+                : ResponseEntity.ok(cronogramas);
+    }
+
+
 
     @GetMapping("/lista")
     public ResponseEntity<?> findAll(){

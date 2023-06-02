@@ -4,8 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.envers.AuditTable;
-import org.hibernate.envers.Audited;
+
 
 import java.util.List;
 
@@ -23,9 +22,15 @@ public class Item {
 	@OneToMany(mappedBy = "item", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Cronograma> cronogramas;
 
+
 	@Getter @Setter
 	@Column(name = "nome", nullable = false, unique = true, length = 50)
 	private String nome;
+
+	@Getter @Setter
+	@ManyToOne(fetch =FetchType.LAZY ,cascade = CascadeType.MERGE)
+	@JoinColumn(name = "id_obra")
+	private Obra obraId;
 
 
 

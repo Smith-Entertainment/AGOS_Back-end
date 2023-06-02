@@ -1,9 +1,6 @@
 package AGOS.AGOS.services;
 
-import AGOS.AGOS.entity.Cronograma;
-import AGOS.AGOS.entity.NomeMes;
-import AGOS.AGOS.entity.Obra;
-import AGOS.AGOS.entity.Periodo;
+import AGOS.AGOS.entity.*;
 import AGOS.AGOS.repository.CronogramaRepository;
 import AGOS.AGOS.repository.ObraRepository;
 import AGOS.AGOS.repository.PeriodoRepository;
@@ -31,6 +28,8 @@ public class ObraService {
     private CronogramaRepository cronogramaRepository;
 
     public void atualizarPeriodosObra(Obra obra) {
+        Obra obraData = obraRepository.findById(obra.getId()).orElse(null);
+
         LocalDate dataInicio = obra.getDataInicio();
         LocalDate dataTermino = obra.getDataTermino();
 
@@ -44,7 +43,7 @@ public class ObraService {
             Periodo periodo = new Periodo();
             periodo.setNomeMes(NomeMes.valueOf(mesAnoInicio.getMonth().getDisplayName(TextStyle.FULL, new Locale("pt", "BR")).toUpperCase()));
             periodo.setAno(mesAnoInicio.getYear());
-
+            periodo.setObra(obraData);
             periodos.add(periodo);
             periodoRepository.save(periodo);
             mesAnoInicio = mesAnoInicio.plusMonths(1);
