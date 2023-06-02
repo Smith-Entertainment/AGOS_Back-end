@@ -21,7 +21,7 @@ public class Obra {
     @Column(name= "titulo",length = 120,nullable = false, unique = true)
     private String titulo;
     @Getter @Setter
-    @Column(name= "imagem",length = 120)
+    @Column(name= "imagem",length = 250)
     private String imagem;
     @Getter @Setter
     @Column(name= "objetivo",length = 200)

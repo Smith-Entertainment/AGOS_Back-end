@@ -9,7 +9,6 @@ import java.math.BigDecimal;
 
 @Entity
 @Table(name = "tb_cronograma", schema = "public")
-@AuditTable(value = "tb_cronograma_audit", schema = "audit")
     public class Cronograma {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
