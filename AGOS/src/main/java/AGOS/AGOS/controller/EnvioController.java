@@ -34,7 +34,7 @@ public class EnvioController {
 @PostMapping
     public ResponseEntity<Envio> realizarEnvio(@RequestBody final Envio envio, final Long idObra){
         try{
-            this.envioService.createEnvio(envio);
+            this.envioService.createEnvio(envio,obra);
             return ResponseEntity.ok(body);
         }
         catch (IllegalArgumentException e) {

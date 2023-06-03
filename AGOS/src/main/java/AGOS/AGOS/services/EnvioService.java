@@ -35,10 +35,14 @@ public class EnvioService {
 
 
 
-    public void createEnvio(Envio envio) {
+    public void createEnvio(Envio envio, Obra obra) {
 
-        Assert.isTrue(obraRepository.obraAtiva(true),"Obra fanilzada, não pode fazer envios");
+        Optional<Obra> obraBD = obraRepository.findById(obra.getId());
+        Assert.isTrue(obraBD.get().getDataInicio().isAfter(envio.getData()),"Obra não iniciada, não pode realizar envios");
+        Assert.isTrue(!envio.getObra().isFinalizado(),"Obra Finalizada, não pode fazer envios");
+        Assert.isTrue(obraRepository.obraAtiva(true),"Obra inativa, não pode fazer envios");
          envioRepository.save(envio);
+
     }
 
 
@@ -51,9 +55,18 @@ public class EnvioService {
 
         envioRepository.save(envio);
 
+    }
 
+    public void deleteEnvio(Long id){
+
+        Optional<Envio> envioBD = envioRepository.findById(id);
+
+        Assert.isTrue(envioBD.isEmpty(),"Envio não encontrado");
+
+        envioRepository.deleteById(id);
 
     }
+
 
 
 
