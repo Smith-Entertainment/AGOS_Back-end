@@ -29,10 +29,6 @@ public class EnvioService {
         return envioRepository.findAll();
     }
 
-    public List<Envio> findByObra(Long id){
-        return envioRepository.finfByObra(obraRepository.getObraById(id));
-    }
-
 
 
     public void createEnvio(Envio envio, Obra obra) {
@@ -51,11 +47,17 @@ public class EnvioService {
 
         Optional<Envio> envioBD = envioRepository.findById(id);
         Assert.isTrue(envioBD.isEmpty(),"Envio não encontrado");
-
+        Assert.isTrue(!envio.getObra().isFinalizado(),"Obra Finalizada, não pode fazer envios");
+            Assert.isTrue(!envioBD.get().getObra().isFinalizado()),"Obra inativa, não pode fazer envios");
 
         envioRepository.save(envio);
 
     }
+
+
+
+
+
 
     public void deleteEnvio(Long id){
 

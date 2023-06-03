@@ -20,10 +20,6 @@ import java.util.Optional;
 public class EnvioController {
     @Autowired
   private   EnvioService envioService;
-    @Autowired
-    private EnvioRepository envioRepository;
-
-
 
     @GetMapping("/lista")
     public ResponseEntity<?> findAllEnvios() {
@@ -31,21 +27,20 @@ public class EnvioController {
 
         return ResponseEntity.ok(envios);
     }
+
+
+
 @PostMapping
-    public ResponseEntity<Envio> realizarEnvio(@RequestBody final Envio envio, final Long idObra){
+    public ResponseEntity<?> realizarEnvio(@RequestBody final Envio envio, final Obra obra){
         try{
-            this.envioService.createEnvio(envio,obra);
-            return ResponseEntity.ok(body);
+            envioService.createEnvio(envio,obra);
+            return ResponseEntity.ok("Envio cadastrado com sucesso");
         }
-        catch (IllegalArgumentException e) {
+        catch (RuntimeException e){
+
             return ResponseEntity.badRequest().body(e.getMessage());
-        } catch (DataIntegrityViolationException e){
-            return ResponseEntity.internalServerError().body("Error" + e.getCause().getCause().getMessage());
-        }
     }
 
-
-    return 'jf';
 }
 
 
