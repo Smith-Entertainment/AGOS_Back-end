@@ -7,6 +7,25 @@
 Integração de API com o Frontend.
 Planejado para otimizar e minimizar o uso de planilhas pelo Observatório Social de Foz do Iguaçu.<br><br>
 
-   * [Instalação](#instalacao)
-   * [Como usar](#como-usar)
-   * [Tecnologias](#tecnologias)
+
+<p align="center">
+ <a href="#instalacao">Instalação</a> •
+ <a href="#como-usar">Como Usar</a> • 
+ <a href="#tecnologias">Tecnologias</a> • 
+</p>
+
+### Features
+
+- [x] Consultas usando protocolo HTTP;
+- [x] Cadastro de Obras pela API;
+- [ ] Cadastro de Voluntários pela API;
+
+### 🛠 Tecnologias
+
+As seguintes ferramentas foram usadas na construção do projeto:
+
+- [Java 20](https://www.java.com/pt-BR/)
+- [Spring Boot](https://spring.io/)
+- [PostgresSQL](https://www.postgresql.org/)
+- [Postman](https://www.postman.com/)
+
