@@ -13,7 +13,7 @@ import java.util.Optional;
 @Repository
 public interface EnvioRepository  extends JpaRepository <Envio, Long> {
 
-    public Envio findEnvioById(final Long id);
+public List<Envio> finfByObra(Obra obra);
 
 
 }

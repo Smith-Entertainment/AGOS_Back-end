@@ -26,13 +26,18 @@ public class EnvioService {
 
     public List<Envio> findEnvios() {
 
-        return this.envioRepository.findAll();
+        return envioRepository.findAll();
     }
+
+    public List<Envio> findByObra(Long id){
+        return envioRepository.finfByObra(obraRepository.getObraById(id));
+    }
+
+
 
     public Envio createEnvio(Envio envio) {
 
         Assert.isTrue(obraRepository.obraAtiva(true),"Obra fanilzada, não pode fazer envios");
-
         return this.envioRepository.save(envio);
     }
 
