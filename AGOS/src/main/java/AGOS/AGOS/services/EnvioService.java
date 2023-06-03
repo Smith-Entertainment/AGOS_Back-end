@@ -35,10 +35,24 @@ public class EnvioService {
 
 
 
-    public Envio createEnvio(Envio envio) {
+    public void createEnvio(Envio envio) {
 
         Assert.isTrue(obraRepository.obraAtiva(true),"Obra fanilzada, não pode fazer envios");
-        return this.envioRepository.save(envio);
+         envioRepository.save(envio);
+    }
+
+
+
+    public void updateEnvio(Envio envio, Long id){
+
+        Optional<Envio> envioBD = envioRepository.findById(id);
+        Assert.isTrue(envioBD.isEmpty(),"Envio não encontrado");
+
+
+        envioRepository.save(envio);
+
+
+
     }
 
 
