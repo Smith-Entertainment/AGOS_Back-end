@@ -4,48 +4,35 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.envers.AuditTable;
-import org.hibernate.envers.Audited;
 
 import java.math.BigDecimal;
 
 @Entity
 @Table(name = "tb_cronograma", schema = "public")
-<<<<<<< HEAD
-public class Cronograma {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Getter
-    @Column(name = "id", nullable = false, unique = true)
-    private Long id;
-=======
-@AuditTable(value = "tb_cronograma_audit", schema = "audit")
     public class Cronograma {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Getter
         @Column(name = "id", nullable = false, unique = true)
         private Long id;
->>>>>>> frederico
 
         @Getter @Setter
-        @Column(name = "Valor_Contrato", nullable = false)
+        @Column(name = "Valor_Contrato")
         private BigDecimal valorContrato;
 
         @Getter @Setter
-        @Column(name = "Valor_Contrato_Porcentagem_Utilizada", nullable = false)
+        @Column(name = "Valor_Contrato_Porcentagem_Utilizada")
         private BigDecimal valorContratoUtilizado;
 
         @Getter @Setter
         @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
         @JoinColumn(name = "id_periodo")
         private Periodo periodo;
+
         @Getter @Setter
         @ManyToOne(fetch =FetchType.LAZY ,cascade = CascadeType.ALL)
         @JoinColumn(name = "id_obra")
         private Obra obra;
-
-
 
         @Getter @Setter
         @ManyToOne(fetch =FetchType.LAZY ,cascade = CascadeType.ALL)

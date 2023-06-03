@@ -4,9 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.envers.AuditTable;
-import org.hibernate.envers.Audited;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -22,14 +21,19 @@ public class Periodo {
 	@OneToMany(mappedBy = "periodo", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Cronograma> cronogramas;
 
-	@Setter @Getter
+	@Getter @Setter
 	@Enumerated(EnumType.STRING)
 	@Column(name = "nome_mes")
-	private NomeMes nome;
+	private NomeMes nomeMes;
 
 	@Getter @Setter
 	@Column(name = "ano", nullable = false)
 	private int ano;
+
+	@Getter @Setter
+	@ManyToOne(fetch =FetchType.LAZY ,cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_obra")
+	private Obra obra;
 
 
 }

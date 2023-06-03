@@ -4,8 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.envers.AuditTable;
-import org.hibernate.envers.Audited;
 
 import java.util.List;
 
@@ -22,7 +20,6 @@ public class Item {
 	@JsonIgnoreProperties({"hibernateLazyInitializer"})
 	@OneToMany(mappedBy = "item", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Cronograma> cronogramas;
-
 
 	@Getter @Setter
 	@Column(name = "nome", nullable = false, unique = true, length = 50)

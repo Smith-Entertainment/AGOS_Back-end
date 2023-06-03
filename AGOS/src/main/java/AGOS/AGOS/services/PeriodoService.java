@@ -3,6 +3,7 @@ package AGOS.AGOS.services;
 import AGOS.AGOS.controller.PeriodoController;
 import AGOS.AGOS.entity.Periodo;
 import AGOS.AGOS.repository.CronogramaRepository;
+import AGOS.AGOS.repository.ObraRepository;
 import AGOS.AGOS.repository.PeriodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.objenesis.instantiator.perc.PercInstantiator;
@@ -16,6 +17,8 @@ public class PeriodoService {
     private PeriodoRepository periodoRepository;
     @Autowired
     private CronogramaRepository cronogramaRepository;
+    @Autowired
+    private ObraRepository obraRepository;
 
     @Transactional
     public Periodo newPeriodo (Periodo periodo){
