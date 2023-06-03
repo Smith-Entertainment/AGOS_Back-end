@@ -4,13 +4,16 @@ import AGOS.AGOS.entity.Obra;
 import AGOS.AGOS.repository.EnvioRepository;
 import AGOS.AGOS.repository.ObraRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.expression.spel.ast.OpAnd;
 import org.springframework.stereotype.Service;
 import AGOS.AGOS.entity.Envio;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Assert;
 
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EnvioService {
@@ -26,16 +29,11 @@ public class EnvioService {
         return this.envioRepository.findAll();
     }
 
-    public Envio createEnvio(Envio envio, Obra obra) {
-        Date dataCriacaoEnvio = envioRepository.getDataCriacaoById(envio.getId());
-        Date dataInicioObra = obraRepository.getDataInicioById(obra.getId());
-        Date dataFimObra = obraRepository.getDataFimById(obra.getId());
+    public Envio createEnvio(Envio envio) {
 
-        if (dataCriacaoEnvio.before(dataInicioObra) || dataCriacaoEnvio.after(dataFimObra)) {
-            throw new RuntimeException("A data de criação do envio não está dentro do período da obra");
-        }
+        Assert.isTrue(obraRepository.obraAtiva(true),"Obra fanilzada, não pode fazer envios");
 
-        return envioRepository.save(envio);
+        return this.envioRepository.save(envio);
     }
 
 

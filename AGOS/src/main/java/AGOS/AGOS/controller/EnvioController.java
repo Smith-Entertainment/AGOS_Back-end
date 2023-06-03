@@ -24,6 +24,7 @@ public class EnvioController {
     private EnvioRepository envioRepository;
 
 
+
     @GetMapping("/lista")
     public ResponseEntity<?> findAllEnvios() {
         final List<Envio> envios = this.envioService.findEnvios();
@@ -31,11 +32,20 @@ public class EnvioController {
         return ResponseEntity.ok(envios);
     }
 @PostMapping
-    public ResponseEntity<Envio> realizarEnvio(@RequestBody final Envio envio, final Obra obra){
+    public ResponseEntity<Envio> realizarEnvio(@RequestBody final Envio envio, final Long idObra){
+        try{
+            this.envioService.createEnvio(envio);
+            return ResponseEntity.ok(body);
+        }
+        catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        } catch (DataIntegrityViolationException e){
+            return ResponseEntity.internalServerError().body("Error" + e.getCause().getCause().getMessage());
+        }
+    }
 
-    Envio novoEnvio = envioService.createEnvio(envio,obra);
 
-    return new ResponseEntity<>(novoEnvio, HttpStatus.CREATED);
+    return 'jf';
 }
 
 
