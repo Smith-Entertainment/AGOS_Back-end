@@ -1,17 +1,15 @@
 package AGOS.AGOS.entity;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.envers.AuditTable;
-import org.hibernate.envers.Audited;
+
 
 import java.math.BigDecimal;
 
 @Entity
 @Table(name = "tb_cronograma", schema = "public")
 public class Cronograma {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
@@ -19,23 +17,22 @@ public class Cronograma {
     private Long id;
 
     @Getter @Setter
-    @Column(name = "Valor_Contrato", nullable = false)
-    private BigDecimal valorContrato;
+    @Column (name = "Mes")
+    @Enumerated(EnumType.STRING)
+    private Meses mes;
 
     @Getter @Setter
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_periodo")
-    private Periodo periodo    ;
+    @Column (name = "ano", length = 4)
+    private int ano;
 
     @Getter @Setter
     @ManyToOne(fetch =FetchType.LAZY ,cascade = CascadeType.MERGE)
-    @JoinColumn(name = "id_obra")
+    @JoinColumn(name = "obra_Id")
     private Obra obra;
 
     @Getter @Setter
-    @ManyToOne(fetch =FetchType.LAZY ,cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_item")
-    private Item item;
+    @Column(name = "Item", length = 50)
+    private String item;
 
     @Getter @Setter
     @Column(name = "previsto_financeiro")
@@ -53,4 +50,7 @@ public class Cronograma {
     @Column(name = "realizado_fisico")
     private BigDecimal realizadoFisico;
 
+    @Getter @Setter
+    @Column(name = "Valor_Contrato", nullable = false)
+    private BigDecimal valorContrato;
 }

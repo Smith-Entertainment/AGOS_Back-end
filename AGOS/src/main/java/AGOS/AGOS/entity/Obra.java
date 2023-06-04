@@ -89,9 +89,7 @@ public class Obra {
     @Column(name= "tipo_obra")
     private TipoObra tipoObra;
 
-    /*@JsonIgnoreProperties({"hibernateLazyInitializer"})
-    @OneToMany(mappedBy = "obra", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Cronograma> cronogramas;*/
+
 
 
 }
