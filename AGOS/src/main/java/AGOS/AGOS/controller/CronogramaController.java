@@ -31,12 +31,7 @@ public class CronogramaController {
                 : ResponseEntity.ok(cronograma);
     }
 
-    @GetMapping("/obra:{id}")
-    public ResponseEntity<?> findByObraId(@PathVariable ("id") final  Long id){
-        final List<Cronograma> cronogramaList = cronogramaRepository.findByObraId(id);
 
-        return ResponseEntity.ok(cronogramaList);
-    }
 
 
 

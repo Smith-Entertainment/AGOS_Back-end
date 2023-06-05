@@ -17,20 +17,6 @@ public class Cronograma {
     private Long id;
 
     @Getter @Setter
-    @Column (name = "Mes")
-    @Enumerated(EnumType.STRING)
-    private Meses mes;
-
-    @Getter @Setter
-    @Column (name = "ano", length = 4)
-    private int ano;
-
-    @Getter @Setter
-    @ManyToOne(fetch =FetchType.LAZY ,cascade = CascadeType.MERGE)
-    @JoinColumn(name = "obra_Id")
-    private Obra obra;
-
-    @Getter @Setter
     @Column(name = "Item", length = 50)
     private String item;
 
@@ -53,4 +39,9 @@ public class Cronograma {
     @Getter @Setter
     @Column(name = "Valor_Contrato", nullable = false)
     private BigDecimal valorContrato;
+
+    @Getter @Setter
+    @OneToOne
+    @JoinColumn(name = "periodo_id")
+    private Periodo periodo;
 }
