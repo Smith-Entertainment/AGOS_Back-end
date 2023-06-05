@@ -63,7 +63,6 @@ public class EnvioService {
         Optional<Envio> envioBD = envioRepository.findById(id);
 
         Assert.isTrue(envioBD.isEmpty(),"Envio não encontrado");
-
         envioRepository.deleteById(id);
 
     }

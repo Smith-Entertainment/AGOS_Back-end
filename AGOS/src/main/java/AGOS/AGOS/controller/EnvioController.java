@@ -53,10 +53,23 @@ public class EnvioController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
 
-
-
-
 }
+
+
+@DeleteMapping("/{id}")
+    public ResponseEntity<?> deletarEnvio(@PathVariable Long id){
+
+        try {
+            envioService.deleteEnvio(id);
+            return ResponseEntity.ok("Envio Excluido");
+        }
+
+        catch (RuntimeException e){
+
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+}
+
 
 
 }
