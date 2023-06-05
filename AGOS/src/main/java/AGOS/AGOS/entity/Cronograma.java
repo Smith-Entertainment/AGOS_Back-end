@@ -17,8 +17,9 @@ public class Cronograma {
     private Long id;
 
     @Getter @Setter
-    @Column(name = "Item", length = 50)
-    private String item;
+    @ManyToOne
+    @JoinColumn(name = "Item_id")
+    private Item item;
 
     @Getter @Setter
     @Column(name = "previsto_financeiro")
@@ -37,7 +38,7 @@ public class Cronograma {
     private BigDecimal realizadoFisico;
 
     @Getter @Setter
-    @Column(name = "Valor_Contrato", nullable = false)
+    @Column(name = "Valor_Contrato")
     private BigDecimal valorContrato;
 
     @Getter @Setter

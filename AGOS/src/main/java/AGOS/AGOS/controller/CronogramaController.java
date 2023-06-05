@@ -1,6 +1,7 @@
 package AGOS.AGOS.controller;
 
 import AGOS.AGOS.entity.Cronograma;
+import AGOS.AGOS.entity.Periodo;
 import AGOS.AGOS.repository.CronogramaRepository;
 import AGOS.AGOS.services.CronogramaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,9 +32,12 @@ public class CronogramaController {
                 : ResponseEntity.ok(cronograma);
     }
 
+    @GetMapping("/List-cronogrma-obra:{id}")
+    public ResponseEntity<?> findByCronogramasObraId(@PathVariable Long id) {
+        List<Cronograma> cronogramaList = cronogramaRepository.findByPeriodoObraId(id);
 
-
-
+        return ResponseEntity.ok(cronogramaList);
+    }
 
 
     @GetMapping("/lista")
