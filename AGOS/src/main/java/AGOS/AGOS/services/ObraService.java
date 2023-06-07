@@ -1,64 +1,56 @@
 package AGOS.AGOS.services;
 
+import AGOS.AGOS.entity.Cronograma;
+import AGOS.AGOS.entity.NomeMes;
 import AGOS.AGOS.entity.Obra;
+import AGOS.AGOS.entity.Periodo;
+import AGOS.AGOS.repository.CronogramaRepository;
+import AGOS.AGOS.repository.ObraRepository;
+import AGOS.AGOS.repository.PeriodoRepository;
+import jakarta.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDate;
+import java.time.YearMonth;
+import java.time.format.DateTimeFormatter;
+import java.time.format.TextStyle;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+import java.util.Optional;
 
 @Service
 public class ObraService {
 
-        public void validaCadastro(Obra obra) {
-            if (obra.getTitulo() == null) {
-                throw new IllegalArgumentException("O campo 'titulo' é obrigatório.");
-            }
+    @Autowired
+    private PeriodoRepository periodoRepository;
+    @Autowired
+    private ObraRepository obraRepository;
+    @Autowired
+    private CronogramaRepository cronogramaRepository;
 
-            if (obra.getObjetivo() == null) {
-                throw new IllegalArgumentException("O campo 'objetivo' é obrigatório.");
-            }
+    public void atualizarPeriodosObra(Obra obra) {
+        LocalDate dataInicio = obra.getDataInicio();
+        LocalDate dataTermino = obra.getDataTermino();
 
-            if (obra.getLicitacao() == null) {
-                throw new IllegalArgumentException("O campo 'licitacao' é obrigatório.");
-            }
+        List<Periodo> periodos = new ArrayList<>();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM yyyy", new Locale("pt", "BR"));
 
-            if (obra.getDataCertame() == null) {
-                throw new IllegalArgumentException("O campo 'dataCertame' é obrigatório.");
-            }
+        YearMonth mesAnoInicio = YearMonth.from(dataInicio);
+        YearMonth mesAnoTermino = YearMonth.from(dataTermino);
 
-            if (obra.getValorEdital() == 0.0) {
-                throw new IllegalArgumentException("O campo 'valorEdital' é obrigatório.");
-            }
+        while (!mesAnoInicio.isAfter(mesAnoTermino)) {
+            Periodo periodo = new Periodo();
+            periodo.setNomeMes(NomeMes.valueOf(mesAnoInicio.getMonth().getDisplayName(TextStyle.FULL, new Locale("pt", "BR")).toUpperCase()));
+            periodo.setAno(mesAnoInicio.getYear());
 
-            if (obra.getBairro() == null) {
-                throw new IllegalArgumentException("O campo 'bairro' é obrigatório.");
-            }
-
-            if (obra.getRua() == null) {
-                throw new IllegalArgumentException("O campo 'rua' é obrigatório.");
-            }
-
-            if (obra.getNumero() == 0) {
-                throw new IllegalArgumentException("O campo 'numero' é obrigatório.");
-            }
-
-            if (obra.getValorContratado() == 0.0) {
-                throw new IllegalArgumentException("O campo 'valorContratado' é obrigatório.");
-            }
-
-            if (obra.getDataInicio() == null) {
-                throw new IllegalArgumentException("O campo 'dataInicio' é obrigatório.");
-            }
-
-            if (obra.getNumeroContrato() == 0) {
-                throw new IllegalArgumentException("O campo 'numeroContrato' é obrigatório.");
-            }
-
-            if (obra.getEmpresaContratada() == null) {
-                throw new IllegalArgumentException("O campo 'empresaContratada' é obrigatório.");
-            }
-
-            if (obra.getTipoObra() == null) {
-                throw new IllegalArgumentException("O campo 'tipoObra' é obrigatório.");
-            }
+            periodos.add(periodo);
+            periodoRepository.save(periodo);
+            mesAnoInicio = mesAnoInicio.plusMonths(1);
         }
+        obraRepository.save(obra);
+    }
 
 
 }
