@@ -36,8 +36,7 @@ public class EnvioService {
         Optional<Obra> obraBD = obraRepository.findById(obra.getId());
         Assert.isTrue(obraBD.get().getDataInicio().isAfter(envio.getData()),"Obra não iniciada, não pode realizar envios");
         Assert.isTrue(!envio.getObra().isFinalizado(),"Obra Finalizada, não pode fazer envios");
-        Assert.isTrue(obraRepository.obraAtiva(true),"Obra inativa, não pode fazer envios");
-        Assert.notNull(envio.getItem(),"iten não pode ser null");
+/*        Assert.notNull(envio.getItem(),"iten não pode ser null");*/
          envioRepository.save(envio);
 
     }
