@@ -8,6 +8,7 @@ import java.math.BigDecimal;
 
 @Entity
 @Table(name = "tb_cronograma", schema = "public")
+
 public class Cronograma {
 
     @Id
