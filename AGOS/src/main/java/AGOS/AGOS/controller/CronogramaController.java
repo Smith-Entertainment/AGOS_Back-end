@@ -67,10 +67,10 @@ public class CronogramaController {
                 throw new RuntimeException("Não foi possível identificar o registro informado");
             }
 
-            // Copiar os valores do objeto cronograma para cronogramaBanco
             cronogramaBanco.setPrevistoFinanceiro(cronograma.getPrevistoFinanceiro());
             cronogramaBanco.setRealizadoFinanceiro(cronograma.getRealizadoFinanceiro());
-            // Copie outras propriedades, se houver
+            cronogramaBanco.setPrevistoFisico(cronograma.getPrevistoFisico());
+            cronogramaBanco.setRealizadoFisico(cronograma.getRealizadoFisico());
 
             this.cronogramaRepository.save(cronogramaBanco);
             return ResponseEntity.ok("Registro editado com sucesso");
