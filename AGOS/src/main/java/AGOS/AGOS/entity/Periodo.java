@@ -1,33 +1,33 @@
 package AGOS.AGOS.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.envers.AuditTable;
-import org.hibernate.envers.Audited;
 
-@Entity
-@Audited
-@Table(name = "tb_periodo", schema = "public")
-@AuditTable(value = "tb_periodo_audit", schema = "audit")
-public class Periodo {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Getter
-	@Column(name = "id", nullable = false, unique = true)
-	private Long id;
+    @Entity
+    @Table(name = "tb_periodo", schema = "public")
+    public class Periodo {
 
-	@Setter @Getter
-	@Enumerated(EnumType.STRING)
-	@Column(name = "nome_mes")
-	private NomeMes nome;
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @Getter
+        @Column(name = "id", nullable = false, unique = true)
+        private Long id;
 
-	@Getter @Setter
-	@Column(name = "ano", nullable = false)
-	private int ano;
+        @Getter @Setter
+        @Enumerated(EnumType.STRING)
+        @Column(name = "nome_mes")
+        private Meses mes;
 
-	@Getter @Setter
-	@Column(name = "indice", nullable = false)
-	private int indice;
+        @Getter @Setter
+        @Column(name = "ano", nullable = false)
+        private int ano;
+
+        @Getter @Setter
+        @ManyToOne(fetch =FetchType.LAZY ,cascade = CascadeType.MERGE)
+        @JoinColumn(name = "obra_Id")
+        private Obra obra;
+
 
 }

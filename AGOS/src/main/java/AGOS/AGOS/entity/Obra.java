@@ -1,39 +1,39 @@
 package AGOS.AGOS.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.envers.AuditTable;
-import org.hibernate.envers.Audited;
-
 import java.time.LocalDate;
 import java.util.List;
 
 @Entity
-@Audited
+
 @Table(name = "tb_obra", schema = "public")
-@AuditTable(value = "tb_obra_audit", schema = "audit")
 public class Obra {
     @Id
     @Getter
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id",nullable = false,unique = true)
     private Long id;
 
     @Getter @Setter
     @Column(name= "titulo",length = 120,nullable = false, unique = true)
     private String titulo;
-
     @Getter @Setter
-    @Column(name= "objetivo",length = 200,nullable = false)
+    @Column(name= "imagem",length = 250)
+    private String imagem;
+    @Getter @Setter
+    @Column(name= "objetivo",length = 200)
     private String objetivo;
 
     @Getter @Setter
-    @Column(name= "licitacao",length = 50,nullable = false, unique = true)
+    @Column(name= "licitacao",length = 50, unique = true)
     private String licitacao;
 
     @Getter @Setter
-    @Column(name= "data_certame",nullable = false)
+    @Column(name= "data_certame")
     private LocalDate dataCertame;
 
     @Getter @Setter
@@ -63,10 +63,12 @@ public class Obra {
 
     @Getter @Setter
     @Column(name= "data_inicio")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate dataInicio;
 
     @Getter @Setter
     @Column(name= "data_termino")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate dataTermino;
 
     @Getter @Setter
@@ -78,11 +80,15 @@ public class Obra {
     private String empresaContratada;
 
     @Getter @Setter
-    @Column(name= "finalizado", nullable = false)
+    @Column(name= "finalizado")
     private boolean finalizado;
 
     @Enumerated(EnumType.STRING)
     @Getter @Setter
-    @Column(name= "tipo_obra", nullable = false)
+    @Column(name= "tipo_obra")
     private TipoObra tipoObra;
+
+
+
+
 }

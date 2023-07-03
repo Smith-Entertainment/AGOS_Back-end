@@ -1,18 +1,16 @@
 package AGOS.AGOS.entity;
-
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.envers.AuditTable;
-import org.hibernate.envers.Audited;
+
 
 import java.math.BigDecimal;
 
 @Entity
-@Audited
 @Table(name = "tb_cronograma", schema = "public")
-@AuditTable(value = "tb_cronograma_audit", schema = "audit")
+
 public class Cronograma {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
@@ -20,18 +18,8 @@ public class Cronograma {
     private Long id;
 
     @Getter @Setter
-    @ManyToOne(fetch =FetchType.LAZY ,cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_periodo_mes")
-    private Periodo mes;
-
-    @Getter @Setter
-    @ManyToOne(fetch =FetchType.LAZY ,cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_obra")
-    private Obra obra;
-
-    @Getter @Setter
-    @ManyToOne(fetch =FetchType.LAZY ,cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_item")
+    @ManyToOne
+    @JoinColumn(name = "Item_id")
     private Item item;
 
     @Getter @Setter
@@ -48,8 +36,14 @@ public class Cronograma {
 
     @Getter @Setter
     @Column(name = "realizado_fisico")
-    private BigDecimal realizadoPrevistoFisico;
+    private BigDecimal realizadoFisico;
 
+    @Getter @Setter
+    @Column(name = "Valor_Contrato")
+    private BigDecimal valorContrato;
 
-
+    @Getter @Setter
+    @OneToOne
+    @JoinColumn(name = "periodo_id")
+    private Periodo periodo;
 }
