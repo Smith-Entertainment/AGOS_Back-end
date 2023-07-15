@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.swing.*;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/obra/item")
@@ -42,6 +43,11 @@ public class ItemController {
     }
 
 
+    @GetMapping("/nome:{nome}")
+    public ResponseEntity<?> findByNome(@PathVariable ("nome") final String nome){
+        final Item item = itemRepository.findByNome(nome).orElse(null);
+        return ResponseEntity.ok(item);
+    }
 
     @PostMapping
     public ResponseEntity<?> newItem(@RequestBody final Item item){
@@ -77,12 +83,6 @@ public class ItemController {
         }
     }
 
-    @DeleteMapping
-    public ResponseEntity<?> delete(@RequestParam("id") final Long id){
-        final Item itemBanco = this.itemRepository.findById(id).orElse(null);
 
-        this.itemService.deleteItem(id);
-        return ResponseEntity.ok("Registro Excluido com Sucesso");
-    }
 
 }

@@ -1,7 +1,7 @@
 package AGOS.AGOS.controller;
 
 import AGOS.AGOS.entity.Cronograma;
-import AGOS.AGOS.entity.Item;
+import AGOS.AGOS.entity.Periodo;
 import AGOS.AGOS.repository.CronogramaRepository;
 import AGOS.AGOS.services.CronogramaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +9,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.yaml.snakeyaml.events.Event;
 
 import java.util.List;
 
@@ -31,10 +32,17 @@ public class CronogramaController {
                 : ResponseEntity.ok(cronograma);
     }
 
+    @GetMapping("/List-cronogrma-obra:{id}")
+    public ResponseEntity<?> findByCronogramasObraId(@PathVariable Long id) {
+        List<Cronograma> cronogramaList = cronogramaRepository.findByPeriodoObraId(id);
+
+        return ResponseEntity.ok(cronogramaList);
+    }
+
+
     @GetMapping("/lista")
     public ResponseEntity<?> findAll(){
         final List<Cronograma> cronograma = cronogramaRepository.findAll();
-
         return ResponseEntity.ok(cronograma);
     }
 
@@ -48,6 +56,28 @@ public class CronogramaController {
                     .body("Error: " + e.getCause().getCause().getMessage());
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body("{\"error\":\"" + e.getMessage() + "\"}");
+        }
+    }
+    @PutMapping("/{id}")
+    public ResponseEntity<?> editar(@PathVariable("id") final Long id, @RequestBody final Cronograma cronograma) {
+        try {
+            final Cronograma cronogramaBanco = this.cronogramaRepository.findById(id).orElse(null);
+
+            if (cronogramaBanco == null || !cronogramaBanco.getId().equals(cronograma.getId())) {
+                throw new RuntimeException("Não foi possível identificar o registro informado");
+            }
+
+            cronogramaBanco.setPrevistoFinanceiro(cronograma.getPrevistoFinanceiro());
+            cronogramaBanco.setRealizadoFinanceiro(cronograma.getRealizadoFinanceiro());
+            cronogramaBanco.setPrevistoFisico(cronograma.getPrevistoFisico());
+            cronogramaBanco.setRealizadoFisico(cronograma.getRealizadoFisico());
+
+            this.cronogramaRepository.save(cronogramaBanco);
+            return ResponseEntity.ok("Registro editado com sucesso");
+        } catch (DataIntegrityViolationException e) {
+            return ResponseEntity.internalServerError().body("Error " + e.getCause().getCause().getMessage());
+        } catch (RuntimeException e) {
+            return ResponseEntity.internalServerError().body("Error " + e.getMessage());
         }
     }
 

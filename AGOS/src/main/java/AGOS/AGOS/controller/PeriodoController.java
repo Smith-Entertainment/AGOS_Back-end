@@ -1,5 +1,6 @@
 package AGOS.AGOS.controller;
 
+import AGOS.AGOS.entity.Cronograma;
 import AGOS.AGOS.entity.Periodo;
 import AGOS.AGOS.repository.PeriodoRepository;
 import AGOS.AGOS.services.PeriodoService;
@@ -29,66 +30,32 @@ public class PeriodoController {
                 ? ResponseEntity.badRequest().body("Periodo não identificado")
                 : ResponseEntity.ok(periodo);
     }
+    @GetMapping("/lista-obra:{id}")
+    public ResponseEntity<List<Periodo>> getPeriodosByObraId(@PathVariable Long id) {
+        List<Periodo> periodos = periodoRepository.findByObraId(id);
 
-    @GetMapping("/lista")
-    public ResponseEntity<?>findAll(){
-        final List<Periodo> periodos = this.periodoRepository.findAll();
         return ResponseEntity.ok(periodos);
     }
-
     @PostMapping
-    public ResponseEntity<?> newPeriodo(@RequestBody final Periodo periodo) {
+    public ResponseEntity<?> newItem(@RequestBody final Periodo periodos){
         try {
-            this.periodoService.newPeriodo(periodo);
-            return ResponseEntity.ok("Registro cadastrado com sucesso");
-        } catch (DataIntegrityViolationException e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
+            this.periodoRepository.save(periodos);
+            return ResponseEntity.ok("Registro Cadastrado com Sucesso");
+        } catch (DataIntegrityViolationException e){
+            return ResponseEntity.internalServerError()
+                    .body("Error: " + e.getCause().getCause().getMessage());
         } catch (IllegalArgumentException e) {
-            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
+            return ResponseEntity.badRequest().body("{\"error\":\"" + e.getMessage() + "\"}");
         }
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<?> updatePeriodo(@PathVariable("id") final Long id, @RequestBody final Periodo periodo) {
-        try {
-            final Periodo verificacao = this.periodoRepository.findById(id)
-                    .orElseThrow(() -> new IllegalArgumentException("Não foi possível identificar o registro informado"));
-            this.periodoService.updatePeriodo(periodo);
-            return ResponseEntity.ok("Registro editado com sucesso");
 
-        } catch (DataIntegrityViolationException e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
-        }
-    }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<?> delete(@PathVariable("id") final Long id) {
-        try {
-            final Periodo verificacao = this.periodoRepository.findById(id)
-                    .orElseThrow(() -> new IllegalArgumentException("Não foi possível identificar o registro informado"));
-            this.periodoService.delete(id);
-            return ResponseEntity.ok("Periodo excluído com sucesso");
-        } catch (DataIntegrityViolationException e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
-        }
-    }
 
-    @PostMapping("/batch")
-    public ResponseEntity<?> newPeriodoBatch(@RequestBody final List<Periodo> periodos) {
-        try {
-            for (Periodo periodo : periodos) {
-                this.periodoService.newPeriodo(periodo);
-            }
-            return ResponseEntity.ok("Registros cadastrados com sucesso");
-        } catch (DataIntegrityViolationException e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.internalServerError().body("Error: " + e.getMessage());
-        }
-    }
+
+
+
+
+
 
 }
