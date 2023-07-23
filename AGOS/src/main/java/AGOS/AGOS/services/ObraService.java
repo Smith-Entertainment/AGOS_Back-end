@@ -44,7 +44,7 @@ public class ObraService {
             periodos.add(periodo);
             periodoRepository.save(periodo);
             mesAnoInicio = mesAnoInicio.plusMonths(1);
-        }
+        }   
         obraRepository.save(obra);
     }
 
