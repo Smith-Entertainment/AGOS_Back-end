@@ -1,5 +1,6 @@
 package AGOS.AGOS.controller;
 
+import AGOS.AGOS.entity.Cronograma;
 import AGOS.AGOS.entity.Periodo;
 import AGOS.AGOS.repository.PeriodoRepository;
 import AGOS.AGOS.services.PeriodoService;
@@ -35,7 +36,18 @@ public class PeriodoController {
 
         return ResponseEntity.ok(periodos);
     }
-
+    @PostMapping
+    public ResponseEntity<?> newItem(@RequestBody final Periodo periodos){
+        try {
+            this.periodoRepository.save(periodos);
+            return ResponseEntity.ok("Registro Cadastrado com Sucesso");
+        } catch (DataIntegrityViolationException e){
+            return ResponseEntity.internalServerError()
+                    .body("Error: " + e.getCause().getCause().getMessage());
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body("{\"error\":\"" + e.getMessage() + "\"}");
+        }
+    }
 
 
 

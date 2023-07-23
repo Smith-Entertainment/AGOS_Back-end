@@ -58,6 +58,28 @@ public class CronogramaController {
             return ResponseEntity.badRequest().body("{\"error\":\"" + e.getMessage() + "\"}");
         }
     }
+    @PutMapping("/{id}")
+    public ResponseEntity<?> editar(@PathVariable("id") final Long id, @RequestBody final Cronograma cronograma) {
+        try {
+            final Cronograma cronogramaBanco = this.cronogramaRepository.findById(id).orElse(null);
+
+            if (cronogramaBanco == null || !cronogramaBanco.getId().equals(cronograma.getId())) {
+                throw new RuntimeException("Não foi possível identificar o registro informado");
+            }
+
+            cronogramaBanco.setPrevistoFinanceiro(cronograma.getPrevistoFinanceiro());
+            cronogramaBanco.setRealizadoFinanceiro(cronograma.getRealizadoFinanceiro());
+            cronogramaBanco.setPrevistoFisico(cronograma.getPrevistoFisico());
+            cronogramaBanco.setRealizadoFisico(cronograma.getRealizadoFisico());
+
+            this.cronogramaRepository.save(cronogramaBanco);
+            return ResponseEntity.ok("Registro editado com sucesso");
+        } catch (DataIntegrityViolationException e) {
+            return ResponseEntity.internalServerError().body("Error " + e.getCause().getCause().getMessage());
+        } catch (RuntimeException e) {
+            return ResponseEntity.internalServerError().body("Error " + e.getMessage());
+        }
+    }
 
 
 
