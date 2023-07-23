@@ -6,8 +6,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 
-import java.util.List;
-
 @Entity
 @Table(name = "tb_item", schema = "public")
 public class Item {

@@ -3,8 +3,6 @@ package AGOS.AGOS.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.envers.AuditTable;
-import org.hibernate.envers.Audited;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -23,13 +21,14 @@ public class Envio {
     private LocalDate data;
 
     @Getter @Setter
-    @ManyToMany(fetch =FetchType.LAZY ,cascade = CascadeType.ALL)
+    @ManyToOne(fetch =FetchType.LAZY ,cascade = CascadeType.ALL)
     @JoinColumn(name = "id_usuario")
-    private List<Usuario> voluntarios;
+    private Usuario voluntario;
 
     @Getter @Setter
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @Column(name = "item", nullable = false)
-    private List<String> item;
+    private List<Item> item;
 
     @Getter @Setter
     @ManyToOne(fetch =FetchType.LAZY ,cascade = CascadeType.ALL)
