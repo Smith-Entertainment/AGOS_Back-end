@@ -6,6 +6,7 @@ import AGOS.AGOS.entity.Periodo;
 import AGOS.AGOS.repository.CronogramaRepository;
 import AGOS.AGOS.repository.ItemRepository;
 import AGOS.AGOS.repository.PeriodoRepository;
+import org.aspectj.lang.reflect.InterTypeMethodDeclaration;
 import org.hibernate.persister.entity.SingleTableEntityPersister;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateTemplate;
@@ -25,16 +26,43 @@ public class ItemService {
     @Autowired
     private PeriodoRepository periodoRepository;
 
-
-    @Transactional
-    public Item newItem(Item item){
-
-        return  itemRepository.save(item);
+    @Transactional(rollbackFor = Exception.class)
+    public Item findById(Long id){
+        final Item item = this.itemRepository.findById(id)
+                .orElseThrow(()-> new IllegalArgumentException("Item não encontrado"));
+        return item;
     }
+    @Transactional(rollbackFor = Exception.class)
+    public List<Item>findAll(){
+        final List<Item> itemList= this.itemRepository.findAll();
+        return itemList;
+    }
+    @Transactional(rollbackFor = Exception.class)
+    public Item findByNome (String name){
+        final Item itemDatabase = this.itemRepository.findByNome(name)
+                .orElseThrow(()-> new IllegalArgumentException("Item não encontrado"));
+        return itemDatabase;
+    }
+    @Transactional(rollbackFor = Exception.class)
+    public Item create(Item item){
+        if (item.getNome() == null) {
+            throw new IllegalArgumentException("Item não pode ser nulo");
+        }
+        Optional<Item> itemExistente = itemRepository.findByNome(item.getNome());
 
-    @Transactional
-    public Item updateItem(Item item) {
-        if (item == null) {
+        if (itemExistente.isPresent() && itemExistente.get().getId() != item.getId()) {
+            throw new IllegalArgumentException("Já existe um item cadastrado com esse nome: " + item.getNome());
+        } else if (item.getNome() == null || !item.getNome().matches("[a-zA-Z\\sç´~`^-]+")) {
+            throw new IllegalArgumentException("O nome da item deve conter somente letras");
+        }
+        return itemRepository.save(item);
+    }
+    @Transactional(rollbackFor = Exception.class)
+    public Item update(Item item) {
+        Item itemBanco = this.itemRepository.findById(item.getId())
+                .orElseThrow(() -> new RuntimeException("Não foi possível identificar o registro informado."));
+
+        if (itemBanco.getNome() == null) {
             throw new IllegalArgumentException("Item não pode ser nulo");
         }
         Optional<Item> itemExistente = itemRepository.findByNome(item.getNome());
