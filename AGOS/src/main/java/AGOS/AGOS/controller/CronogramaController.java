@@ -33,7 +33,7 @@ public class CronogramaController {
         return ResponseEntity.ok(cronogramaList);
     }
 
-    @PostMapping("/create")
+    @PostMapping
     public ResponseEntity<?>create(@RequestBody final Cronograma cronograma){
         try {
             this.cronogramaService.create(cronograma);
@@ -42,8 +42,8 @@ public class CronogramaController {
             return ResponseEntity.badRequest().body("{\"error\":\"" + e.getMessage() + "\"}");
         }
     }
-    @PutMapping("/update/{id}")
-    public ResponseEntity<?> update(@PathVariable("id") final Long id, @RequestBody final Cronograma cronograma) {
+    @PutMapping
+    public ResponseEntity<?> update(@RequestParam("id") final Long id, @RequestBody final Cronograma cronograma) {
         try {
             this.cronogramaService.update(cronograma);
             return ResponseEntity.ok("Registro editado com sucesso");

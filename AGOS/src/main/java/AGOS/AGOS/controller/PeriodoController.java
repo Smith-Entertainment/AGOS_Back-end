@@ -25,7 +25,7 @@ public class PeriodoController {
         final List<Periodo> periodo = this.periodoService.findAll(id);
         return ResponseEntity.ok(periodo);
     }
-    @PostMapping("/create")
+    @PostMapping
     public ResponseEntity<?> create(@RequestBody final Periodo periodos){
         try {
             this.periodoService.create(periodos);
@@ -34,7 +34,7 @@ public class PeriodoController {
             return ResponseEntity.badRequest().body("{\"error\":\"" + e.getMessage() + "\"}");
         }
     }
-    @PutMapping("/update")
+    @PutMapping
     public ResponseEntity<?> update(@RequestParam("id") Long id,@RequestBody Periodo periodo){
         try {
             this.periodoService.update(periodo);

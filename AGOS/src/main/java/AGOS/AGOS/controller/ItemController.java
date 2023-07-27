@@ -40,7 +40,7 @@ public class ItemController {
         return ResponseEntity.ok(itemList);
     }
 
-    @PostMapping("/create")
+    @PostMapping
     public ResponseEntity<?> create(@RequestBody final Item item){
         try {
             this.itemService.create(item);
@@ -49,8 +49,8 @@ public class ItemController {
             return ResponseEntity.badRequest().body("{\"error\":\"" + e.getMessage() + "\"}");
         }
     }
-    @PutMapping("/update/{id}")
-    public ResponseEntity<String> update(@PathVariable Long id, @RequestBody Item item) {
+    @PutMapping
+    public ResponseEntity<String> update(@RequestParam("id") Long id, @RequestBody Item item) {
         try {
             this.itemService.update(item);
             return ResponseEntity.ok("Registro atualizado com sucesso");
