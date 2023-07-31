@@ -18,67 +18,43 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("/obra/item")
+@RequestMapping("/api/item")
 public class ItemController {
-
-    @Autowired
-    private ItemRepository itemRepository;
     @Autowired
     private ItemService itemService;
 
-    @GetMapping("/{id}")
-    public ResponseEntity<?> findByIdPath(@PathVariable("id")final Long id){
-        final Item item = this.itemRepository.findById(id).orElse(null);
-
-        return item == null
-                ? ResponseEntity.badRequest().body("Item não encontrado")
-                : ResponseEntity.ok(item);
+    @GetMapping
+    public ResponseEntity<?>findById(@RequestParam("id") Long id){
+        final Item item = this.itemService.findById(id);
+        return ResponseEntity.ok(item);
     }
-
-    @GetMapping("/lista")
-    public ResponseEntity<?> findAll(){
-        final List<Item> itens = this.itemRepository.findAll();
-
-        return ResponseEntity.ok(itens);
-    }
-
-
-    @GetMapping("/nome:{nome}")
-    public ResponseEntity<?> findByNome(@PathVariable ("nome") final String nome){
-        final Item item = itemRepository.findByNome(nome).orElse(null);
+    @GetMapping
+    public ResponseEntity<?>findByNome(@RequestParam("name") String name){
+        final Item item = this.itemService.findByNome(name);
         return ResponseEntity.ok(item);
     }
 
+    @GetMapping("/List")
+    public ResponseEntity<?>findAll(){
+        final List<Item> itemList = this.itemService.findAll();
+        return ResponseEntity.ok(itemList);
+    }
+
     @PostMapping
-    public ResponseEntity<?> newItem(@RequestBody final Item item){
+    public ResponseEntity<?> create(@RequestBody final Item item){
         try {
-            this.itemService.newItem(item);
+            this.itemService.create(item);
             return ResponseEntity.ok("Registro Cadastrado com Sucesso");
-        } catch (DataIntegrityViolationException e){
-            return ResponseEntity.internalServerError()
-                    .body("Error: " + e.getCause().getCause().getMessage());
-        } catch (IllegalArgumentException e) {
+        }  catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body("{\"error\":\"" + e.getMessage() + "\"}");
         }
     }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<String> updateItem(@PathVariable Long id, @RequestBody Item item) {
+    @PutMapping
+    public ResponseEntity<String> update(@RequestParam("id") Long id, @RequestBody Item item) {
         try {
-            Item itemBanco = this.itemRepository.findById(id)
-                    .orElseThrow(() -> new RuntimeException("Não foi possível identificar o registro informado."));
-            if (!itemBanco.getNome().equals(item.getNome())) {
-                Item itemDuplicado = this.itemRepository.findByNome(item.getNome()).orElse(null);
-                if (itemDuplicado != null && !itemDuplicado.getId().equals(itemBanco.getId())) {
-                    throw new IllegalArgumentException("Já existe um item cadastrado com esse nome: " + item.getNome());
-                }
-            }
-            itemBanco.setNome(item.getNome());
-            this.itemService.updateItem(itemBanco);
+            this.itemService.update(item);
             return ResponseEntity.ok("Registro atualizado com sucesso");
-        } catch (DataIntegrityViolationException e) {
-            return ResponseEntity.internalServerError().body("Error: " + e.getCause().getCause().getMessage());
-        } catch (IllegalArgumentException e) {
+        }  catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body("{\"error\":\"" + e.getMessage() + "\"}");
         }
     }

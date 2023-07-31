@@ -14,11 +14,21 @@ public class PeriodoService {
 
     @Autowired
     private PeriodoRepository periodoRepository;
-    @Autowired
-    private CronogramaRepository cronogramaRepository;
+
+    @Transactional(rollbackFor = Exception.class)
+    public Periodo findById(Long id){
+        final Periodo periodo = this.periodoRepository.findById(id)
+                .orElseThrow(()-> new IllegalArgumentException("Periodo não encontrado"));
+        return periodo;
+    }
+    @Transactional(rollbackFor = Exception.class)
+    public List<Periodo> findAll(Long id){
+        final List<Periodo> periodos = periodoRepository.findByObraId(id);
+        return periodos;
+    }
 
     @Transactional
-    public Periodo newPeriodo (Periodo periodo){
+    public Periodo create (Periodo periodo){
         int ano = periodo.getAno();
         String anoString = Integer.toString(ano);
 
@@ -29,7 +39,7 @@ public class PeriodoService {
     }
 
     @Transactional
-    public Periodo updatePeriodo (Periodo periodo){
+    public Periodo update (Periodo periodo){
         int ano = periodo.getAno();
         String anoString = Integer.toString(ano);
 
