@@ -28,9 +28,9 @@ public class UsuarioController {
     }
 
     @PostMapping
-    public ResponseEntity<?> cadastrar(@RequestBody final Usuario usuario) {
+    public ResponseEntity<?> create(@RequestBody final Usuario usuario) {
         try{
-            this.usuarioService.cadastrar(usuario);
+            this.usuarioService.create(usuario);
             return ResponseEntity.ok("Registro cadastrado com sucesso");
         }
         catch (RuntimeException e){
@@ -39,9 +39,9 @@ public class UsuarioController {
     }
 
     @PutMapping
-    public ResponseEntity<?> editar(@RequestParam("id") final Long id, @RequestBody final Usuario usuario) {
+    public ResponseEntity<?> update(@RequestParam("id") final Long id, @RequestBody final Usuario usuario) {
         try{
-            this.usuarioService.editar(id, usuario);
+            this.usuarioService.update(id, usuario);
             return ResponseEntity.ok("Registro editado com sucesso");
         }
         catch (RuntimeException e){
@@ -50,9 +50,9 @@ public class UsuarioController {
     }
 
     @DeleteMapping
-    public ResponseEntity<?> excluir(@RequestParam("id") final Long id){
+    public ResponseEntity<?> delete(@RequestParam("id") final Long id){
         try{
-            this.usuarioService.excluir(id);
+            this.usuarioService.delete(id);
             return ResponseEntity.ok("Registro excluido com sucesso");
         }
         catch (RuntimeException e){
