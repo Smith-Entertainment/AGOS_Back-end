@@ -28,7 +28,7 @@ public class UsuarioService {
         return usuarios;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public void create(final Usuario usuario){
         Usuario usuarioDatabase;
 
@@ -130,7 +130,7 @@ public class UsuarioService {
         this.usuarioRepository.save(usuario);
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public void update(final Long id, final Usuario usuario){
         Usuario usuarioBanco = findById(id);
         Usuario usuarioDatabase;
@@ -240,7 +240,7 @@ public class UsuarioService {
         this.usuarioRepository.save(usuario);
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public void delete(final Long id){
         Usuario usuario = findById(id);
         this.usuarioRepository.delete(usuario);
