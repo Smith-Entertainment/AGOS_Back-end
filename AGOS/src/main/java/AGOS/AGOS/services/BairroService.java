@@ -15,13 +15,16 @@ public class BairroService {
 
     @Transactional(rollbackFor = Exception.class)
     public Bairro findById(final Long id){
-        Bairro bairro = this.bairroRepository.findById(id).orElse(null);
+        Bairro bairro = this.bairroRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Bairro não encontrado!"));
         return bairro;
     }
 
     @Transactional(rollbackFor = Exception.class)
     public List<Bairro> findAll(){
         List<Bairro> bairros = this.bairroRepository.findAll();
+        if (bairros.isEmpty()){
+            throw new IllegalArgumentException("Nenhum bairro encontrado!");
+        }
         return bairros;
     }
 
