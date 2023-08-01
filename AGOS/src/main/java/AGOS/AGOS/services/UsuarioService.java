@@ -15,13 +15,16 @@ public class UsuarioService {
 
     @Transactional(rollbackFor = Exception.class)
     public Usuario findById(final Long id){
-        final Usuario usuario = this.usuarioRepository.findById(id).orElse(null);
+        final Usuario usuario = this.usuarioRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado!"));
         return usuario;
     }
 
     @Transactional(rollbackFor = Exception.class)
     public List<Usuario> findAll(){
         final List<Usuario> usuarios = this.usuarioRepository.findAll();
+        if (usuarios.isEmpty()){
+            throw new IllegalArgumentException("Nenhum usuário encontrado!");
+        }
         return usuarios;
     }
 
@@ -133,10 +136,10 @@ public class UsuarioService {
         Usuario usuarioDatabase;
 
         if(usuarioBanco == null){
-            throw new IllegalArgumentException("Registro não encontrado");
+            throw new IllegalArgumentException("Usuário não encontrado");
         }
         if(!usuarioBanco.getId().equals(usuario.getId())){
-            throw new IllegalArgumentException("Registros não conferem");
+            throw new IllegalArgumentException("Usuários não conferem");
         }
 
         usuarioDatabase = this.usuarioRepository.findByCpf(usuario.getCpf());

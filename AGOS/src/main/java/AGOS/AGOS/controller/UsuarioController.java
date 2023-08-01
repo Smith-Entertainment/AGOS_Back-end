@@ -17,23 +17,31 @@ public class UsuarioController {
 
     @GetMapping
     public ResponseEntity<?> findById(@RequestParam("id") final Long id) {
-        final Usuario usuario = this.usuarioService.findById(id);
-        return ResponseEntity.ok(usuario);
+        try {
+            final Usuario usuario = this.usuarioService.findById(id);
+            return ResponseEntity.ok(usuario);
+        }catch (IllegalArgumentException e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 
     @GetMapping("/lista")
     public ResponseEntity<?> findAll() {
-        final List<Usuario> usuario = this.usuarioService.findAll();
-        return ResponseEntity.ok(usuario);
+        try {
+            final List<Usuario> usuario = this.usuarioService.findAll();
+            return ResponseEntity.ok(usuario);
+        }catch (IllegalArgumentException e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 
     @PostMapping
     public ResponseEntity<?> create(@RequestBody final Usuario usuario) {
         try{
             this.usuarioService.create(usuario);
-            return ResponseEntity.ok("Registro cadastrado com sucesso");
+            return ResponseEntity.ok("Bairro cadastrado com sucesso!");
         }
-        catch (RuntimeException e){
+        catch (IllegalArgumentException e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
@@ -42,9 +50,9 @@ public class UsuarioController {
     public ResponseEntity<?> update(@RequestParam("id") final Long id, @RequestBody final Usuario usuario) {
         try{
             this.usuarioService.update(id, usuario);
-            return ResponseEntity.ok("Registro editado com sucesso");
+            return ResponseEntity.ok("Bairro editado com sucesso!");
         }
-        catch (RuntimeException e){
+        catch (IllegalArgumentException e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
@@ -53,9 +61,9 @@ public class UsuarioController {
     public ResponseEntity<?> delete(@RequestParam("id") final Long id){
         try{
             this.usuarioService.delete(id);
-            return ResponseEntity.ok("Registro excluido com sucesso");
+            return ResponseEntity.ok("Bairro excluido com sucesso!");
         }
-        catch (RuntimeException e){
+        catch (IllegalArgumentException e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
