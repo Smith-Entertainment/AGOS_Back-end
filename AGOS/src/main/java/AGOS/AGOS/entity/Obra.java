@@ -1,6 +1,7 @@
 package AGOS.AGOS.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -41,8 +42,9 @@ public class Obra {
     private double valorEdital;
 
     @Getter @Setter
-    @Column(name= "bairro",length = 50,nullable = false)
-    private String bairro;
+    @ManyToOne(fetch =FetchType.LAZY ,cascade = CascadeType.ALL)
+    @Column(name= "bairro",nullable = false)
+    private Bairro bairro;
 
     @Getter @Setter
     @Column(name= "rua",length = 30,nullable = false)
@@ -54,6 +56,7 @@ public class Obra {
 
     @Getter @Setter
     @ManyToMany(fetch =FetchType.LAZY ,cascade = CascadeType.ALL)
+    @JsonIgnore
     @JoinColumn(name = "id_usuario")
     private List<Usuario> voluntarios;
 
