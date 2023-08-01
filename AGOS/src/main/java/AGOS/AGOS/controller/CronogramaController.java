@@ -23,14 +23,22 @@ public class CronogramaController {
 
     @GetMapping
     public ResponseEntity<?>findById(@RequestParam("id")final Long id){
-        final Cronograma cronograma = this.cronogramaService.findById(id);
-        return ResponseEntity.ok(cronograma);
+       try {
+           final Cronograma cronograma = this.cronogramaService.findById(id);
+           return ResponseEntity.ok(cronograma);
+       } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body("{\"error\":\"" + e.getMessage() + "\"}");
+        }
     }
 
     @GetMapping("/List")
     public ResponseEntity<?>findAll(){
-        final List<Cronograma> cronogramaList = this.cronogramaService.findAll();
-        return ResponseEntity.ok(cronogramaList);
+        try{
+            final List<Cronograma> cronogramaList = this.cronogramaService.findAll();
+            return ResponseEntity.ok(cronogramaList);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body("{\"error\":\"" + e.getMessage() + "\"}");
+        }
     }
 
     @PostMapping
