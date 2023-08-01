@@ -39,7 +39,7 @@ public class UsuarioController {
     public ResponseEntity<?> create(@RequestBody final Usuario usuario) {
         try{
             this.usuarioService.create(usuario);
-            return ResponseEntity.ok("Bairro cadastrado com sucesso!");
+            return ResponseEntity.ok("Usuário cadastrado com sucesso!");
         }
         catch (IllegalArgumentException e){
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -50,7 +50,7 @@ public class UsuarioController {
     public ResponseEntity<?> update(@RequestParam("id") final Long id, @RequestBody final Usuario usuario) {
         try{
             this.usuarioService.update(id, usuario);
-            return ResponseEntity.ok("Bairro editado com sucesso!");
+            return ResponseEntity.ok("Usuário editado com sucesso!");
         }
         catch (IllegalArgumentException e){
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -61,7 +61,7 @@ public class UsuarioController {
     public ResponseEntity<?> delete(@RequestParam("id") final Long id){
         try{
             this.usuarioService.delete(id);
-            return ResponseEntity.ok("Bairro excluido com sucesso!");
+            return ResponseEntity.ok("Usuário excluido com sucesso!");
         }
         catch (IllegalArgumentException e){
             return ResponseEntity.badRequest().body(e.getMessage());
