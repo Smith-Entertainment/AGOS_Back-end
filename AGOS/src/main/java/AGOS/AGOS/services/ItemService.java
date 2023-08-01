@@ -37,12 +37,7 @@ public class ItemService {
         final List<Item> itemList= this.itemRepository.findAll();
         return itemList;
     }
-    @Transactional(rollbackFor = Exception.class)
-    public Item findByNome (String name){
-        final Item itemDatabase = this.itemRepository.findByNome(name)
-                .orElseThrow(()-> new IllegalArgumentException("Item não encontrado"));
-        return itemDatabase;
-    }
+
     @Transactional(rollbackFor = Exception.class)
     public Item create(Item item){
         if (item.getNome() == null) {

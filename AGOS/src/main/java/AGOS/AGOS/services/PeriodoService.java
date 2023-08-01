@@ -21,11 +21,11 @@ public class PeriodoService {
                 .orElseThrow(()-> new IllegalArgumentException("Periodo não encontrado"));
         return periodo;
     }
-    @Transactional(rollbackFor = Exception.class)
-    public List<Periodo> findAll(Long id){
-        final List<Periodo> periodos = periodoRepository.findByObraId(id);
-        return periodos;
-    }
+//    @Transactional(rollbackFor = Exception.class)
+//    public List<Periodo> findAll(Long id){
+//        final List<Periodo> periodos = periodoRepository.findByObraId(id);
+//        return periodos;
+//    }
 
     @Transactional
     public Periodo create (Periodo periodo){

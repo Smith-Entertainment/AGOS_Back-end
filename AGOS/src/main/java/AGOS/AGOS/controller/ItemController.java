@@ -32,15 +32,7 @@ public class ItemController {
              return ResponseEntity.badRequest().body("{\"error\":\"" + e.getMessage() + "\"}");
          }
     }
-    @GetMapping
-    public ResponseEntity<?>findByNome(@RequestParam("name") String name){
-        try {
-        final Item item = this.itemService.findByNome(name);
-        return ResponseEntity.ok(item);
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().body("{\"error\":\"" + e.getMessage() + "\"}");
-        }
-    }
+
 
     @GetMapping("/List")
     public ResponseEntity<?>findAll(){
