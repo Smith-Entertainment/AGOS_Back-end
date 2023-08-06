@@ -34,13 +34,13 @@ public class ItemController {
         return ResponseEntity.ok(item);
     }
 
-    @GetMapping("/List")
+    @GetMapping("/list")
     public ResponseEntity<?>findAll(){
         final List<Item> itemList = this.itemService.findAll();
         return ResponseEntity.ok(itemList);
     }
 
-    @PostMapping("/create")
+    @PostMapping
     public ResponseEntity<?> create(@RequestBody final Item item){
         try {
             this.itemService.create(item);
@@ -49,7 +49,7 @@ public class ItemController {
             return ResponseEntity.badRequest().body("{\"error\":\"" + e.getMessage() + "\"}");
         }
     }
-    @PutMapping("/update/{id}")
+    @PutMapping
     public ResponseEntity<String> update(@PathVariable Long id, @RequestBody Item item) {
         try {
             this.itemService.update(item);
