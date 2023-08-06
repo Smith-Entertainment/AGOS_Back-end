@@ -25,19 +25,31 @@ public class ItemController {
 
     @GetMapping
     public ResponseEntity<?>findById(@RequestParam("id") Long id){
-        final Item item = this.itemService.findById(id);
-        return ResponseEntity.ok(item);
+        try {
+            final Item item = this.itemService.findById(id);
+            return ResponseEntity.ok(item);
+        } catch (IllegalArgumentException e) {
+             return ResponseEntity.badRequest().body("{\"error\":\"" + e.getMessage() + "\"}");
+         }
     }
     @GetMapping
     public ResponseEntity<?>findByNome(@RequestParam("name") String name){
+        try {
         final Item item = this.itemService.findByNome(name);
         return ResponseEntity.ok(item);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body("{\"error\":\"" + e.getMessage() + "\"}");
+        }
     }
 
     @GetMapping("/list")
     public ResponseEntity<?>findAll(){
+        try {
         final List<Item> itemList = this.itemService.findAll();
         return ResponseEntity.ok(itemList);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body("{\"error\":\"" + e.getMessage() + "\"}");
+        }
     }
 
     @PostMapping
@@ -50,7 +62,9 @@ public class ItemController {
         }
     }
     @PutMapping
-    public ResponseEntity<String> update(@PathVariable Long id, @RequestBody Item item) {
+
+
+    public ResponseEntity<String> update(@RequestParam("id") Long id, @RequestBody Item item) {
         try {
             this.itemService.update(item);
             return ResponseEntity.ok("Registro atualizado com sucesso");

@@ -1,5 +1,6 @@
 package AGOS.AGOS.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -60,6 +61,7 @@ public class Usuario {
     private LocalDate dataNascimento;
 
     @Getter @Setter
+    @JsonIgnore
     @ManyToMany(fetch =FetchType.LAZY ,cascade = CascadeType.ALL)
     @JoinColumn(name = "id_obra")
     private List<Obra> obras;
