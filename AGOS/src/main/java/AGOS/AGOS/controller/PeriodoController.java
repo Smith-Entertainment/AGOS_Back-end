@@ -24,7 +24,7 @@ public class PeriodoController {
             return ResponseEntity.badRequest().body("{\"error\":\"" + e.getMessage() + "\"}");
         }
     }
-    @GetMapping
+    @GetMapping("/list")
     public ResponseEntity<?>findAllOf(@RequestParam("id")Long id){
         try {
             final List<Periodo> periodo = this.periodoService.findAll(id);

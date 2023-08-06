@@ -24,22 +24,13 @@ public class ItemController {
     private ItemService itemService;
 
     @GetMapping
-    public ResponseEntity<?>findById(@RequestParam("id") Long id){
+    public ResponseEntity<?>findById(@RequestParam("id") final Long id){
         try {
             final Item item = this.itemService.findById(id);
             return ResponseEntity.ok(item);
         } catch (IllegalArgumentException e) {
              return ResponseEntity.badRequest().body("{\"error\":\"" + e.getMessage() + "\"}");
          }
-    }
-    @GetMapping
-    public ResponseEntity<?>findByNome(@RequestParam("name") String name){
-        try {
-        final Item item = this.itemService.findByNome(name);
-        return ResponseEntity.ok(item);
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().body("{\"error\":\"" + e.getMessage() + "\"}");
-        }
     }
 
     @GetMapping("/list")
