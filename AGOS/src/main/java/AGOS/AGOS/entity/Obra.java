@@ -43,7 +43,7 @@ public class Obra {
 
     @Getter @Setter
     @ManyToOne(fetch =FetchType.LAZY ,cascade = CascadeType.ALL)
-    @Column(name= "bairro",nullable = false)
+    @JoinColumn(name= "bairro", nullable = false)
     private Bairro bairro;
 
     @Getter @Setter
