@@ -27,7 +27,7 @@ public class PeriodoService {
         return periodos;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Periodo create (Periodo periodo){
         int ano = periodo.getAno();
         String anoString = Integer.toString(ano);
@@ -38,7 +38,7 @@ public class PeriodoService {
         return periodoRepository.save(periodo);
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Periodo update (Periodo periodo){
         int ano = periodo.getAno();
         String anoString = Integer.toString(ano);
