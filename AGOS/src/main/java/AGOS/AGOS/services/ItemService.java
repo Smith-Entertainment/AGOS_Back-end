@@ -1,19 +1,12 @@
 package AGOS.AGOS.services;
 
-import AGOS.AGOS.entity.Cronograma;
 import AGOS.AGOS.entity.Item;
-import AGOS.AGOS.entity.Periodo;
-import AGOS.AGOS.repository.CronogramaRepository;
 import AGOS.AGOS.repository.ItemRepository;
 import AGOS.AGOS.repository.PeriodoRepository;
-import org.aspectj.lang.reflect.InterTypeMethodDeclaration;
-import org.hibernate.persister.entity.SingleTableEntityPersister;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 

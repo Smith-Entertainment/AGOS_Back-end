@@ -1,32 +1,26 @@
 package AGOS.AGOS.controller;
 
-import AGOS.AGOS.entity.Cronograma;
-import AGOS.AGOS.entity.Periodo;
-import AGOS.AGOS.repository.CronogramaRepository;
-import AGOS.AGOS.services.CronogramaService;
+import AGOS.AGOS.entity.Valor;
+import AGOS.AGOS.services.ValorService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.yaml.snakeyaml.events.Event;
 
 import java.util.List;
 
-
 @Controller
-@RequestMapping("/api/cronograma")
-public class CronogramaController {
-
+@RequestMapping("api/valor")
+public class ValorController {
     @Autowired
-    private CronogramaService cronogramaService;
+    private ValorService cronogramaService;
 
     @GetMapping
-    public ResponseEntity<?>findById(@RequestParam("id")final Long id){
-       try {
-           final Cronograma cronograma = this.cronogramaService.findById(id);
-           return ResponseEntity.ok(cronograma);
-       } catch (IllegalArgumentException e) {
+    public ResponseEntity<?> findById(@RequestParam("id")final Long id){
+        try {
+            final Valor valor = this.cronogramaService.findById(id);
+            return ResponseEntity.ok(valor);
+        } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body("{\"error\":\"" + e.getMessage() + "\"}");
         }
     }
@@ -34,32 +28,30 @@ public class CronogramaController {
     @GetMapping("/list")
     public ResponseEntity<?>findAll(){
         try{
-            final List<Cronograma> cronogramaList = this.cronogramaService.findAll();
-            return ResponseEntity.ok(cronogramaList);
+            final List<Valor> valorList = this.cronogramaService.findAll();
+            return ResponseEntity.ok(valorList);
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body("{\"error\":\"" + e.getMessage() + "\"}");
         }
     }
 
     @PostMapping
-    public ResponseEntity<?>create(@RequestBody final Cronograma cronograma){
+    public ResponseEntity<?>create(@RequestBody final Valor valor){
         try {
-            this.cronogramaService.create(cronograma);
+            this.cronogramaService.create(valor);
             return ResponseEntity.ok("Registro Cadastrado com Sucesso");
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body("{\"error\":\"" + e.getMessage() + "\"}");
         }
     }
     @PutMapping
-    public ResponseEntity<?> update(@RequestParam("id") final Long id, @RequestBody final Cronograma cronograma) {
+    public ResponseEntity<?> update(@RequestParam("id") final Long id, @RequestBody final Valor valor) {
         try {
-            this.cronogramaService.update(cronograma);
+            this.cronogramaService.update(valor);
             return ResponseEntity.ok("Registro editado com sucesso");
         }  catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body("{\"error\":\"" + e.getMessage() + "\"}");
         }
     }
-
-
 
 }

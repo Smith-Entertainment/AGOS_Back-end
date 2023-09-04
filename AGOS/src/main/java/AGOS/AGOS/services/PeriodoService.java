@@ -1,7 +1,6 @@
 package AGOS.AGOS.services;
 
 import AGOS.AGOS.entity.Periodo;
-import AGOS.AGOS.repository.CronogramaRepository;
 import AGOS.AGOS.repository.PeriodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
