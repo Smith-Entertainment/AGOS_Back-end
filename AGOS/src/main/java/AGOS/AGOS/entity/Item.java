@@ -12,7 +12,7 @@ public class Item {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Getter
+    @Getter @Setter
     @Column(name = "id", nullable = false, unique = true)
     private Long id;
     @Getter @Setter
