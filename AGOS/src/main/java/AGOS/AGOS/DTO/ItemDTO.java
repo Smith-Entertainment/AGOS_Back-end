@@ -13,7 +13,5 @@ public class ItemDTO {
     private float valorTotal;
     private Obra obra;
 
-    public ItemDTO() {
-
-    }
+    public ItemDTO() {}
 }

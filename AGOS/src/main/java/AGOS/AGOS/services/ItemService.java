@@ -75,7 +75,7 @@ public class ItemService {
         itemDTO.setId(item.getId());
         itemDTO.setNome(item.getNome());
         itemDTO.setValorTotal(item.getValorTotal());
-        itemDTO.setObra(item.getObra()); // Obra é um objeto, não precisamos converter
+        itemDTO.setObra(item.getObra());
         return itemDTO;
     }
     private Item convertToEntity(ItemDTO itemDTO) {
@@ -87,13 +87,12 @@ public class ItemService {
         return item;
     }
 
-
     private void validateItemDTO(ItemDTO itemDTO) {
-        if (itemDTO.getNome() == null || !itemDTO.getNome().matches("[a-zA-Z\\sç´~`^-]+")|| itemDTO.getNome().isBlank()) {
+        if(!itemDTO.getNome().matches("[a-zA-Z\\sç´~`^-]+")|| itemDTO.getNome().isBlank()) {
             throw new IllegalArgumentException("O nome do item não pode estar em branco");
         }else if (itemDTO.getObra() == null) {
             throw new IllegalArgumentException("Obra não pode ser nulo");
-        } else if (Float.valueOf(itemDTO.getValorTotal()) == null) {
+        }else if (Float.valueOf(itemDTO.getValorTotal()) == null) {
             throw new IllegalArgumentException("Valor total não pode ser nulo");
         }
     }

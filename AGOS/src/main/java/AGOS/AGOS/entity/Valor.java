@@ -32,7 +32,7 @@ public class Valor {
     @JoinColumn(name = "periodo_id")
     private Periodo periodo;
     @Getter @Setter
-    @ManyToOne
+    @ManyToMany
     @JoinColumn(name = "Item_id")
     private Item item;
 }
