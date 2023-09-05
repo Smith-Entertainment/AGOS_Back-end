@@ -1,0 +1,30 @@
+package AGOS.AGOS.DTO;
+
+import AGOS.AGOS.entity.Envio;
+import AGOS.AGOS.entity.Obra;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.time.LocalDate;
+import java.util.List;
+
+@Data @AllArgsConstructor @NoArgsConstructor
+public class UsuarioDTO {
+    private Long id;
+    private String nome;
+    private String cpf;
+    private String email;
+    private String celular;
+    private String tituloEleitor;
+    private String senha;
+    private String nomePai;
+    private String nomeMae;
+    private LocalDate dataNascimento;
+    @JsonManagedReference
+    private List<Obra> obras;
+    @JsonBackReference
+    private List<Envio> envios;
+}
