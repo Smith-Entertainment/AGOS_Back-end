@@ -24,10 +24,7 @@ import lombok.Setter;
         @Column(name = "ano", nullable = false)
         private int ano;
 
-        @Getter @Setter
-        @ManyToOne(fetch =FetchType.LAZY ,cascade = CascadeType.MERGE)
-        @JoinColumn(name = "obra_Id")
-        private Obra obra;
+
 
 
 }
