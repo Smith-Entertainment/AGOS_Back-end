@@ -1,7 +1,6 @@
 package AGOS.AGOS.services;
 
 import AGOS.AGOS.entity.Periodo;
-import AGOS.AGOS.repository.CronogramaRepository;
 import AGOS.AGOS.repository.PeriodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,7 +26,7 @@ public class PeriodoService {
         return periodos;
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Periodo create (Periodo periodo){
         int ano = periodo.getAno();
         String anoString = Integer.toString(ano);
@@ -38,7 +37,7 @@ public class PeriodoService {
         return periodoRepository.save(periodo);
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Periodo update (Periodo periodo){
         int ano = periodo.getAno();
         String anoString = Integer.toString(ano);

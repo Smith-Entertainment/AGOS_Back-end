@@ -1,6 +1,7 @@
 package AGOS.AGOS.controller;
 
 
+import AGOS.AGOS.DTO.ItemDTO;
 import AGOS.AGOS.entity.Item;
 import AGOS.AGOS.repository.ItemRepository;
 import AGOS.AGOS.services.ItemService;
@@ -24,24 +25,27 @@ public class ItemController {
     private ItemService itemService;
 
     @GetMapping
-    public ResponseEntity<?>findById(@RequestParam("id") Long id){
-        final Item item = this.itemService.findById(id);
-        return ResponseEntity.ok(item);
-    }
-    @GetMapping
-    public ResponseEntity<?>findByNome(@RequestParam("name") String name){
-        final Item item = this.itemService.findByNome(name);
-        return ResponseEntity.ok(item);
+    public ResponseEntity<?>findById(@RequestParam("id") final Long id){
+        try {
+            final ItemDTO item = this.itemService.findById(id);
+            return ResponseEntity.ok(item);
+        } catch (IllegalArgumentException e) {
+             return ResponseEntity.badRequest().body("{\"error\":\"" + e.getMessage() + "\"}");
+         }
     }
 
-    @GetMapping("/List")
+    @GetMapping("/list")
     public ResponseEntity<?>findAll(){
-        final List<Item> itemList = this.itemService.findAll();
+        try {
+        final List<ItemDTO> itemList = this.itemService.findAll();
         return ResponseEntity.ok(itemList);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body("{\"error\":\"" + e.getMessage() + "\"}");
+        }
     }
 
     @PostMapping
-    public ResponseEntity<?> create(@RequestBody final Item item){
+    public ResponseEntity<?> create(@RequestBody final ItemDTO item){
         try {
             this.itemService.create(item);
             return ResponseEntity.ok("Registro Cadastrado com Sucesso");
@@ -50,7 +54,9 @@ public class ItemController {
         }
     }
     @PutMapping
-    public ResponseEntity<String> update(@RequestParam("id") Long id, @RequestBody Item item) {
+
+
+    public ResponseEntity<String> update(@RequestParam("id") Long id, @RequestBody ItemDTO item) {
         try {
             this.itemService.update(item);
             return ResponseEntity.ok("Registro atualizado com sucesso");

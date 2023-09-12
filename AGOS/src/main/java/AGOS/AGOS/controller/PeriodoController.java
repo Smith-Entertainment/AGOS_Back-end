@@ -17,14 +17,23 @@ public class PeriodoController {
 
     @GetMapping
     public ResponseEntity<?> findById(@RequestParam("id")Long id){
-        final Periodo periodo = this.periodoService.findById(id);
-        return ResponseEntity.ok(periodo);
+        try {
+            final Periodo periodo = this.periodoService.findById(id);
+            return ResponseEntity.ok(periodo);
+        }catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body("{\"error\":\"" + e.getMessage() + "\"}");
+        }
     }
-    @GetMapping
+    @GetMapping("/list")
     public ResponseEntity<?>findAllOf(@RequestParam("id")Long id){
-        final List<Periodo> periodo = this.periodoService.findAll(id);
-        return ResponseEntity.ok(periodo);
+        try {
+            final List<Periodo> periodo = this.periodoService.findAll(id);
+            return ResponseEntity.ok(periodo);
+        }catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body("{\"error\":\"" + e.getMessage() + "\"}");
+        }
     }
+
     @PostMapping
     public ResponseEntity<?> create(@RequestBody final Periodo periodos){
         try {
