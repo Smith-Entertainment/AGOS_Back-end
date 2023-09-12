@@ -52,5 +52,13 @@ public class PeriodoController {
             return ResponseEntity.badRequest().body("{\"error\":\""+ e.getMessage() + "\"");
         }
     }
-
+    @DeleteMapping
+    public ResponseEntity<?> delete(@RequestParam("id") final Long id){
+        try{
+            this.periodoService.delete(id);
+            return ResponseEntity.ok("Registro excluido com sucesso");
+        } catch (IllegalArgumentException e){
+            return ResponseEntity.badRequest().body("{\"error\":\""+ e.getMessage() + "\"");
+        }
+    }
 }

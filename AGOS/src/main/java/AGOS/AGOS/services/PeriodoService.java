@@ -1,5 +1,6 @@
 package AGOS.AGOS.services;
 
+import AGOS.AGOS.entity.Item;
 import AGOS.AGOS.entity.Periodo;
 import AGOS.AGOS.repository.PeriodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,6 +48,11 @@ public class PeriodoService {
         }
         return periodoRepository.save(periodo);
     }
-
+    @Transactional(rollbackFor = Exception.class)
+    public void delete(Long id){
+        final Periodo periodo = this.periodoRepository.findById(id)
+                .orElseThrow(()-> new IllegalArgumentException("Item não encontrado"));
+        this.periodoRepository.delete(periodo);
+    }
 
 }

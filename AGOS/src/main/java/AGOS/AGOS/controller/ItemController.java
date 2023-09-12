@@ -33,7 +33,6 @@ public class ItemController {
              return ResponseEntity.badRequest().body("{\"error\":\"" + e.getMessage() + "\"}");
          }
     }
-
     @GetMapping("/list")
     public ResponseEntity<?>findAll(){
         try {
@@ -43,7 +42,6 @@ public class ItemController {
             return ResponseEntity.badRequest().body("{\"error\":\"" + e.getMessage() + "\"}");
         }
     }
-
     @PostMapping
     public ResponseEntity<?> create(@RequestBody final ItemDTO item){
         try {
@@ -55,7 +53,6 @@ public class ItemController {
     }
     @PutMapping
 
-
     public ResponseEntity<String> update(@RequestParam("id") Long id, @RequestBody ItemDTO item) {
         try {
             this.itemService.update(item);
@@ -64,7 +61,15 @@ public class ItemController {
             return ResponseEntity.badRequest().body("{\"error\":\"" + e.getMessage() + "\"}");
         }
     }
-
+    @DeleteMapping
+    public ResponseEntity<?> delete(@RequestParam("id") final Long id){
+        try{
+            this.itemService.delete(id);
+            return ResponseEntity.ok("Registro excluido com sucesso");
+        } catch (IllegalArgumentException e){
+            return ResponseEntity.badRequest().body("{\"error\":\""+ e.getMessage() + "\"");
+        }
+    }
 
 
 }
