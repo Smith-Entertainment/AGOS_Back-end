@@ -1,8 +1,10 @@
 package AGOS.AGOS.services;
 
+import AGOS.AGOS.DTO.PeriodoDTO;
 import AGOS.AGOS.entity.Item;
 import AGOS.AGOS.entity.Periodo;
 import AGOS.AGOS.repository.PeriodoRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,9 +13,23 @@ import java.util.List;
 
 @Service
 public class PeriodoService {
-
     @Autowired
     private PeriodoRepository periodoRepository;
+    @Autowired
+    private ModelMapper modelMapper;
+    private Periodo toPeriodo(PeriodoDTO periodoDTO){
+        return modelMapper.map(periodoDTO, Periodo.class);
+    }
+    private PeriodoDTO toPeriodoDTO (Periodo periodo){
+        return modelMapper.map(periodo, PeriodoDTO.class);
+    }
+    private void validationPeriodoDTO(PeriodoDTO periodoDTO){
+        int ano = periodoDTO.getAno();
+        String anoString = Integer.toString(ano);
+        if (!anoString.matches("[0-9]{4}")){
+            throw new IllegalArgumentException("Ano inválido");
+        }
+    }
 
     @Transactional(rollbackFor = Exception.class)
     public Periodo findById(Long id){
