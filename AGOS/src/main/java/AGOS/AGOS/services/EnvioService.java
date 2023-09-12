@@ -1,5 +1,6 @@
 package AGOS.AGOS.services;
 
+import AGOS.AGOS.DTO.EnvioDTO;
 import AGOS.AGOS.entity.Obra;
 import AGOS.AGOS.repository.EnvioRepository;
 import AGOS.AGOS.repository.ObraRepository;
@@ -67,6 +68,26 @@ public class EnvioService {
     }
 
 
+
+    public EnvioDTO convertToDTO(Envio envio){
+
+        EnvioDTO envioDTO = new EnvioDTO();
+        envioDTO.setId(envio.getId());
+        envioDTO.setVoluntario(envio.getVoluntario());
+        envioDTO.setObra(envio.getObra());
+
+        return envioDTO;
+    }
+
+    public Envio convertToEntity(EnvioDTO enviodto){
+
+        Envio envio = new Envio();
+        envio.setId(enviodto.getId());
+        envio.setVoluntario(enviodto.getVoluntario());
+        envio.setObra(enviodto.getObra());
+
+        return envio;
+    }
 
 
 }

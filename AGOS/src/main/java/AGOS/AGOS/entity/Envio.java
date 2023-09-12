@@ -12,6 +12,7 @@ import java.util.List;
 public class Envio {
     @Id
     @Getter
+    @Setter
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id",nullable = false,unique = true)
     private Long id;
