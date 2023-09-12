@@ -1,164 +1,178 @@
 package AGOS.AGOS.services;
 
+import AGOS.AGOS.DTO.UsuarioDTO;
 import AGOS.AGOS.entity.Usuario;
 import AGOS.AGOS.repository.UsuarioRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class UsuarioService {
     @Autowired
     private UsuarioRepository usuarioRepository;
+    @Autowired
+    private ModelMapper modelMapper;
 
     @Transactional(rollbackFor = Exception.class)
-    public Usuario findById(final Long id){
+    public UsuarioDTO findById(final Long id){
         final Usuario usuario = this.usuarioRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado!"));
-        return usuario;
+        return convertToDTO(usuario);
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public List<Usuario> findAll(){
+    public List<UsuarioDTO> findAll(){
         final List<Usuario> usuarios = this.usuarioRepository.findAll();
-        if (usuarios.isEmpty()){
-            throw new IllegalArgumentException("Nenhum usuário encontrado!");
-        }
-        return usuarios;
+
+        return usuarios.stream().map(this::convertToDTO).collect(Collectors.toList());
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public void create(final Usuario usuario){
+    public void create(final UsuarioDTO usuarioDTO){
         Usuario usuarioDatabase;
 
-        usuarioDatabase = this.usuarioRepository.findByCpf(usuario.getCpf());
+        usuarioDatabase = this.usuarioRepository.findByCpf(usuarioDTO.getCpf());
         if(usuarioDatabase != null){
             throw new IllegalArgumentException("CPF já cadastrado!");
         }
-        usuarioDatabase = this.usuarioRepository.findByCelular(usuario.getCelular());
+        usuarioDatabase = this.usuarioRepository.findByCelular(usuarioDTO.getCelular());
         if(usuarioDatabase != null){
             throw new IllegalArgumentException("Telefone já cadastrado!");
         }
-        usuarioDatabase = this.usuarioRepository.findByEmail(usuario.getEmail());
+        usuarioDatabase = this.usuarioRepository.findByEmail(usuarioDTO.getEmail());
         if(usuarioDatabase != null){
             throw new IllegalArgumentException("Email já cadastrado!");
         }
-        usuarioDatabase = this.usuarioRepository.findByTituloEleitor(usuario.getTituloEleitor());
+        usuarioDatabase = this.usuarioRepository.findByTituloEleitor(usuarioDTO.getTituloEleitor());
         if(usuarioDatabase != null){
             throw new IllegalArgumentException("Título de eleitor já cadastrado!");
         }
 
-        validateUsuario(usuario);
+        validateUsuario(usuarioDTO);
 
-        this.usuarioRepository.save(usuario);
+        this.usuarioRepository.save(convertToEntity(usuarioDTO));
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public void update(final Long id, final Usuario usuario){
-        Usuario usuarioDatabase = findById(id);
+    public void update(final Long id, final UsuarioDTO usuarioDTO){
+        Usuario usuarioDatabase;
 
+        usuarioDatabase = this.usuarioRepository.findById(usuarioDTO.getId()).orElse(null);
         if(usuarioDatabase == null){
             throw new IllegalArgumentException("Usuário não encontrado");
         }
-        if(!usuarioDatabase.getId().equals(usuario.getId())){
+        if(!usuarioDatabase.getId().equals(usuarioDTO.getId())){
             throw new IllegalArgumentException("Usuários não conferem");
         }
 
-        usuarioDatabase = this.usuarioRepository.findByCpf(usuario.getCpf());
-        if(usuarioDatabase != null && !usuarioDatabase.getId().equals(usuario.getId())){
+        usuarioDatabase = this.usuarioRepository.findByCpf(usuarioDTO.getCpf());
+        if(usuarioDatabase != null && !usuarioDatabase.getId().equals(usuarioDTO.getId())){
             throw new IllegalArgumentException("CPF já cadastrado!");
         }
-        usuarioDatabase = this.usuarioRepository.findByCelular(usuario.getCelular());
-        if(usuarioDatabase != null && !usuarioDatabase.getId().equals(usuario.getId())){
+        usuarioDatabase = this.usuarioRepository.findByCelular(usuarioDTO.getCelular());
+        if(usuarioDatabase != null && !usuarioDatabase.getId().equals(usuarioDTO.getId())){
             throw new IllegalArgumentException("Telefone já cadastrado!");
         }
-        usuarioDatabase = this.usuarioRepository.findByEmail(usuario.getEmail());
-        if(usuarioDatabase != null && !usuarioDatabase.getId().equals(usuario.getId())){
+        usuarioDatabase = this.usuarioRepository.findByEmail(usuarioDTO.getEmail());
+        if(usuarioDatabase != null && !usuarioDatabase.getId().equals(usuarioDTO.getId())){
             throw new IllegalArgumentException("Email já cadastrado!");
         }
-        usuarioDatabase = this.usuarioRepository.findByTituloEleitor(usuario.getTituloEleitor());
-        if(usuarioDatabase != null && !usuarioDatabase.getId().equals(usuario.getId())){
+        usuarioDatabase = this.usuarioRepository.findByTituloEleitor(usuarioDTO.getTituloEleitor());
+        if(usuarioDatabase != null && !usuarioDatabase.getId().equals(usuarioDTO.getId())){
             throw new IllegalArgumentException("Título de eleitor já cadastrado!");
         }
 
-        validateUsuario(usuario);
+        validateUsuario(usuarioDTO);
 
-        this.usuarioRepository.save(usuario);
+        this.usuarioRepository.save(convertToEntity(usuarioDTO));
     }
 
     @Transactional(rollbackFor = Exception.class)
     public void delete(final Long id){
-        Usuario usuario = findById(id);
+        Usuario usuario = this.usuarioRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado!"));
         this.usuarioRepository.delete(usuario);
     }
 
-    private void validateUsuario(Usuario usuario){
-        if(usuario.getCpf() == null){
+    private UsuarioDTO convertToDTO(Usuario usuario){
+        UsuarioDTO usuarioDTO = modelMapper.map(usuario, UsuarioDTO.class);
+        return usuarioDTO;
+    }
+
+    private Usuario convertToEntity(UsuarioDTO usuarioDTO){
+        Usuario usuario = modelMapper.map(usuarioDTO, Usuario.class);
+        return usuario;
+    }
+
+    private void validateUsuario(UsuarioDTO usuarioDTO){
+        if(usuarioDTO.getCpf() == null){
             throw new IllegalArgumentException("Deve conter cpf!");
         }
-        if(usuario.getCpf().length() != 14){
+        if(usuarioDTO.getCpf().length() != 14){
             throw new IllegalArgumentException("CPF inválido!");
         }
-        if(!usuario.getCpf().matches("[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}")){
+        if(!usuarioDTO.getCpf().matches("[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}")){
             throw new IllegalArgumentException("Formato do CPF inválido!");
         }
 
-        if(usuario.getCelular() == null){
+        if(usuarioDTO.getCelular() == null){
             throw new IllegalArgumentException("Deve conter telefone!");
         }
-        if(usuario.getCelular().length() != 14){
+        if(usuarioDTO.getCelular().length() != 14){
             throw new IllegalArgumentException("Telefone inválido!");
         }
-        if(!usuario.getCelular().matches("\\([0-9]{2}\\)9[0-9]{4}-[0-9]{4}")){
+        if(!usuarioDTO.getCelular().matches("\\([0-9]{2}\\)9[0-9]{4}-[0-9]{4}")){
             throw new IllegalArgumentException("Formato do telefone inválido!");
         }
 
-        if(usuario.getEmail() == null){
+        if(usuarioDTO.getEmail() == null){
             throw new IllegalArgumentException("Deve conter email!");
         }
-        if(!usuario.getEmail().matches("[a-zA-Z0-9]+@[a-z]+[.]{1}[a-z]+")){
+        if(!usuarioDTO.getEmail().matches("[a-zA-Z0-9]+@[a-z]+[.]{1}[a-z]+")){
             throw new IllegalArgumentException("Formato do email inválido!");
         }
 
-        if(usuario.getTituloEleitor() == null){
+        if(usuarioDTO.getTituloEleitor() == null){
             throw new IllegalArgumentException("Deve conter título de eleitor!");
         }
-        if(usuario.getTituloEleitor().length() == 12){
+        if(usuarioDTO.getTituloEleitor().length() == 12){
             throw new IllegalArgumentException("Título de eleitor inválido!");
         }
-        if(!usuario.getTituloEleitor().matches("[0-9]{12}")){
+        if(!usuarioDTO.getTituloEleitor().matches("[0-9]{12}")){
             throw new IllegalArgumentException("Formato do título de eleitor inválido!");
         }
 
-        if(usuario.getNome() == null){
+        if(usuarioDTO.getNome() == null){
             throw new IllegalArgumentException("Deve conter nome!");
         }
-        if(usuario.getNome().isBlank()){
+        if(usuarioDTO.getNome().isBlank()){
             throw new IllegalArgumentException("Nome inválido!");
         }
 
-        if(usuario.getNomeMae() == null){
+        if(usuarioDTO.getNomeMae() == null){
             throw new IllegalArgumentException("Deve conter nome da mãe!");
         }
-        if(usuario.getNomeMae().isBlank()){
+        if(usuarioDTO.getNomeMae().isBlank()){
             throw new IllegalArgumentException("Nome da mãe inválido!");
         }
 
-        if(usuario.getNomePai() != null){
-            if(usuario.getNomePai().isBlank()){
+        if(usuarioDTO.getNomePai() != null){
+            if(usuarioDTO.getNomePai().isBlank()){
                 throw new IllegalArgumentException("Nome do pai inválido!");
             }
         }
 
-        if(usuario.getSenha() == null){
+        if(usuarioDTO.getSenha() == null){
             throw new IllegalArgumentException("Deve conter senha!");
         }
-        if(usuario.getSenha().isBlank()){
+        if(usuarioDTO.getSenha().isBlank()){
             throw new IllegalArgumentException("Senha inválida!");
         }
 
-        if(usuario.getDataNascimento() == null){
+        if(usuarioDTO.getDataNascimento() == null){
             throw new IllegalArgumentException("Deve conter data de nascimento!");
         }
     }
