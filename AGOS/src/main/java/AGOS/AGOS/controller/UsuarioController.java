@@ -1,12 +1,13 @@
 package AGOS.AGOS.controller;
 
-import AGOS.AGOS.entity.Usuario;
+import AGOS.AGOS.DTO.UsuarioDTO;
 import AGOS.AGOS.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -16,29 +17,29 @@ public class UsuarioController {
     private UsuarioService usuarioService;
 
     @GetMapping
-    public ResponseEntity<?> findById(@RequestParam("id") final Long id) {
+    public ResponseEntity<UsuarioDTO> findById(@RequestParam("id") final Long id) {
         try {
-            final Usuario usuario = this.usuarioService.findById(id);
-            return ResponseEntity.ok(usuario);
+            final UsuarioDTO usuarioDTO = this.usuarioService.findById(id);
+            return ResponseEntity.ok(usuarioDTO);
         }catch (IllegalArgumentException e){
-            return ResponseEntity.badRequest().body(e.getMessage());
+            return ResponseEntity.badRequest().body(new UsuarioDTO());
         }
     }
 
     @GetMapping("/lista")
-    public ResponseEntity<?> findAll() {
+    public ResponseEntity<List<UsuarioDTO>> findAll() {
         try {
-            final List<Usuario> usuario = this.usuarioService.findAll();
-            return ResponseEntity.ok(usuario);
+            final List<UsuarioDTO> usuariosDTO = this.usuarioService.findAll();
+            return ResponseEntity.ok(usuariosDTO);
         }catch (IllegalArgumentException e){
-            return ResponseEntity.badRequest().body(e.getMessage());
+            return ResponseEntity.badRequest().body(new ArrayList<>());
         }
     }
 
     @PostMapping
-    public ResponseEntity<?> create(@RequestBody final Usuario usuario) {
+    public ResponseEntity<String> create(@RequestBody final UsuarioDTO usuarioDTO) {
         try{
-            this.usuarioService.create(usuario);
+            this.usuarioService.create(usuarioDTO);
             return ResponseEntity.ok("Usuário cadastrado com sucesso!");
         }
         catch (IllegalArgumentException e){
@@ -47,9 +48,9 @@ public class UsuarioController {
     }
 
     @PutMapping
-    public ResponseEntity<?> update(@RequestParam("id") final Long id, @RequestBody final Usuario usuario) {
+    public ResponseEntity<String> update(@RequestParam("id") final Long id, @RequestBody final UsuarioDTO usuarioDTO) {
         try{
-            this.usuarioService.update(id, usuario);
+            this.usuarioService.update(id, usuarioDTO);
             return ResponseEntity.ok("Usuário editado com sucesso!");
         }
         catch (IllegalArgumentException e){
@@ -58,7 +59,7 @@ public class UsuarioController {
     }
 
     @DeleteMapping
-    public ResponseEntity<?> delete(@RequestParam("id") final Long id){
+    public ResponseEntity<String> delete(@RequestParam("id") final Long id){
         try{
             this.usuarioService.delete(id);
             return ResponseEntity.ok("Usuário excluido com sucesso!");
