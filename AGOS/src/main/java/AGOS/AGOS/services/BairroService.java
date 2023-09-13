@@ -1,65 +1,81 @@
 package AGOS.AGOS.services;
 
+import AGOS.AGOS.DTO.BairroDTO;
 import AGOS.AGOS.entity.Bairro;
 import AGOS.AGOS.repository.BairroRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class BairroService {
     @Autowired
     private BairroRepository bairroRepository;
+    @Autowired
+    private ModelMapper modelMapper;
 
     @Transactional(rollbackFor = Exception.class)
-    public Bairro findById(final Long id){
+    public BairroDTO findById(final Long id){
         Bairro bairro = this.bairroRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Bairro não encontrado!"));
-        return bairro;
+        return convertToDTO(bairro);
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public List<Bairro> findAll(){
+    public List<BairroDTO> findAll(){
         List<Bairro> bairros = this.bairroRepository.findAll();
         if (bairros.isEmpty()){
             throw new IllegalArgumentException("Nenhum bairro encontrado!");
         }
-        return bairros;
+        return bairros.stream().map(this::convertToDTO).collect(Collectors.toList());
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public void create(final Bairro bairro){
-        Bairro bairroDatabase = this.bairroRepository.findByNome(bairro.getNome());
+    public void create(final BairroDTO bairroDTO){
+        Bairro bairroDatabase = this.bairroRepository.findByNome(bairroDTO.getNome());
         if (bairroDatabase != null){
             throw new IllegalArgumentException("Bairro já cadastrado!");
         }
 
-        this.bairroRepository.save(bairro);
+        this.bairroRepository.save(convertToEntity(bairroDTO));
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public void update(final Long id, final Bairro bairro){
-        Bairro bairroBanco = findById(id);
+    public void update(final Long id, final BairroDTO bairroDTO){
+        Bairro bairroDatabase;
 
-        if(bairroBanco == null){
+        bairroDatabase = this.bairroRepository.findById(id).orElse(null);
+        if(bairroDatabase == null){
             throw new IllegalArgumentException("Registro não encontrado");
         }
-        if(!bairroBanco.getId().equals(bairro.getId())){
+        if(!bairroDatabase.getId().equals(bairroDTO.getId())){
             throw new IllegalArgumentException("Registros não conferem");
         }
 
-        Bairro bairroDatabase = this.bairroRepository.findByNome(bairro.getNome());
-        if(bairroDatabase != null && !bairroDatabase.getId().equals(bairro.getId())){
+        bairroDatabase = this.bairroRepository.findByNome(bairroDTO.getNome());
+        if(bairroDatabase != null && !bairroDatabase.getId().equals(bairroDTO.getId())){
             throw new IllegalArgumentException("Bairro já cadastrado!");
         }
 
-        this.bairroRepository.save(bairro);
+        this.bairroRepository.save(convertToEntity(bairroDTO));
     }
 
     @Transactional(rollbackFor = Exception.class)
     public void delete(final Long id){
-        Bairro bairro = findById(id);
+        Bairro bairro = this.bairroRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Bairro não encontrado!"));
         this.bairroRepository.delete(bairro);
+    }
+
+    private BairroDTO convertToDTO(Bairro bairro){
+        BairroDTO bairroDTO = modelMapper.map(bairro, BairroDTO.class);
+        return bairroDTO;
+    }
+
+    private Bairro convertToEntity(BairroDTO bairroDTO){
+        Bairro bairro = modelMapper.map(bairroDTO, Bairro.class);
+        return bairro;
     }
 }
