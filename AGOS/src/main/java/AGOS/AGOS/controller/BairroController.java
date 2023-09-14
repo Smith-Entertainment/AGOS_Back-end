@@ -1,5 +1,6 @@
 package AGOS.AGOS.controller;
 
+import AGOS.AGOS.DTO.BairroDTO;
 import AGOS.AGOS.entity.Bairro;
 import AGOS.AGOS.services.BairroService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -16,29 +18,29 @@ public class BairroController {
     private BairroService bairroService;
 
     @GetMapping
-    public ResponseEntity<?> findById(@RequestParam("id") final Long id){
+    public ResponseEntity<BairroDTO> findById(@RequestParam("id") final Long id){
         try {
-            Bairro bairro = this.bairroService.findById(id);
-            return ResponseEntity.ok(bairro);
+            BairroDTO bairroDTO = this.bairroService.findById(id);
+            return ResponseEntity.ok(bairroDTO);
         }catch (IllegalArgumentException e){
-            return ResponseEntity.badRequest().body(e.getMessage());
+            return ResponseEntity.badRequest().body(new BairroDTO());
         }
     }
 
     @GetMapping("/lista")
-    public ResponseEntity<?> findAll(){
+    public ResponseEntity<List<BairroDTO>> findAll(){
         try {
-            List<Bairro> bairros = this.bairroService.findAll();
-            return ResponseEntity.ok(bairros);
+            List<BairroDTO> bairrosDTO = this.bairroService.findAll();
+            return ResponseEntity.ok(bairrosDTO);
         }catch (IllegalArgumentException e){
-            return ResponseEntity.badRequest().body(e.getMessage());
+            return ResponseEntity.badRequest().body(new ArrayList<>());
         }
     }
 
     @PostMapping
-    public ResponseEntity<?> create(@RequestBody final Bairro bairro){
+    public ResponseEntity<String> create(@RequestBody final BairroDTO bairroDTO){
         try {
-            this.bairroService.create(bairro);
+            this.bairroService.create(bairroDTO);
             return ResponseEntity.ok("Bairro cadastrado com sucesso!");
         }catch (IllegalArgumentException e){
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -46,9 +48,9 @@ public class BairroController {
     }
 
     @PutMapping
-    public ResponseEntity<?> update(@RequestParam("id") final Long id, @RequestBody final Bairro bairro){
+    public ResponseEntity<String> update(@RequestParam("id") final Long id, @RequestBody final BairroDTO bairroDTO){
         try {
-            this.bairroService.update(id, bairro);
+            this.bairroService.update(id, bairroDTO);
             return ResponseEntity.ok("Bairro editado com sucesso!");
         }catch (IllegalArgumentException e){
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -56,7 +58,7 @@ public class BairroController {
     }
 
     @DeleteMapping
-    public ResponseEntity<?> delete(@RequestParam("id") final Long id){
+    public ResponseEntity<String> delete(@RequestParam("id") final Long id){
         try {
             this.bairroService.delete(id);
             return ResponseEntity.ok("Bairro excluido com sucesso!");
