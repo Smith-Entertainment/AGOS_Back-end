@@ -39,7 +39,6 @@ public class ObraService {
             Periodo periodo = new Periodo();
             periodo.setMes(Meses.valueOf(mesAnoInicio.getMonth().getDisplayName(TextStyle.FULL, new Locale("pt", "BR")).toUpperCase()));
             periodo.setAno(mesAnoInicio.getYear());
-            periodo.setObra(obraId);
             periodos.add(periodo);
             periodoRepository.save(periodo);
             mesAnoInicio = mesAnoInicio.plusMonths(1);
