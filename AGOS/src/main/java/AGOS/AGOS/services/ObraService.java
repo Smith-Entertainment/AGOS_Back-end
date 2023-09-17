@@ -18,14 +18,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import static org.hibernate.validator.internal.util.Contracts.assertNotNull;
+
 @Service
 public class ObraService {
 
     @Autowired
-    private PeriodoRepository periodoRepository;
+    public PeriodoRepository periodoRepository;
 
     @Autowired
-    private ObraRepository obraRepository;
+    public ObraRepository obraRepository;
 
     @Transactional
     public void createObra(ObraDTO obraDTO) {
@@ -34,7 +36,6 @@ public class ObraService {
         Obra obra = DTOToEntity(obraDTO);
         obraRepository.save(obra);
 
-        atualizarPeriodosObra(obra);
     }
 
     @Transactional
@@ -53,6 +54,8 @@ public class ObraService {
         assertNotBlank(obraDTO.getBairro(), "Bairro não pode estar em branco");
         assertNotBlank(obraDTO.getRua(), "Rua não pode estar em branco");
         assertNotBlank(obraDTO.getLicitacao(), "Licitacao não pode estar em branco");
+        assertNotNull(obraDTO.getValorEdital(), "Licitacao não pode estar em branco");
+        assertNotNull(obraDTO.getTipoObra(), "Tipo obra nao pode ser nulo");
     }
 
     private void assertNotBlank(String value, String message) {

@@ -13,7 +13,7 @@ import java.util.List;
 @Table(name = "tb_obra", schema = "public")
 public class Obra {
     @Id
-    @Getter
+    @Getter @Setter
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id",nullable = false,unique = true)
     private Long id;
