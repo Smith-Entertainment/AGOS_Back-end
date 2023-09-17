@@ -11,6 +11,7 @@ public class Empresa {
 
     @Id
     @Getter
+    @Setter
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, unique = true)
     Long id;
@@ -22,5 +23,6 @@ public class Empresa {
     @Getter @Setter
     @Column (name = "cnpj", length = 14)
     String cnpj;
+
 
 }

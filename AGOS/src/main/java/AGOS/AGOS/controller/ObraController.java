@@ -16,8 +16,7 @@ import java.util.List;
 @RequestMapping(value = "/api/obra")
 @CrossOrigin("*")
 public class ObraController {
-    @Autowired
-    ObraDTO obraDTO;
+
     @Autowired
     private ObraService obraService;
 
@@ -25,7 +24,7 @@ public class ObraController {
     private ObraRepository obraRepository;
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> findByIdPath(@PathVariable("id") final Long id) {
+    public ResponseEntity<?> findById(@PathVariable("id") final Long id) {
         final Obra obra = this.obraRepository.findById(id).orElse(null);
         return obra == null
                 ? ResponseEntity.badRequest().body("Id não existe ou não foi encontrado")
@@ -44,7 +43,7 @@ public class ObraController {
             obraService.createObra(obraDTO);
             return ResponseEntity.ok("Obra cadastrada com sucesso!");
         } catch (DataIntegrityViolationException e) {
-            return ResponseEntity.internalServerError().body("Error" + e.getCause().getCause().getMessage());
+            return ResponseEntity.internalServerError().body("Error " + e.getCause().getCause().getMessage());
         }
     }
 
@@ -60,7 +59,7 @@ public class ObraController {
         }
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> excluir(@PathVariable Long id) {
         final Obra obra = this.obraRepository.findById(id).orElse(null);
         if (obra == null) {
