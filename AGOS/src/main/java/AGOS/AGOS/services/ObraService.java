@@ -1,10 +1,14 @@
 package AGOS.AGOS.services;
 
-import AGOS.AGOS.entity.*;
+import AGOS.AGOS.DTO.ObraDTO;
+import AGOS.AGOS.entity.Meses;
+import AGOS.AGOS.entity.Obra;
+import AGOS.AGOS.entity.Periodo;
 import AGOS.AGOS.repository.ObraRepository;
 import AGOS.AGOS.repository.PeriodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.time.YearMonth;
@@ -17,11 +21,83 @@ import java.util.Locale;
 @Service
 public class ObraService {
 
-
     @Autowired
     private PeriodoRepository periodoRepository;
+
     @Autowired
     private ObraRepository obraRepository;
+
+    @Transactional
+    public void createObra(ObraDTO obraDTO) {
+        validateObraDTO(obraDTO);
+
+        Obra obra = DTOToEntity(obraDTO);
+        obraRepository.save(obra);
+
+        atualizarPeriodosObra(obra);
+    }
+
+    @Transactional
+    public void updateObra(Long obraId, ObraDTO obraDTO) {
+        validateObraDTO(obraDTO);
+
+        Obra existingObra = obraRepository.findById(obraId)
+                .orElseThrow(() -> new IllegalArgumentException("Obra não encontrada"));
+
+        updateObraFromDTO(existingObra, obraDTO);
+        obraRepository.save(existingObra);
+    }
+
+    private void validateObraDTO(ObraDTO obraDTO) {
+        assertNotBlank(obraDTO.getTitulo(), "Título não pode estar em branco");
+        assertNotBlank(obraDTO.getBairro(), "Bairro não pode estar em branco");
+        assertNotBlank(obraDTO.getRua(), "Rua não pode estar em branco");
+        assertNotBlank(obraDTO.getLicitacao(), "Licitacao não pode estar em branco");
+    }
+
+    private void assertNotBlank(String value, String message) {
+        assert !value.isBlank() : message;
+    }
+
+    private Obra DTOToEntity(ObraDTO obraDTO) {
+        Obra obra = new Obra();
+        obra.setTitulo(obraDTO.getTitulo());
+        obra.setImagem(obraDTO.getImagem());
+        obra.setObjetivo(obraDTO.getObjetivo());
+        obra.setLicitacao(obraDTO.getLicitacao());
+        obra.setDataCertame(obraDTO.getDataCertame());
+        obra.setValorEdital(obraDTO.getValorEdital());
+        obra.setBairro(obraDTO.getBairro());
+        obra.setRua(obraDTO.getRua());
+        obra.setNumero(obraDTO.getNumero());
+        obra.setValorContratado(obraDTO.getValorContratado());
+        obra.setDataInicio(obraDTO.getDataInicio());
+        obra.setDataTermino(obraDTO.getDataTermino());
+        obra.setNumeroContrato(obraDTO.getNumeroContrato());
+        obra.setEmpresaContratada(obraDTO.getEmpresaContratada());
+        obra.setFinalizado(obraDTO.isFinalizado());
+        obra.setTipoObra(obraDTO.getTipoObra());
+        return obra;
+    }
+
+    private void updateObraFromDTO(Obra obra, ObraDTO obraDTO) {
+        obra.setTitulo(obraDTO.getTitulo());
+        obra.setImagem(obraDTO.getImagem());
+        obra.setObjetivo(obraDTO.getObjetivo());
+        obra.setLicitacao(obraDTO.getLicitacao());
+        obra.setDataCertame(obraDTO.getDataCertame());
+        obra.setValorEdital(obraDTO.getValorEdital());
+        obra.setBairro(obraDTO.getBairro());
+        obra.setRua(obraDTO.getRua());
+        obra.setNumero(obraDTO.getNumero());
+        obra.setValorContratado(obraDTO.getValorContratado());
+        obra.setDataInicio(obraDTO.getDataInicio());
+        obra.setDataTermino(obraDTO.getDataTermino());
+        obra.setNumeroContrato(obraDTO.getNumeroContrato());
+        obra.setEmpresaContratada(obraDTO.getEmpresaContratada());
+        obra.setFinalizado(obraDTO.isFinalizado());
+        obra.setTipoObra(obraDTO.getTipoObra());
+    }
 
     public void atualizarPeriodosObra(Obra obra) {
         final Obra obraId = obraRepository.findById(obra.getId()).orElse(null);
@@ -42,7 +118,7 @@ public class ObraService {
             periodos.add(periodo);
             periodoRepository.save(periodo);
             mesAnoInicio = mesAnoInicio.plusMonths(1);
-        }   
+        }
         obraRepository.save(obra);
     }
 

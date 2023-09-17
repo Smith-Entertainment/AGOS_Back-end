@@ -1,6 +1,9 @@
 package AGOS.AGOS.DTO;
 
+import AGOS.AGOS.entity.TipoObra;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -63,6 +66,7 @@ public class ObraDTO {
     @Getter @Setter
     private boolean finalizado;
 
+    @Enumerated(EnumType.STRING)
     @Getter @Setter
-    private String tipoObra;
+    private TipoObra tipoObra;
 }
