@@ -1,4 +1,6 @@
 package AGOS.AGOS.controller;
+import AGOS.AGOS.DTO.EnvioDTO;
+import AGOS.AGOS.DTO.ObraDTO;
 import AGOS.AGOS.entity.Envio;
 import AGOS.AGOS.entity.Obra;
 import AGOS.AGOS.repository.EnvioRepository;
@@ -20,17 +22,17 @@ public class EnvioController {
 
     @GetMapping("/lista")
     public ResponseEntity<?> findAllEnvios() {
-        final List<Envio> envios = this.envioService.findEnvios();
+        final List<EnvioDTO> enviosDTO = this.envioService.findAllEnvios();
 
-        return ResponseEntity.ok(envios);
+        return ResponseEntity.ok(enviosDTO);
     }
 
 
 
 @PostMapping
-    public ResponseEntity<?> realizarEnvio(@RequestBody final Envio envio, final Obra obra){
+    public ResponseEntity<?> realizarEnvio(@RequestBody final EnvioDTO envioDTO, final ObraDTO obraDTO){
         try{
-            envioService.createEnvio(envio,obra);
+            envioService.createEnvio(envioDTO,obraDTO);
             return ResponseEntity.ok("Envio cadastrado com sucesso");
         }
         catch (RuntimeException e){
@@ -43,9 +45,9 @@ public class EnvioController {
 
 
 @PutMapping("/{id}")
-    public ResponseEntity<?> atualizarEnvio(@RequestBody Envio envio,@PathVariable Long id){
+    public ResponseEntity<?> atualizarEnvio(@RequestBody EnvioDTO envioDTO,@PathVariable Long id){
         try{
-            envioService.updateEnvio(envio,id);
+            envioService.updateEnvio(envioDTO,id);
             return ResponseEntity.ok("Envio modificado com sucesso");
         }
         catch (RuntimeException e){
