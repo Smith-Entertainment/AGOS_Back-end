@@ -1,57 +1,64 @@
 package AGOS.AGOS.controller;
 
-import AGOS.AGOS.entity.Valor;
+import AGOS.AGOS.DTO.ValorDTO;
 import AGOS.AGOS.services.ValorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
-@RequestMapping("api/valor")
+@RestController
+@RequestMapping("/api/valores")
 public class ValorController {
     @Autowired
-    private ValorService cronogramaService;
+    private ValorService valorService;
 
     @GetMapping
-    public ResponseEntity<?> findById(@RequestParam("id")final Long id){
+    public ResponseEntity<ValorDTO> findById (@RequestParam Long id) {
         try {
-            final Valor valor = this.cronogramaService.findById(id);
-            return ResponseEntity.ok(valor);
+            ValorDTO valorDTO = valorService.findById(id);
+            return new ResponseEntity<>(valorDTO, HttpStatus.OK);
         } catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().body("{\"error\":\"" + e.getMessage() + "\"}");
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-
-    @GetMapping("/list")
-    public ResponseEntity<?>findAll(){
-        try{
-            final List<Valor> valorList = this.cronogramaService.findAll();
-            return ResponseEntity.ok(valorList);
+    @GetMapping
+    public ResponseEntity<List<ValorDTO>> findAll (@RequestParam Long id) {
+        try {
+            List<ValorDTO> valorDTOList = valorService.findAll(id);
+            return new ResponseEntity<>(valorDTOList, HttpStatus.OK);
         } catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().body("{\"error\":\"" + e.getMessage() + "\"}");
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-
     @PostMapping
-    public ResponseEntity<?>create(@RequestBody final Valor valor){
+    public ResponseEntity<ValorDTO> create (@RequestBody ValorDTO valorDTO) {
         try {
-            this.cronogramaService.create(valor);
-            return ResponseEntity.ok("Registro Cadastrado com Sucesso");
+            ValorDTO createdValorDTO = valorService.create(valorDTO);
+            return new ResponseEntity<>(createdValorDTO, HttpStatus.CREATED);
         } catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().body("{\"error\":\"" + e.getMessage() + "\"}");
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
     @PutMapping
-    public ResponseEntity<?> update(@RequestParam("id") final Long id, @RequestBody final Valor valor) {
+    public ResponseEntity<ValorDTO> update (@RequestParam Long id, @RequestBody ValorDTO valorDTO) {
         try {
-            this.cronogramaService.update(valor);
-            return ResponseEntity.ok("Registro editado com sucesso");
-        }  catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().body("{\"error\":\"" + e.getMessage() + "\"}");
+            valorDTO.setId(id);
+            ValorDTO updatedValorDTO = valorService.update(valorDTO);
+            return new ResponseEntity<>(updatedValorDTO, HttpStatus.OK);
+        } catch (IllegalArgumentException e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
-
+    @DeleteMapping
+    public ResponseEntity<Void> delete (@RequestParam Long id) {
+        try {
+            valorService.delete(id);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } catch (IllegalArgumentException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 }
