@@ -1,56 +1,64 @@
 package AGOS.AGOS.controller;
 
-import AGOS.AGOS.entity.Periodo;
+import AGOS.AGOS.DTO.PeriodoDTO;
 import AGOS.AGOS.services.PeriodoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
-@RequestMapping("/api/periodo")
+@RestController
+@RequestMapping("/api/periodos")
 public class PeriodoController {
     @Autowired
-    private PeriodoService periodoService;
-
+    private  PeriodoService periodoService;
     @GetMapping
-    public ResponseEntity<?> findById(@RequestParam("id")Long id){
+    public ResponseEntity<PeriodoDTO> findById (@RequestParam Long id) {
         try {
-            final Periodo periodo = this.periodoService.findById(id);
-            return ResponseEntity.ok(periodo);
-        }catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().body("{\"error\":\"" + e.getMessage() + "\"}");
+            PeriodoDTO periodoDTO = periodoService.findById(id);
+            return new ResponseEntity<>(periodoDTO, HttpStatus.OK);
+        } catch (IllegalArgumentException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-    @GetMapping("/list")
-    public ResponseEntity<?>findAllOf(@RequestParam("id")Long id){
+    @GetMapping
+    public ResponseEntity<List<PeriodoDTO>> findAll (@RequestParam Long id) {
         try {
-            final List<Periodo> periodo = this.periodoService.findAll(id);
-            return ResponseEntity.ok(periodo);
-        }catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().body("{\"error\":\"" + e.getMessage() + "\"}");
+            List<PeriodoDTO> periodoDTOList = periodoService.findAll(id);
+            return new ResponseEntity<>(periodoDTOList, HttpStatus.OK);
+        } catch (IllegalArgumentException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
     @PostMapping
-    public ResponseEntity<?> create(@RequestBody final Periodo periodos){
+    public ResponseEntity<PeriodoDTO> create (@RequestBody PeriodoDTO periodoDTO) {
         try {
-            this.periodoService.create(periodos);
-            return ResponseEntity.ok("Registro Cadastrado com Sucesso");
+            PeriodoDTO createdPeriodoDTO = periodoService.create(periodoDTO);
+            return new ResponseEntity<>(createdPeriodoDTO, HttpStatus.CREATED);
         } catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().body("{\"error\":\"" + e.getMessage() + "\"}");
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
     @PutMapping
-    public ResponseEntity<?> update(@RequestParam("id") Long id,@RequestBody Periodo periodo){
+    public ResponseEntity<PeriodoDTO> update (@RequestParam Long id, @RequestBody PeriodoDTO periodoDTO) {
         try {
-            this.periodoService.update(periodo);
-            return ResponseEntity.ok("Registro Atualizado com Sucesso");
-        } catch (IllegalArgumentException e){
-            return ResponseEntity.badRequest().body("{\"error\":\""+ e.getMessage() + "\"");
+            periodoDTO.setId(id);
+            PeriodoDTO updatedPeriodoDTO = periodoService.update(periodoDTO);
+            return new ResponseEntity<>(updatedPeriodoDTO, HttpStatus.OK);
+        } catch (IllegalArgumentException e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
-
+    @DeleteMapping
+    public ResponseEntity<Void> delete (@RequestParam Long id) {
+        try {
+            periodoService.delete(id);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } catch (IllegalArgumentException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 }

@@ -1,52 +1,65 @@
-package AGOS.AGOS.services;
+    package AGOS.AGOS.services;
 
-import AGOS.AGOS.entity.Periodo;
-import AGOS.AGOS.repository.PeriodoRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+    import AGOS.AGOS.DTO.PeriodoDTO;
+    import AGOS.AGOS.entity.Periodo;
+    import AGOS.AGOS.repository.PeriodoRepository;
+    import org.modelmapper.ModelMapper;
+    import org.springframework.beans.factory.annotation.Autowired;
+    import org.springframework.stereotype.Service;
+    import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
+    import java.util.List;
+    import java.util.stream.Collectors;
 
-@Service
-public class PeriodoService {
-
-    @Autowired
-    private PeriodoRepository periodoRepository;
-
-    @Transactional(rollbackFor = Exception.class)
-    public Periodo findById(Long id){
-        final Periodo periodo = this.periodoRepository.findById(id)
-                .orElseThrow(()-> new IllegalArgumentException("Periodo não encontrado"));
-        return periodo;
-    }
-    @Transactional(rollbackFor = Exception.class)
-    public List<Periodo> findAll(Long id){
-        final List<Periodo> periodos = periodoRepository.findByObraId(id);
-        return periodos;
-    }
-
-    @Transactional(rollbackFor = Exception.class)
-    public Periodo create (Periodo periodo){
-        int ano = periodo.getAno();
-        String anoString = Integer.toString(ano);
-
-        if (!anoString.matches("[0-9]{4}")){
-            throw new IllegalArgumentException("Ano inválido");
+    @Service
+    public class PeriodoService {
+        @Autowired
+        private PeriodoRepository periodoRepository;
+        @Autowired
+        private ModelMapper modelMapper;
+        private Periodo toPeriodo(PeriodoDTO periodoDTO){
+            return modelMapper.map(periodoDTO, Periodo.class);
         }
-        return periodoRepository.save(periodo);
-    }
-
-    @Transactional(rollbackFor = Exception.class)
-    public Periodo update (Periodo periodo){
-        int ano = periodo.getAno();
-        String anoString = Integer.toString(ano);
-
-        if (!anoString.matches("[0-9]{4}")){
-            throw new IllegalArgumentException("Ano inválido");
+        private PeriodoDTO toPeriodoDTO (Periodo periodo){
+            return modelMapper.map(periodo, PeriodoDTO.class);
         }
-        return periodoRepository.save(periodo);
+         void isNull(Long id ){
+            periodoRepository.findById(id)
+                    .orElseThrow(()-> new IllegalArgumentException("Periodo não encontrado"));
+        }
+         void validationPeriodoDTO(PeriodoDTO periodoDTO){
+            int ano = periodoDTO.getAno();
+            String anoString = Integer.toString(ano);
+            if (!anoString.matches("[0-9]{4}")){
+                throw new IllegalArgumentException("Ano inválido");
+            }
+        }
+        public PeriodoDTO findById(Long id){
+            isNull(id);
+            final Periodo periodo = this.periodoRepository.findById(id).orElse(null);
+            return toPeriodoDTO(periodo);
+        }
+        public List<PeriodoDTO> findAll(Long id){
+            final List<Periodo> periodos = periodoRepository.findByObraId(id);
+            return periodos.stream()
+                    .map(this::toPeriodoDTO)
+                    .collect(Collectors.toList());
+        }
+        @Transactional(rollbackFor = Exception.class)
+        public PeriodoDTO create (PeriodoDTO periodo){
+            validationPeriodoDTO(periodo);
+            return toPeriodoDTO(periodoRepository.save(toPeriodo(periodo)));
+        }
+        @Transactional(rollbackFor = Exception.class)
+        public PeriodoDTO update (PeriodoDTO periodo){
+            isNull(periodo.getId());
+            validationPeriodoDTO(periodo);
+            return toPeriodoDTO(periodoRepository.save(toPeriodo(periodo)));
+        }
+        @Transactional(rollbackFor = Exception.class)
+        public void delete(Long id){
+            isNull(id);
+            periodoRepository.deleteById(id);
+        }
+
     }
-
-
-}
