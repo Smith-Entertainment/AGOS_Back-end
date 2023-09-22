@@ -52,7 +52,7 @@ public class ValorService {
         return toValorDTO(valor);
     }
     public List<ValorDTO> findAll(Long id){
-        final List<Valor> itemList= this.valorRepository.findByPeriodoObraId(id);
+        final List<Valor> itemList= this.valorRepository.findAll();
         return itemList.stream()
                 .map(this::toValorDTO)
                 .collect(Collectors.toList());

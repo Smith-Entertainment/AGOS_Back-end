@@ -31,9 +31,8 @@ public class Valor {
     @OneToOne
     @JoinColumn(name = "periodo_id")
     private Periodo periodo;
-    @ManyToMany
-    @JoinTable(name = "Item_valor",
-            joinColumns = @JoinColumn(name = "item_id"),
-            inverseJoinColumns = @JoinColumn(name = "valor_item_id"))
+    @ManyToOne
+    @Getter @Setter
+    @JoinColumn(name = "item_id")
     private Item item;
 }

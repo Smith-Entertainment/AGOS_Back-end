@@ -1,4 +1,4 @@
-package AGOS.AGOS.controllers;
+package AGOS.AGOS.controller;
 
 import AGOS.AGOS.DTO.ItemDTO;
 import AGOS.AGOS.services.ItemService;

@@ -23,28 +23,6 @@ public class ObraService {
     @Autowired
     private ObraRepository obraRepository;
 
-    public void atualizarPeriodosObra(Obra obra) {
-        final Obra obraId = obraRepository.findById(obra.getId()).orElse(null);
-        LocalDate dataInicio = obra.getDataInicio();
-        LocalDate dataTermino = obra.getDataTermino();
 
-
-        List<Periodo> periodos = new ArrayList<>();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM yyyy", new Locale("pt", "BR"));
-
-        YearMonth mesAnoInicio = YearMonth.from(dataInicio);
-        YearMonth mesAnoTermino = YearMonth.from(dataTermino);
-
-        while (!mesAnoInicio.isAfter(mesAnoTermino)) {
-            Periodo periodo = new Periodo();
-            periodo.setMes(Meses.valueOf(mesAnoInicio.getMonth().getDisplayName(TextStyle.FULL, new Locale("pt", "BR")).toUpperCase()));
-            periodo.setAno(mesAnoInicio.getYear());
-            periodo.setObra(obraId);
-            periodos.add(periodo);
-            periodoRepository.save(periodo);
-            mesAnoInicio = mesAnoInicio.plusMonths(1);
-        }   
-        obraRepository.save(obra);
-    }
 
 }

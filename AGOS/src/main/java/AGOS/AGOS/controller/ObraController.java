@@ -50,24 +50,7 @@ public class ObraController {
             return ResponseEntity.internalServerError().body("Error" + e.getCause().getCause().getMessage());
         }
     }
-    @PutMapping("/{id}")
-    public ResponseEntity<?> editar(@PathVariable("id") final Long id, @RequestBody final Obra obra) {
-        try {
-           // obraService.validaCadastro(obra);
-            final Obra obraBanco = this.obraRepository.findById(id).orElse(null);
 
-            if (obraBanco == null || !obraBanco.getId().equals(obra.getId())) {
-                return ResponseEntity.badRequest().body("Não foi possível identificar a obra informada");
-            }
-
-            this.obraService.atualizarPeriodosObra(obra);
-            return ResponseEntity.ok("Obra editada com sucesso!");
-        } catch (DataIntegrityViolationException e) {
-            return ResponseEntity.internalServerError().body("Error " + e.getCause().getCause().getMessage());
-        } catch (RuntimeException e) {
-            return ResponseEntity.internalServerError().body("Error " + e.getMessage());
-        }
-    }
     @DeleteMapping("{id}")
     public ResponseEntity<?> excluir(@PathVariable Long id) {
         final Obra obra = this.obraRepository.findById(id).orElse(null);
