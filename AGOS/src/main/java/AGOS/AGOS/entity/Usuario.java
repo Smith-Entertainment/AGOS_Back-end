@@ -34,7 +34,12 @@ public class Usuario {
     private String nomeMae;
     @Column(name = "data_nascimento", nullable = false)
     private LocalDate dataNascimento;
-    @ManyToMany(mappedBy = "usuarios")
+    @ManyToMany
+    @JoinTable(
+            name = "tb_usuario_obra",
+            joinColumns = @JoinColumn(name = "id_usuario"),
+            inverseJoinColumns = @JoinColumn(name = "id_obra")
+    )
     private List<Obra> obras;
     @ManyToMany(mappedBy = "usuarios")
     private List<Envio> envios;

@@ -3,6 +3,7 @@ package AGOS.AGOS.DTO;
 import AGOS.AGOS.entity.Envio;
 import AGOS.AGOS.entity.Obra;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
@@ -22,8 +23,7 @@ public class UsuarioDTO {
     private String nomePai;
     private String nomeMae;
     private LocalDate dataNascimento;
-    @JsonManagedReference
     private List<Obra> obras;
-    @JsonBackReference
+    @JsonIgnore
     private List<Envio> envios;
 }

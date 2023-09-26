@@ -1,7 +1,6 @@
 package AGOS.AGOS.controller;
 
 import AGOS.AGOS.DTO.BairroDTO;
-import AGOS.AGOS.entity.Bairro;
 import AGOS.AGOS.services.BairroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
