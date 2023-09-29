@@ -40,6 +40,10 @@ public class BairroService {
             throw new IllegalArgumentException("Bairro já cadastrado!");
         }
 
+        if (bairroDTO.getNome().isBlank()){
+            throw new IllegalArgumentException("Nome de bairro inválido!");
+        }
+
         this.bairroRepository.save(convertToEntity(bairroDTO));
     }
 
@@ -58,6 +62,10 @@ public class BairroService {
         bairroDatabase = this.bairroRepository.findByNome(bairroDTO.getNome());
         if(bairroDatabase != null && !bairroDatabase.getId().equals(bairroDTO.getId())){
             throw new IllegalArgumentException("Bairro já cadastrado!");
+        }
+
+        if (bairroDTO.getNome().isBlank()){
+            throw new IllegalArgumentException("Nome de bairro inválido!");
         }
 
         this.bairroRepository.save(convertToEntity(bairroDTO));
