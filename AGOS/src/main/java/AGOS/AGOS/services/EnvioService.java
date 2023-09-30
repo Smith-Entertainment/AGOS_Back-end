@@ -34,7 +34,7 @@ public class EnvioService {
         List<EnvioDTO> listEnvioDTO = new ArrayList<>();
 
         for(Envio envioEntity: envioRepository.findAll()){
-            EnvioDTO envioDTO = convertToDTO(envioEntity);
+            EnvioDTO envioDTO = modelMapper.map(envioEntity,EnvioDTO.class);
             listEnvioDTO.add(envioDTO);
         }
 
@@ -50,7 +50,7 @@ public class EnvioService {
 
         Assert.isTrue(envioBD.isPresent(),"Usuário não encontrado");
 
-        return convertToDTO(envioBD.get());
+        return modelMapper.map(envioBD.get(),EnvioDTO.class);
 
     }
 
@@ -107,30 +107,6 @@ public class EnvioService {
         envioRepository.deleteById(id);
 
     }
-
-
-
-    public EnvioDTO convertToDTO(Envio envio){
-
-        EnvioDTO envioDTO = new EnvioDTO();
-        envioDTO.setId(envio.getId());
-        envioDTO.setVoluntario(envio.getVoluntario());
-        envioDTO.setObra(envio.getObra());
-
-        return envioDTO;
-    }
-
-    public Envio convertToEntity(EnvioDTO enviodto){
-
-        Envio envio = new Envio();
-        envio.setId(enviodto.getId());
-        envio.setVoluntario(enviodto.getVoluntario());
-        envio.setObra(enviodto.getObra());
-
-        return envio;
-    }
-
-
 
 
 }

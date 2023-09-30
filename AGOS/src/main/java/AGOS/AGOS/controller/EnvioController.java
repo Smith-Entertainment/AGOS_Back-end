@@ -21,7 +21,7 @@ public class EnvioController {
   private   EnvioService envioService;
 
     @GetMapping("/lista")
-    public ResponseEntity<?> findAllEnvios() {
+    public ResponseEntity<List<EnvioDTO>> findAllEnvios() {
         final List<EnvioDTO> enviosDTO = this.envioService.findAllEnvios();
 
         return ResponseEntity.ok(enviosDTO);
@@ -30,7 +30,7 @@ public class EnvioController {
 
 
 @PostMapping
-    public ResponseEntity<?> realizarEnvio(@RequestBody final EnvioDTO envioDTO, final ObraDTO obraDTO){
+    public ResponseEntity<String> realizarEnvio(@RequestBody final EnvioDTO envioDTO, final ObraDTO obraDTO){
         try{
             envioService.createEnvio(envioDTO,obraDTO);
             return ResponseEntity.ok("Envio cadastrado com sucesso");
@@ -45,7 +45,7 @@ public class EnvioController {
 
 
 @PutMapping("/{id}")
-    public ResponseEntity<?> atualizarEnvio(@RequestBody EnvioDTO envioDTO,@PathVariable Long id){
+    public ResponseEntity<String> atualizarEnvio(@RequestBody EnvioDTO envioDTO,@PathVariable Long id){
         try{
             envioService.updateEnvio(envioDTO,id);
             return ResponseEntity.ok("Envio modificado com sucesso");
@@ -59,7 +59,7 @@ public class EnvioController {
 
 
 @DeleteMapping("/{id}")
-    public ResponseEntity<?> deletarEnvio(@PathVariable Long id){
+    public ResponseEntity<String> deletarEnvio(@PathVariable Long id){
 
         try {
             envioService.deleteEnvio(id);

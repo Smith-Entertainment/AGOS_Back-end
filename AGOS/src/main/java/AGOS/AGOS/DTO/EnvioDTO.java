@@ -7,7 +7,7 @@ import lombok.*;
 
 import java.util.List;
 
-@Data
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -19,7 +19,7 @@ public class EnvioDTO {
     private Long id;
     private Usuario voluntario;
     private List<Item> item;
-    private Obra obra;
+    private ObraDTO obraDTO;
 
 
 
