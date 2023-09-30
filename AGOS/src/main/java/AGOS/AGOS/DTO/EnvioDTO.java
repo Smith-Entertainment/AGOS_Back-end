@@ -18,7 +18,7 @@ public class EnvioDTO {
 
     private Long id;
     private Usuario voluntario;
-    private List<Item> item;
+    private String comentario;
     private ObraDTO obraDTO;
 
 

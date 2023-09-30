@@ -27,9 +27,9 @@ public class Envio {
     private Usuario voluntario;
 
     @Getter @Setter
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @Column(name = "item", nullable = false)
-    private List<Item> item;
+    /*@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)*/
+    @Column(name = "comentario", nullable = false)
+    private String comentario;
 
     @Getter @Setter
     @ManyToOne(fetch =FetchType.LAZY ,cascade = CascadeType.ALL)

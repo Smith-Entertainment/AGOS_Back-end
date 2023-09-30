@@ -88,7 +88,7 @@ public class EnvioService {
         Optional<Envio> envioBD = envioRepository.findById(id);
         Assert.isTrue(envioBD.isEmpty(),"Envio não encontrado");
         Assert.isTrue(!envioEntity.getObra().isFinalizado(),"Obra Finalizada, não pode fazer envios");
-        Assert.notNull(envioEntity.getItem(),"iten não pode ser null");
+        Assert.notNull(envioEntity.getComentario(),"iten não pode ser null");
 
         envioRepository.save(envioEntity);
 
