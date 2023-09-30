@@ -58,7 +58,7 @@ public class EnvioService {
 
 
 
-    public void createEnvio(EnvioDTO envioDTO, ObraDTO obraDTO) {
+    public EnvioDTO createEnvio(EnvioDTO envioDTO, ObraDTO obraDTO) {
 
 
 
@@ -71,7 +71,8 @@ public class EnvioService {
         Assert.isTrue(obraBD.get().getDataInicio().isAfter(obraBD.get().getDataTermino()),"Obra não iniciada, não pode realizar envios");
         Assert.isTrue(!envioEntity.getObra().isFinalizado(),"Obra Finalizada, não pode fazer envios");
 /*        Assert.notNull(envio.getItem(),"iten não pode ser null");*/
-         envioRepository.save(envioEntity);
+        envioRepository.save(envioEntity);
+        return envioDTO;
 
     }
 
@@ -80,7 +81,7 @@ public class EnvioService {
 
 
 
-    public void updateEnvio(EnvioDTO envioDTO, Long id){
+    public EnvioDTO updateEnvio(EnvioDTO envioDTO, Long id){
 
 
         Envio envioEntity = modelMapper.map(envioDTO,Envio.class);
@@ -91,6 +92,7 @@ public class EnvioService {
         Assert.notNull(envioEntity.getComentario(),"iten não pode ser null");
 
         envioRepository.save(envioEntity);
+        return envioDTO;
 
     }
 
@@ -99,12 +101,14 @@ public class EnvioService {
 
 
 
-    public void deleteEnvio(Long id){
+    public String deleteEnvio(Long id){
 
         Optional<Envio> envioBD = envioRepository.findById(id);
 
         Assert.isTrue(envioBD.isEmpty(),"Envio não encontrado");
         envioRepository.deleteById(id);
+
+        return "Envio excluido";
 
     }
 
