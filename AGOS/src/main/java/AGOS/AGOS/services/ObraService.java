@@ -1,6 +1,6 @@
 package AGOS.AGOS.services;
 
-import AGOS.AGOS.DTO.ObraDTO;
+import AGOS.AGOS.dto.ObraDTO;
 import AGOS.AGOS.entity.Meses;
 import AGOS.AGOS.entity.Obra;
 import AGOS.AGOS.entity.Periodo;
@@ -65,40 +65,38 @@ public class ObraService {
     private Obra DTOToEntity(ObraDTO obraDTO) {
         Obra obra = new Obra();
         obra.setTitulo(obraDTO.getTitulo());
-        obra.setImagem(obraDTO.getImagem());
-        obra.setObjetivo(obraDTO.getObjetivo());
+        obra.setFoto(obraDTO.getFoto());
         obra.setLicitacao(obraDTO.getLicitacao());
         obra.setDataCertame(obraDTO.getDataCertame());
         obra.setValorEdital(obraDTO.getValorEdital());
         obra.setBairro(obraDTO.getBairro());
         obra.setRua(obraDTO.getRua());
-        obra.setNumero(obraDTO.getNumero());
+        obra.setNumeroEndereco(obraDTO.getNumero());
         obra.setValorContratado(obraDTO.getValorContratado());
         obra.setDataInicio(obraDTO.getDataInicio());
         obra.setDataTermino(obraDTO.getDataTermino());
         obra.setNumeroContrato(obraDTO.getNumeroContrato());
         obra.setEmpresaContratada(obraDTO.getEmpresaContratada());
-        obra.setFinalizado(obraDTO.isFinalizado());
+        obra.setSituacao(obraDTO.getSituacao());
         obra.setTipoObra(obraDTO.getTipoObra());
         return obra;
     }
 
     private void updateObraFromDTO(Obra obra, ObraDTO obraDTO) {
         obra.setTitulo(obraDTO.getTitulo());
-        obra.setImagem(obraDTO.getImagem());
-        obra.setObjetivo(obraDTO.getObjetivo());
+        obra.setFoto(obraDTO.getFoto());
         obra.setLicitacao(obraDTO.getLicitacao());
         obra.setDataCertame(obraDTO.getDataCertame());
         obra.setValorEdital(obraDTO.getValorEdital());
         obra.setBairro(obraDTO.getBairro());
         obra.setRua(obraDTO.getRua());
-        obra.setNumero(obraDTO.getNumero());
+        obra.setNumeroEndereco(obraDTO.getNumero());
         obra.setValorContratado(obraDTO.getValorContratado());
         obra.setDataInicio(obraDTO.getDataInicio());
         obra.setDataTermino(obraDTO.getDataTermino());
         obra.setNumeroContrato(obraDTO.getNumeroContrato());
         obra.setEmpresaContratada(obraDTO.getEmpresaContratada());
-        obra.setFinalizado(obraDTO.isFinalizado());
+        obra.setSituacao(obraDTO.getSituacao());
         obra.setTipoObra(obraDTO.getTipoObra());
     }
 

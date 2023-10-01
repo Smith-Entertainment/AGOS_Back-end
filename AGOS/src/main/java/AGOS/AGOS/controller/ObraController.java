@@ -1,6 +1,6 @@
 package AGOS.AGOS.controller;
 
-import AGOS.AGOS.DTO.ObraDTO;
+import AGOS.AGOS.dto.ObraDTO;
 import AGOS.AGOS.entity.Obra;
 import AGOS.AGOS.repository.ObraRepository;
 import AGOS.AGOS.services.ObraService;

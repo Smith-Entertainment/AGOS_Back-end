@@ -1,6 +1,6 @@
 package AGOS.AGOS.controller;
 
-import AGOS.AGOS.DTO.EmpresaDTO;
+import AGOS.AGOS.dto.EmpresaDTO;
 import AGOS.AGOS.entity.Empresa;
 import AGOS.AGOS.services.EmpresaService;
 import org.springframework.beans.factory.annotation.Autowired;
