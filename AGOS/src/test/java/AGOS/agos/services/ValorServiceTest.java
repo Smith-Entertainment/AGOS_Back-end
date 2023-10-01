@@ -10,13 +10,14 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.modelmapper.ModelMapper;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
 import java.util.Optional;
-
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
+@SpringBootTest(classes =Valor.class)
  class ValorServiceTest {
     @InjectMocks
      ValorService valorService;
@@ -35,7 +36,7 @@ import static org.mockito.Mockito.*;
          when(valorRepository.findById(1L)).thenReturn(Optional.of(valor));
      }
      @Test
-     void testFindByIdValidId() {
+     void TestServiceFindById01() {
          Long id = 1L;
          Valor valor = new Valor();
          valor.setId(id);
@@ -48,14 +49,14 @@ import static org.mockito.Mockito.*;
          assertEquals(id, result.getId());
      }
 @Test
-     void testFindByIdInvalidId() {
+     void TestServiceFindById02() {
         Long id = 1L;
         when(valorRepository.findById(id)).thenReturn(Optional.empty());
         assertThrows(IllegalArgumentException.class, () -> valorService.findById(id));
     }
 
      @Test
-     void testCreateValidValorDTO() {
+     void TestServiceCreate01() {
          ValorDTO valorDTO = createValidValorDTO();
          Valor valor = valorService.toValor(valorDTO);
          when(modelMapper.map(valor, ValorDTO.class)).thenReturn(valorDTO);
@@ -66,12 +67,12 @@ import static org.mockito.Mockito.*;
 
 
      @Test
-     void testCreateInvalidValorDTO() {
-        ValorDTO valorDTO = new ValorDTO(); // ValorDTO inválido
+     void TestServiceCreate02() {
+        ValorDTO valorDTO = new ValorDTO();
         assertThrows(IllegalArgumentException.class, () -> valorService.create(valorDTO));
     }
      @Test
-     void testUpdateValidValorDTO() {
+     void TestServiceUpdate01() {
          Long id = 1L;
          ValorDTO valorDTO = createValidValorDTO();
          valorDTO.setId(id);
@@ -81,15 +82,29 @@ import static org.mockito.Mockito.*;
          ValorDTO result = valorService.update(valorDTO);
          assertNotNull(result);
          assertEquals(id, result.getId());
-
      }
 
     @Test
-     void testUpdateInvalidValorDTO() {
+     void TestServiceUpdate02() {
         ValorDTO valorDTO = new ValorDTO(); // ValorDTO inválido
         assertThrows(IllegalArgumentException.class, () -> valorService.update(valorDTO));
     }
-
+     @Test
+     void TestServiceDelete01() {
+         Long id = 1L;
+         Valor valor = new Valor();
+         valor.setId(id);
+         when(valorRepository.findById(id)).thenReturn(Optional.of(valor));
+         valorService.delete(id);
+         verify(valorRepository, times(1)).deleteById(id);
+     }
+     @Test
+     void TestServiceDelete02() {
+         ValorDTO valorDTO = new ValorDTO();
+         assertThrows(IllegalArgumentException.class, () -> {
+             valorService.create(valorDTO);
+         });
+     }
     private ValorDTO createValidValorDTO() {
         ValorDTO valorDTO = new ValorDTO();
         Item item = new Item();

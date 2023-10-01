@@ -20,10 +20,10 @@ public class ItemService {
 
     @Autowired
     private PeriodoRepository periodoRepository;
-    private ItemDTO toItemDTO(Item item) {
+     ItemDTO toItemDTO(Item item) {
         return modelMapper.map(item, ItemDTO.class);
     }
-    private Item toItem(ItemDTO itemDTO) {
+     Item toItem(ItemDTO itemDTO) {
         return modelMapper.map(itemDTO, Item.class);
     }
      void isNull(Long id){

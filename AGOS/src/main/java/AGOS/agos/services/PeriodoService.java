@@ -15,10 +15,10 @@
         private PeriodoRepository periodoRepository;
         @Autowired
         private ModelMapper modelMapper;
-        private Periodo toPeriodo(PeriodoDTO periodoDTO){
+         Periodo toPeriodo(PeriodoDTO periodoDTO){
             return modelMapper.map(periodoDTO, Periodo.class);
         }
-        private PeriodoDTO toPeriodoDTO (Periodo periodo){
+         PeriodoDTO toPeriodoDTO (Periodo periodo){
             return modelMapper.map(periodo, PeriodoDTO.class);
         }
          void isNull(Long id ){
