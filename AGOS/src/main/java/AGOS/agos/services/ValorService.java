@@ -16,10 +16,10 @@ public class ValorService {
     private ValorRepository valorRepository;
     @Autowired
     private ModelMapper modelMapper;
-    private ValorDTO toValorDTO(Valor valor){
+    ValorDTO toValorDTO(Valor valor){
         return modelMapper.map(valor, ValorDTO.class);
     }
-    private Valor toValor(ValorDTO valorDTO){
+    Valor toValor(ValorDTO valorDTO){
         return modelMapper.map(valorDTO, Valor.class);
     }
     void isNull(Long id){
