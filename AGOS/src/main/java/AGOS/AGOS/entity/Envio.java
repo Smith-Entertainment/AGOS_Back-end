@@ -30,6 +30,12 @@ public class Envio {
     @JoinColumn(name = "id_usuario")
     private Usuario voluntario;
 
+
+    @Getter @Setter
+    @Column(name = "endereco_arquivo")
+    private String EnderecoArquivo;
+
+
     @Getter @Setter
     /*@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)*/
     @Column(name = "comentario", nullable = false)

@@ -18,6 +18,7 @@ public class EnvioDTO {
 
     private Long id;
     private Usuario voluntario;
+    private String enderecoArquivo;
     private String comentario;
     private ObraDTO obraDTO;
 
