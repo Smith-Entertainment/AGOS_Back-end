@@ -23,7 +23,7 @@ public class ObraService {
     @Autowired
     private ObraRepository obraRepository;
 
-   /* public void atualizarPeriodosObra(Obra obra) {
+   /public void atualizarPeriodosObra(Obra obra) {
         final Obra obraId = obraRepository.findById(obra.getId()).orElse(null);
         LocalDate dataInicio = obra.getDataInicio();
         LocalDate dataTermino = obra.getDataTermino();
@@ -46,5 +46,5 @@ public class ObraService {
         }   
         obraRepository.save(obra);
     }
-*/
+
 }

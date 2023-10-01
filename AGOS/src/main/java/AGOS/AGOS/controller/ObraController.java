@@ -50,7 +50,7 @@ public class ObraController {
             return ResponseEntity.internalServerError().body("Error" + e.getCause().getCause().getMessage());
         }
     }
-    /*@PutMapping("/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<?> editar(@PathVariable("id") final Long id, @RequestBody final Obra obra) {
         try {
            // obraService.validaCadastro(obra);
@@ -67,7 +67,7 @@ public class ObraController {
         } catch (RuntimeException e) {
             return ResponseEntity.internalServerError().body("Error " + e.getMessage());
         }
-    }*/
+    }
     @DeleteMapping("{id}")
     public ResponseEntity<?> excluir(@PathVariable Long id) {
         final Obra obra = this.obraRepository.findById(id).orElse(null);
