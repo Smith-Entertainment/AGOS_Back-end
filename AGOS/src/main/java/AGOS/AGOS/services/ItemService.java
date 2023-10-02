@@ -1,6 +1,6 @@
 package AGOS.AGOS.services;
 
-import AGOS.AGOS.dto.ItemDTO;
+import AGOS.AGOS.DTO.ItemDTO;
 import AGOS.AGOS.entity.Item;
 import AGOS.AGOS.repository.ItemRepository;
 import AGOS.AGOS.repository.PeriodoRepository;

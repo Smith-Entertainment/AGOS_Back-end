@@ -2,7 +2,7 @@ package ObrasJava.ObrasJava;
 
 import AGOS.AGOS.entity.Empresa;
 import AGOS.AGOS.repository.EmpresaRepository;
-import AGOS.AGOS.dto.EmpresaDTO;
+import AGOS.AGOS.DTO.EmpresaDTO;
 import AGOS.AGOS.services.EmpresaService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

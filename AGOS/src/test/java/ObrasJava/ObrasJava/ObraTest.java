@@ -1,6 +1,6 @@
 package ObrasJava.ObrasJava;
 
-import AGOS.AGOS.dto.ObraDTO;
+import AGOS.AGOS.DTO.ObraDTO;
 import AGOS.AGOS.entity.Obra;
 import AGOS.AGOS.entity.Situacao;
 import AGOS.AGOS.entity.TipoObra;

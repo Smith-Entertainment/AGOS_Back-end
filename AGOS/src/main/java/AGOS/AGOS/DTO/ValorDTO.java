@@ -1,4 +1,4 @@
-package AGOS.AGOS.dto;
+package AGOS.AGOS.DTO;
 
 import AGOS.AGOS.entity.Item;
 import AGOS.AGOS.entity.Periodo;

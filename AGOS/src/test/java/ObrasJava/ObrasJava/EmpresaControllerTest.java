@@ -1,7 +1,7 @@
 package ObrasJava.ObrasJava;
 
 import AGOS.AGOS.controller.EmpresaController;
-import AGOS.AGOS.dto.EmpresaDTO;
+import AGOS.AGOS.DTO.EmpresaDTO;
 import AGOS.AGOS.entity.Empresa;
 import AGOS.AGOS.services.EmpresaService;
 import org.junit.jupiter.api.BeforeEach;

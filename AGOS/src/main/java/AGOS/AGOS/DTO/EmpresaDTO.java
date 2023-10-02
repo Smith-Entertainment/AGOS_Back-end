@@ -1,4 +1,4 @@
-package AGOS.AGOS.dto;
+package AGOS.AGOS.DTO;
 
 import lombok.Getter;
 import lombok.Setter;

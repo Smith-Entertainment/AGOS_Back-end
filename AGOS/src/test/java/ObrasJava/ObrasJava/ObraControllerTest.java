@@ -1,7 +1,7 @@
 package ObrasJava.ObrasJava;
 
 import AGOS.AGOS.controller.ObraController;
-import AGOS.AGOS.dto.ObraDTO;
+import AGOS.AGOS.DTO.ObraDTO;
 import AGOS.AGOS.entity.Obra;
 import AGOS.AGOS.repository.ObraRepository;
 import AGOS.AGOS.services.ObraService;
@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 

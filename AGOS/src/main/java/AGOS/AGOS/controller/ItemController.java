@@ -1,7 +1,7 @@
 package AGOS.AGOS.controller;
 
 
-import AGOS.AGOS.dto.ItemDTO;
+import AGOS.AGOS.DTO.ItemDTO;
 import AGOS.AGOS.services.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

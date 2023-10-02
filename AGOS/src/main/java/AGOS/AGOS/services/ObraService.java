@@ -1,6 +1,6 @@
 package AGOS.AGOS.services;
 
-import AGOS.AGOS.dto.ObraDTO;
+import AGOS.AGOS.DTO.ObraDTO;
 import AGOS.AGOS.entity.Meses;
 import AGOS.AGOS.entity.Obra;
 import AGOS.AGOS.entity.Periodo;
