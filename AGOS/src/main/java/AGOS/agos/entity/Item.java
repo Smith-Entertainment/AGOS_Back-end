@@ -1,8 +1,11 @@
 package AGOS.AGOS.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 
 @Entity
@@ -24,8 +27,8 @@ public class Item {
     @ManyToOne(fetch =FetchType.LAZY ,cascade = CascadeType.MERGE)
     @JoinColumn(name = "obra_Id")
     private Obra obra;
-
-
-
+    @OneToMany(mappedBy = "item")
+    @JsonIgnore
+    private List<Valor> valores;
 
 }

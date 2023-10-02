@@ -10,7 +10,7 @@ import lombok.Setter;
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        @Getter
+        @Getter @Setter
         @Column(name = "id", nullable = false, unique = true)
         private Long id;
 

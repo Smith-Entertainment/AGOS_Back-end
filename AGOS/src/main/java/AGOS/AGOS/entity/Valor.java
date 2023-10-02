@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 @Table(name = "Valor", schema = "public")
 public class Valor {
     @Id
-    @Getter
+    @Getter @Setter
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, unique = true)
     private Long id;
@@ -30,8 +30,8 @@ public class Valor {
     @OneToOne
     @JoinColumn(name = "periodo_id")
     private Periodo periodo;
+    @ManyToOne
     @Getter @Setter
-    @ManyToMany
-    @JoinColumn(name = "Item_id")
+    @JoinColumn(name = "item_id")
     private Item item;
 }
