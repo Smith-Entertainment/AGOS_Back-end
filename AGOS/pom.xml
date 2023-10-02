@@ -15,7 +15,14 @@
 
 	<description>Demo project for Spring Boot</description>
 	<properties>
-		<java.version>20</java.version>
+		<!-- JaCoCo Properties -->
+		<jacoco.version>0.8.9</jacoco.version>
+		<sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+		<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+		<sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
+		<sonar.language>java</sonar.language>
+		<!-- JaCoCo Properties -->
+		<java.version>19</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -40,6 +47,7 @@
 			<artifactId>modelmapper</artifactId>
 			<version>2.4.4</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
@@ -60,6 +68,11 @@
 			<artifactId>hibernate-envers</artifactId>
 			<version>${hibernate.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.jacoco</groupId>
+			<artifactId>jacoco-maven-plugin</artifactId>
+			<version>0.8.9</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -75,6 +88,26 @@
 						</exclude>
 					</excludes>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>${jacoco.version}</version>
+				<executions>
+					<execution>
+						<id>jacoco-initialize</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>jacoco-site</id>
+						<phase>package</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

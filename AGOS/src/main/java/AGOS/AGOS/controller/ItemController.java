@@ -2,21 +2,13 @@ package AGOS.AGOS.controller;
 
 
 import AGOS.AGOS.DTO.ItemDTO;
-import AGOS.AGOS.entity.Item;
-import AGOS.AGOS.repository.ItemRepository;
 import AGOS.AGOS.services.ItemService;
-import com.electronwill.nightconfig.core.conversion.Path;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
-import javax.swing.*;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 @RequestMapping("/api/item")
