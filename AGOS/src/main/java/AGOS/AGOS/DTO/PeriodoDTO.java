@@ -1,10 +1,10 @@
 package AGOS.AGOS.DTO;
 
 import AGOS.AGOS.entity.Meses;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
-@Getter @Setter @Data
-@NoArgsConstructor
+@Data
 @AllArgsConstructor
 public class PeriodoDTO {
     private Long id;

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EnvioController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Obras-Java</a> &gt; <a href="index.source.html" class="el_package">AGOS.AGOS.controller</a> &gt; <span class="el_source">EnvioController.java</span></div><h1>EnvioController.java</h1><pre class="source lang-java linenums">package AGOS.AGOS.controller;
+import AGOS.AGOS.entity.Envio;
+import AGOS.AGOS.entity.Obra;
+import AGOS.AGOS.services.EnvioService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@Controller
+@RequestMapping(&quot;/api/envio&quot;)
+<span class="nc" id="L14">public class EnvioController {</span>
+    @Autowired
+  private   EnvioService envioService;
+
+    @GetMapping(&quot;/lista&quot;)
+    public ResponseEntity&lt;?&gt; findAllEnvios() {
+<span class="nc" id="L20">        final List&lt;Envio&gt; envios = this.envioService.findEnvios();</span>
+
+<span class="nc" id="L22">        return ResponseEntity.ok(envios);</span>
+    }
+
+
+
+@PostMapping
+    public ResponseEntity&lt;?&gt; realizarEnvio(@RequestBody final Envio envio, final Obra obra){
+        try{
+<span class="nc" id="L30">            envioService.createEnvio(envio,obra);</span>
+<span class="nc" id="L31">            return ResponseEntity.ok(&quot;Envio cadastrado com sucesso&quot;);</span>
+        }
+<span class="nc" id="L33">        catch (RuntimeException e){</span>
+
+<span class="nc" id="L35">            return ResponseEntity.badRequest().body(e.getMessage());</span>
+    }
+
+}
+
+
+
+@PutMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;?&gt; atualizarEnvio(@RequestBody Envio envio,@PathVariable Long id){
+        try{
+<span class="nc" id="L45">            envioService.updateEnvio(envio,id);</span>
+<span class="nc" id="L46">            return ResponseEntity.ok(&quot;Envio modificado com sucesso&quot;);</span>
+        }
+<span class="nc" id="L48">        catch (RuntimeException e){</span>
+
+<span class="nc" id="L50">            return ResponseEntity.badRequest().body(e.getMessage());</span>
+        }
+
+}
+
+
+@DeleteMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;?&gt; deletarEnvio(@PathVariable Long id){
+
+        try {
+<span class="nc" id="L60">            envioService.deleteEnvio(id);</span>
+<span class="nc" id="L61">            return ResponseEntity.ok(&quot;Envio Excluido&quot;);</span>
+        }
+
+<span class="nc" id="L64">        catch (RuntimeException e){</span>
+
+<span class="nc" id="L66">            return ResponseEntity.badRequest().body(e.getMessage());</span>
+        }
+}
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.9.202303310957</span></div></body></html>

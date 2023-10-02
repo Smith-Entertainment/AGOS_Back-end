@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ObraController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Obras-Java</a> &gt; <a href="index.source.html" class="el_package">AGOS.AGOS.controller</a> &gt; <span class="el_source">ObraController.java</span></div><h1>ObraController.java</h1><pre class="source lang-java linenums">package AGOS.AGOS.controller;
+
+import AGOS.AGOS.dto.ObraDTO;
+import AGOS.AGOS.entity.Obra;
+import AGOS.AGOS.repository.ObraRepository;
+import AGOS.AGOS.services.ObraService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@Controller
+@RequestMapping(value = &quot;/api/obra&quot;)
+@CrossOrigin(&quot;*&quot;)
+<span class="fc" id="L18">public class ObraController {</span>
+
+    @Autowired
+    private ObraService obraService;
+
+    @Autowired
+    private ObraRepository obraRepository;
+
+    @GetMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;?&gt; findById(@PathVariable(&quot;id&quot;) final Long id) {
+<span class="fc" id="L28">        final Obra obra = this.obraRepository.findById(id).orElse(null);</span>
+<span class="fc bfc" id="L29" title="All 2 branches covered.">        return obra == null</span>
+<span class="fc" id="L30">                ? ResponseEntity.badRequest().body(&quot;Id não existe ou não foi encontrado&quot;)</span>
+<span class="fc" id="L31">                : ResponseEntity.ok(obra);</span>
+    }
+
+    @GetMapping(&quot;/lista&quot;)
+    public ResponseEntity&lt;?&gt; findAll() {
+<span class="fc" id="L36">        final List&lt;Obra&gt; obras = this.obraRepository.findAll();</span>
+<span class="fc" id="L37">        return ResponseEntity.ok(obras);</span>
+    }
+
+    @PostMapping
+    public ResponseEntity&lt;?&gt; cadastrar(@RequestBody final ObraDTO obraDTO) {
+        try {
+<span class="fc" id="L43">            obraService.createObra(obraDTO);</span>
+<span class="fc" id="L44">            return ResponseEntity.ok(&quot;Obra cadastrada com sucesso!&quot;);</span>
+<span class="nc" id="L45">        } catch (DataIntegrityViolationException e) {</span>
+<span class="nc" id="L46">            return ResponseEntity.internalServerError().body(&quot;Error &quot; + e.getCause().getCause().getMessage());</span>
+        }
+    }
+
+    @PutMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;?&gt; editar(@PathVariable(&quot;id&quot;) final Long id, @RequestBody final ObraDTO obraDTO) {
+        try {
+<span class="fc" id="L53">            obraService.updateObra(id, obraDTO);</span>
+<span class="fc" id="L54">            return ResponseEntity.ok(&quot;Obra editada com sucesso!&quot;);</span>
+<span class="nc" id="L55">        } catch (DataIntegrityViolationException e) {</span>
+<span class="nc" id="L56">            return ResponseEntity.internalServerError().body(&quot;Error &quot; + e.getCause().getCause().getMessage());</span>
+<span class="nc" id="L57">        } catch (RuntimeException e) {</span>
+<span class="nc" id="L58">            return ResponseEntity.internalServerError().body(&quot;Error &quot; + e.getMessage());</span>
+        }
+    }
+
+    @DeleteMapping(&quot;/{id}&quot;)
+    public ResponseEntity&lt;?&gt; excluir(@PathVariable Long id) {
+<span class="fc" id="L64">        final Obra obra = this.obraRepository.findById(id).orElse(null);</span>
+<span class="fc bfc" id="L65" title="All 2 branches covered.">        if (obra == null) {</span>
+<span class="fc" id="L66">            return ResponseEntity.badRequest().body(&quot;Obra informada não existe ou já foi deletada&quot;);</span>
+        } else {
+<span class="fc" id="L68">            this.obraRepository.delete(obra);</span>
+<span class="fc" id="L69">            return ResponseEntity.ok(&quot;Obra deletada com sucesso!&quot;);</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.9.202303310957</span></div></body></html>
