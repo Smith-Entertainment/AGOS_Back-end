@@ -45,7 +45,7 @@ public class EnvioControllerTest {
                 null,null,541,"Empresa",false,
                 null );
 
-        envioDTO = new EnvioDTO(1L,null,"comentario",obraDTO);
+        envioDTO = new EnvioDTO(1L,null,"Endereco arquivo","comentario",null);
 
 
         MockitoAnnotations.openMocks(this);

@@ -20,7 +20,7 @@ public class EnvioTest {
 
     @Test
     public void envioGetterTest(){
-        Envio envio = new Envio(1L, LocalDate.now(),null,"Comentario",null);
+        Envio envio = new Envio(1L, LocalDate.now(),null,"Endereco arquivo","Comentario",null);
 
 
         Assertions.assertEquals(1L,envio.getId());

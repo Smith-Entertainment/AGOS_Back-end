@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootTest(classes = WebConfig.class)
-public class EnvioTest {
+public class EnvioServiceTest {
 
     @Mock
     private EnvioService envioService;
@@ -35,12 +35,12 @@ public class EnvioTest {
     @BeforeEach
     void setup(){
 
-
-        envioDTO = new EnvioDTO(1L,null,"comentario",null);
         obraDTO = new ObraDTO(1L,"Titulo","Imagem","Objetivo","Licitação",
                 null,100,"Bairro","RUA",555,145,
                 null,null,541,"Empresa",false,
                 null );
+        envioDTO = new EnvioDTO(1L,null,"Endereco arquivo","comentario",obraDTO);
+
 
 
         MockitoAnnotations.openMocks(this);
@@ -57,9 +57,9 @@ public class EnvioTest {
         List<EnvioDTO> envioDTOList = new ArrayList<>();
         envioDTOList.add(envioDTO);
 
-       when(envioService.findAllEnvios()).thenReturn(envioDTOList);
+        when(envioService.findAllEnvios()).thenReturn(envioDTOList);
 
-       List<EnvioDTO> result = envioService.findAllEnvios();
+        List<EnvioDTO> result = envioService.findAllEnvios();
 
         Assertions.assertEquals(envioDTOList,result);
 
