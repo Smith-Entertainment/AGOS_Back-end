@@ -1,70 +1,53 @@
 package AGOS.AGOS.controller;
 
-
 import AGOS.AGOS.DTO.ItemDTO;
-import AGOS.AGOS.entity.Item;
-import AGOS.AGOS.repository.ItemRepository;
 import AGOS.AGOS.services.ItemService;
-import com.electronwill.nightconfig.core.conversion.Path;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
-import javax.swing.*;
-import java.util.List;
-import java.util.Optional;
 
 @Controller
-@RequestMapping("/api/item")
+@RequestMapping("/api/items")
 public class ItemController {
     @Autowired
     private ItemService itemService;
-
     @GetMapping
-    public ResponseEntity<?>findById(@RequestParam("id") final Long id){
+    public ResponseEntity<ItemDTO> findById(@RequestParam("id") final Long id){
         try {
-            final ItemDTO item = this.itemService.findById(id);
-            return ResponseEntity.ok(item);
-        } catch (IllegalArgumentException e) {
-             return ResponseEntity.badRequest().body("{\"error\":\"" + e.getMessage() + "\"}");
-         }
-    }
-
-    @GetMapping("/list")
-    public ResponseEntity<?>findAll(){
-        try {
-        final List<ItemDTO> itemList = this.itemService.findAll();
-        return ResponseEntity.ok(itemList);
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().body("{\"error\":\"" + e.getMessage() + "\"}");
+            ItemDTO itemDTO = this.itemService.findById(id);
+            return ResponseEntity.ok(itemDTO);
+        }catch (IllegalArgumentException e){
+            return ResponseEntity.badRequest().body(new ItemDTO());
         }
     }
 
     @PostMapping
-    public ResponseEntity<?> create(@RequestBody final ItemDTO item){
+    public ResponseEntity<String> create(@RequestBody final ItemDTO itemDTO){
         try {
-            this.itemService.create(item);
-            return ResponseEntity.ok("Registro Cadastrado com Sucesso");
-        }  catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().body("{\"error\":\"" + e.getMessage() + "\"}");
+            this.itemService.create(itemDTO);
+            return ResponseEntity.ok("Cadastrado com sucesso!");
+        }catch (IllegalArgumentException e){
+            return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
     @PutMapping
-
-
-    public ResponseEntity<String> update(@RequestParam("id") Long id, @RequestBody ItemDTO item) {
+    public ResponseEntity<String> update(@RequestParam("id") final Long id, @RequestBody final ItemDTO itemDTO){
         try {
-            this.itemService.update(item);
-            return ResponseEntity.ok("Registro atualizado com sucesso");
-        }  catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().body("{\"error\":\"" + e.getMessage() + "\"}");
+            this.itemService.update(   itemDTO);
+            return ResponseEntity.ok("Editado com sucesso!");
+        }catch (IllegalArgumentException e){
+            return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
-
-
-
+    @DeleteMapping
+    public ResponseEntity<String> delete(@RequestParam("id") final Long id){
+        try {
+            this.itemService.delete(id);
+            return ResponseEntity.ok("Excluido com sucesso!");
+        }catch (IllegalArgumentException e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
 }
