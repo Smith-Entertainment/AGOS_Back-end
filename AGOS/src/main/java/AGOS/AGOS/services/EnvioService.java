@@ -32,27 +32,19 @@ public class EnvioService {
 
         Optional<Obra> obraBD = obraRepository.findById(obra.getId());
         Assert.isTrue(obraBD.get().getDataInicio().isAfter(envio.getData()),"Obra não iniciada, não pode realizar envios");
-        Assert.isTrue(!envio.getObra().isFinalizado(),"Obra Finalizada, não pode fazer envios");
 /*        Assert.notNull(envio.getItem(),"iten não pode ser null");*/
          envioRepository.save(envio);
 
     }
 
 
-
     public void updateEnvio(Envio envio, Long id){
 
         Optional<Envio> envioBD = envioRepository.findById(id);
         Assert.isTrue(envioBD.isEmpty(),"Envio não encontrado");
-        Assert.isTrue(!envio.getObra().isFinalizado(),"Obra Finalizada, não pode fazer envios");
         Assert.notNull(envio.getItem(),"iten não pode ser null");
 
     }
-
-
-
-
-
 
     public void deleteEnvio(Long id){
 
