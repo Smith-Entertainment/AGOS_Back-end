@@ -1,18 +1,11 @@
 package AGOS.AGOS.services;
-
-
-import AGOS.AGOS.DTO.ItemDTO;
 import AGOS.AGOS.DTO.ValorDTO;
-import AGOS.AGOS.entity.Item;
 import AGOS.AGOS.entity.Valor;
 import AGOS.AGOS.repository.ValorRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 
 @Service
@@ -21,10 +14,10 @@ public class ValorService {
     private ValorRepository valorRepository;
     @Autowired
     private ModelMapper modelMapper;
-    private ValorDTO toValorDTO(Valor valor){
+    ValorDTO toValorDTO(Valor valor){
         return modelMapper.map(valor, ValorDTO.class);
     }
-    private Valor toValor(ValorDTO valorDTO){
+    Valor toValor(ValorDTO valorDTO){
         return modelMapper.map(valorDTO, Valor.class);
     }
     void isNull(Long id){
@@ -50,12 +43,6 @@ public class ValorService {
         isNull(id);
         Valor valor = valorRepository.findById(id).orElse(null);
         return toValorDTO(valor);
-    }
-    public List<ValorDTO> findAll(Long id){
-        final List<Valor> itemList= this.valorRepository.findAll();
-        return itemList.stream()
-                .map(this::toValorDTO)
-                .collect(Collectors.toList());
     }
     @Transactional(rollbackFor = Exception.class)
     public ValorDTO create(ValorDTO valorDTO){

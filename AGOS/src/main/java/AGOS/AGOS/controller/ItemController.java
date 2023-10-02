@@ -3,66 +3,51 @@ package AGOS.AGOS.controller;
 import AGOS.AGOS.DTO.ItemDTO;
 import AGOS.AGOS.services.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/api/items")
 public class ItemController {
     @Autowired
     private ItemService itemService;
-
     @GetMapping
-    public ResponseEntity<ItemDTO> findById (@RequestParam Long id) {
+    public ResponseEntity<ItemDTO> findById(@RequestParam("id") final Long id){
         try {
-            ItemDTO itemDTO = itemService.findById(id);
-            return new ResponseEntity<>(itemDTO, HttpStatus.OK);
-        } catch (IllegalArgumentException e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
-
-    @GetMapping
-    public ResponseEntity<List<ItemDTO>> findAll() {
-        try {
-            List<ItemDTO> itemDTOList = itemService.findAll();
-            return new ResponseEntity<>(itemDTOList, HttpStatus.OK);
-        } catch (IllegalArgumentException e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            ItemDTO itemDTO = this.itemService.findById(id);
+            return ResponseEntity.ok(itemDTO);
+        }catch (IllegalArgumentException e){
+            return ResponseEntity.badRequest().body(new ItemDTO());
         }
     }
 
     @PostMapping
-    public ResponseEntity<ItemDTO> create (@RequestBody ItemDTO itemDTO) {
+    public ResponseEntity<String> create(@RequestBody final ItemDTO itemDTO){
         try {
-            ItemDTO createdItemDTO = itemService.create(itemDTO);
-            return new ResponseEntity<>(createdItemDTO, HttpStatus.CREATED);
-        } catch (IllegalArgumentException e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            this.itemService.create(itemDTO);
+            return ResponseEntity.ok("Cadastrado com sucesso!");
+        }catch (IllegalArgumentException e){
+            return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
-
     @PutMapping
-    public ResponseEntity<ItemDTO> update (@RequestParam Long id, @RequestBody ItemDTO itemDTO) {
+    public ResponseEntity<String> update(@RequestParam("id") final Long id, @RequestBody final ItemDTO itemDTO){
         try {
-            itemDTO.setId(id);
-            ItemDTO updatedItemDTO = itemService.update(itemDTO);
-            return new ResponseEntity<>(updatedItemDTO, HttpStatus.OK);
-        } catch (IllegalArgumentException e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            this.itemService.update(   itemDTO);
+            return ResponseEntity.ok("Editado com sucesso!");
+        }catch (IllegalArgumentException e){
+            return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
-
     @DeleteMapping
-    public ResponseEntity<Void> delete (@RequestParam Long id) {
+    public ResponseEntity<String> delete(@RequestParam("id") final Long id){
         try {
-            itemService.delete(id);
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        } catch (IllegalArgumentException e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            this.itemService.delete(id);
+            return ResponseEntity.ok("Excluido com sucesso!");
+        }catch (IllegalArgumentException e){
+            return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
 }

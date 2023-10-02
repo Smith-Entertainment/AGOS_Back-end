@@ -4,14 +4,11 @@ import AGOS.AGOS.entity.Obra;
 import AGOS.AGOS.repository.EnvioRepository;
 import AGOS.AGOS.repository.ObraRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.expression.spel.ast.OpAnd;
 import org.springframework.stereotype.Service;
 import AGOS.AGOS.entity.Envio;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 

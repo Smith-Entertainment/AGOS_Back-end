@@ -12,6 +12,4 @@ public class ItemDTO {
     private String nome;
     private float valorTotal;
     private Obra obra;
-
-
 }

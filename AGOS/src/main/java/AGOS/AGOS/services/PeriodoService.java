@@ -8,8 +8,6 @@
     import org.springframework.stereotype.Service;
     import org.springframework.transaction.annotation.Transactional;
 
-    import java.util.List;
-    import java.util.stream.Collectors;
 
     @Service
     public class PeriodoService {
@@ -17,10 +15,10 @@
         private PeriodoRepository periodoRepository;
         @Autowired
         private ModelMapper modelMapper;
-        private Periodo toPeriodo(PeriodoDTO periodoDTO){
+         Periodo toPeriodo(PeriodoDTO periodoDTO){
             return modelMapper.map(periodoDTO, Periodo.class);
         }
-        private PeriodoDTO toPeriodoDTO (Periodo periodo){
+         PeriodoDTO toPeriodoDTO (Periodo periodo){
             return modelMapper.map(periodo, PeriodoDTO.class);
         }
          void isNull(Long id ){
@@ -38,12 +36,6 @@
             isNull(id);
             final Periodo periodo = this.periodoRepository.findById(id).orElse(null);
             return toPeriodoDTO(periodo);
-        }
-        public List<PeriodoDTO> findAll(Long id){
-            final List<Periodo> periodos = periodoRepository.findByObraId(id);
-            return periodos.stream()
-                    .map(this::toPeriodoDTO)
-                    .collect(Collectors.toList());
         }
         @Transactional(rollbackFor = Exception.class)
         public PeriodoDTO create (PeriodoDTO periodo){

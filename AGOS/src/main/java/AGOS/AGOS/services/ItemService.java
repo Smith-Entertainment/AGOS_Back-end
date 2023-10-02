@@ -1,19 +1,15 @@
 package AGOS.AGOS.services;
 
 import AGOS.AGOS.DTO.ItemDTO;
-import AGOS.AGOS.config.ModelMapperConfig;
 import AGOS.AGOS.entity.Item;
 import AGOS.AGOS.repository.ItemRepository;
 import AGOS.AGOS.repository.PeriodoRepository;
-import AGOS.AGOS.repository.ValorRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
+
 
 @Service
 public class ItemService {
@@ -21,14 +17,13 @@ public class ItemService {
     private ModelMapper modelMapper;
     @Autowired
     private ItemRepository itemRepository;
-    @Autowired
-    private ValorRepository cronogramaRepository;
+
     @Autowired
     private PeriodoRepository periodoRepository;
-    private ItemDTO toItemDTO(Item item) {
+     ItemDTO toItemDTO(Item item) {
         return modelMapper.map(item, ItemDTO.class);
     }
-    private Item toItem(ItemDTO itemDTO) {
+     Item toItem(ItemDTO itemDTO) {
         return modelMapper.map(itemDTO, Item.class);
     }
      void isNull(Long id){
@@ -48,12 +43,6 @@ public class ItemService {
         isNull(id);
         final Item item = this.itemRepository.findById(id).orElse(null);
         return toItemDTO(item);
-    }
-    public List<ItemDTO> findAll(){
-        final List<Item> itemList= this.itemRepository.findAll();
-        return itemList.stream()
-                .map(this::toItemDTO)
-                .collect(Collectors.toList());
     }
     @Transactional(rollbackFor = Exception.class)
     public ItemDTO create(ItemDTO itemDTO){

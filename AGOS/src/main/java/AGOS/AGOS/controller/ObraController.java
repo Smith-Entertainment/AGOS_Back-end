@@ -2,7 +2,6 @@ package AGOS.AGOS.controller;
 
 import AGOS.AGOS.entity.Obra;
 import AGOS.AGOS.repository.ObraRepository;
-import AGOS.AGOS.services.ObraService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
@@ -14,8 +13,6 @@ import java.util.List;
 @RequestMapping(value = "/api/obra")
 @CrossOrigin("*")
 public class ObraController {
-    @Autowired
-    ObraService obraService;
     @Autowired
     private ObraRepository obraRepository;
     private Obra obra;

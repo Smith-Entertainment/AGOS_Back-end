@@ -1,6 +1,5 @@
 package AGOS.AGOS.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,7 +10,7 @@ import lombok.Setter;
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        @Getter
+        @Getter @Setter
         @Column(name = "id", nullable = false, unique = true)
         private Long id;
 
