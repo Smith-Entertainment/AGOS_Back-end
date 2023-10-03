@@ -16,6 +16,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.util.Assert;
 
+import static AGOS.AGOS.entity.Situacao.EM_HOMOLOGACAO;
 import static org.mockito.Mockito.*;
 
 import java.util.ArrayList;
@@ -35,11 +36,12 @@ public class EnvioServiceTest {
     @BeforeEach
     void setup(){
 
+        envioDTO = new EnvioDTO(1L,null,"Endereco arquivo","comentario",obraDTO);
+
         obraDTO = new ObraDTO(1L,"Titulo","Imagem","Objetivo","Licitação",
                 null,100,"Bairro","RUA",555,145,
                 null,null,541,"Empresa",false,
-                null );
-        envioDTO = new EnvioDTO(1L,null,"Endereco arquivo","comentario",obraDTO);
+                null,EM_HOMOLOGACAO,envioDTO.getObraDTO().getFoto(), "d45454");
 
 
 

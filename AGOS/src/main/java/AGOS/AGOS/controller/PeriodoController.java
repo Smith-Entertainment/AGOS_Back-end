@@ -24,15 +24,7 @@ public class PeriodoController {
             return ResponseEntity.badRequest().body("{\"error\":\"" + e.getMessage() + "\"}");
         }
     }
-    @GetMapping("/list")
-    public ResponseEntity<?>findAllOf(@RequestParam("id")Long id){
-        try {
-            final List<Periodo> periodo = this.periodoService.findAll(id);
-            return ResponseEntity.ok(periodo);
-        }catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().body("{\"error\":\"" + e.getMessage() + "\"}");
-        }
-    }
+
 
     @PostMapping
     public ResponseEntity<?> create(@RequestBody final Periodo periodos){

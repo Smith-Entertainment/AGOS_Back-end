@@ -1,8 +1,11 @@
 package AGOS.AGOS.DTO;
+import AGOS.AGOS.entity.Envio;
+import AGOS.AGOS.entity.Situacao;
 
 import AGOS.AGOS.entity.TipoObra;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.EnumType;
+
 import jakarta.persistence.Enumerated;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,65 +15,77 @@ import lombok.Setter;
 import java.time.LocalDate;
 import java.util.List;
 
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
 public class ObraDTO {
-    @Getter
     @Setter
     private Long id;
 
-    @Getter @Setter
+    @Setter
     private String titulo;
 
-    @Getter @Setter
+    @Setter
     private String imagem;
 
-    @Getter @Setter
+    @Setter
     private String objetivo;
 
-    @Getter @Setter
+    @Setter
     private String licitacao;
 
-    @Getter @Setter
+    @Setter
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate dataCertame;
 
-    @Getter @Setter
+    @Setter
     private double valorEdital;
 
-    @Getter @Setter
+    @Setter
     private String bairro;
 
-    @Getter @Setter
+    @Setter
     private String rua;
 
-    @Getter @Setter
+    @Setter
     private int numero;
 
     // @Getter @Setter
     // private List<UsuarioDTO> voluntarios;
 
-    @Getter @Setter
+    @Setter
     private double valorContratado;
 
-    @Getter @Setter
+    @Setter
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate dataInicio;
 
-    @Getter @Setter
+    @Setter
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate dataTermino;
 
-    @Getter @Setter
+    @Setter
     private int numeroContrato;
 
-    @Getter @Setter
+    @Setter
     private String empresaContratada;
 
-    @Getter @Setter
+    @Setter
     private boolean finalizado;
 
     @Enumerated(EnumType.STRING)
-    @Getter @Setter
+    @Setter
     private TipoObra tipoObra;
+
+    @Enumerated(EnumType.STRING)
+    @Setter
+    private Situacao situacao;
+
+    @Setter
+    private Envio foto;
+
+    @Setter
+    private String cep;
+
+
 }

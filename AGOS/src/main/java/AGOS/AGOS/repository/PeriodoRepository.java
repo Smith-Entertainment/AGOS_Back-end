@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface PeriodoRepository extends JpaRepository<Periodo, Long> {
-    List<Periodo> findByObraId(Long id);
+    /*List<Periodo> findByObraId(Long id);*/
 }

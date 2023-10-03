@@ -43,12 +43,12 @@ public class EnvioControllerTest {
         obraDTO = new ObraDTO(1L,"Titulo","Imagem","Objetivo","Licitação",
                 null,100,"Bairro","RUA",555,145,
                 null,null,541,"Empresa",false,
-                null );
+                null,null,null,"85855665");
 
         envioDTO = new EnvioDTO(1L,null,"Endereco arquivo","comentario",null);
 
 
-        MockitoAnnotations.openMocks(this);
+
     }
 
 

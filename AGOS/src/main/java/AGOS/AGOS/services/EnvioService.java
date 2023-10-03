@@ -7,15 +7,15 @@ import AGOS.AGOS.repository.EnvioRepository;
 import AGOS.AGOS.repository.ObraRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.expression.spel.ast.OpAnd;
 import org.springframework.stereotype.Service;
 import AGOS.AGOS.entity.Envio;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
+
 
 
 import java.util.ArrayList;
 import java.util.Date;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -40,6 +40,7 @@ public class EnvioService {
 
         return listEnvioDTO;
     }
+
 
 
 
@@ -69,12 +70,14 @@ public class EnvioService {
 
         Optional<Obra> obraBD = obraRepository.findById(obraEntity.getId());
         Assert.isTrue(obraBD.get().getDataInicio().isAfter(obraBD.get().getDataTermino()),"Obra não iniciada, não pode realizar envios");
-        Assert.isTrue(!envioEntity.getObra().isFinalizado(),"Obra Finalizada, não pode fazer envios");
-/*        Assert.notNull(envio.getItem(),"iten não pode ser null");*/
+      /*  Assert.isTrue(!envioEntity.getObra().isFinalizado(),"Obra Finalizada, não pode fazer envios");
+
+       Assert.notNull(envio.getItem(),"iten não pode ser null");*/
         envioRepository.save(envioEntity);
         return envioDTO;
 
     }
+
 
 
 
@@ -88,7 +91,7 @@ public class EnvioService {
 
         Optional<Envio> envioBD = envioRepository.findById(id);
         Assert.isTrue(envioBD.isEmpty(),"Envio não encontrado");
-        Assert.isTrue(!envioEntity.getObra().isFinalizado(),"Obra Finalizada, não pode fazer envios");
+        /*Assert.isTrue(!envioEntity.getObra().isFinalizado(),"Obra Finalizada, não pode fazer envios");*/
         Assert.notNull(envioEntity.getComentario(),"iten não pode ser null");
 
         envioRepository.save(envioEntity);
@@ -97,11 +100,16 @@ public class EnvioService {
     }
 
 
+    public void updateEnvio(Envio envio, Long id){
+
+        Optional<Envio> envioBD = envioRepository.findById(id);
+        Assert.isTrue(envioBD.isEmpty(),"Envio não encontrado");
 
 
-
+    }
 
     public String deleteEnvio(Long id){
+
 
         Optional<Envio> envioBD = envioRepository.findById(id);
 

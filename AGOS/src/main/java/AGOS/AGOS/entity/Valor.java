@@ -27,13 +27,12 @@ public class Valor {
     @Getter @Setter
     @Column(name = "realizado_fisico")
     private BigDecimal realizadoFisico;
-    //----------------------
     @Getter @Setter
     @OneToOne
     @JoinColumn(name = "periodo_id")
     private Periodo periodo;
     @Getter @Setter
-    @ManyToMany
+    @ManyToOne
     @JoinColumn(name = "Item_id")
     private Item item;
 }
