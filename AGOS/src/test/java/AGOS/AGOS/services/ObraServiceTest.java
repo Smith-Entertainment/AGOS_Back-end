@@ -1,4 +1,4 @@
-package ObrasJava.ObrasJava;
+package AGOS.AGOS.services;
 
 import AGOS.AGOS.DTO.ObraDTO;
 import AGOS.AGOS.entity.Obra;
@@ -16,7 +16,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.time.LocalDate;
 import static org.mockito.Mockito.*;
 
-class ObraTest {
+class ObraServiceTest {
 
     @Mock
     private ObraRepository obraRepository;

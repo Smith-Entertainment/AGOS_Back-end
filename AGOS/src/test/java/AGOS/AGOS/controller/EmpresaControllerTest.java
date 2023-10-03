@@ -1,4 +1,4 @@
-package ObrasJava.ObrasJava;
+package AGOS.AGOS.controller;
 
 import AGOS.AGOS.controller.EmpresaController;
 import AGOS.AGOS.DTO.EmpresaDTO;

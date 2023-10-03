@@ -138,7 +138,7 @@ public class UsuarioService {
         if(usuarioDTO.getTituloEleitor() == null){
             throw new IllegalArgumentException("Deve conter título de eleitor!");
         }
-        if(usuarioDTO.getTituloEleitor().length() == 12){
+        if(usuarioDTO.getTituloEleitor().length() != 12){
             throw new IllegalArgumentException("Título de eleitor inválido!");
         }
         if(!usuarioDTO.getTituloEleitor().matches("[0-9]{12}")){
