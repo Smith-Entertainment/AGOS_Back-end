@@ -1,4 +1,4 @@
-package ObrasJava.ObrasJava;
+package AGOS.AGOS.services;
 
 import AGOS.AGOS.entity.Empresa;
 import AGOS.AGOS.repository.EmpresaRepository;
@@ -17,7 +17,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-public class EmpresaTest {
+public class EmpresaServiceTest {
 
     @Mock
     private EmpresaRepository empresaRepository;

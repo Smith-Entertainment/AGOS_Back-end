@@ -66,6 +66,7 @@ public class ObraService {
         Obra obra = new Obra();
         obra.setTitulo(obraDTO.getTitulo());
         obra.setFoto(obraDTO.getFoto());
+        obra.setCep(obraDTO.getCep());
         obra.setLicitacao(obraDTO.getLicitacao());
         obra.setDataCertame(obraDTO.getDataCertame());
         obra.setValorEdital(obraDTO.getValorEdital());
@@ -85,6 +86,7 @@ public class ObraService {
     private void updateObraFromDTO(Obra obra, ObraDTO obraDTO) {
         obra.setTitulo(obraDTO.getTitulo());
         obra.setFoto(obraDTO.getFoto());
+        obra.setCep(obraDTO.getCep());
         obra.setLicitacao(obraDTO.getLicitacao());
         obra.setDataCertame(obraDTO.getDataCertame());
         obra.setValorEdital(obraDTO.getValorEdital());
