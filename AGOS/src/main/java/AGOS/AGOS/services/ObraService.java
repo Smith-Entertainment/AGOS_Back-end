@@ -1,7 +1,7 @@
 package AGOS.AGOS.services;
 
 import AGOS.AGOS.DTO.ObraDTO;
-import AGOS.AGOS.entity.Meses;
+import AGOS.AGOS.entity.Mes;
 import AGOS.AGOS.entity.Obra;
 import AGOS.AGOS.entity.Periodo;
 import AGOS.AGOS.repository.ObraRepository;
@@ -67,6 +67,8 @@ public class ObraService {
         obra.setTitulo(obraDTO.getTitulo());
         obra.setFoto(obraDTO.getFoto());
         obra.setLicitacao(obraDTO.getLicitacao());
+        obra.setCep(obraDTO.getCep());
+
         obra.setDataCertame(obraDTO.getDataCertame());
         obra.setValorEdital(obraDTO.getValorEdital());
         obra.setBairro(obraDTO.getBairro());
@@ -84,6 +86,9 @@ public class ObraService {
 
     private void updateObraFromDTO(Obra obra, ObraDTO obraDTO) {
         obra.setTitulo(obraDTO.getTitulo());
+        obra.setCep(obraDTO.getCep());
+        obra.setCep(obraDTO.getCep());
+
         obra.setFoto(obraDTO.getFoto());
         obra.setLicitacao(obraDTO.getLicitacao());
         obra.setDataCertame(obraDTO.getDataCertame());
@@ -114,7 +119,7 @@ public class ObraService {
 
         while (!mesAnoInicio.isAfter(mesAnoTermino)) {
             Periodo periodo = new Periodo();
-            periodo.setMes(Meses.valueOf(mesAnoInicio.getMonth().getDisplayName(TextStyle.FULL, new Locale("pt", "BR")).toUpperCase()));
+            periodo.setMes(Mes.valueOf(mesAnoInicio.getMonth().getDisplayName(TextStyle.FULL, new Locale("pt", "BR")).toUpperCase()));
             periodo.setAno(mesAnoInicio.getYear());
             periodos.add(periodo);
             periodoRepository.save(periodo);
