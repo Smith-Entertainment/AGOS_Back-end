@@ -24,7 +24,7 @@ public class Item {
     @Column(name = "valor_total", nullable = false)
     private float valorTotal;
     @Getter @Setter
-    @ManyToOne(fetch =FetchType.LAZY ,cascade = CascadeType.MERGE)
+    @ManyToOne
     @JoinColumn(name = "obra_Id")
     private Obra obra;
     @OneToMany(mappedBy = "item")
