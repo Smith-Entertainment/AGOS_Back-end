@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping("/api/valores")
+@RequestMapping("/api/valor")
 public class ValorController {
     @Autowired
     private ValorService valorService;

@@ -1,6 +1,6 @@
 package AGOS.AGOS.DTO;
 
-import AGOS.AGOS.entity.Meses;
+import AGOS.AGOS.entity.Mes;
 import lombok.*;
 
 @Getter
@@ -9,6 +9,6 @@ import lombok.*;
 @AllArgsConstructor
 public class PeriodoDTO {
     private Long id;
-    private Meses mes;
+    private Mes mes;
     private int ano;
 }
