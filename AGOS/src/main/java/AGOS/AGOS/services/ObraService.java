@@ -66,6 +66,7 @@ public class ObraService {
         Obra obra = new Obra();
         obra.setTitulo(obraDTO.getTitulo());
         obra.setFoto(obraDTO.getFoto());
+        obra.setCep(obraDTO.getCep());
         obra.setLicitacao(obraDTO.getLicitacao());
         obra.setCep(obraDTO.getCep());
 
@@ -90,6 +91,7 @@ public class ObraService {
         obra.setCep(obraDTO.getCep());
 
         obra.setFoto(obraDTO.getFoto());
+        obra.setCep(obraDTO.getCep());
         obra.setLicitacao(obraDTO.getLicitacao());
         obra.setDataCertame(obraDTO.getDataCertame());
         obra.setValorEdital(obraDTO.getValorEdital());
