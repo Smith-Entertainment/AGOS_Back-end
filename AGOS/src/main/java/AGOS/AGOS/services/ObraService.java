@@ -6,6 +6,7 @@ import AGOS.AGOS.entity.Obra;
 import AGOS.AGOS.entity.Periodo;
 import AGOS.AGOS.repository.ObraRepository;
 import AGOS.AGOS.repository.PeriodoRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,6 +18,7 @@ import java.time.format.TextStyle;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.stream.Collectors;
 
 import static org.hibernate.validator.internal.util.Contracts.assertNotNull;
 
@@ -29,24 +31,55 @@ public class ObraService {
     @Autowired
     public ObraRepository obraRepository;
 
-    @Transactional
-    public void createObra(ObraDTO obraDTO) {
-        validateObraDTO(obraDTO);
+    @Autowired
+    private ModelMapper modelMapper;
 
-        Obra obra = DTOToEntity(obraDTO);
-        obraRepository.save(obra);
-
+    @Transactional(rollbackFor = Exception.class)
+    public ObraDTO findById(Long obraId) {
+        Obra obra = obraRepository.findById(obraId)
+                .orElseThrow(() -> new IllegalArgumentException("Obra não encontrada"));
+        return convertToDTO(obra);
     }
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
+    public List<ObraDTO> findAll() {
+        List<Obra> obras = obraRepository.findAll();
+        return obras.stream().map(this::convertToDTO).collect(Collectors.toList());
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    public void createObra(ObraDTO obraDTO) {
+        validateObraDTO(obraDTO);
+        Obra obra = convertToEntity(obraDTO);
+        obraRepository.save(obra);
+    }
+
+    @Transactional(rollbackFor = Exception.class)
     public void updateObra(Long obraId, ObraDTO obraDTO) {
         validateObraDTO(obraDTO);
-
         Obra existingObra = obraRepository.findById(obraId)
                 .orElseThrow(() -> new IllegalArgumentException("Obra não encontrada"));
-
         updateObraFromDTO(existingObra, obraDTO);
         obraRepository.save(existingObra);
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    public void deleteObra(Long obraId) {
+        Obra obra = obraRepository.findById(obraId)
+                .orElseThrow(() -> new IllegalArgumentException("Obra não encontrada"));
+        obraRepository.delete(obra);
+    }
+
+    private void assertNotBlank(String value, String message) {
+        assert !value.isBlank() : message;
+    }
+
+    private ObraDTO convertToDTO(Obra obra) {
+        return modelMapper.map(obra, ObraDTO.class);
+    }
+
+    private Obra convertToEntity(ObraDTO obraDTO) {
+        return modelMapper.map(obraDTO, Obra.class);
     }
 
     private void validateObraDTO(ObraDTO obraDTO) {
@@ -58,32 +91,7 @@ public class ObraService {
         assertNotNull(obraDTO.getTipoObra(), "Tipo obra nao pode ser nulo");
     }
 
-    private void assertNotBlank(String value, String message) {
-        assert !value.isBlank() : message;
-    }
 
-    private Obra DTOToEntity(ObraDTO obraDTO) {
-        Obra obra = new Obra();
-        obra.setTitulo(obraDTO.getTitulo());
-        obra.setFoto(obraDTO.getFoto());
-        obra.setCep(obraDTO.getCep());
-        obra.setLicitacao(obraDTO.getLicitacao());
-        obra.setCep(obraDTO.getCep());
-
-        obra.setDataCertame(obraDTO.getDataCertame());
-        obra.setValorEdital(obraDTO.getValorEdital());
-        obra.setBairro(obraDTO.getBairro());
-        obra.setRua(obraDTO.getRua());
-        obra.setNumeroEndereco(obraDTO.getNumero());
-        obra.setValorContratado(obraDTO.getValorContratado());
-        obra.setDataInicio(obraDTO.getDataInicio());
-        obra.setDataTermino(obraDTO.getDataTermino());
-        obra.setNumeroContrato(obraDTO.getNumeroContrato());
-        obra.setEmpresaContratada(obraDTO.getEmpresaContratada());
-        obra.setSituacao(obraDTO.getSituacao());
-        obra.setTipoObra(obraDTO.getTipoObra());
-        return obra;
-    }
 
     private void updateObraFromDTO(Obra obra, ObraDTO obraDTO) {
         obra.setTitulo(obraDTO.getTitulo());
@@ -97,7 +105,7 @@ public class ObraService {
         obra.setValorEdital(obraDTO.getValorEdital());
         obra.setBairro(obraDTO.getBairro());
         obra.setRua(obraDTO.getRua());
-        obra.setNumeroEndereco(obraDTO.getNumero());
+        obra.setNumeroEndereco(obraDTO.getNumeroEndereco());
         obra.setValorContratado(obraDTO.getValorContratado());
         obra.setDataInicio(obraDTO.getDataInicio());
         obra.setDataTermino(obraDTO.getDataTermino());

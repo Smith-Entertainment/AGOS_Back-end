@@ -4,6 +4,9 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -30,7 +33,7 @@ public class Obra {
     private LocalDate dataCertame;
 
     @Column(name= "valor_edital",nullable = false)
-    private double valorEdital;
+    private BigDecimal valorEdital;
 
     @Column(name= "bairro",length = 50,nullable = false)
     private String bairro;
@@ -39,7 +42,7 @@ public class Obra {
     private String rua;
 
     @Column(name= "numero",nullable = false)
-    private int numeroEndereco;
+    private BigInteger numeroEndereco;
 
     @ManyToMany(fetch =FetchType.LAZY ,cascade = CascadeType.ALL)
     @JoinColumn(name = "id_usuario")
@@ -49,8 +52,8 @@ public class Obra {
     @JoinColumn(name = "foto")
     private Envio foto;
 
-    @Column(name= "valor_contratado",length = 50)
-    private double valorContratado;
+    @Column(name= "valor_contratado")
+    private BigDecimal valorContratado;
 
     @Column(name= "data_inicio")
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
@@ -63,10 +66,11 @@ public class Obra {
     @Column(name= "numero_contrato")
     private int numeroContrato;
 
-    @Column(name= "empresa_contratada",length = 30)
-    private String empresaContratada;
+    @OneToOne
+    @JoinColumn(name= "empresa_contratada")
+    private Empresa empresaContratada;
 
-    @Column(name= "situacao")
+    @Column(name= "situacao", nullable = false)
     private Situacao situacao;
 
     @Enumerated(EnumType.STRING)

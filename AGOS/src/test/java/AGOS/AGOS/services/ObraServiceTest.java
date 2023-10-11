@@ -6,13 +6,15 @@ import AGOS.AGOS.entity.Situacao;
 import AGOS.AGOS.entity.TipoObra;
 import AGOS.AGOS.repository.ObraRepository;
 import AGOS.AGOS.repository.PeriodoRepository;
-import AGOS.AGOS.services.ObraService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.test.web.servlet.MockMvc;
+
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.time.LocalDate;
 import static org.mockito.Mockito.*;
 
@@ -38,7 +40,7 @@ class ObraServiceTest {
     void testCreateObra() {
         ObraDTO obraDTO = createSampleObraDTO();
 
-        when(obraRepository.save(any())).thenReturn(new Obra());
+        when(obraRepository.save(any(Obra.class))).thenReturn(new Obra());
 
         obraService.createObra(obraDTO);
 
@@ -64,15 +66,14 @@ class ObraServiceTest {
         obraDTO.setCep("12345-678");
         obraDTO.setLicitacao("Licitacao Teste");
         obraDTO.setDataCertame(LocalDate.now());
-        obraDTO.setValorEdital(1000.0);
+        obraDTO.setValorEdital(BigDecimal.valueOf(1000.0));
         obraDTO.setBairro("Bairro Teste");
         obraDTO.setRua("Rua Teste");
-        obraDTO.setNumero(123);
-        obraDTO.setValorContratado(2000.0);
+        obraDTO.setNumeroEndereco(BigInteger.valueOf(123));
+        obraDTO.setValorContratado(BigDecimal.valueOf(2000.0));
         obraDTO.setDataInicio(LocalDate.now());
         obraDTO.setDataTermino(LocalDate.now().plusDays(30));
         obraDTO.setNumeroContrato(456);
-        obraDTO.setEmpresaContratada("Empresa Teste");
         obraDTO.setSituacao(Situacao.EM_ANDAMENTO);
         obraDTO.setTipoObra(TipoObra.INFRAESTRUTURA);
 
