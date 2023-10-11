@@ -1,46 +1,54 @@
 package AGOS.AGOS.services;
 
 import AGOS.AGOS.DTO.ObraDTO;
+import AGOS.AGOS.entity.Item;
 import AGOS.AGOS.entity.Obra;
-import AGOS.AGOS.entity.Situacao;
 import AGOS.AGOS.entity.TipoObra;
 import AGOS.AGOS.repository.ObraRepository;
-import AGOS.AGOS.repository.PeriodoRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.test.web.servlet.MockMvc;
+import org.modelmapper.ModelMapper;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.time.LocalDate;
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
-class ObraServiceTest {
+@SpringBootTest(classes = Obra.class)
+public class ObraServiceTest {
+
+    @InjectMocks
+    private ObraService obraService;
 
     @Mock
     private ObraRepository obraRepository;
 
     @Mock
-    private PeriodoRepository periodoRepository;
-
-    @InjectMocks
-    private ObraService obraService;
-
-    private MockMvc mockMvc;
+    private ModelMapper modelMapper;
 
     @BeforeEach
-    void setUp() {
-        MockitoAnnotations.openMocks(this);
+    public void setup() {
+        MockitoAnnotations.initMocks(this);
     }
 
     @Test
-    void testCreateObra() {
-        ObraDTO obraDTO = createSampleObraDTO();
+    public void testCreateObraValid() {
+        ObraDTO obraDTO = new ObraDTO();
+        obraDTO.setTitulo("Obra Test");
+        obraDTO.setBairro("Bairro Test");
+        obraDTO.setRua("Rua Test");
+        obraDTO.setLicitacao("Licitacao Test");
+        obraDTO.setValorEdital(BigDecimal.valueOf(100.0));
+        obraDTO.setTipoObra(TipoObra.EDUCACAO);
 
-        when(obraRepository.save(any(Obra.class))).thenReturn(new Obra());
+        when(modelMapper.map(obraDTO, Obra.class)).thenReturn(new Obra());
 
         obraService.createObra(obraDTO);
 
@@ -48,35 +56,32 @@ class ObraServiceTest {
     }
 
     @Test
-    void testUpdateObra() {
-        ObraDTO obraDTO = createSampleObraDTO();
-        Long obraId = 1L;
+    public void testCreateObraInvalid() {
+        ObraDTO obraDTO = new ObraDTO();
 
-        when(obraRepository.findById(obraId)).thenReturn(java.util.Optional.of(new Obra()));
-        when(obraRepository.save(any(Obra.class))).thenReturn(new Obra());
+        assertThrows(IllegalArgumentException.class, () -> obraService.createObra(obraDTO));
 
-        obraService.updateObra(obraId, obraDTO);
-
-        verify(obraRepository, times(1)).save(any(Obra.class));
+        verify(obraRepository, never()).save(any(Obra.class));
     }
 
-    private ObraDTO createSampleObraDTO() {
-        ObraDTO obraDTO = new ObraDTO();
-        obraDTO.setTitulo("Obra de Teste");
-        obraDTO.setCep("12345-678");
-        obraDTO.setLicitacao("Licitacao Teste");
-        obraDTO.setDataCertame(LocalDate.now());
-        obraDTO.setValorEdital(BigDecimal.valueOf(1000.0));
-        obraDTO.setBairro("Bairro Teste");
-        obraDTO.setRua("Rua Teste");
-        obraDTO.setNumeroEndereco(BigInteger.valueOf(123));
-        obraDTO.setValorContratado(BigDecimal.valueOf(2000.0));
-        obraDTO.setDataInicio(LocalDate.now());
-        obraDTO.setDataTermino(LocalDate.now().plusDays(30));
-        obraDTO.setNumeroContrato(456);
-        obraDTO.setSituacao(Situacao.EM_ANDAMENTO);
-        obraDTO.setTipoObra(TipoObra.INFRAESTRUTURA);
+    @Test
+    public void testFindById() {
+        Long obraId = 1L;
+        Obra obra = new Obra();
+        when(obraRepository.findById(obraId)).thenReturn(Optional.of(obra));
+        when(modelMapper.map(obra, ObraDTO.class)).thenReturn(new ObraDTO());
 
-        return obraDTO;
+        ObraDTO obraDTO = obraService.findById(obraId);
+
+    }
+
+    @Test
+    public void testFindAll() {
+        List<Obra> obras = Collections.singletonList(new Obra());
+        when(obraRepository.findAll()).thenReturn(obras);
+        when(modelMapper.map(any(Obra.class), eq(ObraDTO.class))).thenReturn(new ObraDTO());
+
+        List<ObraDTO> obraDTOs = obraService.findAll();
+
     }
 }
