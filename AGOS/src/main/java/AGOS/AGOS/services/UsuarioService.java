@@ -61,7 +61,7 @@ public class UsuarioService {
     public UsuarioDTO update(final Long id, final UsuarioDTO usuarioDTO){
         Usuario usuarioDatabase;
 
-        usuarioDatabase = this.usuarioRepository.findById(usuarioDTO.getId()).orElse(null);
+        usuarioDatabase = this.usuarioRepository.findById(id).orElse(null);
         if(usuarioDatabase == null){
             throw new IllegalArgumentException("Usuário não encontrado");
         }
