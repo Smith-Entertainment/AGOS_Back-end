@@ -130,5 +130,4 @@ public class UsuarioServiceTest {
 
         Assertions.assertThrows(IllegalArgumentException.class, () -> usuarioService.delete(1L));
     }
-
 }
