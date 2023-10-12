@@ -43,7 +43,6 @@ public class UsuarioControllerTest {
     @Test
     void TestControllerFindById02() {   //Falha
         Long id = 1L;
-        UsuarioDTO usuarioDTO = new UsuarioDTO();
         when(usuarioService.findById(id)).thenThrow(new IllegalArgumentException("Usuário não encontrado!"));
 
         ResponseEntity<UsuarioDTO> response = usuarioController.findById(id);
