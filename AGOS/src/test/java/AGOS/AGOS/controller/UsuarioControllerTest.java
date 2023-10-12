@@ -2,6 +2,7 @@ package AGOS.AGOS.controller;
 
 import AGOS.AGOS.DTO.UsuarioDTO;
 import AGOS.AGOS.services.UsuarioService;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -10,8 +11,8 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import java.util.List;
+
 import static org.mockito.Mockito.when;
 
 public class UsuarioControllerTest {
@@ -27,76 +28,103 @@ public class UsuarioControllerTest {
     }
 
     @Test
-    void TestControllerFindById01() {
+    void TestControllerFindById01() {   //Certo
         Long id = 1L;
         UsuarioDTO usuarioDTO = new UsuarioDTO();
         usuarioDTO.setId(id);
-
         when(usuarioService.findById(id)).thenReturn(usuarioDTO);
 
         ResponseEntity<UsuarioDTO> response = usuarioController.findById(id);
 
-        assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertEquals(usuarioDTO, response.getBody());
+        Assertions.assertEquals(HttpStatus.OK, response.getStatusCode());
+        Assertions.assertEquals(usuarioDTO, response.getBody());
     }
 
     @Test
-    void TestControllerCreate01() {
+    void TestControllerFindById02() {   //Falha
+        Long id = 1L;
         UsuarioDTO usuarioDTO = new UsuarioDTO();
+        when(usuarioService.findById(id)).thenThrow(new IllegalArgumentException("Usuário não encontrado!"));
 
+        ResponseEntity<UsuarioDTO> response = usuarioController.findById(id);
+
+        Assertions.assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
+        Assertions.assertNull(response.getBody().getId());
+        Assertions.assertNull(response.getBody().getNome());
+    }
+
+    @Test
+    void TestControllerFindAll(){
+        List<UsuarioDTO> lista = List.of(new UsuarioDTO(), new UsuarioDTO(), new UsuarioDTO());
+        when(usuarioService.findAll()).thenReturn(lista);
+
+        ResponseEntity<List<UsuarioDTO>> response = usuarioController.findAll();
+        int quantidade = response.getBody().size();
+
+        Assertions.assertEquals(HttpStatus.OK, response.getStatusCode());
+        Assertions.assertEquals(3, quantidade);
+    }
+
+    @Test
+    void TestControllerCreate01() {  //Certo
+        UsuarioDTO usuarioDTO = new UsuarioDTO();
+        String mensagem = "Usuário cadastrado com sucesso!";
         when(usuarioService.create(usuarioDTO)).thenReturn(usuarioDTO);
 
         ResponseEntity<String> response = usuarioController.create(usuarioDTO);
 
-        assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertEquals("Usuário cadastrado com sucesso!", response.getBody());
+        Assertions.assertEquals(HttpStatus.OK, response.getStatusCode());
+        Assertions.assertEquals(mensagem, response.getBody());
     }
 
     @Test
-    void TestControllerCreate02() {
+    void TestControllerCreate02() {  //Falha
         UsuarioDTO usuarioDTO = new UsuarioDTO();
-        when(usuarioService.create(usuarioDTO)).thenThrow(new IllegalArgumentException("Deve conter cpf!"));
+        String mensagem = "Deve conter cpf!";
+        when(usuarioService.create(usuarioDTO)).thenThrow(new IllegalArgumentException(mensagem));
 
         ResponseEntity<String> response = usuarioController.create(usuarioDTO);
 
-        assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
-        assertNotNull(response.getBody());
+        Assertions.assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
+        Assertions.assertEquals(mensagem, response.getBody());
     }
 
     @Test
-    void TestControllerUpdate01() {
+    void TestControllerUpdate01() {  //Certo
         Long id = 1L;
         UsuarioDTO usuarioDTO = new UsuarioDTO();
         usuarioDTO.setId(id);
-
-        when(usuarioService.update(1L, usuarioDTO)).thenReturn(usuarioDTO);
+        String mensagem = "Usuário editado com sucesso!";
+        when(usuarioService.update(id, usuarioDTO)).thenReturn(usuarioDTO);
 
         ResponseEntity<String> response = usuarioController.update(id, usuarioDTO);
 
-        assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertEquals("Usuário editado com sucesso!", response.getBody());
+        Assertions.assertEquals(HttpStatus.OK, response.getStatusCode());
+        Assertions.assertEquals(mensagem, response.getBody());
     }
 
     @Test
-    void TestControllerUpdate02() {
-        Long id = 1L;
+    void TestControllerUpdate02() {  //Falha
+        Long id = 2L;
         UsuarioDTO usuarioDTO = new UsuarioDTO();
+        usuarioDTO.setId(id);
+        String mensagem = "Usuários não conferem";
+        when(usuarioService.update(1L, usuarioDTO)).thenThrow(new IllegalArgumentException(mensagem));
 
-        when(usuarioService.update(1L, usuarioDTO)).thenThrow(new IllegalArgumentException("Nome do item não pode estar em branco"));
+        ResponseEntity<String> response = usuarioController.update(1L, usuarioDTO);
 
-        ResponseEntity<String> response = usuarioController.update(id, usuarioDTO);
-
-        assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
-        assertNotNull(response.getBody());
+        Assertions.assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
+        Assertions.assertEquals(mensagem, response.getBody());
     }
 
     @Test
-    void TestControllerDelete01() {
+    void TestControllerDelete() {
         Long id = 1L;
+        String mensagem = "Usuário excluido com sucesso!";
 
         ResponseEntity<String> response = usuarioController.delete(id);
 
-        assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertEquals("Usuário excluido com sucesso!", response.getBody());
+        Assertions.assertEquals(HttpStatus.OK, response.getStatusCode());
+        Assertions.assertEquals("Usuário excluido com sucesso!", response.getBody());
     }
 }
