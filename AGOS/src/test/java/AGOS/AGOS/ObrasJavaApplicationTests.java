@@ -1,4 +1,4 @@
-package ObrasJava.ObrasJava;
+package AGOS.AGOS;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -13,7 +13,12 @@ import java.util.List;
 @RequestMapping("/api/obra/documento")//MUDAR AQUI PARA NAO SOBRECARREGAR?
 public class DocumentoController {
     @Autowired
-    DocumentoService documentoService;
+    static DocumentoService documentoService;
+
+    @Autowired
+    public DocumentoController(DocumentoService documentoService) {
+        this.documentoService = documentoService;
+    }
 
     @GetMapping
     public ResponseEntity<DocumentoDTO> findById(@RequestParam("id") final Long id){
@@ -27,9 +32,9 @@ public class DocumentoController {
     }
 
     @GetMapping("/lista")
-    public ResponseEntity<List<DocumentoDTO>> findAll(){
+    public static ResponseEntity<List<DocumentoDTO>> findAll(){
         try{
-            final List<DocumentoDTO> documentos = this.documentoService.findAll();
+            final List<DocumentoDTO> documentos = documentoService.findAll();
             return ResponseEntity.ok(documentos);
         }
         catch (IllegalArgumentException e) {
@@ -53,7 +58,7 @@ public class DocumentoController {
     @PutMapping
     public ResponseEntity<String> update(@RequestParam("id") Long id, @RequestBody DocumentoDTO documento){
         try{
-            this.documentoService.update(documento);
+            this.documentoService.update(id, documento);
             return ResponseEntity.ok("Registro editado com sucesso");
         }
         catch (IllegalArgumentException e) {

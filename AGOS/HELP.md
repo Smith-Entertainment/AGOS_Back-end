@@ -1,7 +1,7 @@
 # Read Me First
 The following was discovered as part of building this project:
 
-* The original package name 'Obras-Java.Obras-Java' is invalid and this project uses 'ObrasJava.ObrasJava' instead.
+* The original package name 'Obras-Java.Obras-Java' is invalid and this project uses 'AGOS.AGOS' instead.
 
 # Getting Started
 

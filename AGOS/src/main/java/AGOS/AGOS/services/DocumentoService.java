@@ -17,6 +17,7 @@ public class DocumentoService {
     @Autowired
     DocumentoRepository documentoRepository;
 
+
     @Autowired
     private ModelMapper modelMapper;
 
@@ -48,7 +49,7 @@ public class DocumentoService {
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public DocumentoDTO update(DocumentoDTO documentoDTO) {
+    public DocumentoDTO update(Long id, DocumentoDTO documentoDTO) {
         validateDocumentoDTO(documentoDTO);
         Documento documento = convertToEntity(documentoDTO);
         Optional<Documento> documentoAtual = documentoRepository.findByNome(documento.getNome());
