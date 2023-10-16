@@ -32,7 +32,7 @@ public class UsuarioService {
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public void create(final UsuarioDTO usuarioDTO){
+    public UsuarioDTO create(final UsuarioDTO usuarioDTO){
         Usuario usuarioDatabase;
 
         usuarioDatabase = this.usuarioRepository.findByCpf(usuarioDTO.getCpf());
@@ -54,14 +54,14 @@ public class UsuarioService {
 
         validateUsuario(usuarioDTO);
 
-        this.usuarioRepository.save(convertToEntity(usuarioDTO));
+        return convertToDTO(this.usuarioRepository.save(convertToEntity(usuarioDTO)));
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public void update(final Long id, final UsuarioDTO usuarioDTO){
+    public UsuarioDTO update(final Long id, final UsuarioDTO usuarioDTO){
         Usuario usuarioDatabase;
 
-        usuarioDatabase = this.usuarioRepository.findById(usuarioDTO.getId()).orElse(null);
+        usuarioDatabase = this.usuarioRepository.findById(id).orElse(null);
         if(usuarioDatabase == null){
             throw new IllegalArgumentException("Usuário não encontrado");
         }
@@ -88,7 +88,7 @@ public class UsuarioService {
 
         validateUsuario(usuarioDTO);
 
-        this.usuarioRepository.save(convertToEntity(usuarioDTO));
+        return convertToDTO(this.usuarioRepository.save(convertToEntity(usuarioDTO)));
     }
 
     @Transactional(rollbackFor = Exception.class)
@@ -97,12 +97,12 @@ public class UsuarioService {
         this.usuarioRepository.delete(usuario);
     }
 
-    private UsuarioDTO convertToDTO(Usuario usuario){
+    public UsuarioDTO convertToDTO(Usuario usuario){
         UsuarioDTO usuarioDTO = modelMapper.map(usuario, UsuarioDTO.class);
         return usuarioDTO;
     }
 
-    private Usuario convertToEntity(UsuarioDTO usuarioDTO){
+    public Usuario convertToEntity(UsuarioDTO usuarioDTO){
         Usuario usuario = modelMapper.map(usuarioDTO, Usuario.class);
         return usuario;
     }
