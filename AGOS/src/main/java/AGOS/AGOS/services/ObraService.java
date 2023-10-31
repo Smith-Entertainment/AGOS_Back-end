@@ -19,11 +19,19 @@ public class ObraService {
     @Autowired
     private ModelMapper modelMapper;
 
+    private ObraDTO convertToDTO(Obra obra) {
+        return modelMapper.map(obra, ObraDTO.class);
+    }
+
+    private Obra convertToEntity(ObraDTO obraDTO) {
+        return modelMapper.map(obraDTO, Obra.class);
+    }
+
     @Transactional(rollbackFor = Exception.class)
     public ObraDTO findById(Long obraId) {
         Obra obra = obraRepository.findById(obraId)
                 .orElseThrow(() -> new IllegalArgumentException("Obra não encontrada"));
-        return modelMapper.map(obra, ObraDTO.class);
+        return convertToDTO(obra);
     }
 
     @Transactional(rollbackFor = Exception.class)
@@ -33,14 +41,14 @@ public class ObraService {
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public void createObra(ObraDTO obraDTO) {
+    public void create(ObraDTO obraDTO) {
         validateObraDTO(obraDTO);
-        Obra obra = modelMapper.map(obraDTO, Obra.class);
+        Obra obra = convertToEntity(obraDTO);
         obraRepository.save(obra);
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public void updateObra(Long obraId, ObraDTO obraDTO) {
+    public void update(Long obraId, ObraDTO obraDTO) {
         validateObraDTO(obraDTO);
         Obra existingObra = obraRepository.findById(obraId)
                 .orElseThrow(() -> new IllegalArgumentException("Obra não encontrada"));
@@ -49,7 +57,7 @@ public class ObraService {
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public void deleteObra(Long obraId) {
+    public void delete(Long obraId) {
         Obra obra = obraRepository.findById(obraId)
                 .orElseThrow(() -> new IllegalArgumentException("Obra não encontrada"));
         obraRepository.delete(obra);
@@ -63,8 +71,8 @@ public class ObraService {
         if (obraDTO.getTitulo() == null || obraDTO.getTitulo().isBlank()) {
             throw new IllegalArgumentException("Título não pode estar em branco");
         }
-        if (obraDTO.getBairro() == null || obraDTO.getBairro().isBlank()) {
-            throw new IllegalArgumentException("Bairro não pode estar em branco");
+        if (obraDTO.getBairro() == null ) {
+            throw new IllegalArgumentException("Bairro não pode ser nulo");
         }
         if (obraDTO.getRua() == null || obraDTO.getRua().isBlank()) {
             throw new IllegalArgumentException("Rua não pode estar em branco");

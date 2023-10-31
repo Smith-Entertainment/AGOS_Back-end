@@ -35,8 +35,9 @@ public class Obra {
     @Column(name= "valor_edital",nullable = false)
     private BigDecimal valorEdital;
 
-    @Column(name= "bairro",length = 50,nullable = false)
-    private String bairro;
+    @ManyToOne
+    @JoinColumn(name= "bairro",nullable = false)
+    private Bairro bairro;
 
     @Column(name= "rua",length = 30,nullable = false)
     private String rua;

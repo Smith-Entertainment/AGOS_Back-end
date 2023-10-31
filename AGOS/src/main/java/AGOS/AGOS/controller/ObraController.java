@@ -39,7 +39,7 @@ public class ObraController {
     @PostMapping
     public ResponseEntity<String> create(@RequestBody final ObraDTO obraDTO) {
         try {
-            this.obraService.createObra(obraDTO);
+            this.obraService.create(obraDTO);
             return ResponseEntity.ok("Obra cadastrada com sucesso!");
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -49,7 +49,7 @@ public class ObraController {
     @PutMapping
     public ResponseEntity<String> update(@RequestParam("id") final Long id, @RequestBody final ObraDTO obraDTO) {
         try {
-            this.obraService.updateObra(id, obraDTO);
+            this.obraService.update(id, obraDTO);
             return ResponseEntity.ok("Obra editada com sucesso!");
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -59,7 +59,7 @@ public class ObraController {
     @DeleteMapping
     public ResponseEntity<String> delete(@RequestParam("id") final Long id) {
         try {
-            this.obraService.deleteObra(id);
+            this.obraService.delete(id);
             return ResponseEntity.ok("Obra excluída com sucesso!");
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body(e.getMessage());

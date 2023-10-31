@@ -1,7 +1,6 @@
 package AGOS.AGOS.services;
 
 import AGOS.AGOS.DTO.ObraDTO;
-import AGOS.AGOS.entity.Item;
 import AGOS.AGOS.entity.Obra;
 import AGOS.AGOS.entity.TipoObra;
 import AGOS.AGOS.repository.ObraRepository;
@@ -50,7 +49,7 @@ public class ObraServiceTest {
 
         when(modelMapper.map(obraDTO, Obra.class)).thenReturn(new Obra());
 
-        obraService.createObra(obraDTO);
+        obraService.create(obraDTO);
 
         verify(obraRepository, times(1)).save(any(Obra.class));
     }
@@ -59,7 +58,7 @@ public class ObraServiceTest {
     public void testCreateObraInvalid() {
         ObraDTO obraDTO = new ObraDTO();
 
-        assertThrows(IllegalArgumentException.class, () -> obraService.createObra(obraDTO));
+        assertThrows(IllegalArgumentException.class, () -> obraService.create(obraDTO));
 
         verify(obraRepository, never()).save(any(Obra.class));
     }

@@ -1,7 +1,6 @@
 package AGOS.AGOS.controller;
 
 import AGOS.AGOS.DTO.ObraDTO;
-import AGOS.AGOS.entity.Obra;
 import AGOS.AGOS.services.ObraService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -84,7 +83,7 @@ class ObraControllerTest {
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals("Obra cadastrada com sucesso!", response.getBody());
 
-        verify(service, times(1)).createObra(obraDTO);
+        verify(service, times(1)).create(obraDTO);
     }
 
     @Test
@@ -97,7 +96,7 @@ class ObraControllerTest {
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals("Obra editada com sucesso!", response.getBody());
 
-        verify(service, times(1)).updateObra(obraId, obraDTO);
+        verify(service, times(1)).update(obraId, obraDTO);
     }
 
     @Test
@@ -109,6 +108,6 @@ class ObraControllerTest {
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals("Obra excluída com sucesso!", response.getBody());
 
-        verify(service, times(1)).deleteObra(obraId);
+        verify(service, times(1)).delete(obraId);
     }
 }
