@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: AGOS.AGOS.services.PeriodoServiceTest
--------------------------------------------------------------------------------
-Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.128 s - in AGOS.AGOS.services.PeriodoServiceTest

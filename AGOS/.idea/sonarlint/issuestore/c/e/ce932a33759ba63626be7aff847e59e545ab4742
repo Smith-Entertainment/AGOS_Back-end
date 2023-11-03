@@ -1,0 +1,30 @@
+
+F
+java:S1066£"/Merge this if statement with the enclosing one.(¿äµÎ
+x
+java:S1488e"bImmediately return this expression instead of assigning it to the temporary variable "usuarioDTO".(Ô˜³Õ
+z
+java:S1488j"_Immediately return this expression instead of assigning it to the temporary variable "usuario".(ÅÉÃÅúÿÿÿÿ
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(þ²Ëÿýÿÿÿÿ
+h
+java:S6204"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(¹±ÿ‚
+m
+java:S3776n"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(¥»É¹ÿÿÿÿÿ
+W
+java:S6353u"<Use concise character class syntax '\\d' instead of '[0-9]'.(‚Ïò„øÿÿÿÿ
+W
+java:S6353u"<Use concise character class syntax '\\d' instead of '[0-9]'.(‚Ïò„øÿÿÿÿ
+W
+java:S6353u"<Use concise character class syntax '\\d' instead of '[0-9]'.(‚Ïò„øÿÿÿÿ
+W
+java:S6353u"<Use concise character class syntax '\\d' instead of '[0-9]'.(‚Ïò„øÿÿÿÿ
+W
+java:S6353"<Use concise character class syntax '\\d' instead of '[0-9]'.(Æ¼‡³ÿÿÿÿÿ
+W
+java:S6353"<Use concise character class syntax '\\d' instead of '[0-9]'.(Æ¼‡³ÿÿÿÿÿ
+W
+java:S6353"<Use concise character class syntax '\\d' instead of '[0-9]'.(Æ¼‡³ÿÿÿÿÿ
+:
+java:S6396†"#Remove this unnecessary quantifier.(çÎ‰
+X
+java:S6353"<Use concise character class syntax '\\d' instead of '[0-9]'.(€–æ÷üÿÿÿÿ
