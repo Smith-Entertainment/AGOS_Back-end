@@ -1,14 +1,14 @@
 package AGOS.AGOS.DTO;
 
-import AGOS.AGOS.entity.Envio;
-import AGOS.AGOS.entity.Situacao;
-import AGOS.AGOS.entity.TipoObra;
+import AGOS.AGOS.entity.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.time.LocalDate;
 @Getter @Setter
 public class ObraDTO {
@@ -24,17 +24,17 @@ public class ObraDTO {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate dataCertame;
 
-    private double valorEdital;
+    private BigDecimal valorEdital;
 
-    private String bairro;
+    private Bairro bairro;
 
     private String rua;
 
-    private int numero;
+    private BigInteger numeroEndereco;
 
   //  private List<UsuarioDTO> voluntarios;
 
-    private double valorContratado;
+    private BigDecimal valorContratado;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate dataInicio;
@@ -44,7 +44,7 @@ public class ObraDTO {
 
     private int numeroContrato;
 
-    private String empresaContratada;
+    private Empresa empresaContratada;
 
 
     private Situacao situacao;
