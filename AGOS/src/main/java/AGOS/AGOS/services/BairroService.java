@@ -34,7 +34,7 @@ public class BairroService {
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public void create(final BairroDTO bairroDTO){
+    public BairroDTO create(final BairroDTO bairroDTO){
         Bairro bairroDatabase = this.bairroRepository.findByNome(bairroDTO.getNome());
         if (bairroDatabase != null){
             throw new IllegalArgumentException("Bairro já cadastrado!");
@@ -44,11 +44,11 @@ public class BairroService {
             throw new IllegalArgumentException("Nome de bairro inválido!");
         }
 
-        this.bairroRepository.save(convertToEntity(bairroDTO));
+        return convertToDTO(this.bairroRepository.save(convertToEntity(bairroDTO)));
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public void update(final Long id, final BairroDTO bairroDTO){
+    public BairroDTO update(final Long id, final BairroDTO bairroDTO){
         Bairro bairroDatabase;
 
         bairroDatabase = this.bairroRepository.findById(id).orElse(null);
@@ -68,7 +68,7 @@ public class BairroService {
             throw new IllegalArgumentException("Nome de bairro inválido!");
         }
 
-        this.bairroRepository.save(convertToEntity(bairroDTO));
+        return convertToDTO(this.bairroRepository.save(convertToEntity(bairroDTO)));
     }
 
     @Transactional(rollbackFor = Exception.class)
