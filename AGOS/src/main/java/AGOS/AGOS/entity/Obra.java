@@ -23,6 +23,9 @@ public class Obra {
     @Column(name= "titulo",length = 120,nullable = false, unique = true)
     private String titulo;
 
+    @Column(name= "objetivo",length = 150)
+    private String objetivo;
+
     @Column(name= "cep",length = 9,nullable = false, unique = false)
     private String cep;
 
