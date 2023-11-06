@@ -83,8 +83,6 @@ public class ObraService {
         if (obraDTO.getValorEdital() == null) {
             throw new IllegalArgumentException("Valor do Edital não pode ser nulo");
         }
-        if (obraDTO.getTipoObra() == null) {
-            throw new IllegalArgumentException("Tipo obra não pode ser nulo");
-        }
+
     }
 }

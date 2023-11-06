@@ -23,6 +23,18 @@ public class BairroService {
         Bairro bairro = this.bairroRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Bairro não encontrado!"));
         return convertToDTO(bairro);
     }
+    @Transactional(rollbackFor = Exception.class)
+    public BairroDTO findByNome(final String nome){
+        Bairro bairro = this.bairroRepository.findByNome(nome);
+        if (bairro.getNome().isBlank()){
+        BairroDTO newBairro = new BairroDTO();
+        newBairro.setNome(nome);
+        return create(newBairro);
+        } else {
+            return convertToDTO(bairro);
+        }
+    }
+
 
     @Transactional(rollbackFor = Exception.class)
     public List<BairroDTO> findAll(){
