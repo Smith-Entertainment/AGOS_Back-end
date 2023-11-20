@@ -1,91 +1,56 @@
 package AGOS.AGOS.DTO;
-import AGOS.AGOS.entity.Envio;
-import AGOS.AGOS.entity.Situacao;
 
-import AGOS.AGOS.entity.TipoObra;
+import AGOS.AGOS.entity.*;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.EnumType;
-
 import jakarta.persistence.Enumerated;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.time.LocalDate;
-import java.util.List;
-
-@Getter
-@AllArgsConstructor
-@NoArgsConstructor
+@Getter @Setter
 public class ObraDTO {
-    @Setter
-    private Long id;
 
-    @Setter
+    private Long id;
+    @Getter @Setter
     private String titulo;
 
-    @Setter
-    private String imagem;
+    private String cep;
 
-    @Setter
-    private String objetivo;
-
-    @Setter
     private String licitacao;
 
-    @Setter
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate dataCertame;
 
-    @Setter
-    private double valorEdital;
+    private BigDecimal valorEdital;
 
-    @Setter
-    private String bairro;
+    private Bairro bairro;
 
-    @Setter
     private String rua;
 
-    @Setter
-    private int numero;
+    private BigInteger numeroEndereco;
 
-    // @Getter @Setter
-    // private List<UsuarioDTO> voluntarios;
+  //  private List<UsuarioDTO> voluntarios;
 
-    @Setter
-    private double valorContratado;
+    private BigDecimal valorContratado;
 
-    @Setter
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate dataInicio;
 
-    @Setter
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate dataTermino;
 
-    @Setter
     private int numeroContrato;
 
-    @Setter
-    private String empresaContratada;
+    private Empresa empresaContratada;
 
-    @Setter
-    private boolean finalizado;
 
-    @Enumerated(EnumType.STRING)
-    @Setter
-    private TipoObra tipoObra;
-
-    @Enumerated(EnumType.STRING)
-    @Setter
     private Situacao situacao;
 
-    @Setter
+    @Enumerated(EnumType.STRING)
+    private TipoObra tipoObra;
+
     private Envio foto;
-
-    @Setter
-    private String cep;
-
-
 }

@@ -17,7 +17,7 @@ import lombok.Setter;
         @Getter @Setter
         @Enumerated(EnumType.STRING)
         @Column(name = "nome_mes")
-        private Meses mes;
+        private Mes mes;
 
         @Getter @Setter
         @Column(name = "ano", nullable = false)

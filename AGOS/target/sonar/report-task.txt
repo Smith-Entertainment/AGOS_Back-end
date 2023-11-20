@@ -1,6 +1,0 @@
-projectKey=AGOS
-serverUrl=http://localhost:9000
-serverVersion=10.2.0.77647
-dashboardUrl=http://localhost:9000/dashboard?id=AGOS
-ceTaskId=AYrs_1AflNpTvlciiljw
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AYrs_1AflNpTvlciiljw

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping("/api/periodos")
+@RequestMapping("/api/periodo")
 public class PeriodoController {
     @Autowired
     private  PeriodoService periodoService;

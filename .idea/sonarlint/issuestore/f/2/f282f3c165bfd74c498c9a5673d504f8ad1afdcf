@@ -1,0 +1,18 @@
+
+w
+java:S1192("UDefine a constant instead of duplicating this literal "Obra nÃ£o encontrada" 3 times.(ÑÉÕÇşÿÿÿÿ8î¨ë±1
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ş²Ëÿıÿÿÿÿ8¾…ë±1
+t
+java:S6204/"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(µ¨÷‡üÿÿÿÿ8¡î¨ë±1
+Z
+java:S1854}"=Remove this useless assignment to local variable "formatter".(òÇ·Í8§î¨ë±1
+\
+java:S1854w":Remove this useless assignment to local variable "obraId".(Ÿ–‹°ÿÿÿÿÿ8§î¨ë±1
+M
+java:S1481w"+Remove this unused "obraId" local variable.(Ÿ–‹°ÿÿÿÿÿ8§î¨ë±1
+K
+java:S1874}".Remove this use of "Locale"; it is deprecated.(òÇ·Í8°¨ë±1
+K
+java:S1481}".Remove this unused "formatter" local variable.(òÇ·Í8¨î¨ë±1
+L
+java:S1874„".Remove this use of "Locale"; it is deprecated.(‘³8©î¨ë±1
