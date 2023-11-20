@@ -9,7 +9,7 @@
     import org.springframework.transaction.annotation.Transactional;
 
 
-<<<<<<< HEAD
+
 @Service
 public class PeriodoService {
 
@@ -31,16 +31,8 @@ public class PeriodoService {
 
         if (!anoString.matches("[0-9]{4}")){
             throw new IllegalArgumentException("Ano inválido");
-=======
-    @Service
-    public class PeriodoService {
-        @Autowired
-        private PeriodoRepository periodoRepository;
-        @Autowired
-        private ModelMapper modelMapper;
-         Periodo toPeriodo(PeriodoDTO periodoDTO){
-            return modelMapper.map(periodoDTO, Periodo.class);
->>>>>>> 83c591976b83e26e19e83635319b68d43aeb47ab
+
+
         }
          PeriodoDTO toPeriodoDTO (Periodo periodo){
             return modelMapper.map(periodo, PeriodoDTO.class);

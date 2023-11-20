@@ -31,13 +31,10 @@ public class Valor {
     @OneToOne
     @JoinColumn(name = "periodo_id")
     private Periodo periodo;
-    @ManyToOne
+
     @Getter @Setter
-<<<<<<< HEAD
     @ManyToOne
-    @JoinColumn(name = "Item_id")
-=======
     @JoinColumn(name = "item_id")
->>>>>>> 83c591976b83e26e19e83635319b68d43aeb47ab
+
     private Item item;
 }
