@@ -1,5 +1,6 @@
 package AGOS.AGOS.controller;
 
+import AGOS.AGOS.DTO.BairroDTO;
 import AGOS.AGOS.DTO.EmpresaDTO;
 import AGOS.AGOS.entity.Empresa;
 import AGOS.AGOS.services.EmpresaService;
@@ -22,6 +23,17 @@ public class EmpresaController {
         return ResponseEntity.ok(empresa);
     }
 
+    @GetMapping("findBy")
+    public ResponseEntity<Empresa> findByCNPJ(@RequestParam("cnpj") final String cnpj){
+        try {
+            Empresa empresa = this.empresaService.findByCnpj(cnpj);
+            return ResponseEntity.ok(empresa);
+        }catch (IllegalArgumentException e){
+            return ResponseEntity.badRequest().body(new Empresa());
+        }
+    }
+
+
     @GetMapping("/lista")
     public ResponseEntity<?> findAll() {
         List<Empresa> empresas = empresaService.findAll();
@@ -32,7 +44,7 @@ public class EmpresaController {
     public ResponseEntity<?> create(@RequestBody EmpresaDTO empresaDTO) {
         try {
             Empresa empresa = empresaService.create(empresaDTO);
-            return ResponseEntity.ok("Registro cadastrado com sucesso");
+            return ResponseEntity.ok(empresa);
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }

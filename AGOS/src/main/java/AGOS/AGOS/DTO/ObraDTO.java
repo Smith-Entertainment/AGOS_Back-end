@@ -50,8 +50,6 @@ public class ObraDTO {
 
 
     private Situacao situacao;
-
-    @Enumerated(EnumType.STRING)
     private TipoObra tipoObra;
 
     private Envio foto;
