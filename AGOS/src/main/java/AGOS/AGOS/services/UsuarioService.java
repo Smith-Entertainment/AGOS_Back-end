@@ -135,7 +135,7 @@ public class UsuarioService {
         if(usuarioDTO.getEmail() == null){
             throw new IllegalArgumentException("Deve conter email!");
         }
-        if(!usuarioDTO.getEmail().matches("[a-zA-Z0-9]+@[a-z]+[.]{1}[a-z]+")){
+        if(!usuarioDTO.getEmail().matches("[a-zA-Z0-9._%+-]+@[a-z]+[.]{1}[a-z]+")){
             throw new IllegalArgumentException("Formato do email inválido!");
         }
 
