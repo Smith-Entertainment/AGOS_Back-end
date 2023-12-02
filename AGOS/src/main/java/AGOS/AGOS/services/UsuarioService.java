@@ -135,7 +135,7 @@ public class UsuarioService {
         if(usuarioDTO.getEmail() == null){
             throw new IllegalArgumentException("Deve conter email!");
         }
-        if(!usuarioDTO.getEmail().matches("[a-zA-Z0-9]+@[a-z]+[.]{1}[a-z]+")){
+        if(!usuarioDTO.getEmail().matches("[a-zA-Z0-9._%+-]+@[a-z]+[.]{1}[a-z]+")){
             throw new IllegalArgumentException("Formato do email inválido!");
         }
 
@@ -145,7 +145,7 @@ public class UsuarioService {
         if(usuarioDTO.getTituloEleitor().length() != 12){
             throw new IllegalArgumentException("Título de eleitor inválido!");
         }
-        if(!usuarioDTO.getTituloEleitor().matches("[0-9]{12}")){
+        if(!usuarioDTO.getTituloEleitor().matches("[0-9]{3}.[0-9]{6}.[0-9]{2}")){
             throw new IllegalArgumentException("Formato do título de eleitor inválido!");
         }
 
