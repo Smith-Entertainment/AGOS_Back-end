@@ -14,8 +14,10 @@ import java.time.LocalDate;
 public class ObraDTO {
 
     private Long id;
-    @Getter @Setter
+
     private String titulo;
+
+    private String objetivo;
 
     private String cep;
 
@@ -48,8 +50,6 @@ public class ObraDTO {
 
 
     private Situacao situacao;
-
-    @Enumerated(EnumType.STRING)
     private TipoObra tipoObra;
 
     private Envio foto;

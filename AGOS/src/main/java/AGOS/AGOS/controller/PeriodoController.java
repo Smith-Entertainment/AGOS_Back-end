@@ -15,14 +15,12 @@ public class PeriodoController {
     @GetMapping
     public ResponseEntity<PeriodoDTO> findById(@RequestParam("id") final Long id){
         try {
-
             PeriodoDTO periodoDTO = this.periodoService.findById(id);
             return ResponseEntity.ok(periodoDTO);
         }catch (IllegalArgumentException e){
             return ResponseEntity.badRequest().body(new PeriodoDTO());
         }
     }
-
 
     @PostMapping
     public ResponseEntity<String> create(@RequestBody final PeriodoDTO periodoDTO){

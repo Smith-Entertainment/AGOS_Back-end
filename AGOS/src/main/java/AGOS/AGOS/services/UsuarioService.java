@@ -5,6 +5,7 @@ import AGOS.AGOS.entity.Usuario;
 import AGOS.AGOS.repository.UsuarioRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,7 +18,8 @@ public class UsuarioService {
     private UsuarioRepository usuarioRepository;
     @Autowired
     private ModelMapper modelMapper;
-
+    @Autowired
+    private PasswordEncoder passwordEncoder;
     @Transactional(rollbackFor = Exception.class)
     public UsuarioDTO findById(final Long id){
         final Usuario usuario = this.usuarioRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado!"));
@@ -54,7 +56,11 @@ public class UsuarioService {
 
         validateUsuario(usuarioDTO);
 
+        usuarioDTO.setRole("USER");
+        usuarioDTO.setSenha(passwordEncoder.encode(usuarioDTO.getSenha()));
+
         return convertToDTO(this.usuarioRepository.save(convertToEntity(usuarioDTO)));
+
     }
 
     @Transactional(rollbackFor = Exception.class)
@@ -121,9 +127,7 @@ public class UsuarioService {
         if(usuarioDTO.getCelular() == null){
             throw new IllegalArgumentException("Deve conter telefone!");
         }
-        if(usuarioDTO.getCelular().length() != 14){
-            throw new IllegalArgumentException("Telefone inválido!");
-        }
+
         if(!usuarioDTO.getCelular().matches("\\([0-9]{2}\\)9[0-9]{4}-[0-9]{4}")){
             throw new IllegalArgumentException("Formato do telefone inválido!");
         }
@@ -131,7 +135,7 @@ public class UsuarioService {
         if(usuarioDTO.getEmail() == null){
             throw new IllegalArgumentException("Deve conter email!");
         }
-        if(!usuarioDTO.getEmail().matches("[a-zA-Z0-9]+@[a-z]+[.]{1}[a-z]+")){
+        if(!usuarioDTO.getEmail().matches("[a-zA-Z0-9._%+-]+@[a-z]+[.]{1}[a-z]+")){
             throw new IllegalArgumentException("Formato do email inválido!");
         }
 

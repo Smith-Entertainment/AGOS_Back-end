@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 @Entity
 @Table(name = "Valor", schema = "public")
@@ -31,10 +30,8 @@ public class Valor {
     @OneToOne
     @JoinColumn(name = "periodo_id")
     private Periodo periodo;
-
-    @Getter @Setter
     @ManyToOne
+    @Getter @Setter
     @JoinColumn(name = "item_id")
-
     private Item item;
 }

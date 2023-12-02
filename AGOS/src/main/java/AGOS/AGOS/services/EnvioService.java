@@ -1,20 +1,13 @@
 package AGOS.AGOS.services;
 
-import AGOS.AGOS.DTO.EnvioDTO;
-import AGOS.AGOS.DTO.ObraDTO;
 import AGOS.AGOS.entity.Obra;
 import AGOS.AGOS.repository.EnvioRepository;
 import AGOS.AGOS.repository.ObraRepository;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import AGOS.AGOS.entity.Envio;
 import org.springframework.util.Assert;
 
-
-
-import java.util.ArrayList;
-import java.util.Date;
 
 import java.util.List;
 import java.util.Optional;
@@ -28,74 +21,19 @@ public class EnvioService {
     @Autowired
     private ObraRepository obraRepository;
 
-    private ModelMapper modelMapper;
+    public List<Envio> findEnvios() {
 
-    public List<EnvioDTO> findAllEnvios() {
-        List<EnvioDTO> listEnvioDTO = new ArrayList<>();
-
-        for(Envio envioEntity: envioRepository.findAll()){
-            EnvioDTO envioDTO = modelMapper.map(envioEntity,EnvioDTO.class);
-            listEnvioDTO.add(envioDTO);
-        }
-
-        return listEnvioDTO;
+        return envioRepository.findAll();
     }
 
 
 
+    public void createEnvio(Envio envio, Obra obra) {
 
-
-    public EnvioDTO findEnvioById(Long id){
-
-        Optional<Envio> envioBD = envioRepository.findById(id);
-
-        Assert.isTrue(envioBD.isPresent(),"Usuário não encontrado");
-
-        return modelMapper.map(envioBD.get(),EnvioDTO.class);
-
-    }
-
-
-
-
-
-    public EnvioDTO createEnvio(EnvioDTO envioDTO, ObraDTO obraDTO) {
-
-
-
-        Obra obraEntity = modelMapper.map(obraDTO,Obra.class);
-        Envio envioEntity = modelMapper.map(envioDTO,Envio.class);
-
-
-
-        Optional<Obra> obraBD = obraRepository.findById(obraEntity.getId());
-        Assert.isTrue(obraBD.get().getDataInicio().isAfter(obraBD.get().getDataTermino()),"Obra não iniciada, não pode realizar envios");
-      /*  Assert.isTrue(!envioEntity.getObra().isFinalizado(),"Obra Finalizada, não pode fazer envios");
-
-       Assert.notNull(envio.getItem(),"iten não pode ser null");*/
-        envioRepository.save(envioEntity);
-        return envioDTO;
-
-    }
-
-
-
-
-
-
-
-    public EnvioDTO updateEnvio(EnvioDTO envioDTO, Long id){
-
-
-        Envio envioEntity = modelMapper.map(envioDTO,Envio.class);
-
-        Optional<Envio> envioBD = envioRepository.findById(id);
-        Assert.isTrue(envioBD.isEmpty(),"Envio não encontrado");
-        /*Assert.isTrue(!envioEntity.getObra().isFinalizado(),"Obra Finalizada, não pode fazer envios");*/
-        Assert.notNull(envioEntity.getComentario(),"iten não pode ser null");
-
-        envioRepository.save(envioEntity);
-        return envioDTO;
+        Optional<Obra> obraBD = obraRepository.findById(obra.getId());
+        Assert.isTrue(obraBD.get().getDataInicio().isAfter(envio.getData()),"Obra não iniciada, não pode realizar envios");
+/*        Assert.notNull(envio.getItem(),"iten não pode ser null");*/
+         envioRepository.save(envio);
 
     }
 
@@ -104,21 +42,20 @@ public class EnvioService {
 
         Optional<Envio> envioBD = envioRepository.findById(id);
         Assert.isTrue(envioBD.isEmpty(),"Envio não encontrado");
-
+        Assert.notNull(envio.getItem(),"iten não pode ser null");
 
     }
 
-    public String deleteEnvio(Long id){
-
+    public void deleteEnvio(Long id){
 
         Optional<Envio> envioBD = envioRepository.findById(id);
 
         Assert.isTrue(envioBD.isEmpty(),"Envio não encontrado");
         envioRepository.deleteById(id);
 
-        return "Envio excluido";
-
     }
+
+
 
 
 }

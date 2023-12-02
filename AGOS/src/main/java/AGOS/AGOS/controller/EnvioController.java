@@ -1,6 +1,4 @@
 package AGOS.AGOS.controller;
-import AGOS.AGOS.DTO.EnvioDTO;
-import AGOS.AGOS.DTO.ObraDTO;
 import AGOS.AGOS.entity.Envio;
 import AGOS.AGOS.entity.Obra;
 import AGOS.AGOS.services.EnvioService;
@@ -18,18 +16,18 @@ public class EnvioController {
   private   EnvioService envioService;
 
     @GetMapping("/lista")
-    public ResponseEntity<List<EnvioDTO>> findAllEnvios() {
-        final List<EnvioDTO> enviosDTO = this.envioService.findAllEnvios();
+    public ResponseEntity<?> findAllEnvios() {
+        final List<Envio> envios = this.envioService.findEnvios();
 
-        return ResponseEntity.ok(enviosDTO);
+        return ResponseEntity.ok(envios);
     }
 
 
 
 @PostMapping
-    public ResponseEntity<String> realizarEnvio(@RequestBody final EnvioDTO envioDTO, final ObraDTO obraDTO){
+    public ResponseEntity<?> realizarEnvio(@RequestBody final Envio envio, final Obra obra){
         try{
-            envioService.createEnvio(envioDTO,obraDTO);
+            envioService.createEnvio(envio,obra);
             return ResponseEntity.ok("Envio cadastrado com sucesso");
         }
         catch (RuntimeException e){
@@ -42,9 +40,9 @@ public class EnvioController {
 
 
 @PutMapping("/{id}")
-    public ResponseEntity<String> atualizarEnvio(@RequestBody EnvioDTO envioDTO,@PathVariable Long id){
+    public ResponseEntity<?> atualizarEnvio(@RequestBody Envio envio,@PathVariable Long id){
         try{
-            envioService.updateEnvio(envioDTO,id);
+            envioService.updateEnvio(envio,id);
             return ResponseEntity.ok("Envio modificado com sucesso");
         }
         catch (RuntimeException e){
@@ -56,7 +54,7 @@ public class EnvioController {
 
 
 @DeleteMapping("/{id}")
-    public ResponseEntity<String> deletarEnvio(@PathVariable Long id){
+    public ResponseEntity<?> deletarEnvio(@PathVariable Long id){
 
         try {
             envioService.deleteEnvio(id);

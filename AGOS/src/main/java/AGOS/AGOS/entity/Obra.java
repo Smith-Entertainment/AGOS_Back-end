@@ -23,6 +23,9 @@ public class Obra {
     @Column(name= "titulo",length = 120,nullable = false, unique = true)
     private String titulo;
 
+    @Column(name= "objetivo",length = 150)
+    private String objetivo;
+
     @Column(name= "cep",length = 9,nullable = false, unique = false)
     private String cep;
 
@@ -71,7 +74,8 @@ public class Obra {
     @JoinColumn(name= "empresa_contratada")
     private Empresa empresaContratada;
 
-    @Column(name= "situacao", nullable = false)
+    @Enumerated(EnumType.STRING)
+    @Column(name= "situacao")
     private Situacao situacao;
 
     @Enumerated(EnumType.STRING)

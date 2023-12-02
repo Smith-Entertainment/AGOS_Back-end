@@ -1,11 +1,14 @@
 package AGOS.AGOS.services;
 
+import AGOS.AGOS.DTO.BairroDTO;
+import AGOS.AGOS.entity.Bairro;
 import AGOS.AGOS.entity.Empresa;
 import AGOS.AGOS.repository.EmpresaRepository;
 import AGOS.AGOS.DTO.EmpresaDTO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -57,5 +60,10 @@ public class EmpresaService {
     public Empresa getById(Long id) {
         return empresaRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Empresa não encontrada com o ID: " + id));
+    }
+
+    public Empresa findByCnpj(String cnpj){
+        return  empresaRepository.findByCnpj(cnpj)
+                .orElseThrow(() -> new RuntimeException("Empresa não encontrada com o ID: " + cnpj));
     }
 }

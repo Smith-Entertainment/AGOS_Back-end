@@ -1,0 +1,11 @@
+
+[	java:S1120"FDefine and throw a dedicated exception instead of using a generic one.(¸Õ°Ø
+y
+java:S11920"cDefine a constant instead of duplicating this literal "Empresa nÃ£o encontrada com o ID: " 3 times.(¸Õ°Ø
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(þ²Ëÿýÿÿÿÿ
+O
+java:S1128"4Remove this unused import 'AGOS.AGOS.DTO.BairroDTO'.(µú½°øÿÿÿÿ
+O
+java:S1128"4Remove this unused import 'AGOS.AGOS.entity.Bairro'.(å²Ô‚üÿÿÿÿ
+p
+java:S1128"URemove this unused import 'org.springframework.transaction.annotation.Transactional'.(ðùçøùÿÿÿÿ
