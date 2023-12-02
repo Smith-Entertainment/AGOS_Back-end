@@ -18,6 +18,8 @@ public class UsuarioDTO {
     private String celular;
     private String tituloEleitor;
     private String senha;
+    private String role;
+    private String token;
     private String nomePai;
     private String nomeMae;
     private LocalDate dataNascimento;
