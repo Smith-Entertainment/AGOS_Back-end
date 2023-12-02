@@ -1,0 +1,6 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ş²Ëÿıÿÿÿÿ
+E
+java:S2201"/The return value of "orElseThrow" must be used.(±íÓ
+W
+java:S6353"<Use concise character class syntax '\\d' instead of '[0-9]'.(’ºëÊıÿÿÿÿ
