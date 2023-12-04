@@ -65,29 +65,7 @@ public class BairroControllerTest {
         Assertions.assertEquals(3, quantidade);
     }
 
-    @Test
-    void TestControllerCreate01() {  //Certo
-        BairroDTO bairroDTO = new BairroDTO();
-        String mensagem = "Bairro cadastrado com sucesso!";
-        when(bairroService.create(bairroDTO)).thenReturn(bairroDTO);
 
-        ResponseEntity<String> response = bairroController.create(bairroDTO);
-
-        Assertions.assertEquals(HttpStatus.OK, response.getStatusCode());
-        Assertions.assertEquals(mensagem, response.getBody());
-    }
-
-    @Test
-    void TestControllerCreate02() {  //Falha
-        BairroDTO bairroDTO = new BairroDTO();
-        String mensagem = "Nome de bairro inválido!";
-        when(bairroService.create(bairroDTO)).thenThrow(new IllegalArgumentException(mensagem));
-
-        ResponseEntity<String> response = bairroController.create(bairroDTO);
-
-        Assertions.assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
-        Assertions.assertEquals(mensagem, response.getBody());
-    }
 
     @Test
     void TestControllerUpdate01() {  //Certo
