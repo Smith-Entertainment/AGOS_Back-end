@@ -42,7 +42,7 @@ public class Obra {
     @JoinColumn(name= "bairro",nullable = false)
     private Bairro bairro;
 
-    @Column(name= "rua",length = 30,nullable = false)
+    @Column(name= "rua",nullable = false)
     private String rua;
 
     @Column(name= "numero",nullable = false)
