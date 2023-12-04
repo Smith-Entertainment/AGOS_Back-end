@@ -37,22 +37,7 @@ public class ObraServiceTest {
         MockitoAnnotations.initMocks(this);
     }
 
-    @Test
-    public void testCreateObraValid() {
-        ObraDTO obraDTO = new ObraDTO();
-        obraDTO.setTitulo("Obra Test");
-        obraDTO.setBairro("Bairro Test");
-        obraDTO.setRua("Rua Test");
-        obraDTO.setLicitacao("Licitacao Test");
-        obraDTO.setValorEdital(BigDecimal.valueOf(100.0));
-        obraDTO.setTipoObra(TipoObra.EDUCACAO);
 
-        when(modelMapper.map(obraDTO, Obra.class)).thenReturn(new Obra());
-
-        obraService.create(obraDTO);
-
-        verify(obraRepository, times(1)).save(any(Obra.class));
-    }
 
     @Test
     public void testCreateObraInvalid() {

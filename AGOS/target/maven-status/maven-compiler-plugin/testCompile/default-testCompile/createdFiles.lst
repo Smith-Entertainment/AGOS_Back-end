@@ -1,0 +1,14 @@
+AGOS\AGOS\services\ItemServiceTest.class
+AGOS\AGOS\controller\ItemControllerTest.class
+AGOS\AGOS\controller\PeriodoControllerTest.class
+AGOS\AGOS\services\ValorServiceTest.class
+AGOS\AGOS\controller\EmpresaControllerTest.class
+AGOS\AGOS\services\EmpresaServiceTest.class
+AGOS\AGOS\services\PeriodoServiceTest.class
+AGOS\AGOS\controller\BairroControllerTest.class
+AGOS\AGOS\controller\ObraControllerTest.class
+AGOS\AGOS\services\UsuarioServiceTest.class
+AGOS\AGOS\services\BairroServiceTest.class
+AGOS\AGOS\services\ObraServiceTest.class
+AGOS\AGOS\controller\UsuarioControllerTest.class
+AGOS\AGOS\controller\ValorControllerTest.class
