@@ -23,6 +23,7 @@ public class LoginController {
 	@PostMapping
 	public ResponseEntity<UsuarioDTO> logar(@RequestBody LoginDTO loginDTO) {
 		try {
+			System.out.println("entrou");
 			return ResponseEntity.ok(loginService.logar(loginDTO));
 		}catch(AuthenticationServiceException ex) {
 			return new ResponseEntity<>(null, HttpStatus.UNAUTHORIZED);
