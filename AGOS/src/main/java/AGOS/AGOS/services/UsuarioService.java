@@ -56,7 +56,7 @@ public class UsuarioService {
 
         validateUsuario(usuarioDTO);
 
-        usuarioDTO.setRole("USER");
+        usuarioDTO.setRole("VOLUNTARIO");
         usuarioDTO.setSenha(passwordEncoder.encode(usuarioDTO.getSenha()));
 
         return convertToDTO(this.usuarioRepository.save(convertToEntity(usuarioDTO)));
@@ -93,6 +93,9 @@ public class UsuarioService {
         }
 
         validateUsuario(usuarioDTO);
+
+        usuarioDTO.setRole("VOLUNTARIO");
+        usuarioDTO.setSenha(passwordEncoder.encode(usuarioDTO.getSenha()));
 
         return convertToDTO(this.usuarioRepository.save(convertToEntity(usuarioDTO)));
     }
