@@ -39,6 +39,10 @@ public class SecurityConfiguration  {
 				.requestMatchers("/*").permitAll()
 				.requestMatchers("api/login").permitAll()
 				.requestMatchers("api/usuario").permitAll()
+				.requestMatchers("api/obra/lista").permitAll()
+				.requestMatchers("api/obra?id=*").permitAll()
+
+				.requestMatchers("assets/**").permitAll()
 
 				.anyRequest().authenticated())
 		.authenticationProvider(authenticationProvider)

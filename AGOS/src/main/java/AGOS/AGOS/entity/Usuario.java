@@ -35,7 +35,7 @@ public class Usuario implements UserDetails {
     private String celular;
     @Column(name= "titulo_eleitor",nullable = false, unique = true)
     private String tituloEleitor;
-    @Column(name = "nomePai", length = 50)
+    @Column(name = "nome_pai", length = 50)
     private String nomePai;
     @Column(name = "nome_mae", length = 50, nullable = false)
     private String nomeMae;
