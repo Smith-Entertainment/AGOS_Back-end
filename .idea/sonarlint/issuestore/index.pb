@@ -41,3 +41,17 @@ j
 :AGOS/src/main/java/AGOS/AGOS/config/ModelMapperConfig.java,c\2\c2d1ff4cd0efb01185791896be94b7c8a2f1e329
 ]
 -AGOS/src/main/java/AGOS/AGOS/DTO/ObraDTO.java,c\a\ca7e8d787e440f82370a8014111c9ae63e8458a6
+i
+9AGOS/src/main/java/AGOS/AGOS/services/PeriodoService.java,8\4\84cbe24935ebf707d10c42621925ab54276e5e6b
+j
+:AGOS/src/test/java/AGOS/AGOS/services/ItemServiceTest.java,9\9\99bc91dcdef142dc75f7cdf08fd66d726fd60088
+m
+=AGOS/src/test/java/AGOS/AGOS/services/UsuarioServiceTest.java,9\9\99563116db9b00b9016ecc0b72df901b6c9bec52
+q
+AAGOS/src/test/java/AGOS/AGOS/controller/BairroControllerTest.java,1\3\131f0e10e3bba475115d4fe9d1e4a15dcd6b4b98
+b
+2AGOS/src/main/java/AGOS/AGOS/config/WebConfig.java,e\a\ea0065c6269bdcd701d103649274b2bb91d00310
+n
+>AGOS/src/main/java/AGOS/AGOS/config/SecurityConfiguration.java,a\6\a61c85eeb963075bf5a7535b1c2e65c0bfccd07c
+`
+0AGOS/src/main/java/AGOS/AGOS/entity/Usuario.java,9\6\96e8657872192854d12985a80cb670a5c40f0aa1
