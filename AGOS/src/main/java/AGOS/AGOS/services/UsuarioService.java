@@ -1,97 +1,186 @@
 package AGOS.AGOS.services;
 
+import AGOS.AGOS.DTO.UsuarioDTO;
 import AGOS.AGOS.entity.Usuario;
 import AGOS.AGOS.repository.UsuarioRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.Assert;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class UsuarioService {
     @Autowired
     private UsuarioRepository usuarioRepository;
+    @Autowired
+    private ModelMapper modelMapper;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+    @Transactional(rollbackFor = Exception.class)
+    public UsuarioDTO findById(final Long id){
+        final Usuario usuario = this.usuarioRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado!"));
+        return convertToDTO(usuario);
+    }
 
     @Transactional(rollbackFor = Exception.class)
-    public Usuario findById(final Long id){
-        final Usuario usuario = this.usuarioRepository.findById(id).orElse(null);
+    public List<UsuarioDTO> findAll(){
+        final List<Usuario> usuarios = this.usuarioRepository.findAll();
+
+        return usuarios.stream().map(this::convertToDTO).collect(Collectors.toList());
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    public UsuarioDTO create(final UsuarioDTO usuarioDTO){
+        Usuario usuarioDatabase;
+
+        usuarioDatabase = this.usuarioRepository.findByCpf(usuarioDTO.getCpf());
+        if(usuarioDatabase != null){
+            throw new IllegalArgumentException("CPF já cadastrado!");
+        }
+        usuarioDatabase = this.usuarioRepository.findByCelular(usuarioDTO.getCelular());
+        if(usuarioDatabase != null){
+            throw new IllegalArgumentException("Telefone já cadastrado!");
+        }
+        usuarioDatabase = this.usuarioRepository.findByEmail(usuarioDTO.getEmail());
+        if(usuarioDatabase != null){
+            throw new IllegalArgumentException("Email já cadastrado!");
+        }
+        usuarioDatabase = this.usuarioRepository.findByTituloEleitor(usuarioDTO.getTituloEleitor());
+        if(usuarioDatabase != null){
+            throw new IllegalArgumentException("Título de eleitor já cadastrado!");
+        }
+
+        validateUsuario(usuarioDTO);
+
+        usuarioDTO.setRole("VOLUNTARIO");
+        usuarioDTO.setSenha(passwordEncoder.encode(usuarioDTO.getSenha()));
+
+        return convertToDTO(this.usuarioRepository.save(convertToEntity(usuarioDTO)));
+
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    public UsuarioDTO update(final Long id, final UsuarioDTO usuarioDTO){
+        Usuario usuarioDatabase;
+
+        usuarioDatabase = this.usuarioRepository.findById(id).orElse(null);
+        if(usuarioDatabase == null){
+            throw new IllegalArgumentException("Usuário não encontrado");
+        }
+        if(!usuarioDatabase.getId().equals(usuarioDTO.getId())){
+            throw new IllegalArgumentException("Usuários não conferem");
+        }
+
+        usuarioDatabase = this.usuarioRepository.findByCpf(usuarioDTO.getCpf());
+        if(usuarioDatabase != null && !usuarioDatabase.getId().equals(usuarioDTO.getId())){
+            throw new IllegalArgumentException("CPF já cadastrado!");
+        }
+        usuarioDatabase = this.usuarioRepository.findByCelular(usuarioDTO.getCelular());
+        if(usuarioDatabase != null && !usuarioDatabase.getId().equals(usuarioDTO.getId())){
+            throw new IllegalArgumentException("Telefone já cadastrado!");
+        }
+        usuarioDatabase = this.usuarioRepository.findByEmail(usuarioDTO.getEmail());
+        if(usuarioDatabase != null && !usuarioDatabase.getId().equals(usuarioDTO.getId())){
+            throw new IllegalArgumentException("Email já cadastrado!");
+        }
+        usuarioDatabase = this.usuarioRepository.findByTituloEleitor(usuarioDTO.getTituloEleitor());
+        if(usuarioDatabase != null && !usuarioDatabase.getId().equals(usuarioDTO.getId())){
+            throw new IllegalArgumentException("Título de eleitor já cadastrado!");
+        }
+
+        validateUsuario(usuarioDTO);
+
+        usuarioDTO.setRole("VOLUNTARIO");
+        usuarioDTO.setSenha(passwordEncoder.encode(usuarioDTO.getSenha()));
+
+        return convertToDTO(this.usuarioRepository.save(convertToEntity(usuarioDTO)));
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    public void delete(final Long id){
+        Usuario usuario = this.usuarioRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado!"));
+        this.usuarioRepository.delete(usuario);
+    }
+
+    public UsuarioDTO convertToDTO(Usuario usuario){
+        UsuarioDTO usuarioDTO = modelMapper.map(usuario, UsuarioDTO.class);
+        return usuarioDTO;
+    }
+
+    public Usuario convertToEntity(UsuarioDTO usuarioDTO){
+        Usuario usuario = modelMapper.map(usuarioDTO, Usuario.class);
         return usuario;
     }
 
-    @Transactional(rollbackFor = Exception.class)
-    public List<Usuario> findAll(){
-        final List<Usuario> usuarios = this.usuarioRepository.findAll();
-        return usuarios;
-    }
-
-    @Transactional
-    public void cadastrar(final Usuario usuario, Boolean... editado){
-        Assert.notNull(usuario.getCpf(), "Deve conter cpf!");
-        Assert.isTrue(usuario.getCpf().length() == 14, "CPF inválido!");
-        Assert.isTrue(usuario.getCpf().matches("[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}"), "Formato do CPF inválido!");
-
-        Assert.notNull(usuario.getCelular(), "Deve conter telefone!");
-        Assert.isTrue(usuario.getCelular().length() == 14, "Telefone inválido!");
-        Assert.isTrue(usuario.getCelular().matches("\\([0-9]{2}\\)9[0-9]{4}-[0-9]{4}"), "Formato do telefone inválido!");
-
-        Assert.notNull(usuario.getEmail(), "Deve conter email!");
-        Assert.isTrue(usuario.getEmail().matches("[a-zA-Z0-9]+@[a-z]+[.]{1}[a-z]+"), "Formato do email inválido!");
-
-        Assert.isTrue(usuario.getTituloEleitor().length() == 12, "Título de eleitor inválido!");
-        Assert.isTrue(usuario.getTituloEleitor().matches("[0-9]{12}"), "Formato do título de eleitor inválido!");
-
-        Assert.notNull(usuario.getUsuario(), "Deve conter nome de usuário!");
-        Assert.isTrue(!usuario.getUsuario().isBlank(), "Nome de usuário inválido!");
-
-        Assert.notNull(usuario.getNome(), "Deve conter nome!");
-        Assert.isTrue(!usuario.getNome().isBlank(), "Nome inválido!");
-
-        Assert.notNull(usuario.getNomeMae(), "Deve conter nome da mãe!");
-        Assert.isTrue(!usuario.getNomeMae().isBlank(), "Nome da mãe inválido!");
-
-        if(usuario.getNomePai() != null){
-            Assert.isTrue(!usuario.getNomePai().isBlank(), "Nome do pai inválido!");
+    private void validateUsuario(UsuarioDTO usuarioDTO){
+        if(usuarioDTO.getCpf() == null){
+            throw new IllegalArgumentException("Deve conter cpf!");
+        }
+        if(usuarioDTO.getCpf().length() != 14){
+            throw new IllegalArgumentException("CPF inválido!");
+        }
+        if(!usuarioDTO.getCpf().matches("[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}")){
+            throw new IllegalArgumentException("Formato do CPF inválido!");
         }
 
-        Assert.notNull(usuario.getSenha(), "Deve conter senha!");
-        Assert.isTrue(!usuario.getSenha().isBlank(), "Senha inválida!");
-
-        Assert.notNull(usuario.getDataNascimento(), "Deve conter data de nascimento!");
-
-        if(editado.length == 0) {
-            Usuario usuarioDatabase = this.usuarioRepository.findByUsuario(usuario.getUsuario());
-            Assert.isNull(usuarioDatabase, "Usuário já cadastrado!");
-
-            usuarioDatabase = this.usuarioRepository.findByCpf(usuario.getCpf());
-            Assert.isNull(usuarioDatabase, "CPF já cadastrado!");
-
-            usuarioDatabase = this.usuarioRepository.findByEmail(usuario.getEmail());
-            Assert.isNull(usuarioDatabase, "Email já cadastrado!");
-
-            usuarioDatabase = this.usuarioRepository.findByCelular(usuario.getCelular());
-            Assert.isNull(usuarioDatabase, "Telefone já cadastrado!");
-
-            usuarioDatabase = this.usuarioRepository.findByTituloEleitor(usuario.getTituloEleitor());
-            Assert.isNull(usuarioDatabase, "Título de eleitor já cadastrado!");
+        if(usuarioDTO.getCelular() == null){
+            throw new IllegalArgumentException("Deve conter telefone!");
         }
 
-        this.usuarioRepository.save(usuario);
-    }
+        if(!usuarioDTO.getCelular().matches("\\([0-9]{2}\\)9[0-9]{4}-[0-9]{4}")){
+            throw new IllegalArgumentException("Formato do telefone inválido!");
+        }
 
-    @Transactional
-    public void editar(final Long id, final Usuario usuario){
-        Usuario usuarioBanco = findById(id);
-        Assert.notNull(usuarioBanco, "Registro não encontrado");
-        Assert.isTrue(usuarioBanco.getId().equals(usuario.getId()), "Registros não conferem");
+        if(usuarioDTO.getEmail() == null){
+            throw new IllegalArgumentException("Deve conter email!");
+        }
+        if(!usuarioDTO.getEmail().matches("[a-zA-Z0-9._%+-]+@[a-z]+[.]{1}[a-z]+")){
+            throw new IllegalArgumentException("Formato do email inválido!");
+        }
 
-        cadastrar(usuario, true);
-    }
+        if(usuarioDTO.getTituloEleitor() == null){
+            throw new IllegalArgumentException("Deve conter título de eleitor!");
+        }
+        if(usuarioDTO.getTituloEleitor().length() != 12){
+            throw new IllegalArgumentException("Título de eleitor inválido!");
+        }
+        if(!usuarioDTO.getTituloEleitor().matches("[0-9]{12}")){
+            throw new IllegalArgumentException("Formato do título de eleitor inválido!");
+        }
 
-    @Transactional
-    public void excluir(final Long id){
-        Usuario usuario = findById(id);
-        this.usuarioRepository.delete(usuario);
+        if(usuarioDTO.getNome() == null){
+            throw new IllegalArgumentException("Deve conter nome!");
+        }
+        if(usuarioDTO.getNome().isBlank()){
+            throw new IllegalArgumentException("Nome inválido!");
+        }
+
+        if(usuarioDTO.getNomeMae() == null){
+            throw new IllegalArgumentException("Deve conter nome da mãe!");
+        }
+        if(usuarioDTO.getNomeMae().isBlank()){
+            throw new IllegalArgumentException("Nome da mãe inválido!");
+        }
+
+        if(usuarioDTO.getNomePai() != null){
+            if(usuarioDTO.getNomePai().isBlank()){
+                throw new IllegalArgumentException("Nome do pai inválido!");
+            }
+        }
+
+        if(usuarioDTO.getSenha() == null){
+            throw new IllegalArgumentException("Deve conter senha!");
+        }
+        if(usuarioDTO.getSenha().isBlank()){
+            throw new IllegalArgumentException("Senha inválida!");
+        }
+
+        if(usuarioDTO.getDataNascimento() == null){
+            throw new IllegalArgumentException("Deve conter data de nascimento!");
+        }
     }
 }

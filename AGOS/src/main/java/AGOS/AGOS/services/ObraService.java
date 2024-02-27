@@ -1,51 +1,88 @@
 package AGOS.AGOS.services;
 
-import AGOS.AGOS.entity.*;
-import AGOS.AGOS.repository.CronogramaRepository;
+import AGOS.AGOS.DTO.ObraDTO;
+import AGOS.AGOS.entity.Obra;
 import AGOS.AGOS.repository.ObraRepository;
-import AGOS.AGOS.repository.PeriodoRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDate;
-import java.time.YearMonth;
-import java.time.format.DateTimeFormatter;
-import java.time.format.TextStyle;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
+import java.util.stream.Collectors;
 
 @Service
 public class ObraService {
-
-
-    @Autowired
-    private PeriodoRepository periodoRepository;
     @Autowired
     private ObraRepository obraRepository;
 
-    public void atualizarPeriodosObra(Obra obra) {
-        final Obra obraId = obraRepository.findById(obra.getId()).orElse(null);
-        LocalDate dataInicio = obra.getDataInicio();
-        LocalDate dataTermino = obra.getDataTermino();
+    @Autowired
+    private ModelMapper modelMapper;
 
+    private ObraDTO convertToDTO(Obra obra) {
+        return modelMapper.map(obra, ObraDTO.class);
+    }
 
-        List<Periodo> periodos = new ArrayList<>();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM yyyy", new Locale("pt", "BR"));
+    private Obra convertToEntity(ObraDTO obraDTO) {
+        return modelMapper.map(obraDTO, Obra.class);
+    }
 
-        YearMonth mesAnoInicio = YearMonth.from(dataInicio);
-        YearMonth mesAnoTermino = YearMonth.from(dataTermino);
+    @Transactional(rollbackFor = Exception.class)
+    public ObraDTO findById(Long obraId) {
+        Obra obra = obraRepository.findById(obraId)
+                .orElseThrow(() -> new IllegalArgumentException("Obra não encontrada"));
+        return convertToDTO(obra);
+    }
 
-        while (!mesAnoInicio.isAfter(mesAnoTermino)) {
-            Periodo periodo = new Periodo();
-            periodo.setMes(Meses.valueOf(mesAnoInicio.getMonth().getDisplayName(TextStyle.FULL, new Locale("pt", "BR")).toUpperCase()));
-            periodo.setAno(mesAnoInicio.getYear());
-            periodo.setObra(obraId);
-            periodos.add(periodo);
-            periodoRepository.save(periodo);
-            mesAnoInicio = mesAnoInicio.plusMonths(1);
-        }
+    @Transactional(rollbackFor = Exception.class)
+    public List<ObraDTO> findAll() {
+        List<Obra> obras = obraRepository.findAll();
+        return obras.stream().map(obra -> modelMapper.map(obra, ObraDTO.class)).collect(Collectors.toList());
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    public void create(ObraDTO obraDTO) {
+        validateObraDTO(obraDTO);
+        Obra obra = convertToEntity(obraDTO);
         obraRepository.save(obra);
     }
 
+    @Transactional(rollbackFor = Exception.class)
+    public void update(Long obraId, ObraDTO obraDTO) {
+        validateObraDTO(obraDTO);
+        Obra existingObra = obraRepository.findById(obraId)
+                .orElseThrow(() -> new IllegalArgumentException("Obra não encontrada"));
+        modelMapper.map(obraDTO, existingObra);
+        obraRepository.save(existingObra);
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    public void delete(Long obraId) {
+        Obra obra = obraRepository.findById(obraId)
+                .orElseThrow(() -> new IllegalArgumentException("Obra não encontrada"));
+        obraRepository.delete(obra);
+    }
+
+    private void assertNotBlank(String value, String message) {
+        assert !value.isBlank() : message;
+    }
+
+    private void validateObraDTO(ObraDTO obraDTO) {
+        if (obraDTO.getTitulo() == null || obraDTO.getTitulo().isBlank()) {
+            throw new IllegalArgumentException("Título não pode estar em branco");
+        }
+        if (obraDTO.getBairro() == null ) {
+            throw new IllegalArgumentException("Bairro não pode ser nulo");
+        }
+        if (obraDTO.getRua() == null || obraDTO.getRua().isBlank()) {
+            throw new IllegalArgumentException("Rua não pode estar em branco");
+        }
+        if (obraDTO.getLicitacao() == null || obraDTO.getLicitacao().isBlank()) {
+            throw new IllegalArgumentException("Licitacao não pode estar em branco");
+        }
+        if (obraDTO.getValorEdital() == null) {
+            throw new IllegalArgumentException("Valor do Edital não pode ser nulo");
+        }
+
+    }
 }

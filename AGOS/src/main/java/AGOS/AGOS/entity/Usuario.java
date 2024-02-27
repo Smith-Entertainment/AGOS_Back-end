@@ -1,66 +1,93 @@
 package AGOS.AGOS.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDate;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 
 @Entity
 @Table(name = "tb_usuario", schema = "public")
-public class Usuario {
-    @Getter
+@Getter @Setter
+@AllArgsConstructor @NoArgsConstructor
+public class Usuario implements UserDetails {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, unique = true)
     private Long id;
-
-    @Getter @Setter
     @Column(name = "nome", length = 50, nullable = false)
     private String nome;
-
-    @Getter @Setter
-    @Column(name= "usuario",length = 20,nullable = false, unique = true)
-    private String usuario;
-
-    @Getter @Setter
-    @Column(name= "email",length = 50,nullable = false, unique = true)
-    private String email;
-
-    @Getter @Setter
-    @Column(name = "cpf", nullable = false, unique = true)
+    @Column(name = "cpf", length = 14, nullable = false, unique = true)
     private String cpf;
-
-    @Getter @Setter
-    @Column(name = "celular", length = 20, unique = true, nullable = false)
+    @Column(name= "email", length = 50,nullable = false, unique = true)
+    private String email;
+    @Column(name= "senha", nullable = false)
+    private String senha;
+    @Column(name = "role")
+    private String role;
+    @Column(name = "celular", length = 20, nullable = false, unique = true)
     private String celular;
-
-    @Getter @Setter
     @Column(name= "titulo_eleitor",nullable = false, unique = true)
     private String tituloEleitor;
-
-    @Getter @Setter
-    @Column(name= "senha",length = 20,nullable = false)
-    private String senha;
-
-    @Getter @Setter
-    @Column(name = "nome_pai", length = 50)
+    @Column(name = "nomePai", length = 50)
     private String nomePai;
-
-    @Getter @Setter
     @Column(name = "nome_mae", length = 50, nullable = false)
     private String nomeMae;
-
-    @Getter @Setter
     @Column(name = "data_nascimento", nullable = false)
     private LocalDate dataNascimento;
-
-    @Getter @Setter
-    @ManyToMany(fetch =FetchType.LAZY ,cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_obra")
+    @ManyToMany
+    @JoinTable(
+            name = "tb_usuario_obra",
+            joinColumns = @JoinColumn(name = "id_usuario"),
+            inverseJoinColumns = @JoinColumn(name = "id_obra")
+    )
     private List<Obra> obras;
+
+
+
+    // Coisas do UserDetails
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        List<GrantedAuthority> authorities = new ArrayList<>();
+        authorities.add(new SimpleGrantedAuthority(this.role));
+        return authorities;
+    }
+
+    @Override
+    public String getPassword() {
+        return senha;
+    }
+
+    @Override
+    public String getUsername() {
+        return email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+//    @ManyToMany(mappedBy = "usuarios")
+//    private List<Envio> envios;
 }
