@@ -8,9 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-
 @Table(name = "tb_documento", schema = "public")
-
 public class Documento {
     @Id
     @Getter

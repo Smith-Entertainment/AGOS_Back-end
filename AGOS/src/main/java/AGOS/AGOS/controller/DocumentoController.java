@@ -1,6 +1,5 @@
 package AGOS.AGOS.controller;
 
-import AGOS.AGOS.entity.Arquivo;
 import AGOS.AGOS.entity.Documento;
 import AGOS.AGOS.services.DocumentoService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,0 +1,8 @@
+
+w
+java:S1192!"UDefine a constant instead of duplicating this literal "Obra nÃ£o encontrada" 3 times.(ÑÉÕÇşÿÿÿÿ8øüÏ¿¹1
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ş²Ëÿıÿÿÿÿ8ûüÏ¿¹1
+o
+java:S6204("RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(èó°Ç8³ıÏ¿¹1
+U
+java:S1144B"3Remove this unused private "assertNotBlank" method.(÷à«øÿÿÿÿ8ÁıÏ¿¹1
