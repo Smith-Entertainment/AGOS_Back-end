@@ -39,6 +39,8 @@ public class Usuario implements UserDetails {
     private String nomePai;
     @Column(name = "nome_mae", length = 50, nullable = false)
     private String nomeMae;
+    @Column(name = "ativo", length = 50)
+    private Boolean ativo;
     @Column(name = "data_nascimento", nullable = false)
     private LocalDate dataNascimento;
     @ManyToMany
