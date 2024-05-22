@@ -1,0 +1,21 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(þ²Ëÿýÿÿÿÿ
+Q	java:S125"<This block of commented-out lines of code should be removed.(ö™é”
+Q	java:S125"<This block of commented-out lines of code should be removed.(Â’š¹
+P	java:S125"<This block of commented-out lines of code should be removed.(ƒŸÍ
+V	java:S1254"<This block of commented-out lines of code should be removed.(°Ô¦üýÿÿÿÿ
+I
+java:S1128"3Remove this unused import 'AGOS.AGOS.DTO.LoginDTO'.(¦Ö‘Ú
+y
+java:S1128
+"^Remove this unused import 'org.springframework.security.authentication.AuthenticationManager'.(ðŽþ–þÿÿÿÿ
+‡
+java:S1128"lRemove this unused import 'org.springframework.security.authentication.UsernamePasswordAuthenticationToken'.(ÖÆ„Ùüÿÿÿÿ
+l
+java:S1128"VRemove this unused import 'org.springframework.security.core.userdetails.UserDetails'.(ÊÁ¥
+s
+java:S1128"]Remove this unused import 'org.springframework.security.core.userdetails.UserDetailsService'.(¶…¥à
+
+java:S1128"dRemove this unused import 'org.springframework.security.core.userdetails.UsernameNotFoundException'.(Í£Ö¶ùÿÿÿÿ
+I
+java:S1144*".Remove this unused private "toUserDTO" method.(ïÈÄ®úÿÿÿÿ

@@ -1,0 +1,1146 @@
+2024-05-22T12:41:38.296-03:00  INFO 2972 --- [restartedMain] AGOS.AGOS.ObrasJavaApplication           : Starting ObrasJavaApplication using Java 20.0.2 with PID 2972 (C:\Users\Admin\Documents\Desenvolvimento-Java\AGOS_Back-end-Keycloak (cópia)\AGOS_Back-end-Keycloak (cópia)\AGOS\target\classes started by Admin in C:\Users\Admin\Documents\Desenvolvimento-Java\AGOS_Back-end-Keycloak (cópia)\AGOS_Back-end-Keycloak (cópia)\AGOS)
+2024-05-22T12:41:38.301-03:00  INFO 2972 --- [restartedMain] AGOS.AGOS.ObrasJavaApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-05-22T12:41:38.348-03:00  INFO 2972 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-22T12:41:38.348-03:00  INFO 2972 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-22T12:41:39.161-03:00  INFO 2972 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-22T12:41:39.240-03:00  INFO 2972 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 70 ms. Found 11 JPA repository interfaces.
+2024-05-22T12:41:39.864-03:00  INFO 2972 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-05-22T12:41:39.875-03:00  INFO 2972 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-22T12:41:39.877-03:00  INFO 2972 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.13]
+2024-05-22T12:41:39.936-03:00  INFO 2972 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-22T12:41:39.937-03:00  INFO 2972 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1588 ms
+2024-05-22T12:41:40.130-03:00  INFO 2972 --- [restartedMain] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 9.16.3 by Redgate
+2024-05-22T12:41:40.130-03:00  INFO 2972 --- [restartedMain] o.f.c.internal.license.VersionPrinter    : See release notes here: https://rd.gt/416ObMi
+2024-05-22T12:41:40.130-03:00  INFO 2972 --- [restartedMain] o.f.c.internal.license.VersionPrinter    : 
+2024-05-22T12:41:40.138-03:00  INFO 2972 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-05-22T12:41:40.353-03:00  INFO 2972 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@24d4f794
+2024-05-22T12:41:40.354-03:00  INFO 2972 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-05-22T12:41:40.380-03:00  INFO 2972 --- [restartedMain] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:postgresql://localhost:5432/AGOS (PostgreSQL 15.3)
+2024-05-22T12:41:40.439-03:00  INFO 2972 --- [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 0 migrations (execution time 00:00.021s)
+2024-05-22T12:41:40.439-03:00  WARN 2972 --- [restartedMain] o.f.core.internal.command.DbValidate     : No migrations found. Are your locations set up correctly?
+2024-05-22T12:41:40.475-03:00  INFO 2972 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": << Empty Schema >>
+2024-05-22T12:41:40.478-03:00  INFO 2972 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2024-05-22T12:41:40.587-03:00  INFO 2972 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-22T12:41:40.665-03:00  INFO 2972 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.9.Final
+2024-05-22T12:41:40.667-03:00  INFO 2972 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2024-05-22T12:41:40.824-03:00  INFO 2972 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2024-05-22T12:41:40.963-03:00  INFO 2972 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-22T12:41:41.265-03:00  INFO 2972 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2024-05-22T12:41:41.924-03:00  INFO 2972 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-05-22T12:41:41.970-03:00  WARN 2972 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T12:41:41.970-03:00  WARN 2972 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : drop cascades to constraint fk8w2hti01pre3gmk15r9tp5cdm on table tb_envio_item
+2024-05-22T12:41:41.973-03:00  WARN 2972 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T12:41:41.973-03:00  WARN 2972 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : drop cascades to constraint fk8julfy6e7yfpj4hlc6mtcl182 on table tb_envio_item
+2024-05-22T12:41:41.979-03:00  WARN 2972 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T12:41:41.979-03:00  WARN 2972 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : drop cascades to 2 other objects
+2024-05-22T12:41:41.986-03:00  WARN 2972 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T12:41:41.986-03:00  WARN 2972 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : drop cascades to 2 other objects
+2024-05-22T12:41:41.989-03:00  WARN 2972 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T12:41:41.989-03:00  WARN 2972 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fk8julfy6e7yfpj4hlc6mtcl182" of relation "tb_envio_item" does not exist, skipping
+2024-05-22T12:41:41.990-03:00  WARN 2972 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T12:41:41.990-03:00  WARN 2972 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fk8w2hti01pre3gmk15r9tp5cdm" of relation "tb_envio_item" does not exist, skipping
+2024-05-22T12:41:41.991-03:00  WARN 2972 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T12:41:41.991-03:00  WARN 2972 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fklg1nkoyl1j0ymelg8orme8ybr" of relation "tb_obra_voluntarios" does not exist, skipping
+2024-05-22T12:41:41.991-03:00  WARN 2972 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T12:41:41.991-03:00  WARN 2972 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fkmiyvwmgmqefv5tiwfi5k9tkiv" of relation "tb_obra_voluntarios" does not exist, skipping
+2024-05-22T12:41:41.992-03:00  WARN 2972 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T12:41:41.992-03:00  WARN 2972 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fk7b1uu3mn5f7fbhdc6y2hs1wj6" of relation "tb_usuario_obra" does not exist, skipping
+2024-05-22T12:41:41.992-03:00  WARN 2972 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T12:41:41.992-03:00  WARN 2972 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fkbiji080xwsvm3p8yglp23k0ke" of relation "tb_usuario_obra" does not exist, skipping
+2024-05-22T12:41:42.123-03:00  INFO 2972 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-22T12:41:42.672-03:00  WARN 2972 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-22T12:41:43.125-03:00  INFO 2972 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3053dbe9, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1c438f05, org.springframework.security.web.context.SecurityContextHolderFilter@42510ebb, org.springframework.security.web.header.HeaderWriterFilter@5345605a, org.springframework.security.web.csrf.CsrfFilter@7862d42e, org.springframework.security.web.authentication.logout.LogoutFilter@7bc2978d, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@7d9c2405, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1e7f3607, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6107ef41, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@632c84, org.springframework.security.web.access.ExceptionTranslationFilter@58410580, org.springframework.security.web.access.intercept.AuthorizationFilter@44456d06]
+2024-05-22T12:41:43.184-03:00  INFO 2972 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-05-22T12:41:43.224-03:00  INFO 2972 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-05-22T12:41:43.234-03:00  INFO 2972 --- [restartedMain] AGOS.AGOS.ObrasJavaApplication           : Started ObrasJavaApplication in 5.309 seconds (process running for 5.812)
+2024-05-22T12:41:59.540-03:00  INFO 2972 --- [http-nio-8081-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-22T12:41:59.541-03:00  INFO 2972 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-05-22T12:41:59.542-03:00  INFO 2972 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-05-22T15:40:37.703-03:00  INFO 2972 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-22T15:40:37.724-03:00  WARN 2972 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T15:40:37.724-03:00  WARN 2972 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : drop cascades to constraint fk8w2hti01pre3gmk15r9tp5cdm on table tb_envio_item
+2024-05-22T15:40:37.726-03:00  WARN 2972 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T15:40:37.726-03:00  WARN 2972 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : drop cascades to constraint fk8julfy6e7yfpj4hlc6mtcl182 on table tb_envio_item
+2024-05-22T15:40:37.731-03:00  WARN 2972 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T15:40:37.731-03:00  WARN 2972 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : drop cascades to 2 other objects
+2024-05-22T15:40:37.739-03:00  WARN 2972 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T15:40:37.739-03:00  WARN 2972 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : drop cascades to 2 other objects
+2024-05-22T15:40:37.741-03:00  WARN 2972 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T15:40:37.741-03:00  WARN 2972 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fk8julfy6e7yfpj4hlc6mtcl182" of relation "tb_envio_item" does not exist, skipping
+2024-05-22T15:40:37.742-03:00  WARN 2972 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T15:40:37.742-03:00  WARN 2972 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fk8w2hti01pre3gmk15r9tp5cdm" of relation "tb_envio_item" does not exist, skipping
+2024-05-22T15:40:37.742-03:00  WARN 2972 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T15:40:37.742-03:00  WARN 2972 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fklg1nkoyl1j0ymelg8orme8ybr" of relation "tb_obra_voluntarios" does not exist, skipping
+2024-05-22T15:40:37.743-03:00  WARN 2972 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T15:40:37.743-03:00  WARN 2972 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fkmiyvwmgmqefv5tiwfi5k9tkiv" of relation "tb_obra_voluntarios" does not exist, skipping
+2024-05-22T15:40:37.744-03:00  WARN 2972 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T15:40:37.744-03:00  WARN 2972 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fk7b1uu3mn5f7fbhdc6y2hs1wj6" of relation "tb_usuario_obra" does not exist, skipping
+2024-05-22T15:40:37.744-03:00  WARN 2972 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T15:40:37.744-03:00  WARN 2972 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fkbiji080xwsvm3p8yglp23k0ke" of relation "tb_usuario_obra" does not exist, skipping
+2024-05-22T15:40:37.761-03:00  INFO 2972 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-05-22T15:40:37.765-03:00  INFO 2972 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-05-22T15:47:54.103-03:00  INFO 13092 --- [restartedMain] AGOS.AGOS.ObrasJavaApplication           : Starting ObrasJavaApplication using Java 20.0.2 with PID 13092 (C:\Users\Admin\Documents\Desenvolvimento-Java\AGOS_Back-end-Keycloak (cópia)\AGOS_Back-end-Keycloak (cópia)\AGOS\target\classes started by Admin in C:\Users\Admin\Documents\Desenvolvimento-Java\AGOS_Back-end-Keycloak (cópia)\AGOS_Back-end-Keycloak (cópia)\AGOS)
+2024-05-22T15:47:54.105-03:00  INFO 13092 --- [restartedMain] AGOS.AGOS.ObrasJavaApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-05-22T15:47:54.148-03:00  INFO 13092 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-22T15:47:54.149-03:00  INFO 13092 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-22T15:47:54.873-03:00  INFO 13092 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-22T15:47:54.941-03:00  INFO 13092 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 58 ms. Found 11 JPA repository interfaces.
+2024-05-22T15:47:55.572-03:00  INFO 13092 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-05-22T15:47:55.582-03:00  INFO 13092 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-22T15:47:55.582-03:00  INFO 13092 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.13]
+2024-05-22T15:47:55.643-03:00  INFO 13092 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-22T15:47:55.643-03:00  INFO 13092 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1494 ms
+2024-05-22T15:47:55.804-03:00  INFO 13092 --- [restartedMain] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 9.16.3 by Redgate
+2024-05-22T15:47:55.805-03:00  INFO 13092 --- [restartedMain] o.f.c.internal.license.VersionPrinter    : See release notes here: https://rd.gt/416ObMi
+2024-05-22T15:47:55.805-03:00  INFO 13092 --- [restartedMain] o.f.c.internal.license.VersionPrinter    : 
+2024-05-22T15:47:55.811-03:00  INFO 13092 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-05-22T15:47:55.982-03:00  INFO 13092 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@29fba2a9
+2024-05-22T15:47:55.983-03:00  INFO 13092 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-05-22T15:47:56.001-03:00  INFO 13092 --- [restartedMain] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:postgresql://localhost:5432/AGOS (PostgreSQL 15.3)
+2024-05-22T15:47:56.023-03:00  INFO 13092 --- [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 0 migrations (execution time 00:00.009s)
+2024-05-22T15:47:56.023-03:00  WARN 13092 --- [restartedMain] o.f.core.internal.command.DbValidate     : No migrations found. Are your locations set up correctly?
+2024-05-22T15:47:56.062-03:00  INFO 13092 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": << Empty Schema >>
+2024-05-22T15:47:56.062-03:00  INFO 13092 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2024-05-22T15:47:56.179-03:00  INFO 13092 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-22T15:47:56.226-03:00  INFO 13092 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.9.Final
+2024-05-22T15:47:56.229-03:00  INFO 13092 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2024-05-22T15:47:56.340-03:00  INFO 13092 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2024-05-22T15:47:56.472-03:00  INFO 13092 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-22T15:47:56.736-03:00  INFO 13092 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2024-05-22T15:47:57.299-03:00  INFO 13092 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-05-22T15:47:57.312-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T15:47:57.312-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_arquivo" does not exist, skipping
+2024-05-22T15:47:57.312-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T15:47:57.313-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_documento" does not exist, skipping
+2024-05-22T15:47:57.313-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T15:47:57.313-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_envio" does not exist, skipping
+2024-05-22T15:47:57.314-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T15:47:57.314-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_envio" does not exist, skipping
+2024-05-22T15:47:57.314-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T15:47:57.314-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_item" does not exist, skipping
+2024-05-22T15:47:57.315-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T15:47:57.315-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_obra" does not exist, skipping
+2024-05-22T15:47:57.315-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T15:47:57.315-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_obra" does not exist, skipping
+2024-05-22T15:47:57.315-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T15:47:57.315-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_obra" does not exist, skipping
+2024-05-22T15:47:57.316-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T15:47:57.316-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "valor" does not exist, skipping
+2024-05-22T15:47:57.316-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T15:47:57.316-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "valor" does not exist, skipping
+2024-05-22T15:47:57.316-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T15:47:57.316-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_arquivo" does not exist, skipping
+2024-05-22T15:47:57.317-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T15:47:57.317-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_bairro" does not exist, skipping
+2024-05-22T15:47:57.317-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T15:47:57.317-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_documento" does not exist, skipping
+2024-05-22T15:47:57.317-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T15:47:57.317-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_empresa" does not exist, skipping
+2024-05-22T15:47:57.318-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T15:47:57.318-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_envio" does not exist, skipping
+2024-05-22T15:47:57.318-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T15:47:57.318-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_item" does not exist, skipping
+2024-05-22T15:47:57.318-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T15:47:57.318-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_obra" does not exist, skipping
+2024-05-22T15:47:57.318-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T15:47:57.318-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_periodo" does not exist, skipping
+2024-05-22T15:47:57.318-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T15:47:57.318-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_usuario" does not exist, skipping
+2024-05-22T15:47:57.320-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T15:47:57.320-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "valor" does not exist, skipping
+2024-05-22T15:47:57.320-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T15:47:57.320-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_envio_item" does not exist, skipping
+2024-05-22T15:47:57.320-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T15:47:57.320-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_envio_item" does not exist, skipping
+2024-05-22T15:47:57.320-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T15:47:57.320-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_obra_voluntarios" does not exist, skipping
+2024-05-22T15:47:57.320-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T15:47:57.320-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_obra_voluntarios" does not exist, skipping
+2024-05-22T15:47:57.321-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T15:47:57.321-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_usuario_obra" does not exist, skipping
+2024-05-22T15:47:57.321-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T15:47:57.321-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_usuario_obra" does not exist, skipping
+2024-05-22T15:47:57.321-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T15:47:57.321-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_envio_item" does not exist, skipping
+2024-05-22T15:47:57.322-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T15:47:57.322-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_obra_voluntarios" does not exist, skipping
+2024-05-22T15:47:57.322-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T15:47:57.322-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_usuario_obra" does not exist, skipping
+2024-05-22T15:47:57.322-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T15:47:57.322-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : sequence "tb_arquivo_seq" does not exist, skipping
+2024-05-22T15:47:57.323-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T15:47:57.323-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : sequence "tb_bairro_seq" does not exist, skipping
+2024-05-22T15:47:57.323-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T15:47:57.323-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : sequence "tb_documento_seq" does not exist, skipping
+2024-05-22T15:47:57.323-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T15:47:57.323-03:00  WARN 13092 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : sequence "tb_envio_seq" does not exist, skipping
+2024-05-22T15:47:57.432-03:00  INFO 13092 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-22T15:47:57.952-03:00  WARN 13092 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-22T15:47:58.402-03:00  INFO 13092 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6315cb77, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@34a6a470, org.springframework.security.web.context.SecurityContextHolderFilter@2919f763, org.springframework.security.web.header.HeaderWriterFilter@4a225ce2, org.springframework.security.web.csrf.CsrfFilter@2155e588, org.springframework.security.web.authentication.logout.LogoutFilter@35714bc5, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@3e11dfca, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@506e8826, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4347cb21, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4f9c2a1, org.springframework.security.web.access.ExceptionTranslationFilter@7080bbe1, org.springframework.security.web.access.intercept.AuthorizationFilter@68308c]
+2024-05-22T15:47:58.447-03:00  INFO 13092 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-05-22T15:47:58.468-03:00  INFO 13092 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-05-22T15:47:58.476-03:00  INFO 13092 --- [restartedMain] AGOS.AGOS.ObrasJavaApplication           : Started ObrasJavaApplication in 4.7 seconds (process running for 5.12)
+2024-05-22T16:00:32.480-03:00  INFO 13092 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-22T16:00:32.495-03:00  WARN 13092 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:00:32.495-03:00  WARN 13092 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : drop cascades to constraint fk8w2hti01pre3gmk15r9tp5cdm on table tb_envio_item
+2024-05-22T16:00:32.498-03:00  WARN 13092 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:00:32.498-03:00  WARN 13092 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : drop cascades to constraint fk8julfy6e7yfpj4hlc6mtcl182 on table tb_envio_item
+2024-05-22T16:00:32.502-03:00  WARN 13092 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:00:32.502-03:00  WARN 13092 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : drop cascades to 2 other objects
+2024-05-22T16:00:32.507-03:00  WARN 13092 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:00:32.507-03:00  WARN 13092 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : drop cascades to 2 other objects
+2024-05-22T16:00:32.509-03:00  WARN 13092 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:00:32.509-03:00  WARN 13092 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fk8julfy6e7yfpj4hlc6mtcl182" of relation "tb_envio_item" does not exist, skipping
+2024-05-22T16:00:32.510-03:00  WARN 13092 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:00:32.510-03:00  WARN 13092 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fk8w2hti01pre3gmk15r9tp5cdm" of relation "tb_envio_item" does not exist, skipping
+2024-05-22T16:00:32.510-03:00  WARN 13092 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:00:32.510-03:00  WARN 13092 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fklg1nkoyl1j0ymelg8orme8ybr" of relation "tb_obra_voluntarios" does not exist, skipping
+2024-05-22T16:00:32.510-03:00  WARN 13092 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:00:32.510-03:00  WARN 13092 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fkmiyvwmgmqefv5tiwfi5k9tkiv" of relation "tb_obra_voluntarios" does not exist, skipping
+2024-05-22T16:00:32.511-03:00  WARN 13092 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:00:32.511-03:00  WARN 13092 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fk7b1uu3mn5f7fbhdc6y2hs1wj6" of relation "tb_usuario_obra" does not exist, skipping
+2024-05-22T16:00:32.511-03:00  WARN 13092 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:00:32.511-03:00  WARN 13092 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fkbiji080xwsvm3p8yglp23k0ke" of relation "tb_usuario_obra" does not exist, skipping
+2024-05-22T16:00:32.519-03:00  INFO 13092 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-05-22T16:00:32.521-03:00  INFO 13092 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-05-22T16:00:34.126-03:00  INFO 31244 --- [restartedMain] AGOS.AGOS.ObrasJavaApplication           : Starting ObrasJavaApplication using Java 20.0.2 with PID 31244 (C:\Users\Admin\Documents\Desenvolvimento-Java\AGOS_Back-end-Keycloak (cópia)\AGOS_Back-end-Keycloak (cópia)\AGOS\target\classes started by Admin in C:\Users\Admin\Documents\Desenvolvimento-Java\AGOS_Back-end-Keycloak (cópia)\AGOS_Back-end-Keycloak (cópia)\AGOS)
+2024-05-22T16:00:34.130-03:00  INFO 31244 --- [restartedMain] AGOS.AGOS.ObrasJavaApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-05-22T16:00:34.172-03:00  INFO 31244 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-22T16:00:34.172-03:00  INFO 31244 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-22T16:00:34.706-03:00  INFO 31244 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-22T16:00:34.776-03:00  INFO 31244 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 59 ms. Found 11 JPA repository interfaces.
+2024-05-22T16:00:35.392-03:00  INFO 31244 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-05-22T16:00:35.404-03:00  INFO 31244 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-22T16:00:35.404-03:00  INFO 31244 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.13]
+2024-05-22T16:00:35.460-03:00  INFO 31244 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-22T16:00:35.461-03:00  INFO 31244 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1288 ms
+2024-05-22T16:00:35.594-03:00  INFO 31244 --- [restartedMain] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 9.16.3 by Redgate
+2024-05-22T16:00:35.594-03:00  INFO 31244 --- [restartedMain] o.f.c.internal.license.VersionPrinter    : See release notes here: https://rd.gt/416ObMi
+2024-05-22T16:00:35.594-03:00  INFO 31244 --- [restartedMain] o.f.c.internal.license.VersionPrinter    : 
+2024-05-22T16:00:35.602-03:00  INFO 31244 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-05-22T16:00:35.755-03:00  INFO 31244 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@46565439
+2024-05-22T16:00:35.757-03:00  INFO 31244 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-05-22T16:00:35.769-03:00  INFO 31244 --- [restartedMain] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:postgresql://localhost:5432/AGOS (PostgreSQL 15.3)
+2024-05-22T16:00:35.790-03:00  INFO 31244 --- [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 0 migrations (execution time 00:00.007s)
+2024-05-22T16:00:35.790-03:00  WARN 31244 --- [restartedMain] o.f.core.internal.command.DbValidate     : No migrations found. Are your locations set up correctly?
+2024-05-22T16:00:35.842-03:00  INFO 31244 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": << Empty Schema >>
+2024-05-22T16:00:35.846-03:00  INFO 31244 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2024-05-22T16:00:35.932-03:00  INFO 31244 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-22T16:00:36.004-03:00  INFO 31244 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.9.Final
+2024-05-22T16:00:36.007-03:00  INFO 31244 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2024-05-22T16:00:36.112-03:00  INFO 31244 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2024-05-22T16:00:36.210-03:00  INFO 31244 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-22T16:00:36.486-03:00  INFO 31244 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2024-05-22T16:00:37.026-03:00  INFO 31244 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-05-22T16:00:37.038-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:00:37.039-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_arquivo" does not exist, skipping
+2024-05-22T16:00:37.039-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:00:37.039-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_documento" does not exist, skipping
+2024-05-22T16:00:37.040-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:00:37.040-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_envio" does not exist, skipping
+2024-05-22T16:00:37.040-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:00:37.040-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_envio" does not exist, skipping
+2024-05-22T16:00:37.040-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:00:37.041-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_item" does not exist, skipping
+2024-05-22T16:00:37.041-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:00:37.041-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_obra" does not exist, skipping
+2024-05-22T16:00:37.041-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:00:37.041-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_obra" does not exist, skipping
+2024-05-22T16:00:37.042-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:00:37.042-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_obra" does not exist, skipping
+2024-05-22T16:00:37.042-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:00:37.042-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "valor" does not exist, skipping
+2024-05-22T16:00:37.042-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:00:37.042-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "valor" does not exist, skipping
+2024-05-22T16:00:37.042-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:00:37.042-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_arquivo" does not exist, skipping
+2024-05-22T16:00:37.042-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:00:37.042-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_bairro" does not exist, skipping
+2024-05-22T16:00:37.044-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:00:37.044-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_documento" does not exist, skipping
+2024-05-22T16:00:37.044-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:00:37.044-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_empresa" does not exist, skipping
+2024-05-22T16:00:37.044-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:00:37.044-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_envio" does not exist, skipping
+2024-05-22T16:00:37.045-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:00:37.045-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_item" does not exist, skipping
+2024-05-22T16:00:37.045-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:00:37.045-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_obra" does not exist, skipping
+2024-05-22T16:00:37.045-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:00:37.045-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_periodo" does not exist, skipping
+2024-05-22T16:00:37.046-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:00:37.046-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_usuario" does not exist, skipping
+2024-05-22T16:00:37.046-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:00:37.046-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "valor" does not exist, skipping
+2024-05-22T16:00:37.046-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:00:37.046-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_envio_item" does not exist, skipping
+2024-05-22T16:00:37.046-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:00:37.046-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_envio_item" does not exist, skipping
+2024-05-22T16:00:37.047-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:00:37.047-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_obra_voluntarios" does not exist, skipping
+2024-05-22T16:00:37.047-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:00:37.047-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_obra_voluntarios" does not exist, skipping
+2024-05-22T16:00:37.047-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:00:37.047-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_usuario_obra" does not exist, skipping
+2024-05-22T16:00:37.048-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:00:37.048-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_usuario_obra" does not exist, skipping
+2024-05-22T16:00:37.048-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:00:37.048-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_envio_item" does not exist, skipping
+2024-05-22T16:00:37.048-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:00:37.048-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_obra_voluntarios" does not exist, skipping
+2024-05-22T16:00:37.048-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:00:37.049-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_usuario_obra" does not exist, skipping
+2024-05-22T16:00:37.049-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:00:37.049-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : sequence "tb_arquivo_seq" does not exist, skipping
+2024-05-22T16:00:37.049-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:00:37.049-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : sequence "tb_bairro_seq" does not exist, skipping
+2024-05-22T16:00:37.049-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:00:37.049-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : sequence "tb_documento_seq" does not exist, skipping
+2024-05-22T16:00:37.049-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:00:37.049-03:00  WARN 31244 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : sequence "tb_envio_seq" does not exist, skipping
+2024-05-22T16:00:37.150-03:00  INFO 31244 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-22T16:00:37.663-03:00  WARN 31244 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-22T16:00:38.048-03:00  INFO 31244 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2071b965, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@32972f94, org.springframework.security.web.context.SecurityContextHolderFilter@673d08eb, org.springframework.security.web.header.HeaderWriterFilter@2370540f, org.springframework.security.web.csrf.CsrfFilter@5fc57a41, org.springframework.security.web.authentication.logout.LogoutFilter@64647a19, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@607ffd1e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1e367701, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7470aeb1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2d1fa3d5, org.springframework.security.web.access.ExceptionTranslationFilter@6ebad078, org.springframework.security.web.access.intercept.AuthorizationFilter@56a5dd14]
+2024-05-22T16:00:38.100-03:00  INFO 31244 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-05-22T16:00:38.124-03:00  INFO 31244 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-05-22T16:00:38.137-03:00  INFO 31244 --- [restartedMain] AGOS.AGOS.ObrasJavaApplication           : Started ObrasJavaApplication in 4.352 seconds (process running for 4.772)
+2024-05-22T16:06:55.576-03:00  INFO 31244 --- [http-nio-8081-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-22T16:06:55.576-03:00  INFO 31244 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-05-22T16:06:55.577-03:00  INFO 31244 --- [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-05-22T16:08:22.650-03:00  WARN 31244 --- [http-nio-8081-exec-4] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 23503
+2024-05-22T16:08:22.650-03:00 ERROR 31244 --- [http-nio-8081-exec-4] o.h.engine.jdbc.spi.SqlExceptionHelper   : ERROR: insert or update on table "tb_obra" violates foreign key constraint "fk5i52prrpq8o9rot11xus5drm5"
+  Detalhe: Key (bairro)=(1) is not present in table "tb_bairro".
+2024-05-22T16:08:22.657-03:00 ERROR 31244 --- [http-nio-8081-exec-4] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.DataIntegrityViolationException: could not execute statement [ERROR: insert or update on table "tb_obra" violates foreign key constraint "fk5i52prrpq8o9rot11xus5drm5"
+  Detalhe: Key (bairro)=(1) is not present in table "tb_bairro".] [insert into public.tb_obra (bairro,cep,data_certame,data_inicio,data_termino,empresa_contratada,foto,licitacao,numero_contrato,numero,objetivo,rua,situacao,tipo_obra,titulo,valor_contratado,valor_edital) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)]; SQL [insert into public.tb_obra (bairro,cep,data_certame,data_inicio,data_termino,empresa_contratada,foto,licitacao,numero_contrato,numero,objetivo,rua,situacao,tipo_obra,titulo,valor_contratado,valor_edital) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)]; constraint [fk5i52prrpq8o9rot11xus5drm5]] with root cause
+
+org.postgresql.util.PSQLException: ERROR: insert or update on table "tb_obra" violates foreign key constraint "fk5i52prrpq8o9rot11xus5drm5"
+  Detalhe: Key (bairro)=(1) is not present in table "tb_bairro".
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713) ~[postgresql-42.6.0.jar:42.6.0]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401) ~[postgresql-42.6.0.jar:42.6.0]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368) ~[postgresql-42.6.0.jar:42.6.0]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:498) ~[postgresql-42.6.0.jar:42.6.0]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:415) ~[postgresql-42.6.0.jar:42.6.0]
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:190) ~[postgresql-42.6.0.jar:42.6.0]
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:152) ~[postgresql-42.6.0.jar:42.6.0]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java) ~[HikariCP-5.0.1.jar:na]
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:275) ~[hibernate-core-6.2.9.Final.jar:6.2.9.Final]
+	at org.hibernate.id.insert.GetGeneratedKeysDelegate.performInsert(GetGeneratedKeysDelegate.java:107) ~[hibernate-core-6.2.9.Final.jar:6.2.9.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.MutationExecutorPostInsertSingleTable.execute(MutationExecutorPostInsertSingleTable.java:100) ~[hibernate-core-6.2.9.Final.jar:6.2.9.Final]
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.doStaticInserts(InsertCoordinator.java:169) ~[hibernate-core-6.2.9.Final.jar:6.2.9.Final]
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.coordinateInsert(InsertCoordinator.java:111) ~[hibernate-core-6.2.9.Final.jar:6.2.9.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2779) ~[hibernate-core-6.2.9.Final.jar:6.2.9.Final]
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:81) ~[hibernate-core-6.2.9.Final.jar:6.2.9.Final]
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:676) ~[hibernate-core-6.2.9.Final.jar:6.2.9.Final]
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:291) ~[hibernate-core-6.2.9.Final.jar:6.2.9.Final]
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:272) ~[hibernate-core-6.2.9.Final.jar:6.2.9.Final]
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:322) ~[hibernate-core-6.2.9.Final.jar:6.2.9.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:363) ~[hibernate-core-6.2.9.Final.jar:6.2.9.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:277) ~[hibernate-core-6.2.9.Final.jar:6.2.9.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:180) ~[hibernate-core-6.2.9.Final.jar:6.2.9.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:140) ~[hibernate-core-6.2.9.Final.jar:6.2.9.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:175) ~[hibernate-core-6.2.9.Final.jar:6.2.9.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.persist(DefaultPersistEventListener.java:93) ~[hibernate-core-6.2.9.Final.jar:6.2.9.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:77) ~[hibernate-core-6.2.9.Final.jar:6.2.9.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:54) ~[hibernate-core-6.2.9.Final.jar:6.2.9.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127) ~[hibernate-core-6.2.9.Final.jar:6.2.9.Final]
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:755) ~[hibernate-core-6.2.9.Final.jar:6.2.9.Final]
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:739) ~[hibernate-core-6.2.9.Final.jar:6.2.9.Final]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578) ~[na:na]
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:360) ~[spring-orm-6.0.12.jar:6.0.12]
+	at jdk.proxy4/jdk.proxy4.$Proxy132.persist(Unknown Source) ~[na:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578) ~[na:na]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:311) ~[spring-orm-6.0.12.jar:6.0.12]
+	at jdk.proxy4/jdk.proxy4.$Proxy132.persist(Unknown Source) ~[na:na]
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:618) ~[spring-data-jpa-3.1.4.jar:3.1.4]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578) ~[na:na]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:288) ~[spring-data-commons-3.1.4.jar:3.1.4]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:136) ~[spring-data-commons-3.1.4.jar:3.1.4]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:120) ~[spring-data-commons-3.1.4.jar:3.1.4]
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:516) ~[spring-data-commons-3.1.4.jar:3.1.4]
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285) ~[spring-data-commons-3.1.4.jar:3.1.4]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:628) ~[spring-data-commons-3.1.4.jar:3.1.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.0.12.jar:6.0.12]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:168) ~[spring-data-commons-3.1.4.jar:3.1.4]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:143) ~[spring-data-commons-3.1.4.jar:3.1.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.0.12.jar:6.0.12]
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:72) ~[spring-data-commons-3.1.4.jar:3.1.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.0.12.jar:6.0.12]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-6.0.12.jar:6.0.12]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:391) ~[spring-tx-6.0.12.jar:6.0.12]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.0.12.jar:6.0.12]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.0.12.jar:6.0.12]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-6.0.12.jar:6.0.12]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.0.12.jar:6.0.12]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:164) ~[spring-data-jpa-3.1.4.jar:3.1.4]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.0.12.jar:6.0.12]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-6.0.12.jar:6.0.12]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.0.12.jar:6.0.12]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:244) ~[spring-aop-6.0.12.jar:6.0.12]
+	at jdk.proxy4/jdk.proxy4.$Proxy143.save(Unknown Source) ~[na:na]
+	at AGOS.AGOS.services.ObraService.create(ObraService.java:47) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:343) ~[spring-aop-6.0.12.jar:6.0.12]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.0.12.jar:6.0.12]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.0.12.jar:6.0.12]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:751) ~[spring-aop-6.0.12.jar:6.0.12]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-6.0.12.jar:6.0.12]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:391) ~[spring-tx-6.0.12.jar:6.0.12]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.0.12.jar:6.0.12]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.0.12.jar:6.0.12]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:751) ~[spring-aop-6.0.12.jar:6.0.12]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:703) ~[spring-aop-6.0.12.jar:6.0.12]
+	at AGOS.AGOS.services.ObraService$$SpringCGLIB$$0.create(<generated>) ~[classes/:na]
+	at AGOS.AGOS.controller.ObraController.create(ObraController.java:46) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-6.0.12.jar:6.0.12]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-6.0.12.jar:6.0.12]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.0.12.jar:6.0.12]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884) ~[spring-webmvc-6.0.12.jar:6.0.12]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797) ~[spring-webmvc-6.0.12.jar:6.0.12]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.0.12.jar:6.0.12]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1081) ~[spring-webmvc-6.0.12.jar:6.0.12]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974) ~[spring-webmvc-6.0.12.jar:6.0.12]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011) ~[spring-webmvc-6.0.12.jar:6.0.12]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.0.12.jar:6.0.12]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.13.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.0.12.jar:6.0.12]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.13.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365) ~[spring-security-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100) ~[spring-security-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter.doFilterInternal(BearerTokenAuthenticationFilter.java:145) ~[spring-security-oauth2-resource-server-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.12.jar:6.0.12]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:117) ~[spring-security-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.12.jar:6.0.12]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.12.jar:6.0.12]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.12.jar:6.0.12]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.12.jar:6.0.12]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.1.4.jar:6.1.4]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.1.4.jar:6.1.4]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352) ~[spring-web-6.0.12.jar:6.0.12]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268) ~[spring-web-6.0.12.jar:6.0.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.0.12.jar:6.0.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.12.jar:6.0.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.0.12.jar:6.0.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.12.jar:6.0.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.0.12.jar:6.0.12]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.0.12.jar:6.0.12]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-10.1.13.jar:10.1.13]
+	at java.base/java.lang.Thread.run(Thread.java:1623) ~[na:na]
+
+2024-05-22T16:44:16.539-03:00  INFO 31244 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-22T16:44:16.555-03:00  WARN 31244 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:44:16.555-03:00  WARN 31244 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : drop cascades to constraint fk8w2hti01pre3gmk15r9tp5cdm on table tb_envio_item
+2024-05-22T16:44:16.557-03:00  WARN 31244 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:44:16.558-03:00  WARN 31244 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : drop cascades to constraint fk8julfy6e7yfpj4hlc6mtcl182 on table tb_envio_item
+2024-05-22T16:44:16.561-03:00  WARN 31244 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:44:16.561-03:00  WARN 31244 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : drop cascades to 2 other objects
+2024-05-22T16:44:16.567-03:00  WARN 31244 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:44:16.568-03:00  WARN 31244 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : drop cascades to 2 other objects
+2024-05-22T16:44:16.570-03:00  WARN 31244 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:44:16.570-03:00  WARN 31244 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fk8julfy6e7yfpj4hlc6mtcl182" of relation "tb_envio_item" does not exist, skipping
+2024-05-22T16:44:16.570-03:00  WARN 31244 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:44:16.570-03:00  WARN 31244 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fk8w2hti01pre3gmk15r9tp5cdm" of relation "tb_envio_item" does not exist, skipping
+2024-05-22T16:44:16.571-03:00  WARN 31244 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:44:16.571-03:00  WARN 31244 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fklg1nkoyl1j0ymelg8orme8ybr" of relation "tb_obra_voluntarios" does not exist, skipping
+2024-05-22T16:44:16.571-03:00  WARN 31244 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:44:16.571-03:00  WARN 31244 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fkmiyvwmgmqefv5tiwfi5k9tkiv" of relation "tb_obra_voluntarios" does not exist, skipping
+2024-05-22T16:44:16.572-03:00  WARN 31244 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:44:16.572-03:00  WARN 31244 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fk7b1uu3mn5f7fbhdc6y2hs1wj6" of relation "tb_usuario_obra" does not exist, skipping
+2024-05-22T16:44:16.572-03:00  WARN 31244 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:44:16.572-03:00  WARN 31244 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fkbiji080xwsvm3p8yglp23k0ke" of relation "tb_usuario_obra" does not exist, skipping
+2024-05-22T16:44:16.579-03:00  INFO 31244 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-05-22T16:44:16.581-03:00  INFO 31244 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-05-22T16:44:19.058-03:00  INFO 28792 --- [restartedMain] AGOS.AGOS.ObrasJavaApplication           : Starting ObrasJavaApplication using Java 20.0.2 with PID 28792 (C:\Users\Admin\Documents\Desenvolvimento-Java\AGOS_Back-end-Keycloak (cópia)\AGOS_Back-end-Keycloak (cópia)\AGOS\target\classes started by Admin in C:\Users\Admin\Documents\Desenvolvimento-Java\AGOS_Back-end-Keycloak (cópia)\AGOS_Back-end-Keycloak (cópia)\AGOS)
+2024-05-22T16:44:19.060-03:00  INFO 28792 --- [restartedMain] AGOS.AGOS.ObrasJavaApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-05-22T16:44:19.104-03:00  INFO 28792 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-22T16:44:19.104-03:00  INFO 28792 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-22T16:44:19.651-03:00  INFO 28792 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-22T16:44:19.715-03:00  INFO 28792 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 56 ms. Found 11 JPA repository interfaces.
+2024-05-22T16:44:20.300-03:00  INFO 28792 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-05-22T16:44:20.308-03:00  INFO 28792 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-22T16:44:20.309-03:00  INFO 28792 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.13]
+2024-05-22T16:44:20.365-03:00  INFO 28792 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-22T16:44:20.365-03:00  INFO 28792 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1261 ms
+2024-05-22T16:44:20.511-03:00  INFO 28792 --- [restartedMain] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 9.16.3 by Redgate
+2024-05-22T16:44:20.511-03:00  INFO 28792 --- [restartedMain] o.f.c.internal.license.VersionPrinter    : See release notes here: https://rd.gt/416ObMi
+2024-05-22T16:44:20.511-03:00  INFO 28792 --- [restartedMain] o.f.c.internal.license.VersionPrinter    : 
+2024-05-22T16:44:20.517-03:00  INFO 28792 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-05-22T16:44:20.673-03:00  INFO 28792 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7f59a85a
+2024-05-22T16:44:20.674-03:00  INFO 28792 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-05-22T16:44:20.687-03:00  INFO 28792 --- [restartedMain] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:postgresql://localhost:5432/AGOS (PostgreSQL 15.3)
+2024-05-22T16:44:20.707-03:00  INFO 28792 --- [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 0 migrations (execution time 00:00.007s)
+2024-05-22T16:44:20.707-03:00  WARN 28792 --- [restartedMain] o.f.core.internal.command.DbValidate     : No migrations found. Are your locations set up correctly?
+2024-05-22T16:44:20.745-03:00  INFO 28792 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": << Empty Schema >>
+2024-05-22T16:44:20.746-03:00  INFO 28792 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2024-05-22T16:44:20.870-03:00  INFO 28792 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-22T16:44:20.916-03:00  INFO 28792 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.9.Final
+2024-05-22T16:44:20.919-03:00  INFO 28792 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2024-05-22T16:44:21.023-03:00  INFO 28792 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2024-05-22T16:44:21.134-03:00  INFO 28792 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-22T16:44:21.355-03:00  INFO 28792 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2024-05-22T16:44:21.906-03:00  INFO 28792 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-05-22T16:44:21.918-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:44:21.918-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_arquivo" does not exist, skipping
+2024-05-22T16:44:21.918-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:44:21.918-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_documento" does not exist, skipping
+2024-05-22T16:44:21.919-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:44:21.919-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_envio" does not exist, skipping
+2024-05-22T16:44:21.919-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:44:21.919-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_envio" does not exist, skipping
+2024-05-22T16:44:21.919-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:44:21.920-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_item" does not exist, skipping
+2024-05-22T16:44:21.920-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:44:21.920-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_obra" does not exist, skipping
+2024-05-22T16:44:21.920-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:44:21.921-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_obra" does not exist, skipping
+2024-05-22T16:44:21.921-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:44:21.921-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_obra" does not exist, skipping
+2024-05-22T16:44:21.921-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:44:21.921-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "valor" does not exist, skipping
+2024-05-22T16:44:21.921-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:44:21.921-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "valor" does not exist, skipping
+2024-05-22T16:44:21.922-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:44:21.922-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_arquivo" does not exist, skipping
+2024-05-22T16:44:21.922-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:44:21.922-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_bairro" does not exist, skipping
+2024-05-22T16:44:21.922-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:44:21.922-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_documento" does not exist, skipping
+2024-05-22T16:44:21.923-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:44:21.923-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_empresa" does not exist, skipping
+2024-05-22T16:44:21.923-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:44:21.923-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_envio" does not exist, skipping
+2024-05-22T16:44:21.923-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:44:21.923-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_item" does not exist, skipping
+2024-05-22T16:44:21.924-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:44:21.924-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_obra" does not exist, skipping
+2024-05-22T16:44:21.924-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:44:21.924-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_periodo" does not exist, skipping
+2024-05-22T16:44:21.924-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:44:21.924-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_usuario" does not exist, skipping
+2024-05-22T16:44:21.925-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:44:21.925-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "valor" does not exist, skipping
+2024-05-22T16:44:21.925-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:44:21.925-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_envio_item" does not exist, skipping
+2024-05-22T16:44:21.925-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:44:21.925-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_envio_item" does not exist, skipping
+2024-05-22T16:44:21.925-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:44:21.925-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_obra_voluntarios" does not exist, skipping
+2024-05-22T16:44:21.925-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:44:21.925-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_obra_voluntarios" does not exist, skipping
+2024-05-22T16:44:21.927-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:44:21.927-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_usuario_obra" does not exist, skipping
+2024-05-22T16:44:21.927-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:44:21.927-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_usuario_obra" does not exist, skipping
+2024-05-22T16:44:21.927-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:44:21.927-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_envio_item" does not exist, skipping
+2024-05-22T16:44:21.928-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:44:21.928-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_obra_voluntarios" does not exist, skipping
+2024-05-22T16:44:21.928-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:44:21.928-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_usuario_obra" does not exist, skipping
+2024-05-22T16:44:21.928-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:44:21.928-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : sequence "tb_arquivo_seq" does not exist, skipping
+2024-05-22T16:44:21.929-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:44:21.929-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : sequence "tb_bairro_seq" does not exist, skipping
+2024-05-22T16:44:21.929-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:44:21.929-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : sequence "tb_documento_seq" does not exist, skipping
+2024-05-22T16:44:21.929-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:44:21.929-03:00  WARN 28792 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : sequence "tb_envio_seq" does not exist, skipping
+2024-05-22T16:44:22.035-03:00  INFO 28792 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-22T16:44:22.525-03:00  WARN 28792 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-22T16:44:22.991-03:00  INFO 28792 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@fe2b214, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@492cc87d, org.springframework.security.web.context.SecurityContextHolderFilter@8bb6d13, org.springframework.security.web.header.HeaderWriterFilter@3e807ab9, org.springframework.security.web.csrf.CsrfFilter@1ad327e3, org.springframework.security.web.authentication.logout.LogoutFilter@3c34f77d, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@11bb70b6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@649b520f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@32bc844f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3d82f2e, org.springframework.security.web.access.ExceptionTranslationFilter@4fc93cf4, org.springframework.security.web.access.intercept.AuthorizationFilter@46b3b02e]
+2024-05-22T16:44:23.041-03:00  INFO 28792 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-05-22T16:44:23.079-03:00  INFO 28792 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-05-22T16:44:23.087-03:00  INFO 28792 --- [restartedMain] AGOS.AGOS.ObrasJavaApplication           : Started ObrasJavaApplication in 4.344 seconds (process running for 4.726)
+2024-05-22T16:44:32.744-03:00  INFO 28792 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-22T16:44:32.744-03:00  INFO 28792 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-05-22T16:44:32.745-03:00  INFO 28792 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-05-22T16:46:57.315-03:00  INFO 28792 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-22T16:46:57.330-03:00  WARN 28792 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:46:57.330-03:00  WARN 28792 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : drop cascades to constraint fk8w2hti01pre3gmk15r9tp5cdm on table tb_envio_item
+2024-05-22T16:46:57.333-03:00  WARN 28792 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:46:57.333-03:00  WARN 28792 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : drop cascades to constraint fk8julfy6e7yfpj4hlc6mtcl182 on table tb_envio_item
+2024-05-22T16:46:57.337-03:00  WARN 28792 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:46:57.337-03:00  WARN 28792 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : drop cascades to 2 other objects
+2024-05-22T16:46:57.343-03:00  WARN 28792 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:46:57.343-03:00  WARN 28792 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : drop cascades to 2 other objects
+2024-05-22T16:46:57.345-03:00  WARN 28792 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:46:57.346-03:00  WARN 28792 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fk8julfy6e7yfpj4hlc6mtcl182" of relation "tb_envio_item" does not exist, skipping
+2024-05-22T16:46:57.346-03:00  WARN 28792 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:46:57.346-03:00  WARN 28792 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fk8w2hti01pre3gmk15r9tp5cdm" of relation "tb_envio_item" does not exist, skipping
+2024-05-22T16:46:57.346-03:00  WARN 28792 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:46:57.346-03:00  WARN 28792 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fklg1nkoyl1j0ymelg8orme8ybr" of relation "tb_obra_voluntarios" does not exist, skipping
+2024-05-22T16:46:57.347-03:00  WARN 28792 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:46:57.347-03:00  WARN 28792 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fkmiyvwmgmqefv5tiwfi5k9tkiv" of relation "tb_obra_voluntarios" does not exist, skipping
+2024-05-22T16:46:57.347-03:00  WARN 28792 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:46:57.347-03:00  WARN 28792 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fk7b1uu3mn5f7fbhdc6y2hs1wj6" of relation "tb_usuario_obra" does not exist, skipping
+2024-05-22T16:46:57.348-03:00  WARN 28792 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:46:57.348-03:00  WARN 28792 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fkbiji080xwsvm3p8yglp23k0ke" of relation "tb_usuario_obra" does not exist, skipping
+2024-05-22T16:46:57.359-03:00  INFO 28792 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-05-22T16:46:57.360-03:00  INFO 28792 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-05-22T16:46:59.932-03:00  INFO 29892 --- [restartedMain] AGOS.AGOS.ObrasJavaApplication           : Starting ObrasJavaApplication using Java 20.0.2 with PID 29892 (C:\Users\Admin\Documents\Desenvolvimento-Java\AGOS_Back-end-Keycloak (cópia)\AGOS_Back-end-Keycloak (cópia)\AGOS\target\classes started by Admin in C:\Users\Admin\Documents\Desenvolvimento-Java\AGOS_Back-end-Keycloak (cópia)\AGOS_Back-end-Keycloak (cópia)\AGOS)
+2024-05-22T16:46:59.934-03:00  INFO 29892 --- [restartedMain] AGOS.AGOS.ObrasJavaApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-05-22T16:46:59.981-03:00  INFO 29892 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-22T16:46:59.981-03:00  INFO 29892 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-22T16:47:00.543-03:00  INFO 29892 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-22T16:47:00.618-03:00  INFO 29892 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 67 ms. Found 11 JPA repository interfaces.
+2024-05-22T16:47:01.219-03:00  INFO 29892 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-05-22T16:47:01.229-03:00  INFO 29892 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-22T16:47:01.231-03:00  INFO 29892 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.13]
+2024-05-22T16:47:01.286-03:00  INFO 29892 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-22T16:47:01.286-03:00  INFO 29892 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1305 ms
+2024-05-22T16:47:01.432-03:00  INFO 29892 --- [restartedMain] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 9.16.3 by Redgate
+2024-05-22T16:47:01.432-03:00  INFO 29892 --- [restartedMain] o.f.c.internal.license.VersionPrinter    : See release notes here: https://rd.gt/416ObMi
+2024-05-22T16:47:01.432-03:00  INFO 29892 --- [restartedMain] o.f.c.internal.license.VersionPrinter    : 
+2024-05-22T16:47:01.438-03:00  INFO 29892 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-05-22T16:47:01.587-03:00  INFO 29892 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7df7fb0d
+2024-05-22T16:47:01.589-03:00  INFO 29892 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-05-22T16:47:01.600-03:00  INFO 29892 --- [restartedMain] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:postgresql://localhost:5432/AGOS (PostgreSQL 15.3)
+2024-05-22T16:47:01.621-03:00  INFO 29892 --- [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 0 migrations (execution time 00:00.008s)
+2024-05-22T16:47:01.621-03:00  WARN 29892 --- [restartedMain] o.f.core.internal.command.DbValidate     : No migrations found. Are your locations set up correctly?
+2024-05-22T16:47:01.660-03:00  INFO 29892 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": << Empty Schema >>
+2024-05-22T16:47:01.661-03:00  INFO 29892 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2024-05-22T16:47:01.783-03:00  INFO 29892 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-22T16:47:01.826-03:00  INFO 29892 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.9.Final
+2024-05-22T16:47:01.828-03:00  INFO 29892 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2024-05-22T16:47:01.935-03:00  INFO 29892 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2024-05-22T16:47:02.043-03:00  INFO 29892 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-22T16:47:02.278-03:00  INFO 29892 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2024-05-22T16:47:02.880-03:00  INFO 29892 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-05-22T16:47:02.894-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:47:02.894-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_arquivo" does not exist, skipping
+2024-05-22T16:47:02.894-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:47:02.894-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_documento" does not exist, skipping
+2024-05-22T16:47:02.894-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:47:02.894-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_envio" does not exist, skipping
+2024-05-22T16:47:02.895-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:47:02.895-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_envio" does not exist, skipping
+2024-05-22T16:47:02.895-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:47:02.895-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_item" does not exist, skipping
+2024-05-22T16:47:02.896-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:47:02.896-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_obra" does not exist, skipping
+2024-05-22T16:47:02.896-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:47:02.896-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_obra" does not exist, skipping
+2024-05-22T16:47:02.896-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:47:02.896-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_obra" does not exist, skipping
+2024-05-22T16:47:02.897-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:47:02.897-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "valor" does not exist, skipping
+2024-05-22T16:47:02.897-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:47:02.897-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "valor" does not exist, skipping
+2024-05-22T16:47:02.897-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:47:02.897-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_arquivo" does not exist, skipping
+2024-05-22T16:47:02.898-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:47:02.898-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_bairro" does not exist, skipping
+2024-05-22T16:47:02.898-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:47:02.898-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_documento" does not exist, skipping
+2024-05-22T16:47:02.898-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:47:02.898-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_empresa" does not exist, skipping
+2024-05-22T16:47:02.899-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:47:02.899-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_envio" does not exist, skipping
+2024-05-22T16:47:02.899-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:47:02.899-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_item" does not exist, skipping
+2024-05-22T16:47:02.899-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:47:02.899-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_obra" does not exist, skipping
+2024-05-22T16:47:02.900-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:47:02.900-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_periodo" does not exist, skipping
+2024-05-22T16:47:02.900-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:47:02.900-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_usuario" does not exist, skipping
+2024-05-22T16:47:02.900-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:47:02.900-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "valor" does not exist, skipping
+2024-05-22T16:47:02.901-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:47:02.901-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_envio_item" does not exist, skipping
+2024-05-22T16:47:02.901-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:47:02.901-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_envio_item" does not exist, skipping
+2024-05-22T16:47:02.901-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:47:02.901-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_obra_voluntarios" does not exist, skipping
+2024-05-22T16:47:02.902-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:47:02.902-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_obra_voluntarios" does not exist, skipping
+2024-05-22T16:47:02.902-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:47:02.902-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_usuario_obra" does not exist, skipping
+2024-05-22T16:47:02.902-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:47:02.902-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_usuario_obra" does not exist, skipping
+2024-05-22T16:47:02.903-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:47:02.903-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_envio_item" does not exist, skipping
+2024-05-22T16:47:02.903-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:47:02.903-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_obra_voluntarios" does not exist, skipping
+2024-05-22T16:47:02.903-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:47:02.903-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_usuario_obra" does not exist, skipping
+2024-05-22T16:47:02.904-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:47:02.904-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : sequence "tb_arquivo_seq" does not exist, skipping
+2024-05-22T16:47:02.904-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:47:02.904-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : sequence "tb_bairro_seq" does not exist, skipping
+2024-05-22T16:47:02.904-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:47:02.904-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : sequence "tb_documento_seq" does not exist, skipping
+2024-05-22T16:47:02.905-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:47:02.905-03:00  WARN 29892 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : sequence "tb_envio_seq" does not exist, skipping
+2024-05-22T16:47:03.016-03:00  INFO 29892 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-22T16:47:03.483-03:00  WARN 29892 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-22T16:47:03.871-03:00  INFO 29892 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@591d3ee3, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@49ac8b2e, org.springframework.security.web.context.SecurityContextHolderFilter@2d28d18e, org.springframework.security.web.header.HeaderWriterFilter@75fa18fb, org.springframework.security.web.csrf.CsrfFilter@7b69b34d, org.springframework.security.web.authentication.logout.LogoutFilter@f4afb82, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@3515d9af, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2b797ee, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@638ef842, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@526feb15, org.springframework.security.web.access.ExceptionTranslationFilter@4e1fb195, org.springframework.security.web.access.intercept.AuthorizationFilter@2d692fb9]
+2024-05-22T16:47:03.915-03:00  INFO 29892 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-05-22T16:47:03.939-03:00  INFO 29892 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-05-22T16:47:03.947-03:00  INFO 29892 --- [restartedMain] AGOS.AGOS.ObrasJavaApplication           : Started ObrasJavaApplication in 4.35 seconds (process running for 4.785)
+2024-05-22T16:47:08.628-03:00  INFO 29892 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-22T16:47:08.628-03:00  INFO 29892 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-05-22T16:47:08.629-03:00  INFO 29892 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-05-22T16:49:23.548-03:00  INFO 29892 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-22T16:49:23.566-03:00  WARN 29892 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:49:23.566-03:00  WARN 29892 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : drop cascades to constraint fk8w2hti01pre3gmk15r9tp5cdm on table tb_envio_item
+2024-05-22T16:49:23.569-03:00  WARN 29892 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:49:23.569-03:00  WARN 29892 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : drop cascades to constraint fk8julfy6e7yfpj4hlc6mtcl182 on table tb_envio_item
+2024-05-22T16:49:23.573-03:00  WARN 29892 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:49:23.573-03:00  WARN 29892 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : drop cascades to 2 other objects
+2024-05-22T16:49:23.578-03:00  WARN 29892 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:49:23.578-03:00  WARN 29892 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : drop cascades to 2 other objects
+2024-05-22T16:49:23.580-03:00  WARN 29892 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:49:23.581-03:00  WARN 29892 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fk8julfy6e7yfpj4hlc6mtcl182" of relation "tb_envio_item" does not exist, skipping
+2024-05-22T16:49:23.581-03:00  WARN 29892 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:49:23.581-03:00  WARN 29892 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fk8w2hti01pre3gmk15r9tp5cdm" of relation "tb_envio_item" does not exist, skipping
+2024-05-22T16:49:23.581-03:00  WARN 29892 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:49:23.581-03:00  WARN 29892 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fklg1nkoyl1j0ymelg8orme8ybr" of relation "tb_obra_voluntarios" does not exist, skipping
+2024-05-22T16:49:23.582-03:00  WARN 29892 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:49:23.582-03:00  WARN 29892 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fkmiyvwmgmqefv5tiwfi5k9tkiv" of relation "tb_obra_voluntarios" does not exist, skipping
+2024-05-22T16:49:23.582-03:00  WARN 29892 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:49:23.582-03:00  WARN 29892 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fk7b1uu3mn5f7fbhdc6y2hs1wj6" of relation "tb_usuario_obra" does not exist, skipping
+2024-05-22T16:49:23.582-03:00  WARN 29892 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:49:23.582-03:00  WARN 29892 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fkbiji080xwsvm3p8yglp23k0ke" of relation "tb_usuario_obra" does not exist, skipping
+2024-05-22T16:49:23.589-03:00  INFO 29892 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-05-22T16:49:23.591-03:00  INFO 29892 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-05-22T16:49:26.185-03:00  INFO 28936 --- [restartedMain] AGOS.AGOS.ObrasJavaApplication           : Starting ObrasJavaApplication using Java 20.0.2 with PID 28936 (C:\Users\Admin\Documents\Desenvolvimento-Java\AGOS_Back-end-Keycloak (cópia)\AGOS_Back-end-Keycloak (cópia)\AGOS\target\classes started by Admin in C:\Users\Admin\Documents\Desenvolvimento-Java\AGOS_Back-end-Keycloak (cópia)\AGOS_Back-end-Keycloak (cópia)\AGOS)
+2024-05-22T16:49:26.186-03:00  INFO 28936 --- [restartedMain] AGOS.AGOS.ObrasJavaApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-05-22T16:49:26.227-03:00  INFO 28936 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-22T16:49:26.228-03:00  INFO 28936 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-22T16:49:26.761-03:00  INFO 28936 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-22T16:49:26.833-03:00  INFO 28936 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 62 ms. Found 11 JPA repository interfaces.
+2024-05-22T16:49:27.516-03:00  INFO 28936 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-05-22T16:49:27.526-03:00  INFO 28936 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-22T16:49:27.527-03:00  INFO 28936 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.13]
+2024-05-22T16:49:27.585-03:00  INFO 28936 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-22T16:49:27.585-03:00  INFO 28936 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1357 ms
+2024-05-22T16:49:27.721-03:00  INFO 28936 --- [restartedMain] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 9.16.3 by Redgate
+2024-05-22T16:49:27.721-03:00  INFO 28936 --- [restartedMain] o.f.c.internal.license.VersionPrinter    : See release notes here: https://rd.gt/416ObMi
+2024-05-22T16:49:27.721-03:00  INFO 28936 --- [restartedMain] o.f.c.internal.license.VersionPrinter    : 
+2024-05-22T16:49:27.727-03:00  INFO 28936 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-05-22T16:49:27.873-03:00  INFO 28936 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7df7fb0d
+2024-05-22T16:49:27.875-03:00  INFO 28936 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-05-22T16:49:27.891-03:00  INFO 28936 --- [restartedMain] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:postgresql://localhost:5432/AGOS (PostgreSQL 15.3)
+2024-05-22T16:49:27.910-03:00  INFO 28936 --- [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 0 migrations (execution time 00:00.007s)
+2024-05-22T16:49:27.910-03:00  WARN 28936 --- [restartedMain] o.f.core.internal.command.DbValidate     : No migrations found. Are your locations set up correctly?
+2024-05-22T16:49:27.947-03:00  INFO 28936 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": << Empty Schema >>
+2024-05-22T16:49:27.948-03:00  INFO 28936 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2024-05-22T16:49:28.046-03:00  INFO 28936 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-22T16:49:28.088-03:00  INFO 28936 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.9.Final
+2024-05-22T16:49:28.090-03:00  INFO 28936 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2024-05-22T16:49:28.195-03:00  INFO 28936 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2024-05-22T16:49:28.301-03:00  INFO 28936 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-22T16:49:28.527-03:00  INFO 28936 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2024-05-22T16:49:29.106-03:00  INFO 28936 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-05-22T16:49:29.119-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:49:29.119-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_arquivo" does not exist, skipping
+2024-05-22T16:49:29.120-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:49:29.120-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_documento" does not exist, skipping
+2024-05-22T16:49:29.120-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:49:29.120-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_envio" does not exist, skipping
+2024-05-22T16:49:29.120-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:49:29.120-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_envio" does not exist, skipping
+2024-05-22T16:49:29.120-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:49:29.120-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_item" does not exist, skipping
+2024-05-22T16:49:29.122-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:49:29.122-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_obra" does not exist, skipping
+2024-05-22T16:49:29.122-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:49:29.122-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_obra" does not exist, skipping
+2024-05-22T16:49:29.123-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:49:29.123-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_obra" does not exist, skipping
+2024-05-22T16:49:29.123-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:49:29.123-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "valor" does not exist, skipping
+2024-05-22T16:49:29.123-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:49:29.123-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "valor" does not exist, skipping
+2024-05-22T16:49:29.123-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:49:29.124-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_arquivo" does not exist, skipping
+2024-05-22T16:49:29.124-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:49:29.124-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_bairro" does not exist, skipping
+2024-05-22T16:49:29.124-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:49:29.124-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_documento" does not exist, skipping
+2024-05-22T16:49:29.124-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:49:29.125-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_empresa" does not exist, skipping
+2024-05-22T16:49:29.125-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:49:29.125-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_envio" does not exist, skipping
+2024-05-22T16:49:29.125-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:49:29.125-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_item" does not exist, skipping
+2024-05-22T16:49:29.125-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:49:29.125-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_obra" does not exist, skipping
+2024-05-22T16:49:29.126-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:49:29.126-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_periodo" does not exist, skipping
+2024-05-22T16:49:29.126-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:49:29.126-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_usuario" does not exist, skipping
+2024-05-22T16:49:29.127-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:49:29.127-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "valor" does not exist, skipping
+2024-05-22T16:49:29.127-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:49:29.127-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_envio_item" does not exist, skipping
+2024-05-22T16:49:29.127-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:49:29.127-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_envio_item" does not exist, skipping
+2024-05-22T16:49:29.128-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:49:29.128-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_obra_voluntarios" does not exist, skipping
+2024-05-22T16:49:29.128-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:49:29.128-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_obra_voluntarios" does not exist, skipping
+2024-05-22T16:49:29.128-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:49:29.128-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_usuario_obra" does not exist, skipping
+2024-05-22T16:49:29.128-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:49:29.129-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_usuario_obra" does not exist, skipping
+2024-05-22T16:49:29.129-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:49:29.129-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_envio_item" does not exist, skipping
+2024-05-22T16:49:29.129-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:49:29.129-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_obra_voluntarios" does not exist, skipping
+2024-05-22T16:49:29.129-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:49:29.130-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_usuario_obra" does not exist, skipping
+2024-05-22T16:49:29.130-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:49:29.130-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : sequence "tb_arquivo_seq" does not exist, skipping
+2024-05-22T16:49:29.130-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:49:29.130-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : sequence "tb_bairro_seq" does not exist, skipping
+2024-05-22T16:49:29.131-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:49:29.131-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : sequence "tb_documento_seq" does not exist, skipping
+2024-05-22T16:49:29.131-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:49:29.131-03:00  WARN 28936 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : sequence "tb_envio_seq" does not exist, skipping
+2024-05-22T16:49:29.240-03:00  INFO 28936 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-22T16:49:29.720-03:00  WARN 28936 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-22T16:49:30.143-03:00  INFO 28936 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6679cb49, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4b21c953, org.springframework.security.web.context.SecurityContextHolderFilter@54c9c7dc, org.springframework.security.web.header.HeaderWriterFilter@8b03910, org.springframework.security.web.csrf.CsrfFilter@49b1c11c, org.springframework.security.web.authentication.logout.LogoutFilter@114111c0, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@526feb15, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@638ef842, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@79de4ec1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@66bba461, org.springframework.security.web.access.ExceptionTranslationFilter@46bf6675, org.springframework.security.web.access.intercept.AuthorizationFilter@45cd32df]
+2024-05-22T16:49:30.202-03:00  INFO 28936 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-05-22T16:49:30.235-03:00  INFO 28936 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-05-22T16:49:30.243-03:00  INFO 28936 --- [restartedMain] AGOS.AGOS.ObrasJavaApplication           : Started ObrasJavaApplication in 4.387 seconds (process running for 4.783)
+2024-05-22T16:49:34.976-03:00  INFO 28936 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-22T16:49:34.976-03:00  INFO 28936 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-05-22T16:49:34.977-03:00  INFO 28936 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-05-22T16:57:27.319-03:00  INFO 28936 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-22T16:57:27.337-03:00  WARN 28936 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:57:27.338-03:00  WARN 28936 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : drop cascades to constraint fk8w2hti01pre3gmk15r9tp5cdm on table tb_envio_item
+2024-05-22T16:57:27.340-03:00  WARN 28936 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:57:27.341-03:00  WARN 28936 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : drop cascades to constraint fk8julfy6e7yfpj4hlc6mtcl182 on table tb_envio_item
+2024-05-22T16:57:27.344-03:00  WARN 28936 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:57:27.344-03:00  WARN 28936 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : drop cascades to 2 other objects
+2024-05-22T16:57:27.350-03:00  WARN 28936 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:57:27.351-03:00  WARN 28936 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : drop cascades to 2 other objects
+2024-05-22T16:57:27.352-03:00  WARN 28936 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:57:27.352-03:00  WARN 28936 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fk8julfy6e7yfpj4hlc6mtcl182" of relation "tb_envio_item" does not exist, skipping
+2024-05-22T16:57:27.352-03:00  WARN 28936 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:57:27.352-03:00  WARN 28936 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fk8w2hti01pre3gmk15r9tp5cdm" of relation "tb_envio_item" does not exist, skipping
+2024-05-22T16:57:27.354-03:00  WARN 28936 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:57:27.354-03:00  WARN 28936 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fklg1nkoyl1j0ymelg8orme8ybr" of relation "tb_obra_voluntarios" does not exist, skipping
+2024-05-22T16:57:27.354-03:00  WARN 28936 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:57:27.354-03:00  WARN 28936 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fkmiyvwmgmqefv5tiwfi5k9tkiv" of relation "tb_obra_voluntarios" does not exist, skipping
+2024-05-22T16:57:27.354-03:00  WARN 28936 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:57:27.354-03:00  WARN 28936 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fk7b1uu3mn5f7fbhdc6y2hs1wj6" of relation "tb_usuario_obra" does not exist, skipping
+2024-05-22T16:57:27.354-03:00  WARN 28936 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:57:27.354-03:00  WARN 28936 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fkbiji080xwsvm3p8yglp23k0ke" of relation "tb_usuario_obra" does not exist, skipping
+2024-05-22T16:57:27.362-03:00  INFO 28936 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-05-22T16:57:27.364-03:00  INFO 28936 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-05-22T16:57:29.927-03:00  INFO 5028 --- [restartedMain] AGOS.AGOS.ObrasJavaApplication           : Starting ObrasJavaApplication using Java 20.0.2 with PID 5028 (C:\Users\Admin\Documents\Desenvolvimento-Java\AGOS_Back-end-Keycloak (cópia)\AGOS_Back-end-Keycloak (cópia)\AGOS\target\classes started by Admin in C:\Users\Admin\Documents\Desenvolvimento-Java\AGOS_Back-end-Keycloak (cópia)\AGOS_Back-end-Keycloak (cópia)\AGOS)
+2024-05-22T16:57:29.929-03:00  INFO 5028 --- [restartedMain] AGOS.AGOS.ObrasJavaApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-05-22T16:57:29.969-03:00  INFO 5028 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-22T16:57:29.970-03:00  INFO 5028 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-22T16:57:30.507-03:00  INFO 5028 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-22T16:57:30.579-03:00  INFO 5028 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 65 ms. Found 11 JPA repository interfaces.
+2024-05-22T16:57:31.191-03:00  INFO 5028 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-05-22T16:57:31.200-03:00  INFO 5028 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-22T16:57:31.200-03:00  INFO 5028 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.13]
+2024-05-22T16:57:31.254-03:00  INFO 5028 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-22T16:57:31.255-03:00  INFO 5028 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1284 ms
+2024-05-22T16:57:31.415-03:00  INFO 5028 --- [restartedMain] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 9.16.3 by Redgate
+2024-05-22T16:57:31.415-03:00  INFO 5028 --- [restartedMain] o.f.c.internal.license.VersionPrinter    : See release notes here: https://rd.gt/416ObMi
+2024-05-22T16:57:31.415-03:00  INFO 5028 --- [restartedMain] o.f.c.internal.license.VersionPrinter    : 
+2024-05-22T16:57:31.423-03:00  INFO 5028 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-05-22T16:57:31.571-03:00  INFO 5028 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@786d371
+2024-05-22T16:57:31.574-03:00  INFO 5028 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-05-22T16:57:31.585-03:00  INFO 5028 --- [restartedMain] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:postgresql://localhost:5432/AGOS (PostgreSQL 15.3)
+2024-05-22T16:57:31.605-03:00  INFO 5028 --- [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 0 migrations (execution time 00:00.008s)
+2024-05-22T16:57:31.605-03:00  WARN 5028 --- [restartedMain] o.f.core.internal.command.DbValidate     : No migrations found. Are your locations set up correctly?
+2024-05-22T16:57:31.643-03:00  INFO 5028 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": << Empty Schema >>
+2024-05-22T16:57:31.644-03:00  INFO 5028 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2024-05-22T16:57:31.762-03:00  INFO 5028 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-22T16:57:31.816-03:00  INFO 5028 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.9.Final
+2024-05-22T16:57:31.818-03:00  INFO 5028 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2024-05-22T16:57:31.927-03:00  INFO 5028 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2024-05-22T16:57:32.035-03:00  INFO 5028 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-22T16:57:32.256-03:00  INFO 5028 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2024-05-22T16:57:32.803-03:00  INFO 5028 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-05-22T16:57:32.815-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:57:32.815-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_arquivo" does not exist, skipping
+2024-05-22T16:57:32.815-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:57:32.815-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_documento" does not exist, skipping
+2024-05-22T16:57:32.816-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:57:32.816-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_envio" does not exist, skipping
+2024-05-22T16:57:32.816-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:57:32.816-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_envio" does not exist, skipping
+2024-05-22T16:57:32.816-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:57:32.817-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_item" does not exist, skipping
+2024-05-22T16:57:32.817-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:57:32.817-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_obra" does not exist, skipping
+2024-05-22T16:57:32.817-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:57:32.817-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_obra" does not exist, skipping
+2024-05-22T16:57:32.817-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:57:32.817-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_obra" does not exist, skipping
+2024-05-22T16:57:32.817-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:57:32.817-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "valor" does not exist, skipping
+2024-05-22T16:57:32.819-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:57:32.819-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "valor" does not exist, skipping
+2024-05-22T16:57:32.819-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:57:32.819-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_arquivo" does not exist, skipping
+2024-05-22T16:57:32.819-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:57:32.819-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_bairro" does not exist, skipping
+2024-05-22T16:57:32.819-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:57:32.819-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_documento" does not exist, skipping
+2024-05-22T16:57:32.819-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:57:32.819-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_empresa" does not exist, skipping
+2024-05-22T16:57:32.819-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:57:32.819-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_envio" does not exist, skipping
+2024-05-22T16:57:32.819-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:57:32.820-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_item" does not exist, skipping
+2024-05-22T16:57:32.820-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:57:32.820-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_obra" does not exist, skipping
+2024-05-22T16:57:32.820-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:57:32.820-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_periodo" does not exist, skipping
+2024-05-22T16:57:32.821-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:57:32.821-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_usuario" does not exist, skipping
+2024-05-22T16:57:32.821-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:57:32.821-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "valor" does not exist, skipping
+2024-05-22T16:57:32.821-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:57:32.821-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_envio_item" does not exist, skipping
+2024-05-22T16:57:32.821-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:57:32.822-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_envio_item" does not exist, skipping
+2024-05-22T16:57:32.822-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:57:32.822-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_obra_voluntarios" does not exist, skipping
+2024-05-22T16:57:32.822-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:57:32.822-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_obra_voluntarios" does not exist, skipping
+2024-05-22T16:57:32.822-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:57:32.822-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_usuario_obra" does not exist, skipping
+2024-05-22T16:57:32.823-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:57:32.823-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_usuario_obra" does not exist, skipping
+2024-05-22T16:57:32.823-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:57:32.823-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_envio_item" does not exist, skipping
+2024-05-22T16:57:32.823-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:57:32.823-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_obra_voluntarios" does not exist, skipping
+2024-05-22T16:57:32.824-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:57:32.824-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_usuario_obra" does not exist, skipping
+2024-05-22T16:57:32.824-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:57:32.824-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : sequence "tb_arquivo_seq" does not exist, skipping
+2024-05-22T16:57:32.824-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:57:32.824-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : sequence "tb_bairro_seq" does not exist, skipping
+2024-05-22T16:57:32.825-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:57:32.825-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : sequence "tb_documento_seq" does not exist, skipping
+2024-05-22T16:57:32.825-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T16:57:32.825-03:00  WARN 5028 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : sequence "tb_envio_seq" does not exist, skipping
+2024-05-22T16:57:32.943-03:00  INFO 5028 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-22T16:57:33.427-03:00  WARN 5028 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-22T16:57:33.564-03:00  INFO 5028 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5f965fc2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4b2716fc, org.springframework.security.web.context.SecurityContextHolderFilter@60e4a1a0, org.springframework.security.web.header.HeaderWriterFilter@76ddf8a4, org.springframework.security.web.csrf.CsrfFilter@7ba5096d, org.springframework.security.web.authentication.logout.LogoutFilter@27a317cc, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@368f4ad3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@53131ee1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1dd42f83, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7b20499, org.springframework.security.web.access.ExceptionTranslationFilter@2f528d38, org.springframework.security.web.access.intercept.AuthorizationFilter@11340303]
+2024-05-22T16:57:33.960-03:00  INFO 5028 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-05-22T16:57:33.987-03:00  INFO 5028 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-05-22T16:57:33.997-03:00  INFO 5028 --- [restartedMain] AGOS.AGOS.ObrasJavaApplication           : Started ObrasJavaApplication in 4.415 seconds (process running for 4.797)
+2024-05-22T16:57:41.944-03:00  INFO 5028 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-22T16:57:41.944-03:00  INFO 5028 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-05-22T16:57:41.946-03:00  INFO 5028 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-05-22T17:00:16.303-03:00  INFO 5028 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-22T17:00:16.325-03:00  WARN 5028 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T17:00:16.325-03:00  WARN 5028 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : drop cascades to constraint fk8w2hti01pre3gmk15r9tp5cdm on table tb_envio_item
+2024-05-22T17:00:16.328-03:00  WARN 5028 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T17:00:16.328-03:00  WARN 5028 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : drop cascades to constraint fk8julfy6e7yfpj4hlc6mtcl182 on table tb_envio_item
+2024-05-22T17:00:16.333-03:00  WARN 5028 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T17:00:16.333-03:00  WARN 5028 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : drop cascades to 2 other objects
+2024-05-22T17:00:16.339-03:00  WARN 5028 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T17:00:16.340-03:00  WARN 5028 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : drop cascades to 2 other objects
+2024-05-22T17:00:16.342-03:00  WARN 5028 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T17:00:16.343-03:00  WARN 5028 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fk8julfy6e7yfpj4hlc6mtcl182" of relation "tb_envio_item" does not exist, skipping
+2024-05-22T17:00:16.343-03:00  WARN 5028 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T17:00:16.343-03:00  WARN 5028 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fk8w2hti01pre3gmk15r9tp5cdm" of relation "tb_envio_item" does not exist, skipping
+2024-05-22T17:00:16.343-03:00  WARN 5028 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T17:00:16.344-03:00  WARN 5028 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fklg1nkoyl1j0ymelg8orme8ybr" of relation "tb_obra_voluntarios" does not exist, skipping
+2024-05-22T17:00:16.344-03:00  WARN 5028 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T17:00:16.344-03:00  WARN 5028 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fkmiyvwmgmqefv5tiwfi5k9tkiv" of relation "tb_obra_voluntarios" does not exist, skipping
+2024-05-22T17:00:16.344-03:00  WARN 5028 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T17:00:16.344-03:00  WARN 5028 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fk7b1uu3mn5f7fbhdc6y2hs1wj6" of relation "tb_usuario_obra" does not exist, skipping
+2024-05-22T17:00:16.345-03:00  WARN 5028 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T17:00:16.345-03:00  WARN 5028 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fkbiji080xwsvm3p8yglp23k0ke" of relation "tb_usuario_obra" does not exist, skipping
+2024-05-22T17:00:16.353-03:00  INFO 5028 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-05-22T17:00:16.356-03:00  INFO 5028 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-05-22T17:00:18.980-03:00  INFO 31448 --- [restartedMain] AGOS.AGOS.ObrasJavaApplication           : Starting ObrasJavaApplication using Java 20.0.2 with PID 31448 (C:\Users\Admin\Documents\Desenvolvimento-Java\AGOS_Back-end-Keycloak (cópia)\AGOS_Back-end-Keycloak (cópia)\AGOS\target\classes started by Admin in C:\Users\Admin\Documents\Desenvolvimento-Java\AGOS_Back-end-Keycloak (cópia)\AGOS_Back-end-Keycloak (cópia)\AGOS)
+2024-05-22T17:00:18.981-03:00  INFO 31448 --- [restartedMain] AGOS.AGOS.ObrasJavaApplication           : No active profile set, falling back to 1 default profile: "default"
+2024-05-22T17:00:19.024-03:00  INFO 31448 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-05-22T17:00:19.024-03:00  INFO 31448 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-05-22T17:00:19.609-03:00  INFO 31448 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-22T17:00:19.674-03:00  INFO 31448 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 56 ms. Found 11 JPA repository interfaces.
+2024-05-22T17:00:20.308-03:00  INFO 31448 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2024-05-22T17:00:20.318-03:00  INFO 31448 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-22T17:00:20.318-03:00  INFO 31448 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.13]
+2024-05-22T17:00:20.381-03:00  INFO 31448 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-22T17:00:20.381-03:00  INFO 31448 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1356 ms
+2024-05-22T17:00:20.548-03:00  INFO 31448 --- [restartedMain] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 9.16.3 by Redgate
+2024-05-22T17:00:20.549-03:00  INFO 31448 --- [restartedMain] o.f.c.internal.license.VersionPrinter    : See release notes here: https://rd.gt/416ObMi
+2024-05-22T17:00:20.549-03:00  INFO 31448 --- [restartedMain] o.f.c.internal.license.VersionPrinter    : 
+2024-05-22T17:00:20.557-03:00  INFO 31448 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-05-22T17:00:20.716-03:00  INFO 31448 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6aaffaaf
+2024-05-22T17:00:20.720-03:00  INFO 31448 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-05-22T17:00:20.732-03:00  INFO 31448 --- [restartedMain] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:postgresql://localhost:5432/AGOS (PostgreSQL 15.3)
+2024-05-22T17:00:20.755-03:00  INFO 31448 --- [restartedMain] o.f.core.internal.command.DbValidate     : Successfully validated 0 migrations (execution time 00:00.010s)
+2024-05-22T17:00:20.755-03:00  WARN 31448 --- [restartedMain] o.f.core.internal.command.DbValidate     : No migrations found. Are your locations set up correctly?
+2024-05-22T17:00:20.797-03:00  INFO 31448 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Current version of schema "public": << Empty Schema >>
+2024-05-22T17:00:20.799-03:00  INFO 31448 --- [restartedMain] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2024-05-22T17:00:20.905-03:00  INFO 31448 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-22T17:00:20.962-03:00  INFO 31448 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.9.Final
+2024-05-22T17:00:20.965-03:00  INFO 31448 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2024-05-22T17:00:21.087-03:00  INFO 31448 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2024-05-22T17:00:21.180-03:00  INFO 31448 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-22T17:00:21.409-03:00  INFO 31448 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2024-05-22T17:00:21.967-03:00  INFO 31448 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-05-22T17:00:21.979-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T17:00:21.979-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_arquivo" does not exist, skipping
+2024-05-22T17:00:21.980-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T17:00:21.980-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_documento" does not exist, skipping
+2024-05-22T17:00:21.980-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T17:00:21.980-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_envio" does not exist, skipping
+2024-05-22T17:00:21.981-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T17:00:21.981-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_envio" does not exist, skipping
+2024-05-22T17:00:21.981-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T17:00:21.981-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_item" does not exist, skipping
+2024-05-22T17:00:21.981-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T17:00:21.981-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_obra" does not exist, skipping
+2024-05-22T17:00:21.982-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T17:00:21.982-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_obra" does not exist, skipping
+2024-05-22T17:00:21.982-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T17:00:21.982-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_obra" does not exist, skipping
+2024-05-22T17:00:21.982-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T17:00:21.982-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "valor" does not exist, skipping
+2024-05-22T17:00:21.983-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T17:00:21.983-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "valor" does not exist, skipping
+2024-05-22T17:00:21.983-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T17:00:21.983-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_arquivo" does not exist, skipping
+2024-05-22T17:00:21.983-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T17:00:21.983-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_bairro" does not exist, skipping
+2024-05-22T17:00:21.984-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T17:00:21.984-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_documento" does not exist, skipping
+2024-05-22T17:00:21.984-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T17:00:21.984-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_empresa" does not exist, skipping
+2024-05-22T17:00:21.984-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T17:00:21.984-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_envio" does not exist, skipping
+2024-05-22T17:00:21.985-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T17:00:21.985-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_item" does not exist, skipping
+2024-05-22T17:00:21.985-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T17:00:21.985-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_obra" does not exist, skipping
+2024-05-22T17:00:21.985-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T17:00:21.985-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_periodo" does not exist, skipping
+2024-05-22T17:00:21.985-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T17:00:21.985-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_usuario" does not exist, skipping
+2024-05-22T17:00:21.985-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T17:00:21.985-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "valor" does not exist, skipping
+2024-05-22T17:00:21.986-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T17:00:21.986-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_envio_item" does not exist, skipping
+2024-05-22T17:00:21.986-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T17:00:21.986-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_envio_item" does not exist, skipping
+2024-05-22T17:00:21.986-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T17:00:21.986-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_obra_voluntarios" does not exist, skipping
+2024-05-22T17:00:21.987-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T17:00:21.987-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_obra_voluntarios" does not exist, skipping
+2024-05-22T17:00:21.987-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T17:00:21.987-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_usuario_obra" does not exist, skipping
+2024-05-22T17:00:21.987-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T17:00:21.987-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : relation "tb_usuario_obra" does not exist, skipping
+2024-05-22T17:00:21.987-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T17:00:21.988-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_envio_item" does not exist, skipping
+2024-05-22T17:00:21.988-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T17:00:21.988-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_obra_voluntarios" does not exist, skipping
+2024-05-22T17:00:21.988-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T17:00:21.988-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : table "tb_usuario_obra" does not exist, skipping
+2024-05-22T17:00:21.988-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T17:00:21.988-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : sequence "tb_arquivo_seq" does not exist, skipping
+2024-05-22T17:00:21.989-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T17:00:21.989-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : sequence "tb_bairro_seq" does not exist, skipping
+2024-05-22T17:00:21.989-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T17:00:21.989-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : sequence "tb_documento_seq" does not exist, skipping
+2024-05-22T17:00:21.989-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T17:00:21.989-03:00  WARN 31448 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : sequence "tb_envio_seq" does not exist, skipping
+2024-05-22T17:00:22.102-03:00  INFO 31448 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-22T17:00:22.587-03:00  WARN 31448 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-22T17:00:22.727-03:00  INFO 31448 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@321f4c95, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3dd023ba, org.springframework.security.web.context.SecurityContextHolderFilter@6a446e3, org.springframework.security.web.header.HeaderWriterFilter@1798b9a8, org.springframework.security.web.csrf.CsrfFilter@f4225db, org.springframework.security.web.authentication.logout.LogoutFilter@55c1203b, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@16df223c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5b615021, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@25632657, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@52f138fe, org.springframework.security.web.access.ExceptionTranslationFilter@3bc802a9, org.springframework.security.web.access.intercept.AuthorizationFilter@617fc441]
+2024-05-22T17:00:23.079-03:00  INFO 31448 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-05-22T17:00:23.108-03:00  INFO 31448 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2024-05-22T17:00:23.118-03:00  INFO 31448 --- [restartedMain] AGOS.AGOS.ObrasJavaApplication           : Started ObrasJavaApplication in 4.464 seconds (process running for 4.875)
+2024-05-22T17:00:24.252-03:00  INFO 31448 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-22T17:00:24.252-03:00  INFO 31448 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-05-22T17:00:24.253-03:00  INFO 31448 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-05-22T18:41:12.033-03:00  INFO 31448 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-05-22T18:41:12.049-03:00  WARN 31448 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T18:41:12.049-03:00  WARN 31448 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : drop cascades to constraint fk8w2hti01pre3gmk15r9tp5cdm on table tb_envio_item
+2024-05-22T18:41:12.051-03:00  WARN 31448 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T18:41:12.051-03:00  WARN 31448 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : drop cascades to constraint fk8julfy6e7yfpj4hlc6mtcl182 on table tb_envio_item
+2024-05-22T18:41:12.055-03:00  WARN 31448 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T18:41:12.055-03:00  WARN 31448 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : drop cascades to 2 other objects
+2024-05-22T18:41:12.060-03:00  WARN 31448 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T18:41:12.060-03:00  WARN 31448 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : drop cascades to 2 other objects
+2024-05-22T18:41:12.062-03:00  WARN 31448 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T18:41:12.062-03:00  WARN 31448 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fk8julfy6e7yfpj4hlc6mtcl182" of relation "tb_envio_item" does not exist, skipping
+2024-05-22T18:41:12.062-03:00  WARN 31448 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T18:41:12.062-03:00  WARN 31448 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fk8w2hti01pre3gmk15r9tp5cdm" of relation "tb_envio_item" does not exist, skipping
+2024-05-22T18:41:12.063-03:00  WARN 31448 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T18:41:12.063-03:00  WARN 31448 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fklg1nkoyl1j0ymelg8orme8ybr" of relation "tb_obra_voluntarios" does not exist, skipping
+2024-05-22T18:41:12.063-03:00  WARN 31448 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T18:41:12.063-03:00  WARN 31448 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fkmiyvwmgmqefv5tiwfi5k9tkiv" of relation "tb_obra_voluntarios" does not exist, skipping
+2024-05-22T18:41:12.063-03:00  WARN 31448 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T18:41:12.063-03:00  WARN 31448 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fk7b1uu3mn5f7fbhdc6y2hs1wj6" of relation "tb_usuario_obra" does not exist, skipping
+2024-05-22T18:41:12.064-03:00  WARN 31448 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2024-05-22T18:41:12.064-03:00  WARN 31448 --- [SpringApplicationShutdownHook] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "fkbiji080xwsvm3p8yglp23k0ke" of relation "tb_usuario_obra" does not exist, skipping
+2024-05-22T18:41:12.071-03:00  INFO 31448 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-05-22T18:41:12.073-03:00  INFO 31448 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

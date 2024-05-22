@@ -3,7 +3,9 @@ package AGOS.AGOS.controller;
 import AGOS.AGOS.DTO.ObraDTO;
 import AGOS.AGOS.services.ObraService;
 
+import jakarta.annotation.security.RolesAllowed;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Role;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -37,6 +39,7 @@ public class ObraController {
         }
     }
 
+    @RolesAllowed("Admin")
     @PostMapping
     public ResponseEntity<String> create(@RequestBody final ObraDTO obraDTO) {
         try {

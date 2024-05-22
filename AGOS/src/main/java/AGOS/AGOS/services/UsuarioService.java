@@ -18,21 +18,21 @@ public class UsuarioService {
     private UsuarioRepository usuarioRepository;
     @Autowired
     private ModelMapper modelMapper;
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+   /* @Autowired
+    private PasswordEncoder passwordEncoder;*/
     @Transactional(rollbackFor = Exception.class)
-    public UsuarioDTO findById(final String  id){
+    public UsuarioDTO findById(final Long id){
         final Usuario usuario = this.usuarioRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado!"));
-        return toUsuarioDTO(usuario);
+        return convertToDTO(usuario);
     }
 
     @Transactional(rollbackFor = Exception.class)
     public List<UsuarioDTO> findAll(){
         final List<Usuario> usuarios = this.usuarioRepository.findAll();
 
-        return usuarios.stream().map(this::toUsuarioDTO).collect(Collectors.toList());
+        return usuarios.stream().map(this::convertToDTO).collect(Collectors.toList());
     }
-
+/*
     @Transactional(rollbackFor = Exception.class)
     public UsuarioDTO create(final UsuarioDTO usuarioDTO){
         Usuario usuarioDatabase;
@@ -56,14 +56,15 @@ public class UsuarioService {
 
         validateUsuario(usuarioDTO);
 
+        usuarioDTO.setRole("VOLUNTARIO");
         usuarioDTO.setSenha(passwordEncoder.encode(usuarioDTO.getSenha()));
 
-        return toUsuarioDTO(this.usuarioRepository.save(toUsuarioEntity(usuarioDTO)));
+        return convertToDTO(this.usuarioRepository.save(convertToEntity(usuarioDTO)));
 
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public UsuarioDTO update(final String  id, final UsuarioDTO usuarioDTO){
+    public UsuarioDTO update(final Long id, final UsuarioDTO usuarioDTO){
         Usuario usuarioDatabase;
 
         usuarioDatabase = this.usuarioRepository.findById(id).orElse(null);
@@ -93,23 +94,24 @@ public class UsuarioService {
 
         validateUsuario(usuarioDTO);
 
+        usuarioDTO.setRole("VOLUNTARIO");
         usuarioDTO.setSenha(passwordEncoder.encode(usuarioDTO.getSenha()));
 
-        return toUsuarioDTO(this.usuarioRepository.save(toUsuarioEntity(usuarioDTO)));
+        return convertToDTO(this.usuarioRepository.save(convertToEntity(usuarioDTO)));
     }
-
+*/
     @Transactional(rollbackFor = Exception.class)
-    public void delete(final String  id){
+    public void delete(final Long id){
         Usuario usuario = this.usuarioRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado!"));
         this.usuarioRepository.delete(usuario);
     }
 
-    public UsuarioDTO toUsuarioDTO(Usuario usuario){
+    public UsuarioDTO convertToDTO(Usuario usuario){
         UsuarioDTO usuarioDTO = modelMapper.map(usuario, UsuarioDTO.class);
         return usuarioDTO;
     }
 
-    public Usuario toUsuarioEntity(UsuarioDTO usuarioDTO){
+    public Usuario convertToEntity(UsuarioDTO usuarioDTO){
         Usuario usuario = modelMapper.map(usuarioDTO, Usuario.class);
         return usuario;
     }
@@ -150,10 +152,10 @@ public class UsuarioService {
             throw new IllegalArgumentException("Formato do título de eleitor inválido!");
         }
 
-        if(usuarioDTO.getUsername() == null){
+        if(usuarioDTO.getNome() == null){
             throw new IllegalArgumentException("Deve conter nome!");
         }
-        if(usuarioDTO.getUsername().isBlank()){
+        if(usuarioDTO.getNome().isBlank()){
             throw new IllegalArgumentException("Nome inválido!");
         }
 
