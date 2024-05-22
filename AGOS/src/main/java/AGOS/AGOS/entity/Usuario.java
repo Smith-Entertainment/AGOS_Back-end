@@ -16,21 +16,20 @@ import java.util.List;
 @Table(name = "tb_usuario", schema = "public")
 @Getter @Setter
 @AllArgsConstructor @NoArgsConstructor
-public class Usuario implements UserDetails {
+public class Usuario  {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false, unique = true)
-    private Long id;
-    @Column(name = "nome", length = 50, nullable = false)
-    private String nome;
+    @Getter
+    @Setter
+    private String id;
+
+    @Column(name = "username", length = 50, nullable = false)
+    private String username;
     @Column(name = "cpf", length = 14, nullable = false, unique = true)
     private String cpf;
     @Column(name= "email", length = 50,nullable = false, unique = true)
     private String email;
     @Column(name= "senha", nullable = false)
     private String senha;
-    @Column(name = "role")
-    private String role;
     @Column(name = "celular", length = 20, nullable = false, unique = true)
     private String celular;
     @Column(name= "titulo_eleitor",nullable = false, unique = true)
@@ -39,6 +38,9 @@ public class Usuario implements UserDetails {
     private String nomePai;
     @Column(name = "nome_mae", length = 50, nullable = false)
     private String nomeMae;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "role", nullable = false)
+    private Role role;
     @Column(name = "data_nascimento", nullable = false)
     private LocalDate dataNascimento;
     @ManyToMany
@@ -49,45 +51,11 @@ public class Usuario implements UserDetails {
     )
     private List<Obra> obras;
 
-
-
-    // Coisas do UserDetails
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        List<GrantedAuthority> authorities = new ArrayList<>();
-        authorities.add(new SimpleGrantedAuthority(this.role));
-        return authorities;
+    public void roleStringSet(String role){
+        this.role = Role.valueOf(role);
+    }
+    public String roleStringGet() {
+        return this.role.toString();
     }
 
-    @Override
-    public String getPassword() {
-        return senha;
-    }
-
-    @Override
-    public String getUsername() {
-        return email;
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
-//    @ManyToMany(mappedBy = "usuarios")
-//    private List<Envio> envios;
 }

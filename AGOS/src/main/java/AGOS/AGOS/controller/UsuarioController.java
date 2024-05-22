@@ -17,7 +17,7 @@ public class UsuarioController {
     private UsuarioService usuarioService;
 
     @GetMapping
-    public ResponseEntity<UsuarioDTO> findById(@RequestParam("id") final Long id) {
+    public ResponseEntity<UsuarioDTO> findById(@RequestParam("id") final String  id) {
         try {
             final UsuarioDTO usuarioDTO = this.usuarioService.findById(id);
             return ResponseEntity.ok(usuarioDTO);
@@ -48,7 +48,7 @@ public class UsuarioController {
     }
 
     @PutMapping
-    public ResponseEntity<String> update(@RequestParam("id") final Long id, @RequestBody final UsuarioDTO usuarioDTO) {
+    public ResponseEntity<String> update(@RequestParam("id") final String  id, @RequestBody final UsuarioDTO usuarioDTO) {
         try{
             this.usuarioService.update(id, usuarioDTO);
             return ResponseEntity.ok("Usuário editado com sucesso!");
@@ -59,7 +59,7 @@ public class UsuarioController {
     }
 
     @DeleteMapping
-    public ResponseEntity<String> delete(@RequestParam("id") final Long id){
+    public ResponseEntity<String> delete(@RequestParam("id") final String  id){
         try{
             this.usuarioService.delete(id);
             return ResponseEntity.ok("Usuário excluido com sucesso!");
