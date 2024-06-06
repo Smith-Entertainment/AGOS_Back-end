@@ -18,7 +18,7 @@ public class LoginController {
 
 	@Autowired
 	private LoginService loginService;
-
+/*
 
 	@PostMapping
 	public ResponseEntity<UsuarioDTO> logar(@RequestBody LoginDTO loginDTO) {
@@ -40,5 +40,5 @@ public class LoginController {
 		return new ResponseEntity<>(null, HttpStatus.OK);
 
 	}
-
+*/
 }

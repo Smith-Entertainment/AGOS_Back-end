@@ -18,8 +18,8 @@ public class UsuarioService {
     private UsuarioRepository usuarioRepository;
     @Autowired
     private ModelMapper modelMapper;
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+   /* @Autowired
+    private PasswordEncoder passwordEncoder;*/
     @Transactional(rollbackFor = Exception.class)
     public UsuarioDTO findById(final Long id){
         final Usuario usuario = this.usuarioRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado!"));
@@ -32,7 +32,7 @@ public class UsuarioService {
 
         return usuarios.stream().map(this::convertToDTO).collect(Collectors.toList());
     }
-
+/*
     @Transactional(rollbackFor = Exception.class)
     public UsuarioDTO create(final UsuarioDTO usuarioDTO){
         Usuario usuarioDatabase;
@@ -99,7 +99,7 @@ public class UsuarioService {
 
         return convertToDTO(this.usuarioRepository.save(convertToEntity(usuarioDTO)));
     }
-
+*/
     @Transactional(rollbackFor = Exception.class)
     public void delete(final Long id){
         Usuario usuario = this.usuarioRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado!"));

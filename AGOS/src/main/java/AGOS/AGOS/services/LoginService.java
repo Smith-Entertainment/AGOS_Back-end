@@ -3,7 +3,7 @@ package AGOS.AGOS.services;
 
 import AGOS.AGOS.DTO.LoginDTO;
 import AGOS.AGOS.DTO.UsuarioDTO;
-import AGOS.AGOS.config.JwtServiceGenerator;
+//import AGOS.AGOS.config.JwtServiceGenerator;
 import AGOS.AGOS.entity.Usuario;
 import AGOS.AGOS.repository.LoginRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,15 +15,15 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
-public class LoginService implements UserDetailsService {
+public class LoginService /* implements UserDetailsService */{
 	
 	@Autowired
 	private LoginRepository repository;
-	@Autowired
+   /* @Autowired
 	private JwtServiceGenerator jwtService;
 	@Autowired
-	private AuthenticationManager authenticationManager;
-
+	private AuthenticationManager authenticationManager;*/
+/*
 
 	public UsuarioDTO logar(LoginDTO loginDTO) {
 		authenticationManager.authenticate(
@@ -33,11 +33,11 @@ public class LoginService implements UserDetailsService {
 						)
 				);
 		Usuario user = repository.findByEmail(loginDTO.getEmail()).orElseThrow();
-		var jwtToken = jwtService.generateToken(user);
+	var jwtToken = jwtService.generateToken(user);
 		
 		return toUserDTO(user, jwtToken);
 	}
-
+*/
 
 	private UsuarioDTO toUserDTO(Usuario user, String token) {
 		UsuarioDTO userDTO = new UsuarioDTO();
@@ -47,9 +47,9 @@ public class LoginService implements UserDetailsService {
 		userDTO.setEmail(user.getEmail());
 		return userDTO;
 	}
-
+/*
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 		return null;
-	}
+	}*/
 }

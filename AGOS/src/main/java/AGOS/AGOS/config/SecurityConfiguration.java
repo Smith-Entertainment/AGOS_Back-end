@@ -1,66 +1,76 @@
 package AGOS.AGOS.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.core.convert.converter.Converter;
+import org.springframework.security.authentication.AbstractAuthenticationToken;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
-import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.oauth2.jwt.Jwt;
+import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import org.springframework.web.filter.CorsFilter;
 
-import java.util.Arrays;
-
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfiguration  {
-
-	@Autowired
-	private JwtAuthenticationFilter jwtAuthFilter;
-
-	@Autowired
-	private AuthenticationProvider authenticationProvider;
-
-	@Bean
-	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-		http    
-		.csrf(AbstractHttpConfigurer::disable)
-		.cors(AbstractHttpConfigurer::disable)
-		.authorizeHttpRequests((requests) -> requests
-				.requestMatchers("/*").permitAll()
-				.requestMatchers("api/login").permitAll()
-				.requestMatchers("api/usuario").permitAll()
-				.anyRequest().authenticated())
-		.authenticationProvider(authenticationProvider)
-		.addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
-		.sessionManagement(customizer -> customizer.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
-
-		return http.build();
-	}
+@RequiredArgsConstructor
+public class SecurityConfiguration {
 
 
-	@Bean
-	public FilterRegistrationBean<CorsFilter> corsFilter() {
-		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-		CorsConfiguration config = new CorsConfiguration();
-		config.setAllowCredentials(true);
-		config.addAllowedOrigin("http://localhost:4200");
-		config.setAllowedHeaders(Arrays.asList(HttpHeaders.AUTHORIZATION,HttpHeaders.CONTENT_TYPE,HttpHeaders.ACCEPT));
-		config.setAllowedMethods(Arrays.asList(HttpMethod.GET.name(),HttpMethod.POST.name(),HttpMethod.PUT.name(),HttpMethod.DELETE.name()));
-		config.setMaxAge(3600L);
-		source.registerCorsConfiguration("/**", config);
-		FilterRegistrationBean<CorsFilter> bean = new FilterRegistrationBean<CorsFilter>(new CorsFilter(source));
-		bean.setOrder(-102);
-		return bean;
-	}
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
 
+        http
+                .authorizeHttpRequests(auth -> {
+
+                    auth.anyRequest().authenticated();
+
+                    }
+                )
+                .oauth2ResourceServer(configure ->
+                        configure.jwt(jwt -> jwt.jwtAuthenticationConverter(jwtAuthConverter())));
+
+        return http.build();
+
+    }
+
+    private Converter<Jwt,? extends AbstractAuthenticationToken> jwtAuthConverter() {
+
+        JwtAuthenticationConverter jwtConverter = new JwtAuthenticationConverter();
+        jwtConverter.setJwtGrantedAuthoritiesConverter(new KeycloakRealmRoleConverter());
+
+        return jwtConverter;
+    }
+
+}
+
+class KeycloakRealmRoleConverter implements Converter<Jwt, Collection<GrantedAuthority>> {
+
+    @Override
+    public Collection<GrantedAuthority> convert(Jwt jwt){
+
+        if(jwt.getClaims() == null){
+            return List.of();
+        }
+
+        final var obj = jwt.getClaims().get("realm_acess");
+        if(obj instanceof Map<?,?> realmAccess){
+            final var roles = realmAccess.get("roles");
+            if(roles instanceof List<?> list){
+                return list.stream()
+                        .map(role -> "ROLE_" + role)
+                        .map(SimpleGrantedAuthority ::new)
+                        .collect(Collectors.toList());
+            }
+        }
+
+        return List.of();
+    }
 }

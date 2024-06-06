@@ -16,7 +16,7 @@ import java.util.List;
 @Table(name = "tb_usuario", schema = "public")
 @Getter @Setter
 @AllArgsConstructor @NoArgsConstructor
-public class Usuario implements UserDetails {
+public class Usuario /*implements UserDetails */{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, unique = true)
@@ -39,8 +39,6 @@ public class Usuario implements UserDetails {
     private String nomePai;
     @Column(name = "nome_mae", length = 50, nullable = false)
     private String nomeMae;
-    @Column(name = "ativo", length = 50)
-    private Boolean ativo;
     @Column(name = "data_nascimento", nullable = false)
     private LocalDate dataNascimento;
     @ManyToMany
@@ -51,7 +49,7 @@ public class Usuario implements UserDetails {
     )
     private List<Obra> obras;
 
-
+/*
 
     // Coisas do UserDetails
     @Override
@@ -92,4 +90,6 @@ public class Usuario implements UserDetails {
     }
 //    @ManyToMany(mappedBy = "usuarios")
 //    private List<Envio> envios;
+
+ */
 }

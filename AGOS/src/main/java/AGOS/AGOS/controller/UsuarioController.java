@@ -35,7 +35,7 @@ public class UsuarioController {
             return ResponseEntity.badRequest().body(new ArrayList<>());
         }
     }
-
+/*
     @PostMapping
     public ResponseEntity<String> create(@RequestBody final UsuarioDTO usuarioDTO) {
         try{
@@ -67,5 +67,5 @@ public class UsuarioController {
         catch (IllegalArgumentException e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
-    }
+    }*/
 }
