@@ -24,8 +24,7 @@ import java.util.Arrays;
 @EnableWebSecurity
 public class SecurityConfiguration  {
 
-	@Autowired
-	private JwtAuthenticationFilter jwtAuthFilter;
+
 
 	@Autowired
 	private AuthenticationProvider authenticationProvider;
@@ -39,9 +38,8 @@ public class SecurityConfiguration  {
 				.requestMatchers("/*").permitAll()
 				.requestMatchers("api/login").permitAll()
 				.requestMatchers("api/usuario").permitAll()
-				.anyRequest().authenticated())
+				.anyRequest().permitAll())
 		.authenticationProvider(authenticationProvider)
-		.addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
 		.sessionManagement(customizer -> customizer.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 
 		return http.build();
